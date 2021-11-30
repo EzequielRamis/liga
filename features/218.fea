@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup218 {
+  lookupflag 0;
+    ignore sub \percent  \percent' \percent  ;
+    ignore sub  \percent' \percent \percent  ;
+    sub \percent.spacer  \percent'   by \percent_percent.liga;
+    sub  \percent' \percent   by \percent.spacer;
+} caltContextualAlternateslookup218;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup218;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup218;
+
+} calt;

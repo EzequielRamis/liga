@@ -1,0 +1,9 @@
+
+lookup SingleSubstitutionlookup263 {
+  lookupflag 0;
+    sub \slash by \slash.spacer ;
+    sub \bar by \bar.spacer ;
+    sub \equal by \equal_end.seq ;
+    sub \greater by \greater.spacer ;
+    sub \less by \less.spacer ;
+} SingleSubstitutionlookup263;

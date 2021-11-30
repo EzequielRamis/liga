@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup73 {
+  lookupflag 0;
+    sub \hyphen by \hyphen.spacer ;
+} SingleSubstitutionlookup73;

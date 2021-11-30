@@ -1,0 +1,61 @@
+
+lookup caltContextualAlternateslookup166 {
+  lookupflag 0;
+    @cc206_match_1 = [\colon ];
+    @cc206_back_1 = [\greater \less ];
+    @cc206_back_2 = [\question ];
+    @cc206_back_3 = [\parenleft ];
+    @cc206_back_4 = [\colon.spacer ];
+    @cc206_back_5 = [\colon ];
+    @cc206_ahead_1 = [\greater \less ];
+    @cc206_ahead_2 = [\colon ];
+    ignore sub @cc206_back_5 @cc206_match_1' @cc206_ahead_2 ;
+    ignore sub @cc206_match_1' @cc206_ahead_2 @cc206_ahead_2 ;
+    ignore sub @cc206_back_2 @cc206_back_3 @cc206_match_1' @cc206_ahead_2 ;
+    ignore sub @cc206_match_1' @cc206_ahead_2 @cc206_ahead_1 ;
+    ignore sub @cc206_back_1 @cc206_match_1' @cc206_ahead_2 ;
+    sub @cc206_back_4 @cc206_match_1'  by [\colon_colon.liga ] ;
+    sub @cc206_match_1' @cc206_ahead_2  by [\colon.spacer ] ;
+} caltContextualAlternateslookup166;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup166;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup166;
+
+} calt;

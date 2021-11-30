@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup336 {
+  lookupflag 0;
+    sub \less_less.liga by \less_less_equal_start.seq ;
+    sub \equal by \equal_end.seq ;
+} SingleSubstitutionlookup336;

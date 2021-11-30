@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup327 {
+  lookupflag 0;
+    sub \backslash by \backslash.ss06 ;
+} SingleSubstitutionlookup327;

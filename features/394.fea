@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup394 {
+  lookupflag 0;
+    sub \bracketleft by \bracketleft.spacer ;
+    sub \bracketright by \bracketleft_bracketright.cv27 ;
+} SingleSubstitutionlookup394;

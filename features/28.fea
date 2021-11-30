@@ -1,0 +1,13 @@
+
+lookup loclLocalizedFormsinLatinlookup28 {
+  lookupflag 0;
+    sub \quotesingle \n  by \napostrophe;
+    sub \quoteright \n  by \napostrophe;
+} loclLocalizedFormsinLatinlookup28;
+
+feature locl {
+  script latn;
+     language AFK  exclude_dflt;
+      lookup loclLocalizedFormsinLatinlookup28;
+
+} locl;

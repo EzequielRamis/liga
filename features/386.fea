@@ -1,0 +1,47 @@
+
+lookup cv23CharacterVariants23lookup386 {
+  lookupflag 0;
+    sub \greater_equal.liga by \greater_equal.ss02 ;
+} cv23CharacterVariants23lookup386;
+
+feature cv23 {
+  script DFLT;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+  script cyrl;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+  script grek;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language AZE  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language CAT  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language CRT  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language KAZ  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language MOL  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language PLK  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language ROM  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language TAT  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language TRK  exclude_dflt;
+      lookup cv23CharacterVariants23lookup386;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+  script zinh;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+  script zyyy;
+     language dflt ;
+      lookup cv23CharacterVariants23lookup386;
+
+} cv23;

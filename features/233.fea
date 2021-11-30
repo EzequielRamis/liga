@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup233 {
+  lookupflag 0;
+    sub \question.spacer  \period'   by \question_period.liga;
+    ignore sub \question  \question' \period  ;
+    ignore sub  \question' \period \period  ;
+    sub  \question' \period   by \question.spacer;
+} caltContextualAlternateslookup233;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup233;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup233;
+
+} calt;

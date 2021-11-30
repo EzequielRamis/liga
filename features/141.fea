@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup141 {
+  lookupflag 0;
+    sub \asciitilde by \asciitilde_asciitilde.liga ;
+} SingleSubstitutionlookup141;

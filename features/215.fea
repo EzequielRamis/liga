@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup215 {
+  lookupflag 0;
+    sub \question by \numbersign_question.liga ;
+    sub \numbersign by \numbersign.spacer ;
+} SingleSubstitutionlookup215;

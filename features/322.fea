@@ -1,0 +1,50 @@
+
+lookup ss04StyleSet4lookup322 {
+  lookupflag 0;
+    sub \dollar_greater.liga by \dollar_greater.liga.ss04 ;
+    sub \less_dollar.liga by \less_dollar.liga.ss04 ;
+    sub \less_dollar_greater.liga by \less_dollar_greater.liga.ss04 ;
+    sub \dollar by \dollar.ss04 ;
+} ss04StyleSet4lookup322;
+
+feature ss04 {
+  script DFLT;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+  script cyrl;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+  script grek;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language AZE  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language CAT  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language CRT  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language KAZ  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language MOL  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language PLK  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language ROM  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language TAT  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language TRK  exclude_dflt;
+      lookup ss04StyleSet4lookup322;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+  script zinh;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+  script zyyy;
+     language dflt ;
+      lookup ss04StyleSet4lookup322;
+
+} ss04;

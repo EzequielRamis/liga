@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup338 {
+  lookupflag 0;
+    sub \bar_bar.liga by \bar_bar_equal_start.seq ;
+    sub \equal by \equal_end.seq ;
+} SingleSubstitutionlookup338;

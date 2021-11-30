@@ -1,0 +1,56 @@
+
+lookup fracDiagonalFractionslookup7 {
+  lookupflag 0;
+    sub \zero by \zero.numr ;
+    sub \one by \one.numr ;
+    sub \two by \two.numr ;
+    sub \three by \three.numr ;
+    sub \four by \four.numr ;
+    sub \five by \five.numr ;
+    sub \six by \six.numr ;
+    sub \seven by \seven.numr ;
+    sub \eight by \eight.numr ;
+    sub \nine by \nine.numr ;
+} fracDiagonalFractionslookup7;
+
+feature frac {
+  script DFLT;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+  script cyrl;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+  script grek;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language AZE  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language CAT  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language CRT  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language KAZ  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language MOL  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language PLK  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language ROM  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language TAT  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language TRK  exclude_dflt;
+      lookup fracDiagonalFractionslookup7;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+  script zinh;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+  script zyyy;
+     language dflt ;
+      lookup fracDiagonalFractionslookup7;
+
+} frac;

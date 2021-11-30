@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup238 {
+  lookupflag 0;
+    ignore sub \semicolon  \semicolon' \semicolon  ;
+    ignore sub  \semicolon' \semicolon \semicolon  ;
+    sub \semicolon.spacer  \semicolon'   by \semicolon_semicolon.liga;
+    sub  \semicolon' \semicolon   by \semicolon.spacer;
+} caltContextualAlternateslookup238;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup238;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup238;
+
+} calt;

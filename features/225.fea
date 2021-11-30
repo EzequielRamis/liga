@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup225 {
+  lookupflag 0;
+    sub \period by \period.spacer ;
+    sub \question by \period_question.liga ;
+} SingleSubstitutionlookup225;

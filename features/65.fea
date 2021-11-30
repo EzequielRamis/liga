@@ -1,0 +1,54 @@
+
+lookup caltContextualAlternateslookup65 {
+  lookupflag 0;
+    ignore sub [\greater ] [\greater ]' [\greater ] ;
+    ignore sub [\greater ]' [\greater ] [\greater ] ;
+    ignore sub [\asterisk \dollar \plus ] [\greater ]' [\greater ] ;
+    ignore sub [\hyphen \equal ] [\greater ]' [\greater ] ;
+    ignore sub [\greater ]' [\greater ] [\hyphen ] ;
+    ignore sub [\greater ]' [\greater ] [\equal ] [\colon \exclam \slash \bar \equal \greater \less ] ;
+    sub [\greater.spacer ] [\greater ]'  by [\greater_greater.liga ];
+    sub [\greater ]' [\greater ]  by [\greater.spacer ];
+} caltContextualAlternateslookup65;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup65;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup65;
+
+} calt;

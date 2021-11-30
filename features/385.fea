@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup385 {
+  lookupflag 0;
+    sub \equal by \equal.spacer ;
+    sub \less by \less_equal.ss02 ;
+} SingleSubstitutionlookup385;

@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup177 {
+  lookupflag 0;
+    sub \exclam by \exclam.spacer ;
+    sub \equal by \exclam_equal.liga ;
+} SingleSubstitutionlookup177;

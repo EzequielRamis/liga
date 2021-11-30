@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup147 {
+  lookupflag 0;
+    sub \asciitilde.spacer  \hyphen'   by \asciitilde_hyphen.liga;
+    ignore sub \asciitilde  \asciitilde' \hyphen  ;
+    ignore sub  \asciitilde' \hyphen \hyphen  ;
+    sub  \asciitilde' \hyphen   by \asciitilde.spacer;
+} caltContextualAlternateslookup147;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup147;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup147;
+
+} calt;

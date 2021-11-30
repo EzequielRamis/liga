@@ -1,0 +1,48 @@
+
+lookup cv12CharacterVariants12lookup372 {
+  lookupflag 0;
+    sub \zero by \zero.cv12 ;
+    sub \zero.tosf by \zero.tosf.cv12 ;
+} cv12CharacterVariants12lookup372;
+
+feature cv12 {
+  script DFLT;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+  script cyrl;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+  script grek;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language AZE  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language CAT  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language CRT  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language KAZ  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language MOL  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language PLK  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language ROM  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language TAT  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language TRK  exclude_dflt;
+      lookup cv12CharacterVariants12lookup372;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+  script zinh;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+  script zyyy;
+     language dflt ;
+      lookup cv12CharacterVariants12lookup372;
+
+} cv12;

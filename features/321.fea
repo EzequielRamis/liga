@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup321 {
+  lookupflag 0;
+    sub \ampersand by \ampersand.before.ss03 ;
+    sub \ampersand.spacer by \ampersand.before.ss03 ;
+    sub \ampersand.ss03 by \ampersand.before.ss03 ;
+} SingleSubstitutionlookup321;

@@ -1,0 +1,52 @@
+
+lookup cv10CharacterVariants10lookup370 {
+  lookupflag 0;
+    sub \l by \l.cv10 ;
+    sub \lacute by \lacute.cv10 ;
+    sub \lcaron by \lcaron.cv10 ;
+    sub \uni013C by \uni013C.cv10 ;
+    sub \ldot by \ldot.cv10 ;
+    sub \lslash by \lslash.cv10 ;
+} cv10CharacterVariants10lookup370;
+
+feature cv10 {
+  script DFLT;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+  script cyrl;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+  script grek;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language AZE  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language CAT  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language CRT  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language KAZ  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language MOL  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language PLK  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language ROM  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language TAT  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language TRK  exclude_dflt;
+      lookup cv10CharacterVariants10lookup370;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+  script zinh;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+  script zyyy;
+     language dflt ;
+      lookup cv10CharacterVariants10lookup370;
+
+} cv10;

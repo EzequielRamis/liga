@@ -1,0 +1,47 @@
+
+lookup ss05StyleSet5lookup323 {
+  lookupflag 0;
+    sub \at by \at.ss05 ;
+} ss05StyleSet5lookup323;
+
+feature ss05 {
+  script DFLT;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+  script cyrl;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+  script grek;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language AZE  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language CAT  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language CRT  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language KAZ  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language MOL  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language PLK  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language ROM  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language TAT  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language TRK  exclude_dflt;
+      lookup ss05StyleSet5lookup323;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+  script zinh;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+  script zyyy;
+     language dflt ;
+      lookup ss05StyleSet5lookup323;
+
+} ss05;

@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup314 {
+  lookupflag 0;
+    sub \underscore by \underscore_start.seq ;
+} SingleSubstitutionlookup314;

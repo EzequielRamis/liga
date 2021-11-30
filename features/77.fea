@@ -1,0 +1,53 @@
+
+lookup caltContextualAlternateslookup77 {
+  lookupflag 0;
+    ignore sub \asterisk  \asterisk' \asterisk \asterisk  ;
+    ignore sub  \asterisk' \asterisk \asterisk \asterisk  ;
+    ignore sub \slash  \asterisk' \asterisk \asterisk  ;
+    ignore sub  \asterisk' \asterisk \asterisk \slash  ;
+    sub \asterisk.spacer \asterisk.spacer  \asterisk'   by \asterisk_asterisk_asterisk.liga;
+    sub \asterisk.spacer  \asterisk' \asterisk   by \asterisk.spacer;
+    sub  \asterisk' \asterisk \asterisk   by \asterisk.spacer;
+} caltContextualAlternateslookup77;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup77;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup77;
+
+} calt;

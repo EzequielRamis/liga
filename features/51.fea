@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup51 {
+  lookupflag 0;
+    sub \bar by \bar_bar_bar.liga ;
+} SingleSubstitutionlookup51;

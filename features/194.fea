@@ -1,0 +1,62 @@
+
+lookup caltContextualAlternateslookup194 {
+  lookupflag 0;
+    @cc256_match_1 = [\less ];
+    @cc256_match_2 = [\equal ];
+    @cc256_back_1 = [\question ];
+    @cc256_back_2 = [\parenleft ];
+    @cc256_back_3 = [\less.spacer ];
+    @cc256_back_4 = [\less ];
+    @cc256_back_5 = [\equal ];
+    @cc256_ahead_1 = [\colon \exclam \slash \bar \greater \less ];
+    @cc256_ahead_2 = [\equal ];
+    ignore sub @cc256_back_4 @cc256_match_1' @cc256_ahead_2 ;
+    ignore sub @cc256_match_1' @cc256_ahead_2 @cc256_ahead_2 ;
+    ignore sub @cc256_back_1 @cc256_back_2 @cc256_match_1' @cc256_ahead_2 ;
+    ignore sub @cc256_back_5 @cc256_match_1' @cc256_ahead_2 ;
+    ignore sub @cc256_match_1' @cc256_ahead_2 @cc256_ahead_1 ;
+    sub @cc256_match_1' @cc256_ahead_2  by [\less.spacer ] ;
+    sub @cc256_back_3 @cc256_match_2'  by [\less_equal.liga ] ;
+} caltContextualAlternateslookup194;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup194;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup194;
+
+} calt;

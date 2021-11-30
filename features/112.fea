@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup112 {
+  lookupflag 0;
+    sub \numbersign by \numbersign.spacer ;
+    sub \underscore by \underscore.spacer ;
+    sub \parenleft by \numbersign_underscore_parenleft.liga ;
+} SingleSubstitutionlookup112;

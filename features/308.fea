@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup308 {
+  lookupflag 0;
+    sub \numbersign by \numbersign_end.seq ;
+} SingleSubstitutionlookup308;

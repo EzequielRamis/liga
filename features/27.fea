@@ -1,0 +1,12 @@
+
+lookup loclLocalizedFormsinLatinlookup27 {
+  lookupflag 0;
+    sub \i by \i.loclTRK ;
+} loclLocalizedFormsinLatinlookup27;
+
+feature locl {
+  script latn;
+     language CRT  exclude_dflt;
+      lookup loclLocalizedFormsinLatinlookup27;
+
+} locl;

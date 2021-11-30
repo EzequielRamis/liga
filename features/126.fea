@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup126 {
+  lookupflag 0;
+    sub \plus by \plus.spacer ;
+} SingleSubstitutionlookup126;

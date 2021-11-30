@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup301 {
+  lookupflag 0;
+    sub \asteriskmath by \asteriskmath.lc ;
+} SingleSubstitutionlookup301;

@@ -1,0 +1,56 @@
+
+lookup cv01CharacterVariants01lookup361 {
+  lookupflag 0;
+    sub \a by \a.cv01 ;
+    sub \aacute by \aacute.cv01 ;
+    sub \abreve by \abreve.cv01 ;
+    sub \acircumflex by \acircumflex.cv01 ;
+    sub \adieresis by \adieresis.cv01 ;
+    sub \agrave by \agrave.cv01 ;
+    sub \amacron by \amacron.cv01 ;
+    sub \aogonek by \aogonek.cv01 ;
+    sub \aring by \aring.cv01 ;
+    sub \atilde by \atilde.cv01 ;
+} cv01CharacterVariants01lookup361;
+
+feature cv01 {
+  script DFLT;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+  script cyrl;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+  script grek;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language AZE  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language CAT  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language CRT  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language KAZ  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language MOL  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language PLK  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language ROM  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language TAT  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language TRK  exclude_dflt;
+      lookup cv01CharacterVariants01lookup361;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+  script zinh;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+  script zyyy;
+     language dflt ;
+      lookup cv01CharacterVariants01lookup361;
+
+} cv01;

@@ -1,0 +1,52 @@
+
+lookup caltContextualAlternateslookup241 {
+  lookupflag 0;
+    sub \slash.spacer  \asterisk'   by \slash_asterisk.liga;
+    ignore sub \slash  \slash' \asterisk  ;
+    ignore sub  \slash' \asterisk \asterisk  ;
+    ignore sub  \slash' \asterisk \slash  ;
+    ignore sub \asterisk  \slash' \asterisk  ;
+    sub  \slash' \asterisk   by \slash.spacer;
+} caltContextualAlternateslookup241;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup241;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup241;
+
+} calt;

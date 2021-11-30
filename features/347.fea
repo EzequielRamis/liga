@@ -1,0 +1,48 @@
+
+lookup ss10StyleSet10lookup347 {
+  lookupflag 0;
+    sub [\f.spacer ] [\j \j.salt_low ]'  by [\f_j.liga.ss10 \f_j.liga.ss10 ];
+    sub [\f ]' [\j \j.salt_low ]  by [\f.spacer ];
+} ss10StyleSet10lookup347;
+
+feature ss10 {
+  script DFLT;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+  script cyrl;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+  script grek;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language AZE  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language CAT  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language CRT  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language KAZ  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language MOL  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language PLK  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language ROM  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language TAT  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language TRK  exclude_dflt;
+      lookup ss10StyleSet10lookup347;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+  script zinh;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+  script zyyy;
+     language dflt ;
+      lookup ss10StyleSet10lookup347;
+
+} ss10;

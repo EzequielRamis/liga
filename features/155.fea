@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup155 {
+  lookupflag 0;
+    sub \asterisk by \asterisk.spacer ;
+    sub \slash by \asterisk_slash.liga ;
+} SingleSubstitutionlookup155;

@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup208 {
+  lookupflag 0;
+    ignore sub \numbersign  \numbersign' \equal  ;
+    ignore sub  \numbersign' \equal \equal  ;
+    sub  \numbersign' \equal   by \numbersign.spacer;
+    sub \numbersign.spacer  \equal'   by \numbersign_equal.liga;
+} caltContextualAlternateslookup208;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup208;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup208;
+
+} calt;

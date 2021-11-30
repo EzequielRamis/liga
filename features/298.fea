@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup298 {
+  lookupflag 0;
+    sub \asterisk by \asterisk.lc ;
+} SingleSubstitutionlookup298;

@@ -1,0 +1,52 @@
+
+lookup caltContextualAlternateslookup85 {
+  lookupflag 0;
+    ignore sub \colon  \colon' \colon \equal  ;
+    ignore sub  \colon' \colon \equal \equal  ;
+    ignore sub \parenleft \question  \colon' \colon \equal  ;
+    sub \colon.spacer  \colon' \equal   by \colon.spacer;
+    sub  \colon' \colon \equal   by \colon.spacer;
+    sub \colon.spacer \colon.spacer  \equal'   by \colon_colon_equal.liga;
+} caltContextualAlternateslookup85;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup85;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup85;
+
+} calt;

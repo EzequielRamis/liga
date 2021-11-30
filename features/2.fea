@@ -1,0 +1,60 @@
+
+lookup subsSubscriptlookup2 {
+  lookupflag 0;
+    sub \zero by \uni2080 ;
+    sub \one by \uni2081 ;
+    sub \two by \uni2082 ;
+    sub \three by \uni2083 ;
+    sub \four by \uni2084 ;
+    sub \five by \uni2085 ;
+    sub \six by \uni2086 ;
+    sub \seven by \uni2087 ;
+    sub \eight by \uni2088 ;
+    sub \nine by \uni2089 ;
+    sub \parenleft by \uni208D ;
+    sub \parenright by \uni208E ;
+    sub \plus by \uni208A ;
+    sub \minus by \uni208B ;
+} subsSubscriptlookup2;
+
+feature subs {
+  script DFLT;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+  script cyrl;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+  script grek;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language AZE  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language CAT  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language CRT  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language KAZ  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language MOL  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language PLK  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language ROM  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language TAT  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language TRK  exclude_dflt;
+      lookup subsSubscriptlookup2;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+  script zinh;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+  script zyyy;
+     language dflt ;
+      lookup subsSubscriptlookup2;
+
+} subs;

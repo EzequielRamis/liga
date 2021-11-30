@@ -1,0 +1,60 @@
+
+lookup sinfScientificInferiorslookup359 {
+  lookupflag 0;
+    sub \zero by \uni2080 ;
+    sub \one by \uni2081 ;
+    sub \two by \uni2082 ;
+    sub \three by \uni2083 ;
+    sub \four by \uni2084 ;
+    sub \five by \uni2085 ;
+    sub \six by \uni2086 ;
+    sub \seven by \uni2087 ;
+    sub \eight by \uni2088 ;
+    sub \nine by \uni2089 ;
+    sub \parenleft by \uni208D ;
+    sub \parenright by \uni208E ;
+    sub \plus by \uni208A ;
+    sub \minus by \uni208B ;
+} sinfScientificInferiorslookup359;
+
+feature sinf {
+  script DFLT;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+  script cyrl;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+  script grek;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language AZE  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language CAT  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language CRT  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language KAZ  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language MOL  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language PLK  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language ROM  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language TAT  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language TRK  exclude_dflt;
+      lookup sinfScientificInferiorslookup359;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+  script zinh;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+  script zyyy;
+     language dflt ;
+      lookup sinfScientificInferiorslookup359;
+
+} sinf;

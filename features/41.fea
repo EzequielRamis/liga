@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup41 {
+  lookupflag 0;
+    sub \bar by \bar.spacer ;
+    sub \greater by \bar_bar_greater.liga ;
+} SingleSubstitutionlookup41;

@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup79 {
+  lookupflag 0;
+    sub \asterisk by \asterisk.spacer ;
+} SingleSubstitutionlookup79;

@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup256 {
+  lookupflag 0;
+    sub \x by \x.multiply ;
+} SingleSubstitutionlookup256;

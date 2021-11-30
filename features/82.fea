@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup82 {
+  lookupflag 0;
+    sub \colon by \colon_colon_colon.liga ;
+} SingleSubstitutionlookup82;

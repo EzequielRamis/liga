@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup252 {
+  lookupflag 0;
+    sub \slash by \slash.spacer ;
+    sub \backslash by \slash_backslash.liga ;
+} SingleSubstitutionlookup252;

@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup117 {
+  lookupflag 0;
+    sub \period by \period.spacer ;
+    sub \less by \period_period_less.liga ;
+} SingleSubstitutionlookup117;

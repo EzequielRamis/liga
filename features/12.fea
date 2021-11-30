@@ -1,0 +1,8 @@
+
+lookup SingleSubstitutionlookup12 {
+  lookupflag 0;
+    sub \A by \ordfeminine ;
+    sub \O by \ordmasculine ;
+    sub \a by \ordfeminine ;
+    sub \o by \ordmasculine ;
+} SingleSubstitutionlookup12;

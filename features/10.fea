@@ -1,0 +1,14 @@
+
+lookup SingleSubstitutionlookup10 {
+  lookupflag 0;
+    sub \zero.numr by \zero.dnom ;
+    sub \one.numr by \one.dnom ;
+    sub \two.numr by \two.dnom ;
+    sub \three.numr by \three.dnom ;
+    sub \four.numr by \four.dnom ;
+    sub \five.numr by \five.dnom ;
+    sub \six.numr by \six.dnom ;
+    sub \seven.numr by \seven.dnom ;
+    sub \eight.numr by \eight.dnom ;
+    sub \nine.numr by \nine.dnom ;
+} SingleSubstitutionlookup10;

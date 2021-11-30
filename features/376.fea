@@ -1,0 +1,59 @@
+
+lookup cv16CharacterVariants16lookup376 {
+  lookupflag 0;
+    sub \asterisk by \asteriskmath ;
+    sub \asterisk_asterisk.liga by \asterisk_asterisk.liga.cv16 ;
+    sub \asterisk_asterisk_asterisk.liga by \asterisk_asterisk_asterisk.liga.cv16 ;
+    sub \asterisk_greater.liga by \asterisk_greater.liga.cv16 ;
+    sub \asterisk_slash.liga by \asterisk_slash.liga.cv16 ;
+    sub \slash_asterisk.liga by \slash_asterisk.liga.cv16 ;
+    sub \asterisk.cv15 by \asteriskmath.cv15 ;
+    sub \asterisk.lc by \asteriskmath.lc ;
+    sub \less_asterisk.liga by \less_asterisk.liga.cv16 ;
+    sub \less_asterisk_greater.liga by \less_asterisk_greater.liga.cv16 ;
+    sub \asteriskmath by \asterisk ;
+    sub \asteriskmath.cv15 by \asterisk.cv15 ;
+    sub \asteriskmath.lc by \asterisk.lc ;
+} cv16CharacterVariants16lookup376;
+
+feature cv16 {
+  script DFLT;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+  script cyrl;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+  script grek;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language AZE  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language CAT  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language CRT  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language KAZ  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language MOL  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language PLK  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language ROM  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language TAT  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language TRK  exclude_dflt;
+      lookup cv16CharacterVariants16lookup376;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+  script zinh;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+  script zyyy;
+     language dflt ;
+      lookup cv16CharacterVariants16lookup376;
+
+} cv16;

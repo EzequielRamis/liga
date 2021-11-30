@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup220 {
+  lookupflag 0;
+    sub \percent by \percent.spacer ;
+} SingleSubstitutionlookup220;

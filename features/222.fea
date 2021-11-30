@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup222 {
+  lookupflag 0;
+    sub \period by \period_period.liga ;
+} SingleSubstitutionlookup222;

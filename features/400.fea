@@ -1,0 +1,48 @@
+
+lookup cv31CharacterVariants31lookup400 {
+  lookupflag 0;
+    sub \parenleft by \parenleft.cv31 ;
+    sub \parenright by \parenright.cv31 ;
+} cv31CharacterVariants31lookup400;
+
+feature cv31 {
+  script DFLT;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+  script cyrl;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+  script grek;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language AZE  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language CAT  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language CRT  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language KAZ  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language MOL  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language PLK  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language ROM  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language TAT  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language TRK  exclude_dflt;
+      lookup cv31CharacterVariants31lookup400;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+  script zinh;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+  script zyyy;
+     language dflt ;
+      lookup cv31CharacterVariants31lookup400;
+
+} cv31;

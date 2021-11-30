@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup329 {
+  lookupflag 0;
+    sub \equal by \equal.spacer ;
+    sub \asciitilde by \equal_asciitilde.ss07 ;
+} SingleSubstitutionlookup329;

@@ -1,0 +1,51 @@
+
+lookup caltContextualAlternateslookup111 {
+  lookupflag 0;
+    ignore sub \numbersign  \numbersign' \underscore \parenleft  ;
+    ignore sub  \numbersign' \underscore \parenleft \parenleft  ;
+    sub  \numbersign' \underscore \parenleft   by \numbersign.spacer;
+    sub \numbersign.spacer  \underscore' \parenleft   by \underscore.spacer;
+    sub \numbersign.spacer \underscore.spacer  \parenleft'   by \numbersign_underscore_parenleft.liga;
+} caltContextualAlternateslookup111;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup111;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup111;
+
+} calt;

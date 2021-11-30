@@ -1,0 +1,48 @@
+
+lookup hwidHalfWidthslookup360 {
+  lookupflag 0;
+    sub \uni300C by \uniFF62 ;
+    sub \uni300D by \uniFF63 ;
+} hwidHalfWidthslookup360;
+
+feature hwid {
+  script DFLT;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+  script cyrl;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+  script grek;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language AZE  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language CAT  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language CRT  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language KAZ  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language MOL  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language PLK  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language ROM  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language TAT  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language TRK  exclude_dflt;
+      lookup hwidHalfWidthslookup360;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+  script zinh;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+  script zyyy;
+     language dflt ;
+      lookup hwidHalfWidthslookup360;
+
+} hwid;

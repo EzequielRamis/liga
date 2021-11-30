@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup239 {
+  lookupflag 0;
+    sub \semicolon by \semicolon_semicolon.liga ;
+} SingleSubstitutionlookup239;

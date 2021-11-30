@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup124 {
+  lookupflag 0;
+    sub \plus by \plus_plus_plus.liga ;
+} SingleSubstitutionlookup124;

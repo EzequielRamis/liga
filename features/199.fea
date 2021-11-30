@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup199 {
+  lookupflag 0;
+    sub \plus by \less_plus.liga ;
+    sub \less by \less.spacer ;
+} SingleSubstitutionlookup199;

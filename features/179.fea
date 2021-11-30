@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup179 {
+  lookupflag 0;
+    sub \exclam by \exclam_exclam.liga ;
+} SingleSubstitutionlookup179;

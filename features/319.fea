@@ -1,0 +1,48 @@
+
+lookup ss03StyleSet3lookup319 {
+  lookupflag 0;
+    sub \ampersand by \ampersand.ss03 ;
+    sub \ampersand_ampersand.liga by \ampersand.ss03 ;
+} ss03StyleSet3lookup319;
+
+feature ss03 {
+  script DFLT;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+  script cyrl;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+  script grek;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language AZE  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language CAT  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language CRT  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language KAZ  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language MOL  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language PLK  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language ROM  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language TAT  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language TRK  exclude_dflt;
+      lookup ss03StyleSet3lookup319;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+  script zinh;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+  script zyyy;
+     language dflt ;
+      lookup ss03StyleSet3lookup319;
+
+} ss03;

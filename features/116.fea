@@ -1,0 +1,51 @@
+
+lookup caltContextualAlternateslookup116 {
+  lookupflag 0;
+    ignore sub \period  \period' \period \less  ;
+    ignore sub  \period' \period \less \less  ;
+    sub \period.spacer  \period' \less   by \period.spacer;
+    sub  \period' \period \less   by \period.spacer;
+    sub \period.spacer \period.spacer  \less'   by \period_period_less.liga;
+} caltContextualAlternateslookup116;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup116;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup116;
+
+} calt;

@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup236 {
+  lookupflag 0;
+    sub \question by \question_question.liga ;
+} SingleSubstitutionlookup236;

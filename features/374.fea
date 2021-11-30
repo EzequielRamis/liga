@@ -1,0 +1,52 @@
+
+lookup cv14CharacterVariants14lookup374 {
+  lookupflag 0;
+    sub \three by \three.cv14 ;
+    sub \three.tosf by \three.tosf.cv14 ;
+    sub \three.dnom by \three.dnom.cv14 ;
+    sub \uni2083 by \uni2083.cv14 ;
+    sub \three.numr by \three.numr.cv14 ;
+    sub \uni00B3 by \uni00B3.cv14 ;
+} cv14CharacterVariants14lookup374;
+
+feature cv14 {
+  script DFLT;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+  script cyrl;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+  script grek;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language AZE  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language CAT  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language CRT  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language KAZ  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language MOL  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language PLK  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language ROM  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language TAT  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language TRK  exclude_dflt;
+      lookup cv14CharacterVariants14lookup374;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+  script zinh;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+  script zyyy;
+     language dflt ;
+      lookup cv14CharacterVariants14lookup374;
+
+} cv14;

@@ -1,0 +1,98 @@
+
+lookup caltContextualAlternateslookup276 {
+  lookupflag 0;
+    @cc402_match_1 = [\Alphatonos \Epsilontonos \Etatonos \Iotatonos \Omicrontonos \Upsilontonos 
+	\Omegatonos \uni1F08 \uni1F09 \uni1F0A \uni1F0B \uni1F0C \uni1F0D 
+	\uni1F0E \uni1F0F \uni1FBA \uni1FBB \uni1FB8 \uni1FB9 \uni1FBC \uni1F88 
+	\uni1F89 \uni1F8A \uni1F8B \uni1F8C \uni1F8D \uni1F8E \uni1F8F \uni1F18 
+	\uni1F19 \uni1F1A \uni1F1B \uni1F1C \uni1F1D \uni1FC8 \uni1FC9 \uni1F28 
+	\uni1F29 \uni1F2A \uni1F2B \uni1F2C \uni1F2D \uni1F2E \uni1F2F \uni1FCA 
+	\uni1FCB \uni1FCC \uni1F98 \uni1F99 \uni1F9A \uni1F9B \uni1F9C \uni1F9D 
+	\uni1F9E \uni1F9F \uni1F38 \uni1F39 \uni1F3A \uni1F3B \uni1F3C \uni1F3D 
+	\uni1F3E \uni1F3F \uni1FDA \uni1FDB \uni1FD8 \uni1FD9 \uni1F48 \uni1F49 
+	\uni1F4A \uni1F4B \uni1F4C \uni1F4D \uni1FF8 \uni1FF9 \uni1FEC \uni1F59 
+	\uni1F5B \uni1F5D \uni1F5F \uni1FEA \uni1FEB \uni1FE8 \uni1FE9 \uni1F68 
+	\uni1F69 \uni1F6A \uni1F6B \uni1F6C \uni1F6D \uni1F6E \uni1F6F \uni1FFA 
+	\uni1FFB \uni1FFC \uni1FA8 \uni1FA9 \uni1FAA \uni1FAB \uni1FAC \uni1FAD 
+	\uni1FAE \uni1FAF ];
+    @cc402_back_1 = [\Alpha \Beta \Gamma \uni0394 \Epsilon \Zeta \Eta \Theta \Iota \Kappa \Lambda \Mu \Nu 
+	\Xi \Omicron \Pi \Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \uni03A9 
+	\Alphatonos \Epsilontonos \Etatonos \Iotatonos \Omicrontonos 
+	\Upsilontonos \Omegatonos \Iotadieresis \Upsilondieresis \uni1F08 
+	\uni1F09 \uni1F0A \uni1F0B \uni1F0C \uni1F0D \uni1F0E \uni1F0F \uni1FBA 
+	\uni1FBB \uni1FB8 \uni1FB9 \uni1FBC \uni1F88 \uni1F89 \uni1F8A \uni1F8B 
+	\uni1F8C \uni1F8D \uni1F8E \uni1F8F \uni1F18 \uni1F19 \uni1F1A \uni1F1B 
+	\uni1F1C \uni1F1D \uni1FC8 \uni1FC9 \uni1F28 \uni1F29 \uni1F2A \uni1F2B 
+	\uni1F2C \uni1F2D \uni1F2E \uni1F2F \uni1FCA \uni1FCB \uni1FCC \uni1F98 
+	\uni1F99 \uni1F9A \uni1F9B \uni1F9C \uni1F9D \uni1F9E \uni1F9F \uni1F38 
+	\uni1F39 \uni1F3A \uni1F3B \uni1F3C \uni1F3D \uni1F3E \uni1F3F \uni1FDA 
+	\uni1FDB \uni1FD8 \uni1FD9 \uni1F48 \uni1F49 \uni1F4A \uni1F4B \uni1F4C 
+	\uni1F4D \uni1FF8 \uni1FF9 \uni1FEC \uni1F59 \uni1F5B \uni1F5D \uni1F5F 
+	\uni1FEA \uni1FEB \uni1FE8 \uni1FE9 \uni1F68 \uni1F69 \uni1F6A \uni1F6B 
+	\uni1F6C \uni1F6D \uni1F6E \uni1F6F \uni1FFA \uni1FFB \uni1FFC \uni1FA8 
+	\uni1FA9 \uni1FAA \uni1FAB \uni1FAC \uni1FAD \uni1FAE \uni1FAF ];
+    @cc402_back_2 = [\space ];
+    @cc402_ahead_1 = [\Alpha \Beta \Gamma \uni0394 \Epsilon \Zeta \Eta \Theta \Iota \Kappa \Lambda \Mu \Nu 
+	\Xi \Omicron \Pi \Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \uni03A9 
+	\Alphatonos \Epsilontonos \Etatonos \Iotatonos \Omicrontonos 
+	\Upsilontonos \Omegatonos \Iotadieresis \Upsilondieresis \uni1F08 
+	\uni1F09 \uni1F0A \uni1F0B \uni1F0C \uni1F0D \uni1F0E \uni1F0F \uni1FBA 
+	\uni1FBB \uni1FB8 \uni1FB9 \uni1FBC \uni1F88 \uni1F89 \uni1F8A \uni1F8B 
+	\uni1F8C \uni1F8D \uni1F8E \uni1F8F \uni1F18 \uni1F19 \uni1F1A \uni1F1B 
+	\uni1F1C \uni1F1D \uni1FC8 \uni1FC9 \uni1F28 \uni1F29 \uni1F2A \uni1F2B 
+	\uni1F2C \uni1F2D \uni1F2E \uni1F2F \uni1FCA \uni1FCB \uni1FCC \uni1F98 
+	\uni1F99 \uni1F9A \uni1F9B \uni1F9C \uni1F9D \uni1F9E \uni1F9F \uni1F38 
+	\uni1F39 \uni1F3A \uni1F3B \uni1F3C \uni1F3D \uni1F3E \uni1F3F \uni1FDA 
+	\uni1FDB \uni1FD8 \uni1FD9 \uni1F48 \uni1F49 \uni1F4A \uni1F4B \uni1F4C 
+	\uni1F4D \uni1FF8 \uni1FF9 \uni1FEC \uni1F59 \uni1F5B \uni1F5D \uni1F5F 
+	\uni1FEA \uni1FEB \uni1FE8 \uni1FE9 \uni1F68 \uni1F69 \uni1F6A \uni1F6B 
+	\uni1F6C \uni1F6D \uni1F6E \uni1F6F \uni1FFA \uni1FFB \uni1FFC \uni1FA8 
+	\uni1FA9 \uni1FAA \uni1FAB \uni1FAC \uni1FAD \uni1FAE \uni1FAF ];
+    @cc402_ahead_2 = [\space ];
+    sub @cc402_match_1' @cc402_ahead_1  by [\Alpha \Epsilon \Eta \Iota \Omicron \Upsilon \uni03A9 \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Rho \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 ] ;
+    sub @cc402_back_1 @cc402_match_1'  by [\Alpha \Epsilon \Eta \Iota \Omicron \Upsilon \uni03A9 \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Rho \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 ] ;
+    sub @cc402_match_1' @cc402_ahead_2 @cc402_ahead_1  by [\Alpha \Epsilon \Eta \Iota \Omicron \Upsilon \uni03A9 \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Rho \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 ] ;
+    sub @cc402_back_2 @cc402_back_1 @cc402_match_1'  by [\Alpha \Epsilon \Eta \Iota \Omicron \Upsilon \uni03A9 \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Alpha \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Epsilon \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Eta \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Iota \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Omicron \Rho \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \Upsilon \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 \uni03A9 ] ;
+} caltContextualAlternateslookup276;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup276;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup276;
+
+} calt;

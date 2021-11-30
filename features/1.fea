@@ -1,0 +1,172 @@
+
+lookup aaltAccessAllAlternateslookup1 {
+  lookupflag 0;
+    sub \a from [\a.cv01 \ordfeminine ];
+    sub \i from [\i.loclTRK \i.cv03 \i.cv04 \i.cv05 \i.cv06 \i.salt_low \f_i.liga.ss10 ];
+    sub \dotlessi from [\dotlessi.cv03 \dotlessi.cv04 \dotlessi.cv05 \dotlessi.cv06 ];
+    sub \iacute from [\iacute.cv03 \iacute.cv04 \iacute.cv05 \iacute.cv06 ];
+    sub \ibreve from [\ibreve.cv03 \ibreve.cv04 \ibreve.cv05 \ibreve.cv06 ];
+    sub \icircumflex from [\icircumflex.cv03 \icircumflex.cv04 \icircumflex.cv05 \icircumflex.cv06 ];
+    sub \idieresis from [\idieresis.cv03 \idieresis.cv04 \idieresis.cv05 \idieresis.cv06 ];
+    sub \i.loclTRK from [\i.loclTRK.cv03 \i.loclTRK.cv04 \i.loclTRK.cv05 \i.loclTRK.cv06 ];
+    sub \igrave from [\igrave.cv03 \igrave.cv04 \igrave.cv05 \igrave.cv06 ];
+    sub \imacron from [\imacron.cv03 \imacron.cv04 \imacron.cv05 \imacron.cv06 ];
+    sub \iogonek from [\iogonek.cv03 \iogonek.cv04 \iogonek.cv05 \iogonek.cv06 ];
+    sub \itilde from [\itilde.cv03 \itilde.cv04 \itilde.cv05 \itilde.cv06 ];
+    sub \j from [\j.salt_low \f_j.liga.ss10 ];
+    sub \l from [\F_l.liga.ss10 \T_l.liga.ss10 \l.cv07 \l.cv08 \l.cv09 \l.cv10 \l.salt_low 
+	\f_l.liga.ss10 ];
+    sub \lacute from [\lacute.cv07 \lacute.cv08 \lacute.cv09 \lacute.cv10 ];
+    sub \lcaron from [\lcaron.cv07 \lcaron.cv08 \lcaron.cv09 \lcaron.cv10 ];
+    sub \uni013C from [\uni013C.cv07 \uni013C.cv08 \uni013C.cv09 \uni013C.cv10 ];
+    sub \ldot from [\ldot.cv07 \ldot.cv08 \ldot.cv09 \ldot.cv10 ];
+    sub \lslash from [\lslash.cv07 \lslash.cv08 \lslash.cv09 \lslash.cv10 ];
+    sub \w from [\w.spacer \w_w_w.liga ];
+    sub \x from [\x.multiply \x.multiply.tosf ];
+    sub \l.salt_low from [\F_l.liga.ss10 \T_l.liga.ss10 ];
+    sub \zero from [\zero.zero \zero.cv11 \zero.cv12 \zero.cv13 \zero.tosf \zero.dnom \uni2080 
+	\zero.numr \uni2070 ];
+    sub \one from [\one.tosf \one.dnom \uni2081 \one.numr \uni00B9 ];
+    sub \two from [\two.tosf \two.dnom \uni2082 \two.numr \uni00B2 ];
+    sub \three from [\three.cv14 \three.tosf \three.dnom \uni2083 \three.numr \uni00B3 ];
+    sub \four from [\four.tosf \four.dnom \uni2084 \four.numr \uni2074 ];
+    sub \five from [\five.tosf \five.dnom \uni2085 \five.numr \uni2075 ];
+    sub \six from [\six.tosf \six.dnom \uni2086 \six.numr \uni2076 ];
+    sub \seven from [\seven.tosf \seven.dnom \uni2087 \seven.numr \uni2077 ];
+    sub \eight from [\eight.tosf \eight.dnom \uni2088 \eight.numr \uni2078 ];
+    sub \nine from [\nine.tosf \nine.dnom \uni2089 \nine.numr \uni2079 ];
+    sub \three.cv14 from [\three.cv14.dnom \three.cv14.numr ];
+    sub \zero.tosf from [\zero.tosf.cv11 \zero.tosf.cv12 \zero.tosf.cv13 \zero.tosf.zero ];
+    sub \three.numr from [\three.dnom \three.numr.cv14 ];
+    sub \period from [\period_period.liga \period_period_period.liga \exclam_exclam_period.liga 
+	\question_period.liga \bullet \period.spacer ];
+    sub \colon from [\colon_colon.liga \colon_colon_colon.liga \numbersign_colon.liga 
+	\colon.center \colon_equal_middle.seq \colon.spacer \colon.uc ];
+    sub \semicolon from [\semicolon_semicolon.liga \semicolon.spacer ];
+    sub \exclam from [\exclam_exclam.liga \numbersign_exclam.liga \exclam_equal_middle.seq 
+	\exclam.spacer ];
+    sub \question from [\period_question.liga \question_question.liga \numbersign_question.liga 
+	\question.spacer ];
+    sub \asterisk from [\asterisk_asterisk.liga \asterisk_asterisk_asterisk.liga 
+	\slash_asterisk.liga \asterisk.cv15 \asterisk.lc \asterisk.spacer 
+	\less_asterisk.liga \asteriskmath ];
+    sub \numbersign from [\bracketright_numbersign.liga \numbersign_end.seq \numbersign_middle.seq 
+	\numbersign_start.seq \numbersign.spacer ];
+    sub \slash from [\fraction \asterisk_slash.liga \slash_slash.liga \slash_slash_slash.liga 
+	\backslash_slash.liga \slash_equal_end.seq \slash_equal_middle.seq 
+	\slash_equal_start.seq \slash_slash_equal_end.seq 
+	\slash_slash_equal_middle.seq \slash_slash_equal_start.seq 
+	\slash.spacer \less_slash.liga ];
+    sub \backslash from [\slash_backslash.liga \backslash.spacer \backslash.ss06 ];
+    sub \asterisk.lc from [\asterisk.cv15 \asteriskmath.lc ];
+    sub \hyphen from [\hyphen_hyphen.liga \period_hyphen.cv25 \colon_hyphen.cv26 \hyphen_end.seq 
+	\hyphen_middle.seq \hyphen_start.seq \hyphen.case \hyphen.lc 
+	\hyphen.spacer \less_exclam_hyphen_hyphen.liga 
+	\asciitilde_hyphen.liga ];
+    sub \underscore from [\numbersign_underscore.liga \underscore_end.seq \underscore_middle.seq 
+	\underscore_start.seq \underscore.spacer ];
+    sub \parenleft from [\numbersign_parenleft.liga \numbersign_underscore_parenleft.liga 
+	\parenleft.dnom \parenleft.numr \uni208D \uni207D \parenleft.case ];
+    sub \parenright from [\parenright.dnom \parenright.numr \uni208E \uni207E \parenright.case ];
+    sub \braceleft from [\numbersign_braceleft.liga \braceleft.case \braceleft.cv29 
+	\braceleft.spacer ];
+    sub \braceright from [\braceright.case \braceright.cv29 \bar_braceright.liga ];
+    sub \bracketleft from [\numbersign_bracketleft.liga \bracketleft.case \bracketleft.spacer ];
+    sub \bracketright from [\bracketleft_bracketright.cv27 \bracketright.case \bracketright.spacer 
+	\bar_bracketright.liga ];
+    sub \at from [\asciitilde_at.liga \at.ss05 ];
+    sub \ampersand from [\ampersand_ampersand.liga \ampersand.spacer \ampersand.ss03 
+	\ampersand.before.ss03 ];
+    sub \bar from [\braceleft_bar.liga \bracketleft_bar.liga \bar_bar.liga \bar_bar_bar.liga 
+	\less_bar.liga \less_bar_bar.liga \less_bar_bar_bar.liga 
+	\bar_hyphen_end.seq \bar_hyphen_middle.seq \bar_hyphen_start.seq 
+	\bar_bar_hyphen_end.seq \bar_bar_hyphen_middle.seq 
+	\bar_bar_hyphen_start.seq \bar_bar_equal_end.seq 
+	\bar_bar_equal_middle.seq \bar_bar_equal_start.seq 
+	\bar_equal_end.seq \bar_equal_middle.seq \bar_equal_start.seq 
+	\bar_underscore_middle.seq \bar.spacer ];
+    sub \less_equal.liga from [\equal_end.seq \less_equal.ss02 ];
+    sub \dollar from [\less_dollar.liga \dollar.spacer \dollar.ss04 ];
+    sub \asteriskmath from [\asterisk \asteriskmath.cv15 \asteriskmath.lc ];
+    sub \plus from [\plus_plus.liga \plus_plus_plus.liga \less_plus.liga \plus.dnom \plus.numr 
+	\uni208A \uni207A \plus.lc \plus.spacer ];
+    sub \minus from [\minus.dnom \minus.numr \uni208B \uni207B ];
+    sub \equal from [\period_period_equal.liga \colon_colon_equal.liga \colon_equal.liga 
+	\exclam_equal.liga \exclam_equal_equal.liga \question_equal.liga 
+	\numbersign_equal.liga \equal_equal.liga \equal_equal_equal.liga 
+	\greater_equal.liga \less_equal.liga \asciicircum_equal.liga 
+	\equal.dnom \equal.numr \equal_end.seq \equal_middle.seq 
+	\equal_start.seq \uni207C \equal.spacer ];
+    sub \greater from [\asterisk_greater.liga \slash_greater.liga \bar_bar_bar_greater.liga 
+	\bar_bar_greater.liga \bar_greater.liga \dollar_greater.liga 
+	\plus_greater.liga \greater_greater.liga 
+	\greater_greater_greater.liga \less_asterisk_greater.liga 
+	\less_bar_greater.liga \less_dollar_greater.liga 
+	\less_plus_greater.liga \less_greater.liga 
+	\less_asciitilde_greater.liga \less_slash_greater.liga 
+	\asciitilde_greater.liga \asciitilde_asciitilde_greater.liga 
+	\greater_hyphen_end.seq \greater_hyphen_middle.seq 
+	\greater_hyphen_start.seq \greater_equal_end.seq 
+	\greater_equal_middle.seq \greater_equal_start.seq 
+	\greater_greater_hyphen_end.seq 
+	\greater_greater_hyphen_middle.seq 
+	\greater_greater_hyphen_start.seq \greater_greater_equal_end.seq 
+	\greater_greater_equal_middle.seq 
+	\greater_greater_equal_start.seq \greater.center \greater.spacer ];
+    sub \less from [\period_period_less.liga \less_equal.liga \less_less.liga 
+	\less_less_less.liga \less_hyphen_end.seq \less_hyphen_middle.seq 
+	\less_hyphen_start.seq \less_equal_end.seq \less_equal_middle.seq 
+	\less_equal_start.seq \less_less_hyphen_end.seq 
+	\less_less_hyphen_middle.seq \less_less_hyphen_start.seq 
+	\less_less_equal_end.seq \less_less_equal_middle.seq 
+	\less_less_equal_start.seq \less_equal.ss02 \less.center 
+	\less.spacer ];
+    sub \asciitilde from [\hyphen_asciitilde.liga \exclam_asciitilde.ss07 \less_asciitilde.liga 
+	\less_asciitilde_asciitilde.liga \asciitilde_asciitilde.liga 
+	\equal_asciitilde.ss07 \asciitilde.cv17 \asciitilde.spacer ];
+    sub \percent from [\percent_percent.liga \percent.cv18 \percent.spacer ];
+    sub \asteriskmath.lc from [\asterisk.lc \asteriskmath.cv15 ];
+    sub \acute from [\acute.case \acute.loclPLK ];
+} aaltAccessAllAlternateslookup1;
+
+feature aalt {
+  script DFLT;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+  script cyrl;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+  script grek;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language AZE  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language CAT  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language CRT  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language KAZ  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language MOL  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language PLK  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language ROM  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language TAT  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language TRK  exclude_dflt;
+      lookup aaltAccessAllAlternateslookup1;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+  script zinh;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+  script zyyy;
+     language dflt ;
+      lookup aaltAccessAllAlternateslookup1;
+
+} aalt;

@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup311 {
+  lookupflag 0;
+    sub \underscore by \underscore_middle.seq ;
+    sub \bar by \bar_underscore_middle.seq ;
+} SingleSubstitutionlookup311;

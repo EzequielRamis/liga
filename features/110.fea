@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup110 {
+  lookupflag 0;
+    sub \slash by \slash.spacer ;
+    sub \greater by \less_slash_greater.liga ;
+    sub \less by \less.spacer ;
+} SingleSubstitutionlookup110;

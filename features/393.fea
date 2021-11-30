@@ -1,0 +1,48 @@
+
+lookup cv27CharacterVariants27lookup393 {
+  lookupflag 0;
+    sub  \bracketleft' \bracketright   by \bracketleft.spacer;
+    sub \bracketleft.spacer  \bracketright'   by \bracketleft_bracketright.cv27;
+} cv27CharacterVariants27lookup393;
+
+feature cv27 {
+  script DFLT;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+  script cyrl;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+  script grek;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language AZE  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language CAT  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language CRT  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language KAZ  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language MOL  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language PLK  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language ROM  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language TAT  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language TRK  exclude_dflt;
+      lookup cv27CharacterVariants27lookup393;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+  script zinh;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+  script zyyy;
+     language dflt ;
+      lookup cv27CharacterVariants27lookup393;
+
+} cv27;

@@ -1,0 +1,47 @@
+
+lookup saltStylisticAlternativeslookup316 {
+  lookupflag 0;
+    sub \r by \r.ss01 ;
+} saltStylisticAlternativeslookup316;
+
+feature salt {
+  script DFLT;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+  script cyrl;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+  script grek;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language AZE  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language CAT  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language CRT  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language KAZ  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language MOL  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language PLK  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language ROM  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language TAT  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language TRK  exclude_dflt;
+      lookup saltStylisticAlternativeslookup316;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+  script zinh;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+  script zyyy;
+     language dflt ;
+      lookup saltStylisticAlternativeslookup316;
+
+} salt;

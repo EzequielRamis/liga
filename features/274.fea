@@ -1,0 +1,59 @@
+
+lookup caltContextualAlternateslookup274 {
+  lookupflag 0;
+    sub [\Alphatonos \Epsilontonos \Omicrontonos \Upsilontonos \uni1F08 \uni1F09 
+	\uni1F0A \uni1F0B \uni1F0C \uni1F0D \uni1F0E \uni1F0F \uni1FBA \uni1FBB 
+	\uni1FB8 \uni1FB9 \uni1FBC \uni1F88 \uni1F89 \uni1F8A \uni1F8B \uni1F8C 
+	\uni1F8D \uni1F8E \uni1F8F \uni1F18 \uni1F19 \uni1F1A \uni1F1B \uni1F1C 
+	\uni1F1D \uni1FC8 \uni1FC9 \uni1F48 \uni1F49 \uni1F4A \uni1F4B \uni1F4C 
+	\uni1F4D \uni1FF8 \uni1FF9 \uni1F59 \uni1F5B \uni1F5D \uni1F5F \uni1FEA 
+	\uni1FEB \uni1FE8 \uni1FE9 ] [\Iota ]'  by [\Iotadieresis ];
+    sub [\Alphatonos \Epsilontonos \Omicrontonos \uni1F08 \uni1F09 \uni1F0A \uni1F0B 
+	\uni1F0C \uni1F0D \uni1F0E \uni1F0F \uni1FBA \uni1FBB \uni1FB8 \uni1FB9 
+	\uni1FBC \uni1F88 \uni1F89 \uni1F8A \uni1F8B \uni1F8C \uni1F8D \uni1F8E 
+	\uni1F8F \uni1F18 \uni1F19 \uni1F1A \uni1F1B \uni1F1C \uni1F1D \uni1FC8 
+	\uni1FC9 \uni1F48 \uni1F49 \uni1F4A \uni1F4B \uni1F4C \uni1F4D \uni1FF8 
+	\uni1FF9 ] [\Upsilon ]'  by [\Upsilondieresis ];
+} caltContextualAlternateslookup274;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup274;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup274;
+
+} calt;

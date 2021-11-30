@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup140 {
+  lookupflag 0;
+    ignore sub \asciitilde  \asciitilde' \asciitilde  ;
+    ignore sub  \asciitilde' \asciitilde \asciitilde  ;
+    sub \asciitilde.spacer  \asciitilde'   by \asciitilde_asciitilde.liga;
+    sub  \asciitilde' \asciitilde   by \asciitilde.spacer;
+} caltContextualAlternateslookup140;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup140;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup140;
+
+} calt;

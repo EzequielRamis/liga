@@ -1,0 +1,52 @@
+
+lookup caltContextualAlternateslookup231 {
+  lookupflag 0;
+    ignore sub \question  \question' \equal  ;
+    ignore sub  \question' \equal \equal  ;
+    ignore sub \parenleft  \question' \equal  ;
+    ignore sub \less  \question' \equal  ;
+    sub  \question' \equal   by \question.spacer;
+    sub \question.spacer  \equal'   by \question_equal.liga;
+} caltContextualAlternateslookup231;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup231;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup231;
+
+} calt;

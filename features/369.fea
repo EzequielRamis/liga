@@ -1,0 +1,52 @@
+
+lookup cv09CharacterVariants09lookup369 {
+  lookupflag 0;
+    sub \l by \l.cv09 ;
+    sub \lacute by \lacute.cv09 ;
+    sub \lcaron by \lcaron.cv09 ;
+    sub \uni013C by \uni013C.cv09 ;
+    sub \ldot by \ldot.cv09 ;
+    sub \lslash by \lslash.cv09 ;
+} cv09CharacterVariants09lookup369;
+
+feature cv09 {
+  script DFLT;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+  script cyrl;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+  script grek;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language AZE  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language CAT  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language CRT  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language KAZ  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language MOL  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language PLK  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language ROM  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language TAT  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language TRK  exclude_dflt;
+      lookup cv09CharacterVariants09lookup369;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+  script zinh;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+  script zyyy;
+     language dflt ;
+      lookup cv09CharacterVariants09lookup369;
+
+} cv09;

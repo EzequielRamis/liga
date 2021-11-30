@@ -1,0 +1,52 @@
+
+lookup caltContextualAlternateslookup310 {
+  lookupflag 0;
+    sub [\underscore_middle.seq \underscore_start.seq ] [\bar ]' [\underscore ]  by [\bar_underscore_middle.seq ];
+    sub [\underscore_middle.seq \underscore_start.seq \bar_underscore_middle.seq ] [\underscore ]' [\bar ] [\underscore ]  by [\underscore_middle.seq ];
+    sub [\underscore_middle.seq \underscore_start.seq \bar_underscore_middle.seq ] [\underscore ]' [\underscore ]  by [\underscore_middle.seq ];
+    sub [\underscore_middle.seq \underscore_start.seq \bar_underscore_middle.seq ] [\underscore ]'  by [\underscore_end.seq ];
+    sub [\underscore ]' [\bar ] [\underscore ]  by [\underscore_start.seq ];
+    sub [\underscore ]' [\underscore ]  by [\underscore_start.seq ];
+} caltContextualAlternateslookup310;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup310;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup310;
+
+} calt;

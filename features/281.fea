@@ -1,0 +1,91 @@
+
+lookup caltContextualAlternateslookup281 {
+  lookupflag 0;
+    ignore sub [\bar ] [\bar ]' [\bar ] [\hyphen ] ;
+    ignore sub [\bar ] [\bar ]' [\hyphen ] ;
+    ignore sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar ]' [\bar ] [\bar ] ;
+    sub [\hyphen_middle.seq \hyphen_start.seq \bar_hyphen_middle.seq 
+	\bar_hyphen_start.seq \bar_bar_hyphen_middle.seq 
+	\bar_bar_hyphen_start.seq \greater_hyphen_middle.seq 
+	\greater_hyphen_start.seq \greater_greater_hyphen_middle.seq 
+	\greater_greater_hyphen_start.seq \less_hyphen_middle.seq 
+	\less_hyphen_start.seq \less_less_hyphen_middle.seq 
+	\less_less_hyphen_start.seq ] [\hyphen ]' [\hyphen \bar \greater \less ]  by [\hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq \bar_hyphen_middle.seq 
+	\bar_hyphen_start.seq \bar_bar_hyphen_middle.seq 
+	\bar_bar_hyphen_start.seq \greater_hyphen_middle.seq 
+	\greater_hyphen_start.seq \greater_greater_hyphen_middle.seq 
+	\greater_greater_hyphen_start.seq \less_hyphen_middle.seq 
+	\less_hyphen_start.seq \less_less_hyphen_middle.seq 
+	\less_less_hyphen_start.seq ] [\hyphen ]'  by [\hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less.spacer ] [\less ]' [\hyphen ]  by [\less_less_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less ]' [\less ] [\hyphen ]  by [\less.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater.spacer ] [\greater ]' [\hyphen ]  by [\greater_greater_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater ]' [\greater ] [\hyphen ]  by [\greater.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar.spacer ] [\bar ]' [\hyphen ]  by [\bar_bar_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar ]' [\bar ] [\hyphen ]  by [\bar.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less ]' [\hyphen ]  by [\less_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater ]' [\hyphen ]  by [\greater_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar ]' [\hyphen ]  by [\bar_hyphen_middle.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less.spacer ] [\less ]'  by [\less_less_hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less ]' [\less ]  by [\less.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater.spacer ] [\greater ]'  by [\greater_greater_hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater ]' [\greater ]  by [\greater.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar.spacer ] [\bar ]'  by [\bar_bar_hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar ]' [\bar ]  by [\bar.spacer ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\less ]'  by [\less_hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\greater ]'  by [\greater_hyphen_end.seq ];
+    sub [\hyphen_middle.seq \hyphen_start.seq ] [\bar ]'  by [\bar_hyphen_end.seq ];
+    sub [\less.spacer ] [\less ]' [\hyphen ]  by [\less_less_hyphen_start.seq ];
+    sub [\less ]' [\less ] [\hyphen ]  by [\less.spacer ];
+    sub [\greater.spacer ] [\greater ]' [\hyphen ]  by [\greater_greater_hyphen_start.seq ];
+    sub [\greater ]' [\greater ] [\hyphen ]  by [\greater.spacer ];
+    sub [\bar.spacer ] [\bar ]' [\hyphen ]  by [\bar_bar_hyphen_start.seq ];
+    sub [\bar ]' [\bar ] [\hyphen ]  by [\bar.spacer ];
+    sub [\less ]' [\hyphen ]  by [\less_hyphen_start.seq ];
+    sub [\greater ]' [\hyphen ]  by [\greater_hyphen_start.seq ];
+    sub [\bar ]' [\hyphen ]  by [\bar_hyphen_start.seq ];
+    sub [\hyphen ]' [\hyphen \bar \greater \less ]  by [\hyphen_start.seq ];
+} caltContextualAlternateslookup281;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup281;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup281;
+
+} calt;

@@ -5,10 +5,12 @@ import os
 def ligaturize_font(
     input_font_file, output_dir, ligature_font_file, output_name, prefix, **kwargs
 ):
-    font = fontforge.open(input_font_file)
+    font = fontforge.open(ligature_font_file)
     cls()
-    for lookup in font.gsub_lookups:
-        print(font.getLookupSubtables(lookup))
+    # for lookup in font.gsub_lookups:
+    #     print(font.getLookupSubtables(lookup))
+    # print(font.getLookupOfSubtable("'ss09' Style Set 9 lookup 335 subtable"))
+    # print(font["equal"].getPosSub("*"))
 
 
 def parse_args():

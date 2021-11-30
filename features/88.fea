@@ -1,0 +1,60 @@
+
+lookup caltContextualAlternateslookup88 {
+  lookupflag 0;
+    ignore sub [\equal ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\equal ]' [\equal ] [\equal ] [\equal ] ;
+    ignore sub [\parenleft ] [\question ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\parenleft ] [\question ] [\less ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\less ] [\question ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\bracketleft ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\equal ]' [\equal ] [\equal ] [\bracketright ] ;
+    ignore sub [\equal ] [\colon \exclam ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\slash \bar \greater \less ] [\equal ]' [\equal ] [\equal ] ;
+    ignore sub [\equal ]' [\equal ] [\equal ] [\slash \bar \greater \less ] ;
+    ignore sub [\equal ]' [\equal ] [\equal ] [\colon \exclam ] [\equal ] ;
+    sub [\equal.spacer ] [\equal.spacer ] [\equal ]'  by [\equal_equal_equal.liga ];
+    sub [\equal.spacer ] [\equal ]' [\equal ]  by [\equal.spacer ];
+    sub [\equal ]' [\equal ] [\equal ]  by [\equal.spacer ];
+} caltContextualAlternateslookup88;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup88;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup88;
+
+} calt;

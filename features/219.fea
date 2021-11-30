@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup219 {
+  lookupflag 0;
+    sub \percent by \percent_percent.liga ;
+} SingleSubstitutionlookup219;

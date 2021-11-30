@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup137 {
+  lookupflag 0;
+    sub \ampersand by \ampersand.spacer ;
+} SingleSubstitutionlookup137;

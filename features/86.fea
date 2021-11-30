@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup86 {
+  lookupflag 0;
+    sub \colon by \colon.spacer ;
+    sub \equal by \colon_colon_equal.liga ;
+} SingleSubstitutionlookup86;

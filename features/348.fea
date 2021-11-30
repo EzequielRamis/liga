@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup348 {
+  lookupflag 0;
+    sub \f by \f.spacer ;
+    sub \j by \f_j.liga.ss10 ;
+    sub \j.salt_low by \f_j.liga.ss10 ;
+} SingleSubstitutionlookup348;

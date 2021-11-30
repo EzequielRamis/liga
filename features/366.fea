@@ -1,0 +1,57 @@
+
+lookup cv06CharacterVariants06lookup366 {
+  lookupflag 0;
+    sub \i by \i.cv06 ;
+    sub \dotlessi by \dotlessi.cv06 ;
+    sub \iacute by \iacute.cv06 ;
+    sub \ibreve by \ibreve.cv06 ;
+    sub \icircumflex by \icircumflex.cv06 ;
+    sub \idieresis by \idieresis.cv06 ;
+    sub \i.loclTRK by \i.loclTRK.cv06 ;
+    sub \igrave by \igrave.cv06 ;
+    sub \imacron by \imacron.cv06 ;
+    sub \iogonek by \iogonek.cv06 ;
+    sub \itilde by \itilde.cv06 ;
+} cv06CharacterVariants06lookup366;
+
+feature cv06 {
+  script DFLT;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+  script cyrl;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+  script grek;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language AZE  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language CAT  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language CRT  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language KAZ  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language MOL  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language PLK  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language ROM  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language TAT  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language TRK  exclude_dflt;
+      lookup cv06CharacterVariants06lookup366;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+  script zinh;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+  script zyyy;
+     language dflt ;
+      lookup cv06CharacterVariants06lookup366;
+
+} cv06;

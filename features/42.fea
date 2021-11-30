@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup42 {
+  lookupflag 0;
+    sub \bar by \bar.spacer ;
+} SingleSubstitutionlookup42;

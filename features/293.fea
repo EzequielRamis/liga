@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup293 {
+  lookupflag 0;
+    sub \hyphen by \hyphen.lc ;
+} SingleSubstitutionlookup293;

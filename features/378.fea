@@ -1,0 +1,49 @@
+
+lookup cv18CharacterVariants18lookup378 {
+  lookupflag 0;
+    sub \percent_percent.liga by \percent_percent.liga.cv18 ;
+    sub \percent by \percent.cv18 ;
+    sub \perthousand by \perthousand.cv18 ;
+} cv18CharacterVariants18lookup378;
+
+feature cv18 {
+  script DFLT;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+  script cyrl;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+  script grek;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language AZE  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language CAT  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language CRT  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language KAZ  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language MOL  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language PLK  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language ROM  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language TAT  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language TRK  exclude_dflt;
+      lookup cv18CharacterVariants18lookup378;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+  script zinh;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+  script zyyy;
+     language dflt ;
+      lookup cv18CharacterVariants18lookup378;
+
+} cv18;

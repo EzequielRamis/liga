@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup72 {
+  lookupflag 0;
+    sub \exclam by \exclam.spacer ;
+    sub \hyphen by \less_exclam_hyphen_hyphen.liga ;
+    sub \less by \less.spacer ;
+} SingleSubstitutionlookup72;

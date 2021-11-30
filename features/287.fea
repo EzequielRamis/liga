@@ -1,0 +1,7 @@
+
+lookup SingleSubstitutionlookup287 {
+  lookupflag 0;
+    sub \bar by \bar_hyphen_end.seq ;
+    sub \greater by \greater_hyphen_end.seq ;
+    sub \less by \less_hyphen_end.seq ;
+} SingleSubstitutionlookup287;

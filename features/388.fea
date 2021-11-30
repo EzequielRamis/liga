@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup388 {
+  lookupflag 0;
+    sub \slash_equal_start.seq by \slash.spacer ;
+    sub \equal_end.seq by \exclam_equal.liga ;
+} SingleSubstitutionlookup388;

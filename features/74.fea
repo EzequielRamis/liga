@@ -1,0 +1,51 @@
+
+lookup caltContextualAlternateslookup74 {
+  lookupflag 0;
+    sub \asciitilde.spacer \asciitilde.spacer  \greater'   by \asciitilde_asciitilde_greater.liga;
+    ignore sub \asciitilde  \asciitilde' \asciitilde \greater  ;
+    ignore sub  \asciitilde' \asciitilde \greater \greater  ;
+    sub \asciitilde.spacer  \asciitilde' \greater   by \asciitilde.spacer;
+    sub  \asciitilde' \asciitilde \greater   by \asciitilde.spacer;
+} caltContextualAlternateslookup74;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup74;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup74;
+
+} calt;

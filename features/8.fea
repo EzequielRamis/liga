@@ -1,0 +1,53 @@
+
+lookup fracDiagonalFractionslookup8 {
+  lookupflag 0;
+    sub [\fraction ] [\zero.numr \one.numr \two.numr \three.numr \four.numr \five.numr \six.numr 
+	\seven.numr \eight.numr \nine.numr ]'  by [\zero.dnom \one.dnom \two.dnom \three.dnom 
+	\four.dnom \five.dnom \six.dnom \seven.dnom \eight.dnom \nine.dnom ];
+    sub [\zero.dnom \one.dnom \two.dnom \three.dnom \four.dnom \five.dnom \six.dnom 
+	\seven.dnom \eight.dnom \nine.dnom ] [\zero.numr \one.numr \two.numr \three.numr \four.numr \five.numr \six.numr 
+	\seven.numr \eight.numr \nine.numr ]'  by [\zero.dnom \one.dnom \two.dnom \three.dnom 
+	\four.dnom \five.dnom \six.dnom \seven.dnom \eight.dnom \nine.dnom ];
+} fracDiagonalFractionslookup8;
+
+feature frac {
+  script DFLT;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+  script cyrl;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+  script grek;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language AZE  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language CAT  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language CRT  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language KAZ  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language MOL  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language PLK  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language ROM  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language TAT  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language TRK  exclude_dflt;
+      lookup fracDiagonalFractionslookup8;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+  script zinh;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+  script zyyy;
+     language dflt ;
+      lookup fracDiagonalFractionslookup8;
+
+} frac;

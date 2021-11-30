@@ -1,0 +1,49 @@
+
+lookup caltContextualAlternateslookup105 {
+  lookupflag 0;
+    sub \less.spacer  \dollar' \greater   by \dollar.spacer;
+    sub \less.spacer \dollar.spacer  \greater'   by \less_dollar_greater.liga;
+    sub  \less' \dollar \greater   by \less.spacer;
+} caltContextualAlternateslookup105;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup105;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup105;
+
+} calt;

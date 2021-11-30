@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup128 {
+  lookupflag 0;
+    sub \slash by \slash_slash_slash.liga ;
+} SingleSubstitutionlookup128;

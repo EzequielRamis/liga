@@ -1,0 +1,112 @@
+
+lookup caltContextualAlternateslookup261 {
+  lookupflag 0;
+    ignore sub [\bar ] [\bar ]' [\bar ] [\equal ] ;
+    ignore sub [\bar ] [\bar ]' [\equal ] ;
+    ignore sub [\equal_middle.seq \equal_start.seq ] [\bar ]' [\bar ] [\bar ] ;
+    sub [\colon_equal_middle.seq \exclam_equal_middle.seq \slash_equal_middle.seq 
+	\slash_equal_start.seq \slash_slash_equal_middle.seq 
+	\slash_slash_equal_start.seq \bar_bar_equal_middle.seq 
+	\bar_bar_equal_start.seq \bar_equal_middle.seq 
+	\bar_equal_start.seq \equal_middle.seq \equal_start.seq 
+	\greater_equal_middle.seq \greater_equal_start.seq 
+	\greater_greater_equal_middle.seq 
+	\greater_greater_equal_start.seq \less_equal_middle.seq 
+	\less_equal_start.seq \less_less_equal_middle.seq 
+	\less_less_equal_start.seq ] [\equal ]' [\colon \exclam \slash \bar \equal \greater \less ]  by [\equal_middle.seq ];
+    sub [\colon_equal_middle.seq \exclam_equal_middle.seq \slash_equal_middle.seq 
+	\slash_equal_start.seq \slash_slash_equal_middle.seq 
+	\slash_slash_equal_start.seq \bar_bar_equal_middle.seq 
+	\bar_bar_equal_start.seq \bar_equal_middle.seq 
+	\bar_equal_start.seq \equal_middle.seq \equal_start.seq 
+	\greater_equal_middle.seq \greater_equal_start.seq 
+	\greater_greater_equal_middle.seq 
+	\greater_greater_equal_start.seq \less_equal_middle.seq 
+	\less_equal_start.seq \less_less_equal_middle.seq 
+	\less_less_equal_start.seq ] [\equal ]'  by [\equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less.spacer ] [\less ]' [\equal ]  by [\less_less_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less ]' [\less ] [\equal ]  by [\less.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater.spacer ] [\greater ]' [\equal ]  by [\greater_greater_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater ]' [\greater ] [\equal ]  by [\greater.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar.spacer ] [\bar ]' [\equal ]  by [\bar_bar_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar ]' [\bar ] [\equal ]  by [\bar.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash.spacer ] [\slash ]' [\equal ]  by [\slash_slash_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash ]' [\slash ] [\equal ]  by [\slash.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less ]' [\equal ]  by [\less_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater ]' [\equal ]  by [\greater_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar ]' [\equal ]  by [\bar_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash ]' [\equal ]  by [\slash_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\colon ]' [\equal ]  by [\colon_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\exclam ]' [\equal ]  by [\exclam_equal_middle.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less.spacer ] [\less ]'  by [\less_less_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less ]' [\less ]  by [\less.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater.spacer ] [\greater ]'  by [\greater_greater_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater ]' [\greater ]  by [\greater.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar.spacer ] [\bar ]'  by [\bar_bar_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar ]' [\bar ]  by [\bar.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash.spacer ] [\slash ]'  by [\slash_slash_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash ]' [\slash ]  by [\slash.spacer ];
+    sub [\equal_middle.seq \equal_start.seq ] [\less ]'  by [\less_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\greater ]'  by [\greater_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\bar ]'  by [\bar_equal_end.seq ];
+    sub [\equal_middle.seq \equal_start.seq ] [\slash ]'  by [\slash_equal_end.seq ];
+    sub [\less.spacer ] [\less ]' [\equal ]  by [\less_less_equal_start.seq ];
+    sub [\less ]' [\less ] [\equal ]  by [\less.spacer ];
+    sub [\greater.spacer ] [\greater ]' [\equal ]  by [\greater_greater_equal_start.seq ];
+    sub [\greater ]' [\greater ] [\equal ]  by [\greater.spacer ];
+    sub [\bar.spacer ] [\bar ]' [\equal ]  by [\bar_bar_equal_start.seq ];
+    sub [\bar ]' [\bar ] [\equal ]  by [\bar.spacer ];
+    sub [\slash.spacer ] [\slash ]' [\equal ]  by [\slash_slash_equal_start.seq ];
+    sub [\slash ]' [\slash ] [\equal ]  by [\slash.spacer ];
+    sub [\greater ]' [\equal ] [\less ] [\equal \less ]  by [\greater_equal_start.seq ];
+    ignore sub [\greater ]' [\equal ] [\less ] ;
+    sub [\equal ]' [\less ] [\equal \less ]  by [\equal_start.seq ];
+    sub [\equal ]' [\slash ] [\slash \equal ]  by [\equal_start.seq ];
+    sub [\less ]' [\equal ]  by [\less_equal_start.seq ];
+    sub [\greater ]' [\equal ]  by [\greater_equal_start.seq ];
+    sub [\bar ]' [\equal ] [\colon \exclam \slash \bar \equal \greater \less ]  by [\bar_equal_start.seq ];
+    sub [\slash ]' [\equal ]  by [\slash_equal_start.seq ];
+    sub [\equal ]' [\colon \exclam \bar \equal \greater ]  by [\equal_start.seq ];
+} caltContextualAlternateslookup261;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup261;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup261;
+
+} calt;

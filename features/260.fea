@@ -1,0 +1,48 @@
+
+lookup caltContextualAlternateslookup260 {
+  lookupflag 0;
+    sub \uni2E3B by \hyphen_start.seq \hyphen_middle.seq \hyphen_end.seq ;
+    sub \uni2E3A by \hyphen_start.seq \hyphen_end.seq ;
+} caltContextualAlternateslookup260;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup260;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup260;
+
+} calt;

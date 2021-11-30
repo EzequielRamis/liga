@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup305 {
+  lookupflag 0;
+    sub \colon by \colon.uc ;
+} SingleSubstitutionlookup305;

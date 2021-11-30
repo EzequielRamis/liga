@@ -1,0 +1,48 @@
+
+lookup cv28CharacterVariants28lookup395 {
+  lookupflag 0;
+    sub \braceleft  \period'   by \bullet;
+    sub  \period' \braceright   by \bullet;
+} cv28CharacterVariants28lookup395;
+
+feature cv28 {
+  script DFLT;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+  script cyrl;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+  script grek;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language AZE  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language CAT  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language CRT  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language KAZ  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language MOL  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language PLK  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language ROM  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language TAT  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language TRK  exclude_dflt;
+      lookup cv28CharacterVariants28lookup395;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+  script zinh;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+  script zyyy;
+     language dflt ;
+      lookup cv28CharacterVariants28lookup395;
+
+} cv28;

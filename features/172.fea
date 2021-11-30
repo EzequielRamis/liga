@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup172 {
+  lookupflag 0;
+    sub \dollar by \dollar.spacer ;
+    sub \greater by \dollar_greater.liga ;
+} SingleSubstitutionlookup172;

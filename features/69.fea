@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup69 {
+  lookupflag 0;
+    sub \less by \less_less.liga ;
+} SingleSubstitutionlookup69;

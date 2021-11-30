@@ -1,0 +1,6 @@
+
+lookup SingleSubstitutionlookup390 {
+  lookupflag 0;
+    sub \period by \period.spacer ;
+    sub \hyphen by \period_hyphen.cv25 ;
+} SingleSubstitutionlookup390;

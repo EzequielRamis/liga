@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup48 {
+  lookupflag 0;
+    sub \less.spacer  \bar'   by \less_bar.liga;
+    ignore sub \less  \less' \bar  ;
+    ignore sub  \less' \bar \bar  ;
+    sub  \less' \bar   by \less.spacer;
+} caltContextualAlternateslookup48;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup48;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup48;
+
+} calt;

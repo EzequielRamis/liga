@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup168 {
+  lookupflag 0;
+    sub \colon by \colon.spacer ;
+} SingleSubstitutionlookup168;

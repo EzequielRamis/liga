@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup94 {
+  lookupflag 0;
+    sub \equal by \equal.spacer ;
+} SingleSubstitutionlookup94;

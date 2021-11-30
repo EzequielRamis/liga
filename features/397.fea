@@ -1,0 +1,5 @@
+
+lookup SingleSubstitutionlookup397 {
+  lookupflag 0;
+    sub \period by \bullet ;
+} SingleSubstitutionlookup397;

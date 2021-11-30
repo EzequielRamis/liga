@@ -1,0 +1,50 @@
+
+lookup caltContextualAlternateslookup135 {
+  lookupflag 0;
+    ignore sub \ampersand  \ampersand' \ampersand  ;
+    ignore sub  \ampersand' \ampersand \ampersand  ;
+    sub \ampersand.spacer  \ampersand'   by \ampersand_ampersand.liga;
+    sub  \ampersand' \ampersand   by \ampersand.spacer;
+} caltContextualAlternateslookup135;
+
+feature calt {
+  script DFLT;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+  script cyrl;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+  script grek;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+  script latn;
+     language AFK  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language AZE  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language CAT  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language CRT  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language KAZ  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language MOL  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language PLK  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language ROM  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language TAT  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language TRK  exclude_dflt;
+      lookup caltContextualAlternateslookup135;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+  script zinh;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+  script zyyy;
+     language dflt ;
+      lookup caltContextualAlternateslookup135;
+
+} calt;
