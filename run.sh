@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 fontforge -lang py -script ligaturize.py input/SF-Mono-Regular.otf \
-                    --ligature-font-file fira/FiraCode-Regular.ttf
+                    --ligature-font-file fira/FiraCode-Regular.ttf \
+                    --output-dir output

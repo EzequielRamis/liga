@@ -5,8 +5,10 @@ import fontforge
 
 def update_features():
     font = fontforge.open("fira/FiraCode-Regular.ttf")
-    for i, lookup in enumerate(font.gsub_lookups):
-        font.generateFeatureFile(f"features/{i}.fea", lookup)
+    lookups = font.gsub_lookups
+    pad = len(str(len(lookups)))
+    for i, lookup in enumerate(lookups):
+        font.generateFeatureFile(f"features/{str(i).zfill(pad)}.fea", lookup)
 
 
 def main():
