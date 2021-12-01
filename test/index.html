@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Font Tester</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        @font-face {
+            font-family: 'Test';
+            src: url('../input/SF-Mono-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+        main {
+            padding: 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 1rem;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: -moz-available;
+            flex: 1;
+            font-size: 32px;
+            font-family: Test, serif;
+        }
+        .inputs {
+            display: flex;
+            grid-gap: 1rem;
+        }
+        #size {
+            flex: 1;
+        }
+    </style>
+    <script src="showcases.js"></script>
+</head>
+<body>
+    <main>
+        </object>
+        <div class="inputs">
+            <input type="range" id="size" step="2" min="10" max="128" value="32"
+                oninput="changeSize(this.value)"
+            >
+            <input type="button" value="clear" id="clear"
+                onclick="clearArea()"
+            >
+            <input type="button" value="showcases" id="showcases"
+                onclick="showcases()"
+            >
+        </div>
+        <textarea id="area" ></textarea>
+    </main>
+</body>
+<script>
+    const area = document.querySelector("#area");
+
+    let changeSize = (s) => area.style.fontSize = `${s}px`;
+    let clearArea = () => area.value = "";
+    let showcases = () => area.value = show;
+</script>
+</html>

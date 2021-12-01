@@ -2,14 +2,14 @@
 
 version=6
 
-repDir=$(realpath "$(dirname "$(BASH_SOURCE)")")
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 tmpDir=$(mktemp -d)
 
 wget "https://github.com/tonsky/FiraCode/releases/download/$version/Fira_Code_v$version.zip" \
     -O "$tmpDir/fira.zip"
 7z x -o"$tmpDir" "$tmpDir/fira.zip"
 
-rm -rf "$repDir/fira"
-mv "$tmpDir/ttf" "$repDir/fira"
+rm -rf "$SCRIPT_DIR/fira"
+mv "$tmpDir/ttf" "$SCRIPT_DIR/fira"
 
 rm -rf "$tmpDir"
