@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup57 {
-  lookupflag 0;
-    sub \greater by \greater.spacer ;
-} SingleSubstitutionlookup57;

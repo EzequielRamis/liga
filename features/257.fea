@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup257 {
-  lookupflag 0;
-    sub \x by \x.multiply.tosf ;
-} SingleSubstitutionlookup257;

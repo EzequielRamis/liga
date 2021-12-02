@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup120 {
-  lookupflag 0;
-    sub \period by \period_period_period.liga ;
-} SingleSubstitutionlookup120;

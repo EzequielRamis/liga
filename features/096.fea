@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup96 {
-  lookupflag 0;
-    sub \period by \exclam_exclam_period.liga ;
-    sub \exclam by \exclam.spacer ;
-} SingleSubstitutionlookup96;

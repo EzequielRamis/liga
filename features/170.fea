@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup170 {
-  lookupflag 0;
-    sub \colon by \colon.spacer ;
-    sub \equal by \colon_equal.liga ;
-} SingleSubstitutionlookup170;

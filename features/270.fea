@@ -1,8 +1,0 @@
-
-lookup SingleSubstitutionlookup270 {
-  lookupflag 0;
-    sub \slash by \slash_equal_start.seq ;
-    sub \bar by \bar_equal_start.seq ;
-    sub \greater by \greater_equal_start.seq ;
-    sub \less by \less_equal_start.seq ;
-} SingleSubstitutionlookup270;

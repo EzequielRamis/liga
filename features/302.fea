@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup302 {
-  lookupflag 0;
-    sub \asteriskmath by \asteriskmath.lc ;
-} SingleSubstitutionlookup302;

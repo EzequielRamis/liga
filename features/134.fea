@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup134 {
-  lookupflag 0;
-    sub \w by \w.spacer ;
-} SingleSubstitutionlookup134;

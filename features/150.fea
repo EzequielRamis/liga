@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup150 {
-  lookupflag 0;
-    sub \asterisk by \asterisk_asterisk.liga ;
-} SingleSubstitutionlookup150;

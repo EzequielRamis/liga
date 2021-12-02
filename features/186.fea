@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup186 {
-  lookupflag 0;
-    sub \hyphen by \hyphen_hyphen.liga ;
-} SingleSubstitutionlookup186;

@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup60 {
-  lookupflag 0;
-    sub \less by \less.spacer ;
-} SingleSubstitutionlookup60;

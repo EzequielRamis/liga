@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup132 {
-  lookupflag 0;
-    sub \w by \w_w_w.liga ;
-} SingleSubstitutionlookup132;

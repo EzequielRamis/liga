@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup63 {
-  lookupflag 0;
-    sub \bar by \bar_bar.liga ;
-} SingleSubstitutionlookup63;

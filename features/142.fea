@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup142 {
-  lookupflag 0;
-    sub \asciitilde by \asciitilde.spacer ;
-} SingleSubstitutionlookup142;

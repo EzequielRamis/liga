@@ -1,5 +1,0 @@
-
-lookup LigatureSubstitutionlookup26 {
-  lookupflag 0;
-    sub \L \periodcentered  by \Ldot;
-} LigatureSubstitutionlookup26;

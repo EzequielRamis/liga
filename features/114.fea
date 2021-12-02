@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup114 {
-  lookupflag 0;
-    sub \period by \period.spacer ;
-    sub \equal by \period_period_equal.liga ;
-} SingleSubstitutionlookup114;

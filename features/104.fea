@@ -1,7 +1,0 @@
-
-lookup SingleSubstitutionlookup104 {
-  lookupflag 0;
-    sub \asterisk by \asterisk.spacer ;
-    sub \greater by \less_asterisk_greater.liga ;
-    sub \less by \less.spacer ;
-} SingleSubstitutionlookup104;

@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup89 {
-  lookupflag 0;
-    sub \equal by \equal_equal_equal.liga ;
-} SingleSubstitutionlookup89;

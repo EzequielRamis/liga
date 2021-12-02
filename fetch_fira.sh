@@ -13,3 +13,7 @@ rm -rf "$SCRIPT_DIR/fira"
 mv "$tmpDir/ttf" "$SCRIPT_DIR/fira"
 
 rm -rf "$tmpDir"
+
+wget "https://raw.githubusercontent.com/tonsky/FiraCode/$version/FiraCode.glyphs" \
+    -O "$SCRIPT_DIR/fira.glyphs"
+

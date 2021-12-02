@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup392 {
-  lookupflag 0;
-    sub \colon by \colon.spacer ;
-    sub \hyphen by \colon_hyphen.cv26 ;
-} SingleSubstitutionlookup392;

@@ -1,7 +1,0 @@
-
-lookup SingleSubstitutionlookup273 {
-  lookupflag 0;
-    sub \i by \i.salt_low ;
-    sub \j by \j.salt_low ;
-    sub \l by \l.salt_low ;
-} SingleSubstitutionlookup273;

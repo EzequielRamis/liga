@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup193 {
-  lookupflag 0;
-    sub \dollar by \less_dollar.liga ;
-    sub \less by \less.spacer ;
-} SingleSubstitutionlookup193;

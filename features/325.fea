@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup325 {
-  lookupflag 0;
-    sub \asciitilde_at.liga by \at.ss05 ;
-    sub \asciitilde.spacer by \asciitilde ;
-} SingleSubstitutionlookup325;

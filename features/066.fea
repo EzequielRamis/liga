@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup66 {
-  lookupflag 0;
-    sub \greater by \greater_greater.liga ;
-} SingleSubstitutionlookup66;

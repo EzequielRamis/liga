@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup275 {
-  lookupflag 0;
-    sub \Iota by \Iotadieresis ;
-    sub \Upsilon by \Upsilondieresis ;
-} SingleSubstitutionlookup275;

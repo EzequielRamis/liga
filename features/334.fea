@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup334 {
-  lookupflag 0;
-    sub \greater_greater.liga by \greater_greater_equal_start.seq ;
-    sub \equal by \equal_end.seq ;
-} SingleSubstitutionlookup334;

@@ -1,8 +1,0 @@
-
-lookup SingleSubstitutionlookup284 {
-  lookupflag 0;
-    sub \hyphen by \hyphen_start.seq ;
-    sub \bar by \bar_hyphen_middle.seq ;
-    sub \greater by \greater_hyphen_middle.seq ;
-    sub \less by \less_hyphen_middle.seq ;
-} SingleSubstitutionlookup284;

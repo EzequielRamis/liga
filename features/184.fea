@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup184 {
-  lookupflag 0;
-    sub \hyphen by \hyphen.spacer ;
-    sub \asciitilde by \hyphen_asciitilde.liga ;
-} SingleSubstitutionlookup184;

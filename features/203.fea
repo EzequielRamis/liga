@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup203 {
-  lookupflag 0;
-    sub \numbersign by \numbersign.spacer ;
-    sub \braceleft by \numbersign_braceleft.liga ;
-} SingleSubstitutionlookup203;

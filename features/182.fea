@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup182 {
-  lookupflag 0;
-    sub \equal by \greater_equal.liga ;
-    sub \greater by \greater.spacer ;
-} SingleSubstitutionlookup182;

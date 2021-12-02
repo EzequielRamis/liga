@@ -1,7 +1,0 @@
-
-lookup SingleSubstitutionlookup250 {
-  lookupflag 0;
-    sub \colon by \colon.center ;
-    sub \greater by \greater.center ;
-    sub \less by \less.center ;
-} SingleSubstitutionlookup250;

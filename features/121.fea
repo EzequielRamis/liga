@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup121 {
-  lookupflag 0;
-    sub \period by \period.spacer ;
-} SingleSubstitutionlookup121;

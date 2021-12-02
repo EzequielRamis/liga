@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup271 {
-  lookupflag 0;
-    sub \greater by \greater_equal_start.seq ;
-} SingleSubstitutionlookup271;

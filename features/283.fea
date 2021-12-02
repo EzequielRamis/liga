@@ -1,8 +1,0 @@
-
-lookup SingleSubstitutionlookup283 {
-  lookupflag 0;
-    sub \hyphen by \hyphen_end.seq ;
-    sub \bar by \bar.spacer ;
-    sub \greater by \greater.spacer ;
-    sub \less by \less.spacer ;
-} SingleSubstitutionlookup283;

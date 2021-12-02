@@ -1,7 +1,0 @@
-
-lookup SingleSubstitutionlookup286 {
-  lookupflag 0;
-    sub \bar by \bar.spacer ;
-    sub \greater by \greater.spacer ;
-    sub \less by \less.spacer ;
-} SingleSubstitutionlookup286;

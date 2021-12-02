@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup402 {
-  lookupflag 0;
-    sub \period by \period.spacer ;
-    sub \equal by \period_equal.cv32 ;
-} SingleSubstitutionlookup402;

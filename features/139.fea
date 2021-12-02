@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup139 {
-  lookupflag 0;
-    sub \equal by \asciicircum_equal.liga ;
-    sub \asciicircum by \asciicircum.spacer ;
-} SingleSubstitutionlookup139;

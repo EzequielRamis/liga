@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup232 {
-  lookupflag 0;
-    sub \question by \question.spacer ;
-    sub \equal by \question_equal.liga ;
-} SingleSubstitutionlookup232;

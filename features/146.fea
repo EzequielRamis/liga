@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup146 {
-  lookupflag 0;
-    sub \greater by \asciitilde_greater.liga ;
-    sub \asciitilde by \asciitilde.spacer ;
-} SingleSubstitutionlookup146;

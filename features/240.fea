@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup240 {
-  lookupflag 0;
-    sub \semicolon by \semicolon.spacer ;
-} SingleSubstitutionlookup240;

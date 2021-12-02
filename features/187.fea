@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup187 {
-  lookupflag 0;
-    sub \hyphen by \hyphen.spacer ;
-} SingleSubstitutionlookup187;

@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup237 {
-  lookupflag 0;
-    sub \question by \question.spacer ;
-} SingleSubstitutionlookup237;

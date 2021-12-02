@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup381 {
-  lookupflag 0;
-    sub \less_equal.liga by \equal_end.seq ;
-    sub \less.spacer by \less_equal_start.seq ;
-} SingleSubstitutionlookup381;

@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup159 {
-  lookupflag 0;
-    sub \bracketright by \bar_bracketright.liga ;
-    sub \bar by \bar.spacer ;
-} SingleSubstitutionlookup159;

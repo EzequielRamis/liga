@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup340 {
-  lookupflag 0;
-    sub \bar by \bar_equal_start.seq ;
-    sub \equal by \equal_end.seq ;
-} SingleSubstitutionlookup340;

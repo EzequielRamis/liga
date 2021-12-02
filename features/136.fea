@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup136 {
-  lookupflag 0;
-    sub \ampersand by \ampersand_ampersand.liga ;
-} SingleSubstitutionlookup136;

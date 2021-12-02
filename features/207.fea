@@ -1,6 +1,0 @@
-
-lookup SingleSubstitutionlookup207 {
-  lookupflag 0;
-    sub \colon by \numbersign_colon.liga ;
-    sub \numbersign by \numbersign.spacer ;
-} SingleSubstitutionlookup207;

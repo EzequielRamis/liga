@@ -1,5 +1,0 @@
-
-lookup SingleSubstitutionlookup180 {
-  lookupflag 0;
-    sub \exclam by \exclam.spacer ;
-} SingleSubstitutionlookup180;
