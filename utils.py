@@ -20,10 +20,10 @@ def add_backslash_to_glyphs(code):
             line_res = []
             for token in splitted_line:
                 if token != "":
-                    if token not in ["sub", "ignore", "by", ";"] and token[0] not in [
-                        "@",
-                        "\\",
-                    ]:
+                    if token not in ["sub", "ignore", "by", ";"] and (
+                        (token[0] == "[" and token[1] not in ["@", "\\"])
+                        or (token[0] not in ["[", "@", "\\"])
+                    ):
                         if token[0] != "[":
                             line_res.append("\\" + token)
                         else:
