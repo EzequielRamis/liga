@@ -56,979 +56,979 @@ feature aalt {
 } aalt;
 
 feature subs {
-	sub zero by zeroinferior;
-	sub one by oneinferior;
-	sub two by twoinferior;
-	sub three by threeinferior;
-	sub four by fourinferior;
-	sub five by fiveinferior;
-	sub six by sixinferior;
-	sub seven by seveninferior;
-	sub eight by eightinferior;
-	sub nine by nineinferior;
-	sub parenleft by parenleftinferior;
-	sub parenright by parenrightinferior;
-	sub minus by minusinferior;
-	sub plus by plusinferior;
+	sub \zero by \zeroinferior;
+	sub \one by \oneinferior;
+	sub \two by \twoinferior;
+	sub \three by \threeinferior;
+	sub \four by \fourinferior;
+	sub \five by \fiveinferior;
+	sub \six by \sixinferior;
+	sub \seven by \seveninferior;
+	sub \eight by \eightinferior;
+	sub \nine by \nineinferior;
+	sub \parenleft by \parenleftinferior;
+	sub \parenright by \parenrightinferior;
+	sub \minus by \minusinferior;
+	sub \plus by \plusinferior;
 } subs;
 
 feature sups {
-	sub zero by zerosuperior;
-	sub one by onesuperior;
-	sub two by twosuperior;
-	sub three by threesuperior;
-	sub four by foursuperior;
-	sub five by fivesuperior;
-	sub six by sixsuperior;
-	sub seven by sevensuperior;
-	sub eight by eightsuperior;
-	sub nine by ninesuperior;
-	sub parenleft by parenleftsuperior;
-	sub parenright by parenrightsuperior;
-	sub equal by equalsuperior;
-	sub minus by minussuperior;
-	sub plus by plussuperior;
+	sub \zero by \zerosuperior;
+	sub \one by \onesuperior;
+	sub \two by \twosuperior;
+	sub \three by \threesuperior;
+	sub \four by \foursuperior;
+	sub \five by \fivesuperior;
+	sub \six by \sixsuperior;
+	sub \seven by \sevensuperior;
+	sub \eight by \eightsuperior;
+	sub \nine by \ninesuperior;
+	sub \parenleft by \parenleftsuperior;
+	sub \parenright by \parenrightsuperior;
+	sub \equal by \equalsuperior;
+	sub \minus by \minussuperior;
+	sub \plus by \plussuperior;
 } sups;
 
 feature numr {
-	sub three.cv14 by three.cv14.numr;
-	sub zero by zero.numr;
-	sub one by one.numr;
-	sub two by two.numr;
-	sub three by three.numr;
-	sub four by four.numr;
-	sub five by five.numr;
-	sub six by six.numr;
-	sub seven by seven.numr;
-	sub eight by eight.numr;
-	sub nine by nine.numr;
-	sub parenleft by parenleft.numr;
-	sub parenright by parenright.numr;
-	sub plus by plus.numr;
-	sub minus by minus.numr;
-	sub equal by equal.numr;
+	sub \three.cv14 by \three.cv14.numr;
+	sub \zero by \zero.numr;
+	sub \one by \one.numr;
+	sub \two by \two.numr;
+	sub \three by \three.numr;
+	sub \four by \four.numr;
+	sub \five by \five.numr;
+	sub \six by \six.numr;
+	sub \seven by \seven.numr;
+	sub \eight by \eight.numr;
+	sub \nine by \nine.numr;
+	sub \parenleft by \parenleft.numr;
+	sub \parenright by \parenright.numr;
+	sub \plus by \plus.numr;
+	sub \minus by \minus.numr;
+	sub \equal by \equal.numr;
 } numr;
 
 feature dnom {
-	sub three.cv14 by three.cv14.dnom;
-	sub zero by zero.dnom;
-	sub one by one.dnom;
-	sub two by two.dnom;
-	sub three by three.dnom;
-	sub four by four.dnom;
-	sub five by five.dnom;
-	sub six by six.dnom;
-	sub seven by seven.dnom;
-	sub eight by eight.dnom;
-	sub nine by nine.dnom;
-	sub parenleft by parenleft.dnom;
-	sub parenright by parenright.dnom;
-	sub plus by plus.dnom;
-	sub minus by minus.dnom;
-	sub equal by equal.dnom;
+	sub \three.cv14 by \three.cv14.dnom;
+	sub \zero by \zero.dnom;
+	sub \one by \one.dnom;
+	sub \two by \two.dnom;
+	sub \three by \three.dnom;
+	sub \four by \four.dnom;
+	sub \five by \five.dnom;
+	sub \six by \six.dnom;
+	sub \seven by \seven.dnom;
+	sub \eight by \eight.dnom;
+	sub \nine by \nine.dnom;
+	sub \parenleft by \parenleft.dnom;
+	sub \parenright by \parenright.dnom;
+	sub \plus by \plus.dnom;
+	sub \minus by \minus.dnom;
+	sub \equal by \equal.dnom;
 } dnom;
 
 feature frac {
 	lookup FRAC {
-		sub slash by fraction;
+	    sub \slash by \fraction;
 	} FRAC;
 	lookup UP {
-		sub [zero one two three four five six seven eight nine] by [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr];
+	    sub [\zero \one \two \three \four \five \six \seven \eight \nine] by [\zero.numr \one.numr \two.numr \three.numr \four.numr \five.numr \six.numr \seven.numr \eight.numr \nine.numr];
 	} UP;
 	lookup DOWN {
-		sub fraction [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr]' by [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom];
-		sub [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom] [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr]' by [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom];
+	    sub \fraction [\zero.numr \one.numr \two.numr \three.numr \four.numr \five.numr \six.numr \seven.numr \eight.numr \nine.numr]' by [\zero.dnom \one.dnom \two.dnom \three.dnom \four.dnom \five.dnom \six.dnom \seven.dnom \eight.dnom \nine.dnom];
+	    sub [\zero.dnom \one.dnom \two.dnom \three.dnom \four.dnom \five.dnom \six.dnom \seven.dnom \eight.dnom \nine.dnom] [\zero.numr \one.numr \two.numr \three.numr \four.numr \five.numr \six.numr \seven.numr \eight.numr \nine.numr]' by [\zero.dnom \one.dnom \two.dnom \three.dnom \four.dnom \five.dnom \six.dnom \seven.dnom \eight.dnom \nine.dnom];
 	} DOWN;
 } frac;
 
 feature ordn {
-	sub [zero one two three four five six seven eight nine] [A a]' by ordfeminine;
-	sub [zero one two three four five six seven eight nine] [O o]' by ordmasculine;
-	sub N o period by numero;
+	sub [\zero \one \two \three \four \five \six \seven \eight \nine] [\A \a]' by \ordfeminine;
+	sub [\zero \one \two \three \four \five \six \seven \eight \nine] [\O \o]' by \ordmasculine;
+	sub \N \o \period by \numero;
 } ordn;
 
 feature tnum {
-	sub figurespace by figurespace.tf;
+	sub \figurespace by \figurespace.tf;
 } tnum;
 
 feature onum {
-	sub zero by zero.tosf;
-	sub zero.zero by zero.zero.tosf;
-	sub one by one.tosf;
-	sub two by two.tosf;
-	sub three by three.tosf;
-	sub four by four.tosf;
-	sub five by five.tosf;
-	sub six by six.tosf;
-	sub seven by seven.tosf;
-	sub eight by eight.tosf;
-	sub nine by nine.tosf;
-	sub x.multiply by x.multiply.tosf;
+	sub \zero by \zero.tosf;
+	sub \zero.zero by \zero.zero.tosf;
+	sub \one by \one.tosf;
+	sub \two by \two.tosf;
+	sub \three by \three.tosf;
+	sub \four by \four.tosf;
+	sub \five by \five.tosf;
+	sub \six by \six.tosf;
+	sub \seven by \seven.tosf;
+	sub \eight by \eight.tosf;
+	sub \nine by \nine.tosf;
+	sub \x.multiply by \x.multiply.tosf;
 } onum;
 
 feature case {
-	sub exclamdown by exclamdown.case;
-	sub questiondown by questiondown.case;
-	sub parenleft by parenleft.case;
-	sub parenright by parenright.case;
-	sub braceleft by braceleft.case;
-	sub braceright by braceright.case;
-	sub bracketleft by bracketleft.case;
-	sub bracketright by bracketright.case;
-	sub hyphen by hyphen.case;
-	sub softhyphen by softhyphen.case;
-	sub endash by endash.case;
-	sub emdash by emdash.case;
-	sub guillemetleft by guillemetleft.case;
-	sub guillemetright by guillemetright.case;
-	sub guilsinglleft by guilsinglleft.case;
-	sub guilsinglright by guilsinglright.case;
-	sub infinity by infinity.case;
-	sub commaaccent by commaaccent.case;
-	sub dieresis by dieresis.case;
-	sub dotaccent by dotaccent.case;
-	sub grave by grave.case;
-	sub acute by acute.case;
-	sub hungarumlaut by hungarumlaut.case;
-	sub circumflex by circumflex.case;
-	sub caron by caron.case;
-	sub breve by breve.case;
-	sub ring by ring.case;
-	sub tilde by tilde.case;
-	sub macron by macron.case;
-	sub cedilla by cedilla.case;
-	sub tonos by tonos.case;
-	sub varia by varia.case;
-	sub oxia by oxia.case;
-	sub breve-cy by breve-cy.case;
+	sub \exclamdown by \exclamdown.case;
+	sub \questiondown by \questiondown.case;
+	sub \parenleft by \parenleft.case;
+	sub \parenright by \parenright.case;
+	sub \braceleft by \braceleft.case;
+	sub \braceright by \braceright.case;
+	sub \bracketleft by \bracketleft.case;
+	sub \bracketright by \bracketright.case;
+	sub \hyphen by \hyphen.case;
+	sub \softhyphen by \softhyphen.case;
+	sub \endash by \endash.case;
+	sub \emdash by \emdash.case;
+	sub \guillemetleft by \guillemetleft.case;
+	sub \guillemetright by \guillemetright.case;
+	sub \guilsinglleft by \guilsinglleft.case;
+	sub \guilsinglright by \guilsinglright.case;
+	sub \infinity by \infinity.case;
+	sub \commaaccent by \commaaccent.case;
+	sub \dieresis by \dieresis.case;
+	sub \dotaccent by \dotaccent.case;
+	sub \grave by \grave.case;
+	sub \acute by \acute.case;
+	sub \hungarumlaut by \hungarumlaut.case;
+	sub \circumflex by \circumflex.case;
+	sub \caron by \caron.case;
+	sub \breve by \breve.case;
+	sub \ring by \ring.case;
+	sub \tilde by \tilde.case;
+	sub \macron by \macron.case;
+	sub \cedilla by \cedilla.case;
+	sub \tonos by \tonos.case;
+	sub \varia by \varia.case;
+	sub \oxia by \oxia.case;
+	sub \breve-cy by \breve-cy.case;
 } case;
 
 feature liga {
 	lookupflag IgnoreMarks;
-	sub bar bar bar greater by bar_bar_bar_greater.liga;
-	sub less bar bar bar by less_bar_bar_bar.liga;
-	sub less exclam hyphen hyphen by less_exclam_hyphen_hyphen.liga;
-	sub asciitilde asciitilde greater by asciitilde_asciitilde_greater.liga;
-	sub asterisk asterisk asterisk by asterisk_asterisk_asterisk.liga;
-	sub bar bar bar by bar_bar_bar.liga;
-	sub bar bar greater by bar_bar_greater.liga;
-	sub colon colon colon by colon_colon_colon.liga;
-	sub colon colon equal by colon_colon_equal.liga;
-	sub equal equal equal by equal_equal_equal.liga;
-	sub exclam equal equal by exclam_equal_equal.liga;
-	sub exclam exclam period by exclam_exclam_period.liga;
-	sub greater greater greater by greater_greater_greater.liga;
-	sub less asciitilde asciitilde by less_asciitilde_asciitilde.liga;
-	sub less asciitilde greater by less_asciitilde_greater.liga;
-	sub less asterisk greater by less_asterisk_greater.liga;
-	sub less bar bar by less_bar_bar.liga;
-	sub less bar greater by less_bar_greater.liga;
-	sub less dollar greater by less_dollar_greater.liga;
-	sub less less less by less_less_less.liga;
-	sub less plus greater by less_plus_greater.liga;
-	sub less slash greater by less_slash_greater.liga;
-	sub numbersign underscore parenleft by numbersign_underscore_parenleft.liga;
-	sub period period equal by period_period_equal.liga;
-	sub period period less by period_period_less.liga;
-	sub period period period by period_period_period.liga;
-	sub plus plus plus by plus_plus_plus.liga;
-	sub slash slash slash by slash_slash_slash.liga;
-	sub w w w by w_w_w.liga;
-	sub ampersand ampersand by ampersand_ampersand.liga;
-	sub asciicircum equal by asciicircum_equal.liga;
-	sub asciitilde asciitilde by asciitilde_asciitilde.liga;
-	sub asciitilde at by asciitilde_at.liga;
-	sub asciitilde greater by asciitilde_greater.liga;
-	sub asciitilde hyphen by asciitilde_hyphen.liga;
-	sub asterisk asterisk by asterisk_asterisk.liga;
-	sub asterisk greater by asterisk_greater.liga;
-	sub asterisk slash by asterisk_slash.liga;
-	sub backslash slash by backslash_slash.liga;
-	sub bar bar by bar_bar.liga;
-	sub bar braceright by bar_braceright.liga;
-	sub bar bracketright by bar_bracketright.liga;
-	sub bar greater by bar_greater.liga;
-	sub braceleft bar by braceleft_bar.liga;
-	sub bracketleft bar by bracketleft_bar.liga;
-	sub bracketright numbersign by bracketright_numbersign.liga;
-	sub colon colon by colon_colon.liga;
-	sub colon equal by colon_equal.liga;
-	sub dollar greater by dollar_greater.liga;
-	sub equal equal by equal_equal.liga;
-	sub exclam equal by exclam_equal.liga;
-	sub exclam exclam by exclam_exclam.liga;
-	sub greater equal by greater_equal.liga;
-	sub greater greater by greater_greater.liga;
-	sub hyphen asciitilde by hyphen_asciitilde.liga;
-	sub hyphen hyphen by hyphen_hyphen.liga;
-	sub less asciitilde by less_asciitilde.liga;
-	sub less asterisk by less_asterisk.liga;
-	sub less bar by less_bar.liga;
-	sub less dollar by less_dollar.liga;
-	sub less equal by less_equal.liga;
-	sub less greater by less_greater.liga;
-	sub less less by less_less.liga;
-	sub less plus by less_plus.liga;
-	sub less slash by less_slash.liga;
-	sub numbersign braceleft by numbersign_braceleft.liga;
-	sub numbersign bracketleft by numbersign_bracketleft.liga;
-	sub numbersign colon by numbersign_colon.liga;
-	sub numbersign equal by numbersign_equal.liga;
-	sub numbersign exclam by numbersign_exclam.liga;
-	sub numbersign parenleft by numbersign_parenleft.liga;
-	sub numbersign question by numbersign_question.liga;
-	sub numbersign underscore by numbersign_underscore.liga;
-	sub percent percent by percent_percent.liga;
-	sub period period by period_period.liga;
-	sub period question by period_question.liga;
-	sub plus greater by plus_greater.liga;
-	sub plus plus by plus_plus.liga;
-	sub question equal by question_equal.liga;
-	sub question period by question_period.liga;
-	sub question question by question_question.liga;
-	sub semicolon semicolon by semicolon_semicolon.liga;
-	sub slash asterisk by slash_asterisk.liga;
-	sub slash backslash by slash_backslash.liga;
-	sub slash greater by slash_greater.liga;
-	sub slash slash by slash_slash.liga;
+	sub \bar \bar \bar \greater by \bar_bar_bar_greater.liga;
+	sub \less \bar \bar \bar by \less_bar_bar_bar.liga;
+	sub \less \exclam \hyphen \hyphen by \less_exclam_hyphen_hyphen.liga;
+	sub \asciitilde \asciitilde \greater by \asciitilde_asciitilde_greater.liga;
+	sub \asterisk \asterisk \asterisk by \asterisk_asterisk_asterisk.liga;
+	sub \bar \bar \bar by \bar_bar_bar.liga;
+	sub \bar \bar \greater by \bar_bar_greater.liga;
+	sub \colon \colon \colon by \colon_colon_colon.liga;
+	sub \colon \colon \equal by \colon_colon_equal.liga;
+	sub \equal \equal \equal by \equal_equal_equal.liga;
+	sub \exclam \equal \equal by \exclam_equal_equal.liga;
+	sub \exclam \exclam \period by \exclam_exclam_period.liga;
+	sub \greater \greater \greater by \greater_greater_greater.liga;
+	sub \less \asciitilde \asciitilde by \less_asciitilde_asciitilde.liga;
+	sub \less \asciitilde \greater by \less_asciitilde_greater.liga;
+	sub \less \asterisk \greater by \less_asterisk_greater.liga;
+	sub \less \bar \bar by \less_bar_bar.liga;
+	sub \less \bar \greater by \less_bar_greater.liga;
+	sub \less \dollar \greater by \less_dollar_greater.liga;
+	sub \less \less \less by \less_less_less.liga;
+	sub \less \plus \greater by \less_plus_greater.liga;
+	sub \less \slash \greater by \less_slash_greater.liga;
+	sub \numbersign \underscore \parenleft by \numbersign_underscore_parenleft.liga;
+	sub \period \period \equal by \period_period_equal.liga;
+	sub \period \period \less by \period_period_less.liga;
+	sub \period \period \period by \period_period_period.liga;
+	sub \plus \plus \plus by \plus_plus_plus.liga;
+	sub \slash \slash \slash by \slash_slash_slash.liga;
+	sub \w \w \w by \w_w_w.liga;
+	sub \ampersand \ampersand by \ampersand_ampersand.liga;
+	sub \asciicircum \equal by \asciicircum_equal.liga;
+	sub \asciitilde \asciitilde by \asciitilde_asciitilde.liga;
+	sub \asciitilde \at by \asciitilde_at.liga;
+	sub \asciitilde \greater by \asciitilde_greater.liga;
+	sub \asciitilde \hyphen by \asciitilde_hyphen.liga;
+	sub \asterisk \asterisk by \asterisk_asterisk.liga;
+	sub \asterisk \greater by \asterisk_greater.liga;
+	sub \asterisk \slash by \asterisk_slash.liga;
+	sub \backslash \slash by \backslash_slash.liga;
+	sub \bar \bar by \bar_bar.liga;
+	sub \bar \braceright by \bar_braceright.liga;
+	sub \bar \bracketright by \bar_bracketright.liga;
+	sub \bar \greater by \bar_greater.liga;
+	sub \braceleft \bar by \braceleft_bar.liga;
+	sub \bracketleft \bar by \bracketleft_bar.liga;
+	sub \bracketright \numbersign by \bracketright_numbersign.liga;
+	sub \colon \colon by \colon_colon.liga;
+	sub \colon \equal by \colon_equal.liga;
+	sub \dollar \greater by \dollar_greater.liga;
+	sub \equal \equal by \equal_equal.liga;
+	sub \exclam \equal by \exclam_equal.liga;
+	sub \exclam \exclam by \exclam_exclam.liga;
+	sub \greater \equal by \greater_equal.liga;
+	sub \greater \greater by \greater_greater.liga;
+	sub \hyphen \asciitilde by \hyphen_asciitilde.liga;
+	sub \hyphen \hyphen by \hyphen_hyphen.liga;
+	sub \less \asciitilde by \less_asciitilde.liga;
+	sub \less \asterisk by \less_asterisk.liga;
+	sub \less \bar by \less_bar.liga;
+	sub \less \dollar by \less_dollar.liga;
+	sub \less \equal by \less_equal.liga;
+	sub \less \greater by \less_greater.liga;
+	sub \less \less by \less_less.liga;
+	sub \less \plus by \less_plus.liga;
+	sub \less \slash by \less_slash.liga;
+	sub \numbersign \braceleft by \numbersign_braceleft.liga;
+	sub \numbersign \bracketleft by \numbersign_bracketleft.liga;
+	sub \numbersign \colon by \numbersign_colon.liga;
+	sub \numbersign \equal by \numbersign_equal.liga;
+	sub \numbersign \exclam by \numbersign_exclam.liga;
+	sub \numbersign \parenleft by \numbersign_parenleft.liga;
+	sub \numbersign \question by \numbersign_question.liga;
+	sub \numbersign \underscore by \numbersign_underscore.liga;
+	sub \percent \percent by \percent_percent.liga;
+	sub \period \period by \period_period.liga;
+	sub \period \question by \period_question.liga;
+	sub \plus \greater by \plus_greater.liga;
+	sub \plus \plus by \plus_plus.liga;
+	sub \question \equal by \question_equal.liga;
+	sub \question \period by \question_period.liga;
+	sub \question \question by \question_question.liga;
+	sub \semicolon \semicolon by \semicolon_semicolon.liga;
+	sub \slash \asterisk by \slash_asterisk.liga;
+	sub \slash \backslash by \slash_backslash.liga;
+	sub \slash \greater by \slash_greater.liga;
+	sub \slash \slash by \slash_slash.liga;
 } liga;
 
 feature locl {
 	script latn;
 	language TAT;
-	sub i by idotaccent;
+	sub \i by \idotaccent;
 	language TRK;
-	sub i by idotaccent;
+	sub \i by \idotaccent;
 	language MOL;
-	sub Scedilla by Scommaaccent;
-	sub scedilla by scommaaccent;
-	sub Tcedilla by Tcommaaccent;
-	sub tcedilla by tcommaaccent;
+	sub \Scedilla by \Scommaaccent;
+	sub \scedilla by \scommaaccent;
+	sub \Tcedilla by \Tcommaaccent;
+	sub \tcedilla by \tcommaaccent;
 	language ROM;
-	sub Scedilla by Scommaaccent;
-	sub scedilla by scommaaccent;
-	sub Tcedilla by Tcommaaccent;
-	sub tcedilla by tcommaaccent;
+	sub \Scedilla by \Scommaaccent;
+	sub \scedilla by \scommaaccent;
+	sub \Tcedilla by \Tcommaaccent;
+	sub \tcedilla by \tcommaaccent;
 	language KAZ;
-	sub i by idotaccent;
+	sub \i by \idotaccent;
 	language PLK;
-	sub Cacute by Cacute.loclPLK;
-	sub Nacute by Nacute.loclPLK;
-	sub Oacute by Oacute.loclPLK;
-	sub Sacute by Sacute.loclPLK;
-	sub Zacute by Zacute.loclPLK;
-	sub cacute by cacute.loclPLK;
-	sub nacute by nacute.loclPLK;
-	sub oacute by oacute.loclPLK;
-	sub sacute by sacute.loclPLK;
-	sub zacute by zacute.loclPLK;
-	sub acute by acute.loclPLK;
+	sub \Cacute by \Cacute.loclPLK;
+	sub \Nacute by \Nacute.loclPLK;
+	sub \Oacute by \Oacute.loclPLK;
+	sub \Sacute by \Sacute.loclPLK;
+	sub \Zacute by \Zacute.loclPLK;
+	sub \cacute by \cacute.loclPLK;
+	sub \nacute by \nacute.loclPLK;
+	sub \oacute by \oacute.loclPLK;
+	sub \sacute by \sacute.loclPLK;
+	sub \zacute by \zacute.loclPLK;
+	sub \acute by \acute.loclPLK;
 	language AZE;
-	sub i by idotaccent;
+	sub \i by \idotaccent;
 	language CAT;
-	sub  l' periodcentered' l by ldot;
-	sub  L' periodcentered' L by Ldot;
+	sub \l' \periodcentered' \l by \ldot;
+	sub \L' \periodcentered' \L by \Ldot;
 	language CRT;
-	sub i by idotaccent;
+	sub \i by \idotaccent;
 	language AFK;
-	sub quoteright n by napostrophe;
-	sub quotesingle n by napostrophe;
+	sub \quoteright \n by \napostrophe;
+	sub \quotesingle \n by \napostrophe;
 } locl;
 
 feature zero {
-	sub zero by zero.zero;
-	sub zero.tosf by zero.tosf.zero;
+	sub \zero by \zero.zero;
+	sub \zero.tosf by \zero.tosf.zero;
 } zero;
 
 feature calt {
 	lookup less_bar_greater {
-	  ignore sub less less' bar greater;
-	  ignore sub less' bar greater greater;
-	  sub less.spacer bar.spacer greater' by less_bar_greater.liga;
-	  sub less.spacer bar'       greater  by bar.spacer;
-	  sub less'       bar        greater  by less.spacer;
+	    ignore sub \less \less' \bar \greater;
+	    ignore sub \less' \bar \greater \greater;
+	    sub \less.spacer \bar.spacer \greater' by \less_bar_greater.liga;
+	    sub \less.spacer \bar' \greater by \bar.spacer;
+	    sub \less' \bar \greater by \less.spacer;
 	} less_bar_greater;
 	
 	lookup bar_bar_bar_greater {
-	  ignore sub bar bar' bar bar greater;
-	  ignore sub bar' bar bar greater greater;
-	  sub bar.spacer bar.spacer bar.spacer greater' by bar_bar_bar_greater.liga;
-	  sub bar.spacer bar.spacer bar'       greater  by bar.spacer;
-	  sub bar.spacer bar'       bar        greater  by bar.spacer;
-	  sub bar'       bar        bar        greater  by bar.spacer;
+	    ignore sub \bar \bar' \bar \bar \greater;
+	    ignore sub \bar' \bar \bar \greater \greater;
+	    sub \bar.spacer \bar.spacer \bar.spacer \greater' by \bar_bar_bar_greater.liga;
+	    sub \bar.spacer \bar.spacer \bar' \greater by \bar.spacer;
+	    sub \bar.spacer \bar' \bar \greater by \bar.spacer;
+	    sub \bar' \bar \bar \greater by \bar.spacer;
 	} bar_bar_bar_greater;
 	
 	lookup less_bar_bar_bar {
-	  ignore sub less less' bar bar bar;
-	  ignore sub less' bar bar bar bar;
-	  sub less.spacer bar.spacer bar.spacer bar' by less_bar_bar_bar.liga;
-	  sub less.spacer bar.spacer bar'       bar  by bar.spacer;
-	  sub less.spacer bar'       bar        bar  by bar.spacer;
-	  sub less'       bar        bar        bar  by less.spacer;
+	    ignore sub \less \less' \bar \bar \bar;
+	    ignore sub \less' \bar \bar \bar \bar;
+	    sub \less.spacer \bar.spacer \bar.spacer \bar' by \less_bar_bar_bar.liga;
+	    sub \less.spacer \bar.spacer \bar' \bar by \bar.spacer;
+	    sub \less.spacer \bar' \bar \bar by \bar.spacer;
+	    sub \less' \bar \bar \bar by \less.spacer;
 	} less_bar_bar_bar;
 	
 	lookup bar_bar_greater {
-	  ignore sub bar bar' bar greater;
-	  ignore sub bar' bar greater greater;
-	  ignore sub less bar' bar greater;
-	  sub bar.spacer bar.spacer greater' by bar_bar_greater.liga;
-	  sub bar.spacer bar'       greater  by bar.spacer;
-	  sub bar'       bar        greater  by bar.spacer;
+	    ignore sub \bar \bar' \bar \greater;
+	    ignore sub \bar' \bar \greater \greater;
+	    ignore sub \less \bar' \bar \greater;
+	    sub \bar.spacer \bar.spacer \greater' by \bar_bar_greater.liga;
+	    sub \bar.spacer \bar' \greater by \bar.spacer;
+	    sub \bar' \bar \greater by \bar.spacer;
 	} bar_bar_greater;
 	
 	lookup less_bar_bar {
-	  ignore sub less less' bar bar;
-	  ignore sub less' bar bar bar;
-	  ignore sub less' bar bar greater;
-	  sub less.spacer bar.spacer bar' by less_bar_bar.liga;
-	  sub less.spacer bar'       bar  by bar.spacer;
-	  sub less'       bar        bar  by less.spacer;
+	    ignore sub \less \less' \bar \bar;
+	    ignore sub \less' \bar \bar \bar;
+	    ignore sub \less' \bar \bar \greater;
+	    sub \less.spacer \bar.spacer \bar' by \less_bar_bar.liga;
+	    sub \less.spacer \bar' \bar by \bar.spacer;
+	    sub \less' \bar \bar by \less.spacer;
 	} less_bar_bar;
 	
 	lookup bar_greater {
-	  ignore sub bar bar' greater;
-	  ignore sub bar' greater greater;
-	  sub bar.spacer greater' by bar_greater.liga;
-	  sub bar'       greater  by bar.spacer;
+	    ignore sub \bar \bar' \greater;
+	    ignore sub \bar' \greater \greater;
+	    sub \bar.spacer \greater' by \bar_greater.liga;
+	    sub \bar' \greater by \bar.spacer;
 	} bar_greater;
 	
 	lookup less_bar {
-	  ignore sub less less' bar;
-	  ignore sub less' bar bar;
-	  sub less.spacer bar' by less_bar.liga;
-	  sub less'       bar  by less.spacer;
+	    ignore sub \less \less' \bar;
+	    ignore sub \less' \bar \bar;
+	    sub \less.spacer \bar' by \less_bar.liga;
+	    sub \less' \bar by \less.spacer;
 	} less_bar;
 	
 	lookup bar_bar_bar {
-	  ignore sub bar bar' bar bar;
-	  ignore sub bar' bar bar bar;
-	  sub bar.spacer bar.spacer bar' by bar_bar_bar.liga;
-	  sub bar.spacer bar'       bar  by bar.spacer;
-	  sub bar'       bar        bar  by bar.spacer;
+	    ignore sub \bar \bar' \bar \bar;
+	    ignore sub \bar' \bar \bar \bar;
+	    sub \bar.spacer \bar.spacer \bar' by \bar_bar_bar.liga;
+	    sub \bar.spacer \bar' \bar by \bar.spacer;
+	    sub \bar' \bar \bar by \bar.spacer;
 	} bar_bar_bar;
 	
 	lookup greater_greater_greater {
-	  ignore sub greater greater' greater greater;
-	  ignore sub greater' greater greater greater;
-	  ignore sub [asterisk plus dollar] greater' greater greater;
-	  sub greater.spacer greater.spacer greater' by greater_greater_greater.liga;
-	  sub greater.spacer greater'       greater  by greater.spacer;
-	  sub greater'       greater        greater  by greater.spacer;
+	    ignore sub \greater \greater' \greater \greater;
+	    ignore sub \greater' \greater \greater \greater;
+	    ignore sub [\asterisk \plus \dollar] \greater' \greater \greater;
+	    sub \greater.spacer \greater.spacer \greater' by \greater_greater_greater.liga;
+	    sub \greater.spacer \greater' \greater by \greater.spacer;
+	    sub \greater' \greater \greater by \greater.spacer;
 	} greater_greater_greater;
 	
 	lookup less_less_less {
-	  ignore sub less less' less less;
-	  ignore sub less' less less less;
-	  ignore sub less' less less [asterisk plus dollar];
-	  sub less.spacer less.spacer less' by less_less_less.liga;
-	  sub less.spacer less'       less  by less.spacer;
-	  sub less'       less        less  by less.spacer;
+	    ignore sub \less \less' \less \less;
+	    ignore sub \less' \less \less \less;
+	    ignore sub \less' \less \less [\asterisk \plus \dollar];
+	    sub \less.spacer \less.spacer \less' by \less_less_less.liga;
+	    sub \less.spacer \less' \less by \less.spacer;
+	    sub \less' \less \less by \less.spacer;
 	} less_less_less;
 	
 	lookup bar_bar {
-	  ignore sub bar bar' bar;
-	  ignore sub bar' bar bar;
-	  ignore sub [hyphen equal] bar' bar;
-	  ignore sub bar' bar hyphen;
-	  ignore sub bar' bar equal [equal less greater bar colon exclam slash];
-	  sub bar.spacer bar' by bar_bar.liga;
-	  sub bar'       bar  by bar.spacer;
+	    ignore sub \bar \bar' \bar;
+	    ignore sub \bar' \bar \bar;
+	    ignore sub [\hyphen \equal] \bar' \bar;
+	    ignore sub \bar' \bar \hyphen;
+	    ignore sub \bar' \bar \equal [\equal \less \greater \bar \colon \exclam \slash];
+	    sub \bar.spacer \bar' by \bar_bar.liga;
+	    sub \bar' \bar by \bar.spacer;
 	} bar_bar;
 	
 	lookup greater_greater {
-	  ignore sub greater greater' greater;
-	  ignore sub greater' greater greater;
-	  ignore sub [asterisk plus dollar] greater' greater;
-	  ignore sub [hyphen equal] greater' greater;
-	  ignore sub greater' greater hyphen;
-	  ignore sub greater' greater equal [equal less greater bar colon exclam slash];
-	  sub greater.spacer greater' by greater_greater.liga;
-	  sub greater'       greater  by greater.spacer;
+	    ignore sub \greater \greater' \greater;
+	    ignore sub \greater' \greater \greater;
+	    ignore sub [\asterisk \plus \dollar] \greater' \greater;
+	    ignore sub [\hyphen \equal] \greater' \greater;
+	    ignore sub \greater' \greater \hyphen;
+	    ignore sub \greater' \greater \equal [\equal \less \greater \bar \colon \exclam \slash];
+	    sub \greater.spacer \greater' by \greater_greater.liga;
+	    sub \greater' \greater by \greater.spacer;
 	} greater_greater;
 	
 	lookup less_less {
-	  ignore sub less less' less;
-	  ignore sub less' less less;
-	  ignore sub less' less [asterisk plus dollar];
-	  ignore sub [hyphen equal] less' less;
-	  ignore sub less' less hyphen;
-	  ignore sub less' less equal [equal less greater bar colon exclam slash];
-	  sub less.spacer less' by less_less.liga;
-	  sub less'       less  by less.spacer;
+	    ignore sub \less \less' \less;
+	    ignore sub \less' \less \less;
+	    ignore sub \less' \less [\asterisk \plus \dollar];
+	    ignore sub [\hyphen \equal] \less' \less;
+	    ignore sub \less' \less \hyphen;
+	    ignore sub \less' \less \equal [\equal \less \greater \bar \colon \exclam \slash];
+	    sub \less.spacer \less' by \less_less.liga;
+	    sub \less' \less by \less.spacer;
 	} less_less;
 	
 	lookup less_exclam_hyphen_hyphen {
-	  ignore sub less less' exclam hyphen hyphen;
-	  ignore sub less' exclam hyphen hyphen hyphen;
-	  ignore sub parenleft question less' exclam hyphen hyphen;
-	  sub less.spacer exclam.spacer hyphen.spacer hyphen' by less_exclam_hyphen_hyphen.liga;
-	  sub less.spacer exclam.spacer hyphen'       hyphen  by hyphen.spacer;
-	  sub less.spacer exclam'       hyphen        hyphen  by exclam.spacer;
-	  sub less'       exclam        hyphen        hyphen  by less.spacer;
+	    ignore sub \less \less' \exclam \hyphen \hyphen;
+	    ignore sub \less' \exclam \hyphen \hyphen \hyphen;
+	    ignore sub \parenleft \question \less' \exclam \hyphen \hyphen;
+	    sub \less.spacer \exclam.spacer \hyphen.spacer \hyphen' by \less_exclam_hyphen_hyphen.liga;
+	    sub \less.spacer \exclam.spacer \hyphen' \hyphen by \hyphen.spacer;
+	    sub \less.spacer \exclam' \hyphen \hyphen by \exclam.spacer;
+	    sub \less' \exclam \hyphen \hyphen by \less.spacer;
 	} less_exclam_hyphen_hyphen;
 	
 	lookup asciitilde_asciitilde_greater {
-	  ignore sub asciitilde asciitilde' asciitilde greater;
-	  ignore sub asciitilde' asciitilde greater greater;
-	  sub asciitilde.spacer asciitilde.spacer greater' by asciitilde_asciitilde_greater.liga;
-	  sub asciitilde.spacer asciitilde'       greater  by asciitilde.spacer;
-	  sub asciitilde'       asciitilde        greater  by asciitilde.spacer;
+	    ignore sub \asciitilde \asciitilde' \asciitilde \greater;
+	    ignore sub \asciitilde' \asciitilde \greater \greater;
+	    sub \asciitilde.spacer \asciitilde.spacer \greater' by \asciitilde_asciitilde_greater.liga;
+	    sub \asciitilde.spacer \asciitilde' \greater by \asciitilde.spacer;
+	    sub \asciitilde' \asciitilde \greater by \asciitilde.spacer;
 	} asciitilde_asciitilde_greater;
 	
 	lookup asterisk_asterisk_asterisk {
-	  ignore sub asterisk asterisk' asterisk asterisk;
-	  ignore sub asterisk' asterisk asterisk asterisk;
-	  ignore sub slash asterisk' asterisk asterisk;
-	  ignore sub asterisk' asterisk asterisk slash;
-	  sub asterisk.spacer asterisk.spacer asterisk' by asterisk_asterisk_asterisk.liga;
-	  sub asterisk.spacer asterisk'       asterisk  by asterisk.spacer;
-	  sub asterisk'       asterisk        asterisk  by asterisk.spacer;
+	    ignore sub \asterisk \asterisk' \asterisk \asterisk;
+	    ignore sub \asterisk' \asterisk \asterisk \asterisk;
+	    ignore sub \slash \asterisk' \asterisk \asterisk;
+	    ignore sub \asterisk' \asterisk \asterisk \slash;
+	    sub \asterisk.spacer \asterisk.spacer \asterisk' by \asterisk_asterisk_asterisk.liga;
+	    sub \asterisk.spacer \asterisk' \asterisk by \asterisk.spacer;
+	    sub \asterisk' \asterisk \asterisk by \asterisk.spacer;
 	} asterisk_asterisk_asterisk;
 	
 	lookup colon_colon_colon {
-	  ignore sub colon colon' colon colon;
-	  ignore sub colon' colon colon colon;
-	  ignore sub parenleft question colon' colon colon;
-	  ignore sub colon' colon colon [less greater];
-	  ignore sub [less greater] colon' colon colon;
-	  sub colon.spacer colon.spacer colon' by colon_colon_colon.liga;
-	  sub colon.spacer colon'       colon  by colon.spacer;
-	  sub colon'       colon        colon  by colon.spacer;
+	    ignore sub \colon \colon' \colon \colon;
+	    ignore sub \colon' \colon \colon \colon;
+	    ignore sub \parenleft \question \colon' \colon \colon;
+	    ignore sub \colon' \colon \colon [\less \greater];
+	    ignore sub [\less \greater] \colon' \colon \colon;
+	    sub \colon.spacer \colon.spacer \colon' by \colon_colon_colon.liga;
+	    sub \colon.spacer \colon' \colon by \colon.spacer;
+	    sub \colon' \colon \colon by \colon.spacer;
 	} colon_colon_colon;
 	
 	lookup colon_colon_equal {
-	  ignore sub colon colon' colon equal;
-	  ignore sub colon' colon equal equal;
-	  ignore sub parenleft question colon' colon equal;
-	  sub colon.spacer colon.spacer equal' by colon_colon_equal.liga;
-	  sub colon.spacer colon'       equal  by colon.spacer;
-	  sub colon'       colon        equal  by colon.spacer;
+	    ignore sub \colon \colon' \colon \equal;
+	    ignore sub \colon' \colon \equal \equal;
+	    ignore sub \parenleft \question \colon' \colon \equal;
+	    sub \colon.spacer \colon.spacer \equal' by \colon_colon_equal.liga;
+	    sub \colon.spacer \colon' \equal by \colon.spacer;
+	    sub \colon' \colon \equal by \colon.spacer;
 	} colon_colon_equal;
 	
 	lookup equal_equal_equal {
-	  ignore sub equal equal' equal equal;
-	  ignore sub equal' equal equal equal;
-	  ignore sub parenleft question equal' equal equal;
-	  ignore sub parenleft question less equal' equal equal;
-	  ignore sub less question equal' equal equal;
-	  ignore sub bracketleft equal' equal equal;
-	  ignore sub equal' equal equal bracketright;
-	  ignore sub equal [colon exclam] equal' equal equal;
-	  ignore sub [less greater bar slash] equal' equal equal;
-	  ignore sub equal' equal equal [less greater bar slash];
-	  ignore sub equal' equal equal [colon exclam] equal;
-	  sub equal.spacer equal.spacer equal' by equal_equal_equal.liga;
-	  sub equal.spacer equal'       equal  by equal.spacer;
-	  sub equal'       equal        equal  by equal.spacer;
+	    ignore sub \equal \equal' \equal \equal;
+	    ignore sub \equal' \equal \equal \equal;
+	    ignore sub \parenleft \question \equal' \equal \equal;
+	    ignore sub \parenleft \question \less \equal' \equal \equal;
+	    ignore sub \less \question \equal' \equal \equal;
+	    ignore sub \bracketleft \equal' \equal \equal;
+	    ignore sub \equal' \equal \equal \bracketright;
+	    ignore sub \equal [\colon \exclam] \equal' \equal \equal;
+	    ignore sub [\less \greater \bar \slash] \equal' \equal \equal;
+	    ignore sub \equal' \equal \equal [\less \greater \bar \slash];
+	    ignore sub \equal' \equal \equal [\colon \exclam] \equal;
+	    sub \equal.spacer \equal.spacer \equal' by \equal_equal_equal.liga;
+	    sub \equal.spacer \equal' \equal by \equal.spacer;
+	    sub \equal' \equal \equal by \equal.spacer;
 	} equal_equal_equal;
 	
 	lookup exclam_equal_equal {
-	  ignore sub exclam exclam' equal equal;
-	  ignore sub exclam' equal equal equal;
-	  ignore sub parenleft question exclam' equal equal;
-	  ignore sub parenleft question less exclam' equal equal;
-	  ignore sub equal exclam' equal equal;
-	  sub exclam.spacer equal.spacer equal' by exclam_equal_equal.liga;
-	  sub exclam.spacer equal'       equal  by equal.spacer;
-	  sub exclam'       equal        equal  by exclam.spacer;
+	    ignore sub \exclam \exclam' \equal \equal;
+	    ignore sub \exclam' \equal \equal \equal;
+	    ignore sub \parenleft \question \exclam' \equal \equal;
+	    ignore sub \parenleft \question \less \exclam' \equal \equal;
+	    ignore sub \equal \exclam' \equal \equal;
+	    sub \exclam.spacer \equal.spacer \equal' by \exclam_equal_equal.liga;
+	    sub \exclam.spacer \equal' \equal by \equal.spacer;
+	    sub \exclam' \equal \equal by \exclam.spacer;
 	} exclam_equal_equal;
 	
 	lookup exclam_exclam_period {
-	  ignore sub exclam exclam' exclam period;
-	  ignore sub exclam' exclam period period;
-	  ignore sub parenleft question exclam' exclam period;
-	  ignore sub parenleft question less exclam' exclam period;
-	  sub exclam.spacer exclam.spacer period' by exclam_exclam_period.liga;
-	  sub exclam.spacer exclam'       period  by exclam.spacer;
-	  sub exclam'       exclam        period  by exclam.spacer;
+	    ignore sub \exclam \exclam' \exclam \period;
+	    ignore sub \exclam' \exclam \period \period;
+	    ignore sub \parenleft \question \exclam' \exclam \period;
+	    ignore sub \parenleft \question \less \exclam' \exclam \period;
+	    sub \exclam.spacer \exclam.spacer \period' by \exclam_exclam_period.liga;
+	    sub \exclam.spacer \exclam' \period by \exclam.spacer;
+	    sub \exclam' \exclam \period by \exclam.spacer;
 	} exclam_exclam_period;
 	
 	lookup less_asciitilde_asciitilde {
-	  ignore sub less less' asciitilde asciitilde;
-	  ignore sub less' asciitilde asciitilde asciitilde;
-	  sub less.spacer asciitilde.spacer asciitilde' by less_asciitilde_asciitilde.liga;
-	  sub less.spacer asciitilde'       asciitilde  by asciitilde.spacer;
-	  sub less'       asciitilde        asciitilde  by less.spacer;
+	    ignore sub \less \less' \asciitilde \asciitilde;
+	    ignore sub \less' \asciitilde \asciitilde \asciitilde;
+	    sub \less.spacer \asciitilde.spacer \asciitilde' by \less_asciitilde_asciitilde.liga;
+	    sub \less.spacer \asciitilde' \asciitilde by \asciitilde.spacer;
+	    sub \less' \asciitilde \asciitilde by \less.spacer;
 	} less_asciitilde_asciitilde;
 	
 	lookup less_asciitilde_greater {
-	  ignore sub less less' asciitilde greater;
-	  ignore sub less' asciitilde greater greater;
-	  sub less.spacer asciitilde.spacer greater' by less_asciitilde_greater.liga;
-	  sub less.spacer asciitilde'       greater  by asciitilde.spacer;
-	  sub less'       asciitilde        greater  by less.spacer;
+	    ignore sub \less \less' \asciitilde \greater;
+	    ignore sub \less' \asciitilde \greater \greater;
+	    sub \less.spacer \asciitilde.spacer \greater' by \less_asciitilde_greater.liga;
+	    sub \less.spacer \asciitilde' \greater by \asciitilde.spacer;
+	    sub \less' \asciitilde \greater by \less.spacer;
 	} less_asciitilde_greater;
 	
 	lookup less_asterisk_greater {
-	  sub less.spacer asterisk.spacer greater' by less_asterisk_greater.liga;
-	  sub less.spacer asterisk'       greater  by asterisk.spacer;
-	  sub less'       asterisk        greater  by less.spacer;
+	    sub \less.spacer \asterisk.spacer \greater' by \less_asterisk_greater.liga;
+	    sub \less.spacer \asterisk' \greater by \asterisk.spacer;
+	    sub \less' \asterisk \greater by \less.spacer;
 	} less_asterisk_greater;
 	
 	lookup less_dollar_greater {
-	  sub less.spacer dollar.spacer greater' by less_dollar_greater.liga;
-	  sub less.spacer dollar'       greater  by dollar.spacer;
-	  sub less'       dollar        greater  by less.spacer;
+	    sub \less.spacer \dollar.spacer \greater' by \less_dollar_greater.liga;
+	    sub \less.spacer \dollar' \greater by \dollar.spacer;
+	    sub \less' \dollar \greater by \less.spacer;
 	} less_dollar_greater;
 	
 	lookup less_plus_greater {
-	  sub less.spacer plus.spacer greater' by less_plus_greater.liga;
-	  sub less.spacer plus'       greater  by plus.spacer;
-	  sub less'       plus        greater  by less.spacer;
+	    sub \less.spacer \plus.spacer \greater' by \less_plus_greater.liga;
+	    sub \less.spacer \plus' \greater by \plus.spacer;
+	    sub \less' \plus \greater by \less.spacer;
 	} less_plus_greater;
 	
 	lookup less_slash_greater {
-	  ignore sub less less' slash greater;
-	  ignore sub less' slash greater greater;
-	  sub less.spacer slash.spacer greater' by less_slash_greater.liga;
-	  sub less.spacer slash'       greater  by slash.spacer;
-	  sub less'       slash        greater  by less.spacer;
+	    ignore sub \less \less' \slash \greater;
+	    ignore sub \less' \slash \greater \greater;
+	    sub \less.spacer \slash.spacer \greater' by \less_slash_greater.liga;
+	    sub \less.spacer \slash' \greater by \slash.spacer;
+	    sub \less' \slash \greater by \less.spacer;
 	} less_slash_greater;
 	
 	lookup numbersign_underscore_parenleft {
-	  ignore sub numbersign numbersign' underscore parenleft;
-	  ignore sub numbersign' underscore parenleft parenleft;
-	  sub numbersign.spacer underscore.spacer parenleft' by numbersign_underscore_parenleft.liga;
-	  sub numbersign.spacer underscore'       parenleft  by underscore.spacer;
-	  sub numbersign'       underscore        parenleft  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \underscore \parenleft;
+	    ignore sub \numbersign' \underscore \parenleft \parenleft;
+	    sub \numbersign.spacer \underscore.spacer \parenleft' by \numbersign_underscore_parenleft.liga;
+	    sub \numbersign.spacer \underscore' \parenleft by \underscore.spacer;
+	    sub \numbersign' \underscore \parenleft by \numbersign.spacer;
 	} numbersign_underscore_parenleft;
 	
 	lookup period_period_equal {
-	  ignore sub period period' period equal;
-	  ignore sub period' period equal equal;
-	  sub period.spacer period.spacer equal' by period_period_equal.liga;
-	  sub period.spacer period'       equal  by period.spacer;
-	  sub period'       period        equal  by period.spacer;
+	    ignore sub \period \period' \period \equal;
+	    ignore sub \period' \period \equal \equal;
+	    sub \period.spacer \period.spacer \equal' by \period_period_equal.liga;
+	    sub \period.spacer \period' \equal by \period.spacer;
+	    sub \period' \period \equal by \period.spacer;
 	} period_period_equal;
 	
 	lookup period_period_less {
-	  ignore sub period period' period less;
-	  ignore sub period' period less less;
-	  sub period.spacer period.spacer less' by period_period_less.liga;
-	  sub period.spacer period'       less  by period.spacer;
-	  sub period'       period        less  by period.spacer;
+	    ignore sub \period \period' \period \less;
+	    ignore sub \period' \period \less \less;
+	    sub \period.spacer \period.spacer \less' by \period_period_less.liga;
+	    sub \period.spacer \period' \less by \period.spacer;
+	    sub \period' \period \less by \period.spacer;
 	} period_period_less;
 	
 	lookup period_period_period {
-	  ignore sub period period' period period;
-	  ignore sub period' period period period;
-	  sub period.spacer period.spacer period' by period_period_period.liga;
-	  sub period.spacer period'       period  by period.spacer;
-	  sub period'       period        period  by period.spacer;
+	    ignore sub \period \period' \period \period;
+	    ignore sub \period' \period \period \period;
+	    sub \period.spacer \period.spacer \period' by \period_period_period.liga;
+	    sub \period.spacer \period' \period by \period.spacer;
+	    sub \period' \period \period by \period.spacer;
 	} period_period_period;
 	
 	lookup plus_plus_plus {
-	  ignore sub plus plus' plus plus;
-	  ignore sub plus' plus plus plus;
-	  sub plus.spacer plus.spacer plus' by plus_plus_plus.liga;
-	  sub plus.spacer plus'       plus  by plus.spacer;
-	  sub plus'       plus        plus  by plus.spacer;
+	    ignore sub \plus \plus' \plus \plus;
+	    ignore sub \plus' \plus \plus \plus;
+	    sub \plus.spacer \plus.spacer \plus' by \plus_plus_plus.liga;
+	    sub \plus.spacer \plus' \plus by \plus.spacer;
+	    sub \plus' \plus \plus by \plus.spacer;
 	} plus_plus_plus;
 	
 	lookup slash_slash_slash {
-	  ignore sub slash slash' slash slash;
-	  ignore sub slash' slash slash slash;
-	  sub slash.spacer slash.spacer slash' by slash_slash_slash.liga;
-	  sub slash.spacer slash'       slash  by slash.spacer;
-	  sub slash'       slash        slash  by slash.spacer;
+	    ignore sub \slash \slash' \slash \slash;
+	    ignore sub \slash' \slash \slash \slash;
+	    sub \slash.spacer \slash.spacer \slash' by \slash_slash_slash.liga;
+	    sub \slash.spacer \slash' \slash by \slash.spacer;
+	    sub \slash' \slash \slash by \slash.spacer;
 	} slash_slash_slash;
 	
 	lookup w_w_w {
-	  ignore sub w w' w w;
-	  ignore sub w' w w w;
-	  sub w.spacer w.spacer w' by w_w_w.liga;
-	  sub w.spacer w'       w  by w.spacer;
-	  sub w'       w        w  by w.spacer;
+	    ignore sub \w \w' \w \w;
+	    ignore sub \w' \w \w \w;
+	    sub \w.spacer \w.spacer \w' by \w_w_w.liga;
+	    sub \w.spacer \w' \w by \w.spacer;
+	    sub \w' \w \w by \w.spacer;
 	} w_w_w;
 	
 	lookup ampersand_ampersand {
-	  ignore sub ampersand ampersand' ampersand;
-	  ignore sub ampersand' ampersand ampersand;
-	  sub ampersand.spacer ampersand' by ampersand_ampersand.liga;
-	  sub ampersand'       ampersand  by ampersand.spacer;
+	    ignore sub \ampersand \ampersand' \ampersand;
+	    ignore sub \ampersand' \ampersand \ampersand;
+	    sub \ampersand.spacer \ampersand' by \ampersand_ampersand.liga;
+	    sub \ampersand' \ampersand by \ampersand.spacer;
 	} ampersand_ampersand;
 	
 	lookup asciicircum_equal {
-	  ignore sub asciicircum asciicircum' equal;
-	  ignore sub asciicircum' equal equal;
-	  sub asciicircum.spacer equal' by asciicircum_equal.liga;
-	  sub asciicircum'       equal  by asciicircum.spacer;
+	    ignore sub \asciicircum \asciicircum' \equal;
+	    ignore sub \asciicircum' \equal \equal;
+	    sub \asciicircum.spacer \equal' by \asciicircum_equal.liga;
+	    sub \asciicircum' \equal by \asciicircum.spacer;
 	} asciicircum_equal;
 	
 	lookup asciitilde_asciitilde {
-	  ignore sub asciitilde asciitilde' asciitilde;
-	  ignore sub asciitilde' asciitilde asciitilde;
-	  sub asciitilde.spacer asciitilde' by asciitilde_asciitilde.liga;
-	  sub asciitilde'       asciitilde  by asciitilde.spacer;
+	    ignore sub \asciitilde \asciitilde' \asciitilde;
+	    ignore sub \asciitilde' \asciitilde \asciitilde;
+	    sub \asciitilde.spacer \asciitilde' by \asciitilde_asciitilde.liga;
+	    sub \asciitilde' \asciitilde by \asciitilde.spacer;
 	} asciitilde_asciitilde;
 	
 	lookup asciitilde_at {
-	  ignore sub asciitilde asciitilde' at;
-	  ignore sub asciitilde' at at;
-	  sub asciitilde.spacer at' by asciitilde_at.liga;
-	  sub asciitilde'       at  by asciitilde.spacer;
+	    ignore sub \asciitilde \asciitilde' \at;
+	    ignore sub \asciitilde' \at \at;
+	    sub \asciitilde.spacer \at' by \asciitilde_at.liga;
+	    sub \asciitilde' \at by \asciitilde.spacer;
 	} asciitilde_at;
 	
 	lookup asciitilde_greater {
-	  ignore sub asciitilde asciitilde' greater;
-	  ignore sub asciitilde' greater greater;
-	  sub asciitilde.spacer greater' by asciitilde_greater.liga;
-	  sub asciitilde'       greater  by asciitilde.spacer;
+	    ignore sub \asciitilde \asciitilde' \greater;
+	    ignore sub \asciitilde' \greater \greater;
+	    sub \asciitilde.spacer \greater' by \asciitilde_greater.liga;
+	    sub \asciitilde' \greater by \asciitilde.spacer;
 	} asciitilde_greater;
 	
 	lookup asciitilde_hyphen {
-	  ignore sub asciitilde asciitilde' hyphen;
-	  ignore sub asciitilde' hyphen hyphen;
-	  sub asciitilde.spacer hyphen' by asciitilde_hyphen.liga;
-	  sub asciitilde'       hyphen  by asciitilde.spacer;
+	    ignore sub \asciitilde \asciitilde' \hyphen;
+	    ignore sub \asciitilde' \hyphen \hyphen;
+	    sub \asciitilde.spacer \hyphen' by \asciitilde_hyphen.liga;
+	    sub \asciitilde' \hyphen by \asciitilde.spacer;
 	} asciitilde_hyphen;
 	
 	lookup asterisk_asterisk {
-	  ignore sub asterisk asterisk' asterisk;
-	  ignore sub asterisk' asterisk asterisk;
-	  ignore sub slash asterisk' asterisk;
-	  ignore sub asterisk' asterisk slash;
-	  sub asterisk.spacer asterisk' by asterisk_asterisk.liga;
-	  sub asterisk'       asterisk  by asterisk.spacer;
+	    ignore sub \asterisk \asterisk' \asterisk;
+	    ignore sub \asterisk' \asterisk \asterisk;
+	    ignore sub \slash \asterisk' \asterisk;
+	    ignore sub \asterisk' \asterisk \slash;
+	    sub \asterisk.spacer \asterisk' by \asterisk_asterisk.liga;
+	    sub \asterisk' \asterisk by \asterisk.spacer;
 	} asterisk_asterisk;
 	
 	lookup asterisk_greater {
-	  ignore sub asterisk asterisk' greater;
-	  ignore sub asterisk' greater greater;
-	  sub asterisk.spacer greater' by asterisk_greater.liga;
-	  sub asterisk'       greater  by asterisk.spacer;
+	    ignore sub \asterisk \asterisk' \greater;
+	    ignore sub \asterisk' \greater \greater;
+	    sub \asterisk.spacer \greater' by \asterisk_greater.liga;
+	    sub \asterisk' \greater by \asterisk.spacer;
 	} asterisk_greater;
 	
 	lookup asterisk_slash {
-	  ignore sub asterisk asterisk' slash;
-	  ignore sub asterisk' slash slash;
-	  ignore sub slash asterisk' slash;
-	  ignore sub asterisk' slash asterisk;
-	  sub asterisk.spacer slash' by asterisk_slash.liga;
-	  sub asterisk'       slash  by asterisk.spacer;
+	    ignore sub \asterisk \asterisk' \slash;
+	    ignore sub \asterisk' \slash \slash;
+	    ignore sub \slash \asterisk' \slash;
+	    ignore sub \asterisk' \slash \asterisk;
+	    sub \asterisk.spacer \slash' by \asterisk_slash.liga;
+	    sub \asterisk' \slash by \asterisk.spacer;
 	} asterisk_slash;
 	
 	lookup bar_braceright {
-	  ignore sub bar bar' braceright;
-	  ignore sub bar' braceright braceright;
-	  ignore sub braceleft bar' braceright;
-	  sub bar.spacer braceright' by bar_braceright.liga;
-	  sub bar'       braceright  by bar.spacer;
+	    ignore sub \bar \bar' \braceright;
+	    ignore sub \bar' \braceright \braceright;
+	    ignore sub \braceleft \bar' \braceright;
+	    sub \bar.spacer \braceright' by \bar_braceright.liga;
+	    sub \bar' \braceright by \bar.spacer;
 	} bar_braceright;
 	
 	lookup bar_bracketright {
-	  ignore sub bar bar' bracketright;
-	  ignore sub bar' bracketright bracketright;
-	  ignore sub bracketleft bar' bracketright;
-	  sub bar.spacer bracketright' by bar_bracketright.liga;
-	  sub bar'       bracketright  by bar.spacer;
+	    ignore sub \bar \bar' \bracketright;
+	    ignore sub \bar' \bracketright \bracketright;
+	    ignore sub \bracketleft \bar' \bracketright;
+	    sub \bar.spacer \bracketright' by \bar_bracketright.liga;
+	    sub \bar' \bracketright by \bar.spacer;
 	} bar_bracketright;
 	
 	lookup braceleft_bar {
-	  ignore sub braceleft braceleft' bar;
-	  ignore sub braceleft' bar bar;
-	  ignore sub braceleft' bar braceright;
-	  sub braceleft.spacer bar' by braceleft_bar.liga;
-	  sub braceleft'       bar  by braceleft.spacer;
+	    ignore sub \braceleft \braceleft' \bar;
+	    ignore sub \braceleft' \bar \bar;
+	    ignore sub \braceleft' \bar \braceright;
+	    sub \braceleft.spacer \bar' by \braceleft_bar.liga;
+	    sub \braceleft' \bar by \braceleft.spacer;
 	} braceleft_bar;
 	
 	lookup bracketleft_bar {
-	  ignore sub bracketleft bracketleft' bar;
-	  ignore sub bracketleft' bar bar;
-	  ignore sub bracketleft' bar bracketright;
-	  sub bracketleft.spacer bar' by bracketleft_bar.liga;
-	  sub bracketleft'       bar  by bracketleft.spacer;
+	    ignore sub \bracketleft \bracketleft' \bar;
+	    ignore sub \bracketleft' \bar \bar;
+	    ignore sub \bracketleft' \bar \bracketright;
+	    sub \bracketleft.spacer \bar' by \bracketleft_bar.liga;
+	    sub \bracketleft' \bar by \bracketleft.spacer;
 	} bracketleft_bar;
 	
 	lookup bracketright_numbersign {
-	  ignore sub bracketright bracketright' numbersign;
-	  ignore sub bracketright' numbersign numbersign;
-	  sub bracketright.spacer numbersign' by bracketright_numbersign.liga;
-	  sub bracketright'       numbersign  by bracketright.spacer;
+	    ignore sub \bracketright \bracketright' \numbersign;
+	    ignore sub \bracketright' \numbersign \numbersign;
+	    sub \bracketright.spacer \numbersign' by \bracketright_numbersign.liga;
+	    sub \bracketright' \numbersign by \bracketright.spacer;
 	} bracketright_numbersign;
 	
 	lookup colon_colon {
-	  ignore sub colon colon' colon;
-	  ignore sub colon' colon colon;
-	  ignore sub parenleft question colon' colon;
-	  ignore sub colon' colon [less greater];
-	  ignore sub [less greater] colon' colon;
-	  sub colon.spacer colon' by colon_colon.liga;
-	  sub colon'       colon  by colon.spacer;
+	    ignore sub \colon \colon' \colon;
+	    ignore sub \colon' \colon \colon;
+	    ignore sub \parenleft \question \colon' \colon;
+	    ignore sub \colon' \colon [\less \greater];
+	    ignore sub [\less \greater] \colon' \colon;
+	    sub \colon.spacer \colon' by \colon_colon.liga;
+	    sub \colon' \colon by \colon.spacer;
 	} colon_colon;
 	
 	lookup colon_equal {
-	  ignore sub colon colon' equal;
-	  ignore sub colon' equal equal;
-	  ignore sub parenleft question colon' equal;
-	  ignore sub equal colon' equal;
-	  sub colon.spacer equal' by colon_equal.liga;
-	  sub colon'       equal  by colon.spacer;
+	    ignore sub \colon \colon' \equal;
+	    ignore sub \colon' \equal \equal;
+	    ignore sub \parenleft \question \colon' \equal;
+	    ignore sub \equal \colon' \equal;
+	    sub \colon.spacer \equal' by \colon_equal.liga;
+	    sub \colon' \equal by \colon.spacer;
 	} colon_equal;
 	
 	lookup dollar_greater {
-	  ignore sub dollar dollar' greater;
-	  ignore sub dollar' greater greater;
-	  sub dollar.spacer greater' by dollar_greater.liga;
-	  sub dollar'       greater  by dollar.spacer;
+	    ignore sub \dollar \dollar' \greater;
+	    ignore sub \dollar' \greater \greater;
+	    sub \dollar.spacer \greater' by \dollar_greater.liga;
+	    sub \dollar' \greater by \dollar.spacer;
 	} dollar_greater;
 	
 	lookup equal_equal {
-	  ignore sub equal equal' equal;
-	  ignore sub equal' equal equal;
-	  ignore sub parenleft question equal' equal;
-	  ignore sub parenleft question less equal' equal;
-	  ignore sub less question equal' equal;
-	  ignore sub bracketleft equal' equal;
-	  ignore sub equal' equal bracketright;
-	  ignore sub equal [colon exclam] equal' equal;
-	  ignore sub [less greater bar slash] equal' equal;
-	  ignore sub equal' equal [less greater bar slash] ;
-	  ignore sub equal' equal [colon exclam] equal;
-	  sub equal.spacer equal' by equal_equal.liga;
-	  sub equal'       equal  by equal.spacer;
+	    ignore sub \equal \equal' \equal;
+	    ignore sub \equal' \equal \equal;
+	    ignore sub \parenleft \question \equal' \equal;
+	    ignore sub \parenleft \question \less \equal' \equal;
+	    ignore sub \less \question \equal' \equal;
+	    ignore sub \bracketleft \equal' \equal;
+	    ignore sub \equal' \equal \bracketright;
+	    ignore sub \equal [\colon \exclam] \equal' \equal;
+	    ignore sub [\less \greater \bar \slash] \equal' \equal;
+	    ignore sub \equal' \equal [\less \greater \bar \slash] ;
+	    ignore sub \equal' \equal [\colon \exclam] \equal;
+	    sub \equal.spacer \equal' by \equal_equal.liga;
+	    sub \equal' \equal by \equal.spacer;
 	} equal_equal;
 	
 	lookup exclam_equal {
-	  ignore sub exclam exclam' equal;
-	  ignore sub exclam' equal equal;
-	  ignore sub parenleft question exclam' equal;
-	  ignore sub parenleft question less exclam' equal;
-	  ignore sub equal exclam' equal;
-	  sub exclam.spacer equal' by exclam_equal.liga;
-	  sub exclam'       equal  by exclam.spacer;
+	    ignore sub \exclam \exclam' \equal;
+	    ignore sub \exclam' \equal \equal;
+	    ignore sub \parenleft \question \exclam' \equal;
+	    ignore sub \parenleft \question \less \exclam' \equal;
+	    ignore sub \equal \exclam' \equal;
+	    sub \exclam.spacer \equal' by \exclam_equal.liga;
+	    sub \exclam' \equal by \exclam.spacer;
 	} exclam_equal;
 	
 	lookup exclam_exclam {
-	  ignore sub exclam exclam' exclam;
-	  ignore sub exclam' exclam exclam;
-	  ignore sub parenleft question exclam' exclam;
-	  ignore sub parenleft question less exclam' exclam;
-	  sub exclam.spacer exclam' by exclam_exclam.liga;
-	  sub exclam'       exclam  by exclam.spacer;
+	    ignore sub \exclam \exclam' \exclam;
+	    ignore sub \exclam' \exclam \exclam;
+	    ignore sub \parenleft \question \exclam' \exclam;
+	    ignore sub \parenleft \question \less \exclam' \exclam;
+	    sub \exclam.spacer \exclam' by \exclam_exclam.liga;
+	    sub \exclam' \exclam by \exclam.spacer;
 	} exclam_exclam;
 	
 	lookup greater_equal {
-	  ignore sub greater greater' equal;
-	  ignore sub greater' equal equal;
-	  ignore sub equal greater' equal;
-	  ignore sub greater' equal [less greater bar colon exclam slash];
-	  sub greater.spacer equal' by greater_equal.liga;
-	  sub greater'       equal  by greater.spacer;
+	    ignore sub \greater \greater' \equal;
+	    ignore sub \greater' \equal \equal;
+	    ignore sub \equal \greater' \equal;
+	    ignore sub \greater' \equal [\less \greater \bar \colon \exclam \slash];
+	    sub \greater.spacer \equal' by \greater_equal.liga;
+	    sub \greater' \equal by \greater.spacer;
 	} greater_equal;
 	
 	lookup hyphen_asciitilde {
-	  ignore sub hyphen hyphen' asciitilde;
-	  ignore sub hyphen' asciitilde asciitilde;
-	  sub hyphen.spacer asciitilde' by hyphen_asciitilde.liga;
-	  sub hyphen'       asciitilde  by hyphen.spacer;
+	    ignore sub \hyphen \hyphen' \asciitilde;
+	    ignore sub \hyphen' \asciitilde \asciitilde;
+	    sub \hyphen.spacer \asciitilde' by \hyphen_asciitilde.liga;
+	    sub \hyphen' \asciitilde by \hyphen.spacer;
 	} hyphen_asciitilde;
 	
 	lookup hyphen_hyphen {
-	  ignore sub hyphen hyphen' hyphen;
-	  ignore sub hyphen' hyphen hyphen;
-	  ignore sub [less greater bar] hyphen' hyphen;
-	  ignore sub hyphen' hyphen [less greater bar];
-	  sub hyphen.spacer hyphen' by hyphen_hyphen.liga;
-	  sub hyphen'       hyphen  by hyphen.spacer;
+	    ignore sub \hyphen \hyphen' \hyphen;
+	    ignore sub \hyphen' \hyphen \hyphen;
+	    ignore sub [\less \greater \bar] \hyphen' \hyphen;
+	    ignore sub \hyphen' \hyphen [\less \greater \bar];
+	    sub \hyphen.spacer \hyphen' by \hyphen_hyphen.liga;
+	    sub \hyphen' \hyphen by \hyphen.spacer;
 	} hyphen_hyphen;
 	
 	lookup less_asciitilde {
-	  ignore sub less less' asciitilde;
-	  ignore sub less' asciitilde asciitilde;
-	  sub less.spacer asciitilde' by less_asciitilde.liga;
-	  sub less'       asciitilde  by less.spacer;
+	    ignore sub \less \less' \asciitilde;
+	    ignore sub \less' \asciitilde \asciitilde;
+	    sub \less.spacer \asciitilde' by \less_asciitilde.liga;
+	    sub \less' \asciitilde by \less.spacer;
 	} less_asciitilde;
 	
 	lookup less_asterisk {
-	  ignore sub less less' asterisk;
-	  ignore sub less' asterisk asterisk;
-	  sub less.spacer asterisk' by less_asterisk.liga;
-	  sub less'       asterisk  by less.spacer;
+	    ignore sub \less \less' \asterisk;
+	    ignore sub \less' \asterisk \asterisk;
+	    sub \less.spacer \asterisk' by \less_asterisk.liga;
+	    sub \less' \asterisk by \less.spacer;
 	} less_asterisk;
 	
 	lookup less_dollar {
-	  ignore sub less less' dollar;
-	  ignore sub less' dollar dollar;
-	  sub less.spacer dollar' by less_dollar.liga;
-	  sub less'       dollar  by less.spacer;
+	    ignore sub \less \less' \dollar;
+	    ignore sub \less' \dollar \dollar;
+	    sub \less.spacer \dollar' by \less_dollar.liga;
+	    sub \less' \dollar by \less.spacer;
 	} less_dollar;
 	
 	lookup less_equal {
-	  ignore sub less less' equal;
-	  ignore sub less' equal equal;
-	  ignore sub parenleft question less' equal;
-	  ignore sub equal less' equal;
-	  ignore sub less' equal [less greater bar colon exclam slash];
-	  sub less.spacer equal' by less_equal.liga;
-	  sub less'       equal  by less.spacer;
+	    ignore sub \less \less' \equal;
+	    ignore sub \less' \equal \equal;
+	    ignore sub \parenleft \question \less' \equal;
+	    ignore sub \equal \less' \equal;
+	    ignore sub \less' \equal [\less \greater \bar \colon \exclam \slash];
+	    sub \less.spacer \equal' by \less_equal.liga;
+	    sub \less' \equal by \less.spacer;
 	} less_equal;
 	
 	lookup less_greater {
-	  ignore sub less less' greater;
-	  ignore sub less' greater greater;
-	  sub less.spacer greater' by less_greater.liga;
-	  sub less'       greater  by less.spacer;
+	    ignore sub \less \less' \greater;
+	    ignore sub \less' \greater \greater;
+	    sub \less.spacer \greater' by \less_greater.liga;
+	    sub \less' \greater by \less.spacer;
 	} less_greater;
 	
 	lookup less_plus {
-	  ignore sub less less' plus;
-	  ignore sub less' plus plus;
-	  sub less.spacer plus' by less_plus.liga;
-	  sub less'       plus  by less.spacer;
+	    ignore sub \less \less' \plus;
+	    ignore sub \less' \plus \plus;
+	    sub \less.spacer \plus' by \less_plus.liga;
+	    sub \less' \plus by \less.spacer;
 	} less_plus;
 	
 	lookup less_slash {
-	  ignore sub less less' slash;
-	  ignore sub less' slash slash;
-	  sub less.spacer slash' by less_slash.liga;
-	  sub less'       slash  by less.spacer;
+	    ignore sub \less \less' \slash;
+	    ignore sub \less' \slash \slash;
+	    sub \less.spacer \slash' by \less_slash.liga;
+	    sub \less' \slash by \less.spacer;
 	} less_slash;
 	
 	lookup numbersign_braceleft {
-	  ignore sub numbersign numbersign' braceleft;
-	  ignore sub numbersign' braceleft braceleft;
-	  sub numbersign.spacer braceleft' by numbersign_braceleft.liga;
-	  sub numbersign'       braceleft  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \braceleft;
+	    ignore sub \numbersign' \braceleft \braceleft;
+	    sub \numbersign.spacer \braceleft' by \numbersign_braceleft.liga;
+	    sub \numbersign' \braceleft by \numbersign.spacer;
 	} numbersign_braceleft;
 	
 	lookup numbersign_bracketleft {
-	  ignore sub numbersign numbersign' bracketleft;
-	  ignore sub numbersign' bracketleft bracketleft;
-	  sub numbersign.spacer bracketleft' by numbersign_bracketleft.liga;
-	  sub numbersign'       bracketleft  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \bracketleft;
+	    ignore sub \numbersign' \bracketleft \bracketleft;
+	    sub \numbersign.spacer \bracketleft' by \numbersign_bracketleft.liga;
+	    sub \numbersign' \bracketleft by \numbersign.spacer;
 	} numbersign_bracketleft;
 	
 	lookup numbersign_colon {
-	  ignore sub numbersign numbersign' colon;
-	  ignore sub numbersign' colon colon;
-	  sub numbersign.spacer colon' by numbersign_colon.liga;
-	  sub numbersign'       colon  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \colon;
+	    ignore sub \numbersign' \colon \colon;
+	    sub \numbersign.spacer \colon' by \numbersign_colon.liga;
+	    sub \numbersign' \colon by \numbersign.spacer;
 	} numbersign_colon;
 	
 	lookup numbersign_equal {
-	  ignore sub numbersign numbersign' equal;
-	  ignore sub numbersign' equal equal;
-	  sub numbersign.spacer equal' by numbersign_equal.liga;
-	  sub numbersign'       equal  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \equal;
+	    ignore sub \numbersign' \equal \equal;
+	    sub \numbersign.spacer \equal' by \numbersign_equal.liga;
+	    sub \numbersign' \equal by \numbersign.spacer;
 	} numbersign_equal;
 	
 	lookup numbersign_exclam {
-	  ignore sub numbersign numbersign' exclam;
-	  ignore sub numbersign' exclam exclam;
-	  sub numbersign.spacer exclam' by numbersign_exclam.liga;
-	  sub numbersign'       exclam  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \exclam;
+	    ignore sub \numbersign' \exclam \exclam;
+	    sub \numbersign.spacer \exclam' by \numbersign_exclam.liga;
+	    sub \numbersign' \exclam by \numbersign.spacer;
 	} numbersign_exclam;
 	
 	lookup numbersign_parenleft {
-	  ignore sub numbersign numbersign' parenleft;
-	  ignore sub numbersign' parenleft parenleft;
-	  sub numbersign.spacer parenleft' by numbersign_parenleft.liga;
-	  sub numbersign'       parenleft  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \parenleft;
+	    ignore sub \numbersign' \parenleft \parenleft;
+	    sub \numbersign.spacer \parenleft' by \numbersign_parenleft.liga;
+	    sub \numbersign' \parenleft by \numbersign.spacer;
 	} numbersign_parenleft;
 	
 	lookup numbersign_question {
-	  ignore sub numbersign numbersign' question;
-	  ignore sub numbersign' question question;
-	  sub numbersign.spacer question' by numbersign_question.liga;
-	  sub numbersign'       question  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \question;
+	    ignore sub \numbersign' \question \question;
+	    sub \numbersign.spacer \question' by \numbersign_question.liga;
+	    sub \numbersign' \question by \numbersign.spacer;
 	} numbersign_question;
 	
 	lookup numbersign_underscore {
-	  ignore sub numbersign numbersign' underscore;
-	  ignore sub numbersign' underscore underscore;
-	  sub numbersign.spacer underscore' by numbersign_underscore.liga;
-	  sub numbersign'       underscore  by numbersign.spacer;
+	    ignore sub \numbersign \numbersign' \underscore;
+	    ignore sub \numbersign' \underscore \underscore;
+	    sub \numbersign.spacer \underscore' by \numbersign_underscore.liga;
+	    sub \numbersign' \underscore by \numbersign.spacer;
 	} numbersign_underscore;
 	
 	lookup percent_percent {
-	  ignore sub percent percent' percent;
-	  ignore sub percent' percent percent;
-	  sub percent.spacer percent' by percent_percent.liga;
-	  sub percent'       percent  by percent.spacer;
+	    ignore sub \percent \percent' \percent;
+	    ignore sub \percent' \percent \percent;
+	    sub \percent.spacer \percent' by \percent_percent.liga;
+	    sub \percent' \percent by \percent.spacer;
 	} percent_percent;
 	
 	lookup period_period {
-	  ignore sub period period' period;
-	  ignore sub period' period period;
-	  sub period.spacer period' by period_period.liga;
-	  sub period'       period  by period.spacer;
+	    ignore sub \period \period' \period;
+	    ignore sub \period' \period \period;
+	    sub \period.spacer \period' by \period_period.liga;
+	    sub \period' \period by \period.spacer;
 	} period_period;
 	
 	lookup period_question {
-	  ignore sub period period' question;
-	  ignore sub period' question question;
-	  sub period.spacer question' by period_question.liga;
-	  sub period'       question  by period.spacer;
+	    ignore sub \period \period' \question;
+	    ignore sub \period' \question \question;
+	    sub \period.spacer \question' by \period_question.liga;
+	    sub \period' \question by \period.spacer;
 	} period_question;
 	
 	lookup plus_greater {
-	  ignore sub plus plus' greater;
-	  ignore sub plus' greater greater;
-	  sub plus.spacer greater' by plus_greater.liga;
-	  sub plus'       greater  by plus.spacer;
+	    ignore sub \plus \plus' \greater;
+	    ignore sub \plus' \greater \greater;
+	    sub \plus.spacer \greater' by \plus_greater.liga;
+	    sub \plus' \greater by \plus.spacer;
 	} plus_greater;
 	
 	lookup plus_plus {
-	  ignore sub plus plus' plus;
-	  ignore sub plus' plus plus;
-	  sub plus.spacer plus' by plus_plus.liga;
-	  sub plus'       plus  by plus.spacer;
+	    ignore sub \plus \plus' \plus;
+	    ignore sub \plus' \plus \plus;
+	    sub \plus.spacer \plus' by \plus_plus.liga;
+	    sub \plus' \plus by \plus.spacer;
 	} plus_plus;
 	
 	lookup question_equal {
-	  ignore sub question question' equal;
-	  ignore sub question' equal equal;
-	  ignore sub parenleft question' equal;
-	  ignore sub less question' equal;
-	  sub question.spacer equal' by question_equal.liga;
-	  sub question'       equal  by question.spacer;
+	    ignore sub \question \question' \equal;
+	    ignore sub \question' \equal \equal;
+	    ignore sub \parenleft \question' \equal;
+	    ignore sub \less \question' \equal;
+	    sub \question.spacer \equal' by \question_equal.liga;
+	    sub \question' \equal by \question.spacer;
 	} question_equal;
 	
 	lookup question_period {
-	  ignore sub question question' period;
-	  ignore sub question' period period;
-	  sub question.spacer period' by question_period.liga;
-	  sub question'       period  by question.spacer;
+	    ignore sub \question \question' \period;
+	    ignore sub \question' \period \period;
+	    sub \question.spacer \period' by \question_period.liga;
+	    sub \question' \period by \question.spacer;
 	} question_period;
 	
 	lookup question_question {
-	  ignore sub question question' question;
-	  ignore sub question' question question;
-	  sub question.spacer question' by question_question.liga;
-	  sub question'       question  by question.spacer;
+	    ignore sub \question \question' \question;
+	    ignore sub \question' \question \question;
+	    sub \question.spacer \question' by \question_question.liga;
+	    sub \question' \question by \question.spacer;
 	} question_question;
 	
 	lookup semicolon_semicolon {
-	  ignore sub semicolon semicolon' semicolon;
-	  ignore sub semicolon' semicolon semicolon;
-	  sub semicolon.spacer semicolon' by semicolon_semicolon.liga;
-	  sub semicolon'       semicolon  by semicolon.spacer;
+	    ignore sub \semicolon \semicolon' \semicolon;
+	    ignore sub \semicolon' \semicolon \semicolon;
+	    sub \semicolon.spacer \semicolon' by \semicolon_semicolon.liga;
+	    sub \semicolon' \semicolon by \semicolon.spacer;
 	} semicolon_semicolon;
 	
 	lookup slash_asterisk {
-	  ignore sub slash slash' asterisk;
-	  ignore sub slash' asterisk asterisk;
-	  ignore sub slash' asterisk slash;
-	  ignore sub asterisk slash' asterisk;
-	  sub slash.spacer asterisk' by slash_asterisk.liga;
-	  sub slash'       asterisk  by slash.spacer;
+	    ignore sub \slash \slash' \asterisk;
+	    ignore sub \slash' \asterisk \asterisk;
+	    ignore sub \slash' \asterisk \slash;
+	    ignore sub \asterisk \slash' \asterisk;
+	    sub \slash.spacer \asterisk' by \slash_asterisk.liga;
+	    sub \slash' \asterisk by \slash.spacer;
 	} slash_asterisk;
 	
 	lookup slash_greater {
-	  ignore sub slash slash' greater;
-	  ignore sub slash' greater greater;
-	  sub slash.spacer greater' by slash_greater.liga;
-	  sub slash'       greater  by slash.spacer;
+	    ignore sub \slash \slash' \greater;
+	    ignore sub \slash' \greater \greater;
+	    sub \slash.spacer \greater' by \slash_greater.liga;
+	    sub \slash' \greater by \slash.spacer;
 	} slash_greater;
 	
 	lookup slash_slash {
-	  ignore sub slash slash' slash;
-	  ignore sub slash' slash slash;
-	  ignore sub equal slash' slash;
-	  ignore sub slash' slash equal;
-	  sub slash.spacer slash' by slash_slash.liga;
-	  sub slash'       slash  by slash.spacer;
+	    ignore sub \slash \slash' \slash;
+	    ignore sub \slash' \slash \slash;
+	    ignore sub \equal \slash' \slash;
+	    ignore sub \slash' \slash \equal;
+	    sub \slash.spacer \slash' by \slash_slash.liga;
+	    sub \slash' \slash by \slash.spacer;
 	} slash_slash;
 	
 	### Vertical-align colon/greater/less
@@ -1042,197 +1042,197 @@ feature calt {
 	
 	lookup center {
 	    #574 :>= :<=
-	    ignore sub colon' [less greater] [equal hyphen];
+	    ignore sub \colon' [\less \greater] [\equal \hyphen];
 	
 	    #1145 ::< ::> <:: >::
-	    ignore sub colon colon' [less greater];
-	    ignore sub [less greater]' colon colon;
+	    ignore sub \colon \colon' [\less \greater];
+	    ignore sub [\less \greater]' \colon \colon;
 	
 	    # middles & ends
-	    sub [less.center greater.center colon.center] colon' by colon.center;
-	    sub colon.center [less greater]' by [less.center greater.center];
+	    sub [\less.center \greater.center \colon.center] \colon' by \colon.center;
+	    sub \colon.center [\less \greater]' by [\less.center \greater.center];
 	
 	    # starts
-	    sub [less greater]' colon by [less.center greater.center];
-	    sub colon' [less greater] by colon.center;
+	    sub [\less \greater]' \colon by [\less.center \greater.center];
+	    sub \colon' [\less \greater] by \colon.center;
 	} center;
 	
 	### Logical conjuntion/disjunction #738
 	
 	lookup slash_backslash {
-	  ignore sub @NotSpace slash' backslash;
-	  ignore sub slash' backslash @NotSpace;
-	  sub slash.spacer backslash' by slash_backslash.liga;
-	  sub slash' backslash by slash.spacer;
+	    ignore sub @NotSpace \slash' \backslash;
+	    ignore sub \slash' \backslash @NotSpace;
+	    sub \slash.spacer \backslash' by \slash_backslash.liga;
+	    sub \slash' \backslash by \slash.spacer;
 	} slash_backslash;
 	
 	lookup backslash_slash {
-	  ignore sub @NotSpace backslash' slash;
-	  ignore sub backslash' slash @NotSpace;
-	  sub backslash.spacer slash' by backslash_slash.liga;
-	  sub backslash' slash by backslash.spacer;
+	    ignore sub @NotSpace \backslash' \slash;
+	    ignore sub \backslash' \slash @NotSpace;
+	    sub \backslash.spacer \slash' by \backslash_slash.liga;
+	    sub \backslash' \slash by \backslash.spacer;
 	} backslash_slash;
 	
 	lookup hexadecimal_x {
 	  ### 0xFF
-	  sub [zero zero.zero] x' [@Digit @HexDigit] by x.multiply;
-	  sub [zero.tosf zero.zero.tosf zero.tosf.zero] x' [@DigitTosf @HexDigit] by x.multiply.tosf;
+	    sub [\zero \zero.zero] \x' [\@Digit @HexDigit] by \x.multiply;
+	    sub [\zero.tosf \zero.zero.tosf \zero.tosf.zero] \x' [\@DigitTosf @HexDigit] by \x.multiply.tosf;
 	
 	  ### 800x600
-	  sub @Digit x' @Digit by x.multiply; 
-	  sub @DigitTosf x' @DigitTosf by x.multiply.tosf;
+	    sub @Digit \x' @Digit by \x.multiply;    
+	    sub @DigitTosf \x' @DigitTosf by \x.multiply.tosf;
 	} hexadecimal_x;
 	
 	### Long dashes
 	
-	sub twoemdash by hyphen_start.seq hyphen_end.seq;
-	sub threeemdash by hyphen_start.seq hyphen_middle.seq hyphen_end.seq;
+	sub \twoemdash by \hyphen_start.seq \hyphen_end.seq;
+	sub \threeemdash by \hyphen_start.seq \hyphen_middle.seq \hyphen_end.seq;
 	
 	lookup equal_arrows {
 	  # Disable |||
-	  ignore sub bar bar' bar equal;
-	  ignore sub bar bar' equal;
-	  ignore sub [equal_start.seq equal_middle.seq] bar' bar bar;
+	    ignore sub \bar \bar' \bar \equal;
+	    ignore sub \bar \bar' \equal;
+	    ignore sub [\equal_start.seq \equal_middle.seq] \bar' \bar \bar;
 	
 	  # equal middle & end
-	  sub [less_equal_start.seq less_less_equal_start.seq less_equal_middle.seq less_less_equal_middle.seq greater_equal_start.seq greater_greater_equal_start.seq greater_equal_middle.seq greater_greater_equal_middle.seq bar_equal_start.seq bar_bar_equal_start.seq bar_equal_middle.seq bar_bar_equal_middle.seq slash_equal_start.seq slash_slash_equal_start.seq slash_equal_middle.seq slash_slash_equal_middle.seq colon_equal_middle.seq exclam_equal_middle.seq equal_start.seq equal_middle.seq] equal' [equal less greater bar slash colon exclam] by equal_middle.seq;
+	    sub [\less_equal_start.seq \less_less_equal_start.seq \less_equal_middle.seq \less_less_equal_middle.seq \greater_equal_start.seq \greater_greater_equal_start.seq \greater_equal_middle.seq \greater_greater_equal_middle.seq \bar_equal_start.seq \bar_bar_equal_start.seq \bar_equal_middle.seq \bar_bar_equal_middle.seq \slash_equal_start.seq \slash_slash_equal_start.seq \slash_equal_middle.seq \slash_slash_equal_middle.seq \colon_equal_middle.seq \exclam_equal_middle.seq \equal_start.seq \equal_middle.seq] \equal' [\equal \less \greater \bar \slash \colon \exclam] by \equal_middle.seq;
 	
-	  sub [less_equal_start.seq less_less_equal_start.seq less_equal_middle.seq less_less_equal_middle.seq greater_equal_start.seq greater_greater_equal_start.seq greater_equal_middle.seq greater_greater_equal_middle.seq bar_equal_start.seq bar_bar_equal_start.seq bar_equal_middle.seq bar_bar_equal_middle.seq slash_equal_start.seq slash_slash_equal_start.seq slash_equal_middle.seq slash_slash_equal_middle.seq colon_equal_middle.seq exclam_equal_middle.seq equal_start.seq equal_middle.seq] equal' by equal_end.seq;
+	    sub [\less_equal_start.seq \less_less_equal_start.seq \less_equal_middle.seq \less_less_equal_middle.seq \greater_equal_start.seq \greater_greater_equal_start.seq \greater_equal_middle.seq \greater_greater_equal_middle.seq \bar_equal_start.seq \bar_bar_equal_start.seq \bar_equal_middle.seq \bar_bar_equal_middle.seq \slash_equal_start.seq \slash_slash_equal_start.seq \slash_equal_middle.seq \slash_slash_equal_middle.seq \colon_equal_middle.seq \exclam_equal_middle.seq \equal_start.seq \equal_middle.seq] \equal' by \equal_end.seq;
 	
 	  # double middles
-	  sub [equal_start.seq equal_middle.seq] less.spacer    less'    equal by less_less_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] less'          less     equal by less.spacer;
-	  sub [equal_start.seq equal_middle.seq] greater.spacer greater' equal by greater_greater_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] greater'       greater  equal by greater.spacer;
-	  sub [equal_start.seq equal_middle.seq] bar.spacer     bar'     equal by bar_bar_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] bar'           bar      equal by bar.spacer;
-	  sub [equal_start.seq equal_middle.seq] slash.spacer   slash'   equal by slash_slash_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] slash'         slash    equal by slash.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \less.spacer \less' \equal by \less_less_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \less' \less \equal by \less.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \greater.spacer \greater' \equal by \greater_greater_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \greater' \greater \equal by \greater.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \bar.spacer \bar' \equal by \bar_bar_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \bar' \bar \equal by \bar.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \slash.spacer \slash' \equal by \slash_slash_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \slash' \slash \equal by \slash.spacer;
 	
 	  # single middles
-	  sub [equal_start.seq equal_middle.seq] less'    equal by less_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] greater' equal by greater_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] bar'     equal by bar_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] slash'   equal by slash_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] colon'   equal by colon_equal_middle.seq;
-	  sub [equal_start.seq equal_middle.seq] exclam'  equal by exclam_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \less' \equal by \less_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \greater' \equal by \greater_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \bar' \equal by \bar_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \slash' \equal by \slash_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \colon' \equal by \colon_equal_middle.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \exclam' \equal by \exclam_equal_middle.seq;
 	
 	  # double ends
-	  sub [equal_start.seq equal_middle.seq] less.spacer    less'    by less_less_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] less'          less     by less.spacer;
-	  sub [equal_start.seq equal_middle.seq] greater.spacer greater' by greater_greater_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] greater'       greater  by greater.spacer;
-	  sub [equal_start.seq equal_middle.seq] bar.spacer     bar'     by bar_bar_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] bar'           bar      by bar.spacer;
-	  sub [equal_start.seq equal_middle.seq] slash.spacer   slash'   by slash_slash_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] slash'         slash    by slash.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \less.spacer \less' by \less_less_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \less' \less by \less.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \greater.spacer \greater' by \greater_greater_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \greater' \greater by \greater.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \bar.spacer \bar' by \bar_bar_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \bar' \bar by \bar.spacer;
+	    sub [\equal_start.seq \equal_middle.seq] \slash.spacer \slash' by \slash_slash_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \slash' \slash by \slash.spacer;
 	
 	  # single ends
-	  sub [equal_start.seq equal_middle.seq] less'    by less_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] greater' by greater_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] bar'     by bar_equal_end.seq;
-	  sub [equal_start.seq equal_middle.seq] slash'   by slash_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \less' by \less_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \greater' by \greater_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \bar' by \bar_equal_end.seq;
+	    sub [\equal_start.seq \equal_middle.seq] \slash' by \slash_equal_end.seq;
 	
 	  # double beginnings
-	  sub less.spacer    less'    equal by less_less_equal_start.seq;
-	  sub less'          less     equal by less.spacer;
-	  sub greater.spacer greater' equal by greater_greater_equal_start.seq;
-	  sub greater'       greater  equal by greater.spacer;
-	  sub bar.spacer     bar'     equal by bar_bar_equal_start.seq;
-	  sub bar'           bar      equal by bar.spacer;
-	  sub slash.spacer   slash'   equal by slash_slash_equal_start.seq;
-	  sub slash'         slash    equal by slash.spacer;
+	    sub \less.spacer \less' \equal by \less_less_equal_start.seq;
+	    sub \less' \less \equal by \less.spacer;
+	    sub \greater.spacer \greater' \equal by \greater_greater_equal_start.seq;
+	    sub \greater' \greater \equal by \greater.spacer;
+	    sub \bar.spacer \bar' \equal by \bar_bar_equal_start.seq;
+	    sub \bar' \bar \equal by \bar.spacer;
+	    sub \slash.spacer \slash' \equal by \slash_slash_equal_start.seq;
+	    sub \slash' \slash \equal by \slash.spacer;
 	
 	  # Disable >=< #548
-	  sub greater' equal less [equal less] by greater_equal_start.seq;
-	  ignore sub greater' equal less;
+	    sub \greater' \equal \less [\equal \less] by \greater_equal_start.seq;
+	    ignore sub \greater' \equal \less;
 	  
 	  # Disable =< #479 #468 #424 #406 #355 #305
-	  sub equal' less [equal less] by equal_start.seq;
+	    sub \equal' \less [\equal \less] by \equal_start.seq;
 	
 	  # Disable =/ #1056
-	  sub equal'   slash [equal slash] by equal_start.seq; 
+	    sub \equal' \slash [\equal \slash] by \equal_start.seq;    
 	
 	  # single beginnings
-	  sub less'    equal by less_equal_start.seq;
-	  sub greater' equal by greater_equal_start.seq;
-	  sub bar'     equal [equal less greater bar colon exclam slash] by bar_equal_start.seq; # disable |= 
-	  sub slash'   equal by slash_equal_start.seq;
-	  sub equal'  [equal greater bar colon exclam] by equal_start.seq;
+	    sub \less' \equal by \less_equal_start.seq;
+	    sub \greater' \equal by \greater_equal_start.seq;
+	    sub \bar' \equal [\equal \less \greater \bar \colon \exclam \slash] by \bar_equal_start.seq; \# \disable \|=    
+	    sub \slash' \equal by \slash_equal_start.seq;
+	    sub \equal' [\equal \greater \bar \colon \exclam] by \equal_start.seq;
 	
 	} equal_arrows;
 	
 	### fi/fl #795
 	
-	sub [f i.salt_low j.salt_low] [i j]' by [i.salt_low j.salt_low];
-	sub [F T I l.salt_low] l' by l.salt_low;
+	sub [\f \i.salt_low \j.salt_low] [\i \j]' by [\i.salt_low \j.salt_low];
+	sub [\F \T \I \l.salt_low] \l' by \l.salt_low;
 	
 	### Greek
 	
 	lookup caltGreekUCdiph {
-	  sub @GreekUCdiphIOTA Iota' by Iotadieresis;
-	  sub @GreekUCdiphUPSILON Upsilon' by Upsilondieresis;
+	    sub @GreekUCdiphIOTA \Iota' by \Iotadieresis;
+	    sub @GreekUCdiphUPSILON \Upsilon' by \Upsilondieresis;
 	} caltGreekUCdiph;
 	
 	lookup caltGreekUC {
-	  sub @GreekUCAcc' @GreekUC by @GreekUCcalt;
-	  sub @GreekUC @GreekUCAcc' by @GreekUCcalt;
-	  sub @GreekUCAcc' space @GreekUC by @GreekUCcalt;
-	  sub @GreekUC space @GreekUCAcc' by @GreekUCcalt;
+	    sub @GreekUCAcc' @GreekUC by @GreekUCcalt;
+	    sub @GreekUC @GreekUCAcc' by @GreekUCcalt;
+	    sub @GreekUCAcc' \space @GreekUC by @GreekUCcalt;
+	    sub @GreekUC \space @GreekUCAcc' by @GreekUCcalt;
 	} caltGreekUC;
 	
 	### Arbitrary-length arrows #346
 	
 	lookup hyphen_arrows {
 	  # Disable |||
-	  ignore sub bar bar' bar hyphen;
-	  ignore sub bar bar' hyphen;
-	  ignore sub [hyphen_start.seq hyphen_middle.seq] bar' bar bar;
+	    ignore sub \bar \bar' \bar \hyphen;
+	    ignore sub \bar \bar' \hyphen;
+	    ignore sub [\hyphen_start.seq \hyphen_middle.seq] \bar' \bar \bar;
 	
 	  # hyphen middle & end
-	  sub [less_hyphen_start.seq less_less_hyphen_start.seq less_hyphen_middle.seq less_less_hyphen_middle.seq greater_hyphen_start.seq greater_greater_hyphen_start.seq greater_hyphen_middle.seq greater_greater_hyphen_middle.seq bar_hyphen_start.seq bar_bar_hyphen_start.seq bar_hyphen_middle.seq bar_bar_hyphen_middle.seq hyphen_start.seq hyphen_middle.seq] hyphen' [hyphen less greater bar] by hyphen_middle.seq;
+	    sub [\less_hyphen_start.seq \less_less_hyphen_start.seq \less_hyphen_middle.seq \less_less_hyphen_middle.seq \greater_hyphen_start.seq \greater_greater_hyphen_start.seq \greater_hyphen_middle.seq \greater_greater_hyphen_middle.seq \bar_hyphen_start.seq \bar_bar_hyphen_start.seq \bar_hyphen_middle.seq \bar_bar_hyphen_middle.seq \hyphen_start.seq \hyphen_middle.seq] \hyphen' [\hyphen \less \greater \bar] by \hyphen_middle.seq;
 	
-	  sub [less_hyphen_start.seq less_less_hyphen_start.seq less_hyphen_middle.seq less_less_hyphen_middle.seq greater_hyphen_start.seq greater_greater_hyphen_start.seq greater_hyphen_middle.seq greater_greater_hyphen_middle.seq bar_hyphen_start.seq bar_bar_hyphen_start.seq bar_hyphen_middle.seq bar_bar_hyphen_middle.seq hyphen_start.seq hyphen_middle.seq] hyphen' by hyphen_end.seq;
+	    sub [\less_hyphen_start.seq \less_less_hyphen_start.seq \less_hyphen_middle.seq \less_less_hyphen_middle.seq \greater_hyphen_start.seq \greater_greater_hyphen_start.seq \greater_hyphen_middle.seq \greater_greater_hyphen_middle.seq \bar_hyphen_start.seq \bar_bar_hyphen_start.seq \bar_hyphen_middle.seq \bar_bar_hyphen_middle.seq \hyphen_start.seq \hyphen_middle.seq] \hyphen' by \hyphen_end.seq;
 	
 	  # double middles
-	  sub [hyphen_start.seq hyphen_middle.seq] less.spacer    less'    hyphen by less_less_hyphen_middle.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] less'          less     hyphen by less.spacer;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater.spacer greater' hyphen by greater_greater_hyphen_middle.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater'       greater  hyphen by greater.spacer;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar.spacer     bar'     hyphen by bar_bar_hyphen_middle.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar'           bar      hyphen by bar.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less.spacer \less' \hyphen by \less_less_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less' \less \hyphen by \less.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater.spacer \greater' \hyphen by \greater_greater_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater' \greater \hyphen by \greater.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar.spacer \bar' \hyphen by \bar_bar_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar' \bar \hyphen by \bar.spacer;
 	
 	  # single middles
-	  sub [hyphen_start.seq hyphen_middle.seq] less'    hyphen by less_hyphen_middle.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater' hyphen by greater_hyphen_middle.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar'     hyphen by bar_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less' \hyphen by \less_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater' \hyphen by \greater_hyphen_middle.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar' \hyphen by \bar_hyphen_middle.seq;
 	
 	  # double ends
-	  sub [hyphen_start.seq hyphen_middle.seq] less.spacer    less'    by less_less_hyphen_end.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] less'          less     by less.spacer;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater.spacer greater' by greater_greater_hyphen_end.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater'       greater  by greater.spacer;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar.spacer     bar'     by bar_bar_hyphen_end.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar'           bar      by bar.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less.spacer \less' by \less_less_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less' \less by \less.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater.spacer \greater' by \greater_greater_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater' \greater by \greater.spacer;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar.spacer \bar' by \bar_bar_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar' \bar by \bar.spacer;
 	
 	  # single ends
-	  sub [hyphen_start.seq hyphen_middle.seq] less'    by less_hyphen_end.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] greater' by greater_hyphen_end.seq;
-	  sub [hyphen_start.seq hyphen_middle.seq] bar'     by bar_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \less' by \less_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \greater' by \greater_hyphen_end.seq;
+	    sub [\hyphen_start.seq \hyphen_middle.seq] \bar' by \bar_hyphen_end.seq;
 	
 	  # double beginnings
-	  sub less.spacer    less'    hyphen by less_less_hyphen_start.seq;
-	  sub less'          less     hyphen by less.spacer;
-	  sub greater.spacer greater' hyphen by greater_greater_hyphen_start.seq;
-	  sub greater'       greater  hyphen by greater.spacer;
-	  sub bar.spacer     bar'     hyphen by bar_bar_hyphen_start.seq;
-	  sub bar'           bar      hyphen by bar.spacer;
+	    sub \less.spacer \less' \hyphen by \less_less_hyphen_start.seq;
+	    sub \less' \less \hyphen by \less.spacer;
+	    sub \greater.spacer \greater' \hyphen by \greater_greater_hyphen_start.seq;
+	    sub \greater' \greater \hyphen by \greater.spacer;
+	    sub \bar.spacer \bar' \hyphen by \bar_bar_hyphen_start.seq;
+	    sub \bar' \bar \hyphen by \bar.spacer;
 	
 	  # single beginnings
-	  sub less'    hyphen by less_hyphen_start.seq;
-	  sub greater' hyphen by greater_hyphen_start.seq;
-	  sub bar'     hyphen by bar_hyphen_start.seq;
-	  sub hyphen' [hyphen less greater bar] by hyphen_start.seq;
+	    sub \less' \hyphen by \less_hyphen_start.seq;
+	    sub \greater' \hyphen by \greater_hyphen_start.seq;
+	    sub \bar' \hyphen by \bar_hyphen_start.seq;
+	    sub \hyphen' [\hyphen \less \greater \bar] by \hyphen_start.seq;
 	} hyphen_arrows;
 	
 	### Lowercase/uppercase operators
@@ -1240,186 +1240,186 @@ feature calt {
 	# Must go after hyphen_arrows.fea
 	
 	lookup lowercase_hyphen {
-	  ignore sub @Tall \hyphen' @Lowercase;
-	  ignore sub @Lowercase \hyphen' @Tall;  
-	  sub \hyphen' @Lowercase by \hyphen.lc;
-	  sub @Lowercase \hyphen' by \hyphen.lc;
+	    ignore sub @Tall \hyphen' @Lowercase;
+	    ignore sub @Lowercase \hyphen' @Tall;    
+	    sub \hyphen' @Lowercase by \hyphen.lc;
+	    sub @Lowercase \hyphen' by \hyphen.lc;
 	} lowercase_hyphen;
 	
 	lookup lowercase_plus {
-	  ignore sub @Tall \plus' @Lowercase;
-	  ignore sub @Lowercase \plus' @Tall;
-	  sub \plus' @Lowercase by \plus.lc;
-	  sub @Lowercase \plus' by \plus.lc;
+	    ignore sub @Tall \plus' @Lowercase;
+	    ignore sub @Lowercase \plus' @Tall;
+	    sub \plus' @Lowercase by \plus.lc;
+	    sub @Lowercase \plus' by \plus.lc;
 	} lowercase_plus;
 	
 	lookup lowercase_asterisk {
-	  ignore sub @Tall \asterisk' @Lowercase;
-	  ignore sub @Lowercase \asterisk' @Tall;
-	  sub \asterisk' @Lowercase by \asterisk.lc;
-	  sub @Lowercase \asterisk' by \asterisk.lc;
+	    ignore sub @Tall \asterisk' @Lowercase;
+	    ignore sub @Lowercase \asterisk' @Tall;
+	    sub \asterisk' @Lowercase by \asterisk.lc;
+	    sub @Lowercase \asterisk' by \asterisk.lc;
 	} lowercase_asterisk;
 	
 	lookup lowercase_asteriskmath {
-	  ignore sub @Tall \asteriskmath' @Lowercase;
-	  ignore sub @Lowercase \asteriskmath' @Tall;
-	  sub \asteriskmath' @Lowercase by \asteriskmath.lc;
-	  sub @Lowercase \asteriskmath' by \asteriskmath.lc;
+	    ignore sub @Tall \asteriskmath' @Lowercase;
+	    ignore sub @Lowercase \asteriskmath' @Tall;
+	    sub \asteriskmath' @Lowercase by \asteriskmath.lc;
+	    sub @Lowercase \asteriskmath' by \asteriskmath.lc;
 	} lowercase_asteriskmath;
 	
 	lookup uppercase_colon {
-	  ignore sub @Tall \colon' @Lowercase;
-	  ignore sub @Lowercase \colon' @Tall;
-	  sub @Tall \colon' by \colon.uc;
-	  sub \colon' @Tall by \colon.uc;
+	    ignore sub @Tall \colon' @Lowercase;
+	    ignore sub @Lowercase \colon' @Tall;
+	    sub @Tall \colon' by \colon.uc;
+	    sub \colon' @Tall by \colon.uc;
 	#  pos @Tall \colon' <0 160 0 0>;
 	#  pos \colon' @Tall <0 160 0 0>;
 	} uppercase_colon;
 	
 	lookup numbersigns {
 	  # middle parts
-	  sub [numbersign_start.seq numbersign_middle.seq] numbersign' numbersign by numbersign_middle.seq;
+	    sub [\numbersign_start.seq \numbersign_middle.seq] \numbersign' \numbersign by \numbersign_middle.seq;
 	
 	  # ends
-	  sub [numbersign_start.seq numbersign_middle.seq] numbersign' by numbersign_end.seq;
+	    sub [\numbersign_start.seq \numbersign_middle.seq] \numbersign' by \numbersign_end.seq;
 	  
 	  # beginnings
-	  sub numbersign' numbersign by numbersign_start.seq; 
+	    sub \numbersign' \numbersign by \numbersign_start.seq;    
 	} numbersigns;
 	
 	lookup underscores {
 	  # middle parts
-	  sub [underscore_start.seq underscore_middle.seq] bar' underscore by bar_underscore_middle.seq;
+	    sub [\underscore_start.seq \underscore_middle.seq] \bar' \underscore by \bar_underscore_middle.seq;
 	
-	  sub [underscore_start.seq underscore_middle.seq bar_underscore_middle.seq] underscore' bar underscore by underscore_middle.seq;
-	  sub [underscore_start.seq underscore_middle.seq bar_underscore_middle.seq] underscore' underscore by underscore_middle.seq;
+	    sub [\underscore_start.seq \underscore_middle.seq \bar_underscore_middle.seq] \underscore' \bar \underscore by \underscore_middle.seq;
+	    sub [\underscore_start.seq \underscore_middle.seq \bar_underscore_middle.seq] \underscore' \underscore by \underscore_middle.seq;
 	
 	  # ends
-	  sub [underscore_start.seq underscore_middle.seq bar_underscore_middle.seq] underscore' by underscore_end.seq;
+	    sub [\underscore_start.seq \underscore_middle.seq \bar_underscore_middle.seq] \underscore' by \underscore_end.seq;
 	  
 	  # beginnings
-	  sub underscore' bar underscore by underscore_start.seq; 
-	  sub underscore' underscore by underscore_start.seq; 
+	    sub \underscore' \bar \underscore by \underscore_start.seq;    
+	    sub \underscore' \underscore by \underscore_start.seq;    
 	} underscores;
 } calt;
 
 feature salt {
-	sub r by r.ss01;
+	sub \r by \r.ss01;
 } salt;
 
 feature ss01 {
-	sub r by r.ss01;
+	sub \r by \r.ss01;
 } ss01;
 
 feature ss02 {
-	sub greater_equal.liga by greater_equal.ss02;
-	sub less_equal.liga by less_equal.ss02;
+	sub \greater_equal.liga by \greater_equal.ss02;
+	sub \less_equal.liga by \less_equal.ss02;
 } ss02;
 
 feature ss03 {
-	sub ampersand by ampersand.ss03;
+	sub \ampersand by \ampersand.ss03;
 	
-	sub ampersand_ampersand.liga by ampersand.ss03;
-	sub ampersand.spacer' ampersand.ss03 by ampersand.before.ss03;
+	sub \ampersand_ampersand.liga by \ampersand.ss03;
+	sub \ampersand.spacer' \ampersand.ss03 by \ampersand.before.ss03;
 	
-	sub  [ampersand ampersand.ss03]' [ampersand ampersand.ss03] by ampersand.before.ss03;
+	sub [\ampersand \ampersand.ss03]' [\ampersand \ampersand.ss03] by \ampersand.before.ss03;
 } ss03;
 
 feature ss04 {
-	sub dollar by dollar.ss04;
+	sub \dollar by \dollar.ss04;
 	
-	sub dollar_greater.liga by dollar_greater.liga.ss04;
-	sub less_dollar_greater.liga by less_dollar_greater.liga.ss04;
-	sub less_dollar.liga by less_dollar.liga.ss04;
+	sub \dollar_greater.liga by \dollar_greater.liga.ss04;
+	sub \less_dollar_greater.liga by \less_dollar_greater.liga.ss04;
+	sub \less_dollar.liga by \less_dollar.liga.ss04;
 } ss04;
 
 feature ss05 {
-	sub at by at.ss05;
-	sub asciitilde.spacer' asciitilde_at.liga by asciitilde;
-	sub asciitilde asciitilde_at.liga' by at.ss05;
+	sub \at by \at.ss05;
+	sub \asciitilde.spacer' \asciitilde_at.liga by \asciitilde;
+	sub \asciitilde \asciitilde_at.liga' by \at.ss05;
 } ss05;
 
 feature ss06 {
 	lookup backslash_thin {
-	  ignore sub backslash.ss06 backslash';
-	  sub backslash' by backslash.ss06;
+	    ignore sub \backslash.ss06 \backslash';
+	    sub \backslash' by \backslash.ss06;
 	} backslash_thin;
 } ss06;
 
 feature ss07 {
 	lookup equal_asciitilde {
-	  ignore sub equal equal' asciitilde;
-	  ignore sub equal' asciitilde asciitilde;
-	  sub equal.spacer asciitilde' by equal_asciitilde.ss07;
-	  sub equal'       asciitilde  by equal.spacer;
+	    ignore sub \equal \equal' \asciitilde;
+	    ignore sub \equal' \asciitilde \asciitilde;
+	    sub \equal.spacer \asciitilde' by \equal_asciitilde.ss07;
+	    sub \equal' \asciitilde by \equal.spacer;
 	} equal_asciitilde;
 	
 	lookup exclam_asciitilde {
-	  ignore sub exclam exclam' asciitilde;
-	  ignore sub exclam' asciitilde asciitilde;
-	  sub exclam.spacer asciitilde' by exclam_asciitilde.ss07;
-	  sub exclam'       asciitilde  by exclam.spacer;
+	    ignore sub \exclam \exclam' \asciitilde;
+	    ignore sub \exclam' \asciitilde \asciitilde;
+	    sub \exclam.spacer \asciitilde' by \exclam_asciitilde.ss07;
+	    sub \exclam' \asciitilde by \exclam.spacer;
 	} exclam_asciitilde;
 } ss07;
 
 feature ss08 {
-	sub equal_equal.liga by equal_equal.ss08;
-	sub equal_equal_equal.liga by equal_equal_equal.ss08;
-	sub exclam_equal.liga by exclam_equal.ss08;
-	sub exclam_equal_equal.liga by exclam_equal_equal.ss08;
+	sub \equal_equal.liga by \equal_equal.ss08;
+	sub \equal_equal_equal.liga by \equal_equal_equal.ss08;
+	sub \exclam_equal.liga by \exclam_equal.ss08;
+	sub \exclam_equal_equal.liga by \exclam_equal_equal.ss08;
 } ss08;
 
 feature ss09 {
 	lookup restore_greater_greater_equal {
-	  sub greater_greater_equal_start.seq equal' by equal_end.seq;
-	  sub greater_greater.liga' equal by greater_greater_equal_start.seq;
+	    sub \greater_greater_equal_start.seq \equal' by \equal_end.seq;
+	    sub \greater_greater.liga' \equal by \greater_greater_equal_start.seq;
 	} restore_greater_greater_equal;
 	
 	lookup restore_less_less_equal {
-	  sub less_less_equal_start.seq equal' by equal_end.seq;
-	  sub less_less.liga' equal by less_less_equal_start.seq;
+	    sub \less_less_equal_start.seq \equal' by \equal_end.seq;
+	    sub \less_less.liga' \equal by \less_less_equal_start.seq;
 	} restore_less_less_equal;
 	
 	lookup restore_bar_bar_equal {
-	  sub bar_bar_equal_start.seq equal' by equal_end.seq;
-	  sub bar_bar.liga' equal by bar_bar_equal_start.seq;
+	    sub \bar_bar_equal_start.seq \equal' by \equal_end.seq;
+	    sub \bar_bar.liga' \equal by \bar_bar_equal_start.seq;
 	} restore_bar_bar_equal;
 	
 	lookup restore_bar_equal {
-	  sub bar_equal_start.seq equal' by equal_end.seq;
-	  sub bar' equal by bar_equal_start.seq;
+	    sub \bar_equal_start.seq \equal' by \equal_end.seq;
+	    sub \bar' \equal by \bar_equal_start.seq;
 	} restore_bar_equal;
 } ss09;
 
 feature ss10 {
 	lookup T_l {
-	  sub T.spacer [l l.salt_low]' by T_l.liga.ss10;
-	  sub T' [l l.salt_low] by T.spacer;
+	    sub \T.spacer [\l \l.salt_low]' by \T_l.liga.ss10;
+	    sub \T' [\l \l.salt_low] by \T.spacer;
 	} T_l;
 	
 	lookup F_l {
-	  sub F.spacer [l l.salt_low]' by F_l.liga.ss10;
-	  sub F' [l l.salt_low] by F.spacer;
+	    sub \F.spacer [\l \l.salt_low]' by \F_l.liga.ss10;
+	    sub \F' [\l \l.salt_low] by \F.spacer;
 	} F_l;
 	
 	lookup f_i {
-	  sub f.spacer [i i.salt_low]' by f_i.liga.ss10;
-	  sub f' [i i.salt_low] by f.spacer;
+	    sub \f.spacer [\i \i.salt_low]' by \f_i.liga.ss10;
+	    sub \f' [\i \i.salt_low] by \f.spacer;
 	} f_i;
 	
 	lookup f_j {
-	  sub f.spacer [j j.salt_low]' by f_j.liga.ss10;
-	  sub f' [j j.salt_low] by f.spacer;
+	    sub \f.spacer [\j \j.salt_low]' by \f_j.liga.ss10;
+	    sub \f' [\j \j.salt_low] by \f.spacer;
 	} f_j;
 	
 	lookup f_l {
-	  sub f.spacer l' by f_l.liga.ss10;
-	  sub f' l by f.spacer;
+	    sub \f.spacer \l' by \f_l.liga.ss10;
+	    sub \f' \l by \f.spacer;
 	} f_l;
 	
 	lookup f_t {
-	  sub f.spacer t' by f_t.liga.ss10;
-	  sub f' t by f.spacer;
+	    sub \f.spacer \t' by \f_t.liga.ss10;
+	    sub \f' \t by \f.spacer;
 	} f_t;
 } ss10;
 
@@ -1427,310 +1427,310 @@ feature ccmp {
 	lookup ccmp_Other_1 {
 		@CombiningTopAccents = [acutecomb brevecomb caroncomb circumflexcomb commaabovecomb commareversedabovecomb dblgravecomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb perispomenicomb ringcomb tildecomb];
 		@CombiningNonTopAccents = [cedillacomb commaaccent ypogegrammenicomb];
-		sub [i]' @CombiningTopAccents by [idotless];
-		sub [i]' @CombiningNonTopAccents @CombiningTopAccents by [idotless];
+	    sub [\i]' @CombiningTopAccents by [\idotless];
+	    sub [\i]' @CombiningNonTopAccents @CombiningTopAccents by [\idotless];
 		@Markscomb = [commaaccent dieresis dotaccent grave acute hungarumlaut circumflex caron breve ring tilde macron cedilla tonos varia oxia];
 		@MarkscombCase = [commaaccent.case dieresis.case dotaccent.case grave.case acute.case hungarumlaut.case circumflex.case caron.case breve.case ring.case tilde.case macron.case cedilla.case tonos.case varia.case oxia.case];
-		sub @Markscomb @Markscomb' by @MarkscombCase;
-		sub @Uppercase @Markscomb' by @MarkscombCase;
+	    sub @Markscomb @Markscomb' by @MarkscombCase;
+	    sub @Uppercase @Markscomb' by @MarkscombCase;
 	} ccmp_Other_1;
 	
 	lookup ccmp_Other_2 {
-		sub @Markscomb' @MarkscombCase by @MarkscombCase;
-		sub @MarkscombCase @Markscomb' by @MarkscombCase;
+	    sub @Markscomb' @MarkscombCase by @MarkscombCase;
+	    sub @MarkscombCase @Markscomb' by @MarkscombCase;
 	} ccmp_Other_2;
 } ccmp;
 
 feature sinf {
-	sub zero by zeroinferior;
-	sub one by oneinferior;
-	sub two by twoinferior;
-	sub three by threeinferior;
-	sub four by fourinferior;
-	sub five by fiveinferior;
-	sub six by sixinferior;
-	sub seven by seveninferior;
-	sub eight by eightinferior;
-	sub nine by nineinferior;
-	sub parenleft by parenleftinferior;
-	sub parenright by parenrightinferior;
-	sub minus by minusinferior;
-	sub plus by plusinferior;
+	sub \zero by \zeroinferior;
+	sub \one by \oneinferior;
+	sub \two by \twoinferior;
+	sub \three by \threeinferior;
+	sub \four by \fourinferior;
+	sub \five by \fiveinferior;
+	sub \six by \sixinferior;
+	sub \seven by \seveninferior;
+	sub \eight by \eightinferior;
+	sub \nine by \nineinferior;
+	sub \parenleft by \parenleftinferior;
+	sub \parenright by \parenrightinferior;
+	sub \minus by \minusinferior;
+	sub \plus by \plusinferior;
 } sinf;
 
 feature hwid {
-	sub cornerbracketleft by cornerbracketleft.half;
-	sub cornerbracketright by cornerbracketright.half;
+	sub \cornerbracketleft by \cornerbracketleft.half;
+	sub \cornerbracketright by \cornerbracketright.half;
 } hwid;
 
 feature cv01 {
-	sub a by a.cv01;
-	sub aacute by aacute.cv01;
-	sub abreve by abreve.cv01;
-	sub acircumflex by acircumflex.cv01;
-	sub adieresis by adieresis.cv01;
-	sub agrave by agrave.cv01;
-	sub amacron by amacron.cv01;
-	sub aogonek by aogonek.cv01;
-	sub aring by aring.cv01;
-	sub atilde by atilde.cv01;
+	sub \a by \a.cv01;
+	sub \aacute by \aacute.cv01;
+	sub \abreve by \abreve.cv01;
+	sub \acircumflex by \acircumflex.cv01;
+	sub \adieresis by \adieresis.cv01;
+	sub \agrave by \agrave.cv01;
+	sub \amacron by \amacron.cv01;
+	sub \aogonek by \aogonek.cv01;
+	sub \aring by \aring.cv01;
+	sub \atilde by \atilde.cv01;
 } cv01;
 
 feature cv02 {
-	sub g by g.cv02;
-	sub gbreve by gbreve.cv02;
-	sub gcircumflex by gcircumflex.cv02;
-	sub gcommaaccent by gcommaaccent.cv02;
-	sub gdotaccent by gdotaccent.cv02;
+	sub \g by \g.cv02;
+	sub \gbreve by \gbreve.cv02;
+	sub \gcircumflex by \gcircumflex.cv02;
+	sub \gcommaaccent by \gcommaaccent.cv02;
+	sub \gdotaccent by \gdotaccent.cv02;
 } cv02;
 
 feature cv03 {
-	sub i by i.cv03;
-	sub idotless by idotless.cv03;
-	sub iacute by iacute.cv03;
-	sub ibreve by ibreve.cv03;
-	sub icircumflex by icircumflex.cv03;
-	sub idieresis by idieresis.cv03;
-	sub idotaccent by idotaccent.cv03;
-	sub igrave by igrave.cv03;
-	sub imacron by imacron.cv03;
-	sub iogonek by iogonek.cv03;
-	sub itilde by itilde.cv03;
+	sub \i by \i.cv03;
+	sub \idotless by \idotless.cv03;
+	sub \iacute by \iacute.cv03;
+	sub \ibreve by \ibreve.cv03;
+	sub \icircumflex by \icircumflex.cv03;
+	sub \idieresis by \idieresis.cv03;
+	sub \idotaccent by \idotaccent.cv03;
+	sub \igrave by \igrave.cv03;
+	sub \imacron by \imacron.cv03;
+	sub \iogonek by \iogonek.cv03;
+	sub \itilde by \itilde.cv03;
 } cv03;
 
 feature cv04 {
-	sub i by i.cv04;
-	sub idotless by idotless.cv04;
-	sub iacute by iacute.cv04;
-	sub ibreve by ibreve.cv04;
-	sub icircumflex by icircumflex.cv04;
-	sub idieresis by idieresis.cv04;
-	sub idotaccent by idotaccent.cv04;
-	sub igrave by igrave.cv04;
-	sub imacron by imacron.cv04;
-	sub iogonek by iogonek.cv04;
-	sub itilde by itilde.cv04;
+	sub \i by \i.cv04;
+	sub \idotless by \idotless.cv04;
+	sub \iacute by \iacute.cv04;
+	sub \ibreve by \ibreve.cv04;
+	sub \icircumflex by \icircumflex.cv04;
+	sub \idieresis by \idieresis.cv04;
+	sub \idotaccent by \idotaccent.cv04;
+	sub \igrave by \igrave.cv04;
+	sub \imacron by \imacron.cv04;
+	sub \iogonek by \iogonek.cv04;
+	sub \itilde by \itilde.cv04;
 } cv04;
 
 feature cv05 {
-	sub i by i.cv05;
-	sub idotless by idotless.cv05;
-	sub iacute by iacute.cv05;
-	sub ibreve by ibreve.cv05;
-	sub icircumflex by icircumflex.cv05;
-	sub idieresis by idieresis.cv05;
-	sub idotaccent by idotaccent.cv05;
-	sub igrave by igrave.cv05;
-	sub imacron by imacron.cv05;
-	sub iogonek by iogonek.cv05;
-	sub itilde by itilde.cv05;
+	sub \i by \i.cv05;
+	sub \idotless by \idotless.cv05;
+	sub \iacute by \iacute.cv05;
+	sub \ibreve by \ibreve.cv05;
+	sub \icircumflex by \icircumflex.cv05;
+	sub \idieresis by \idieresis.cv05;
+	sub \idotaccent by \idotaccent.cv05;
+	sub \igrave by \igrave.cv05;
+	sub \imacron by \imacron.cv05;
+	sub \iogonek by \iogonek.cv05;
+	sub \itilde by \itilde.cv05;
 } cv05;
 
 feature cv06 {
-	sub i by i.cv06;
-	sub idotless by idotless.cv06;
-	sub iacute by iacute.cv06;
-	sub ibreve by ibreve.cv06;
-	sub icircumflex by icircumflex.cv06;
-	sub idieresis by idieresis.cv06;
-	sub idotaccent by idotaccent.cv06;
-	sub igrave by igrave.cv06;
-	sub imacron by imacron.cv06;
-	sub iogonek by iogonek.cv06;
-	sub itilde by itilde.cv06;
+	sub \i by \i.cv06;
+	sub \idotless by \idotless.cv06;
+	sub \iacute by \iacute.cv06;
+	sub \ibreve by \ibreve.cv06;
+	sub \icircumflex by \icircumflex.cv06;
+	sub \idieresis by \idieresis.cv06;
+	sub \idotaccent by \idotaccent.cv06;
+	sub \igrave by \igrave.cv06;
+	sub \imacron by \imacron.cv06;
+	sub \iogonek by \iogonek.cv06;
+	sub \itilde by \itilde.cv06;
 } cv06;
 
 feature cv07 {
-	sub l by l.cv07;
-	sub lacute by lacute.cv07;
-	sub lcaron by lcaron.cv07;
-	sub lcommaaccent by lcommaaccent.cv07;
-	sub ldot by ldot.cv07;
-	sub lslash by lslash.cv07;
+	sub \l by \l.cv07;
+	sub \lacute by \lacute.cv07;
+	sub \lcaron by \lcaron.cv07;
+	sub \lcommaaccent by \lcommaaccent.cv07;
+	sub \ldot by \ldot.cv07;
+	sub \lslash by \lslash.cv07;
 } cv07;
 
 feature cv08 {
-	sub l by l.cv08;
-	sub lacute by lacute.cv08;
-	sub lcaron by lcaron.cv08;
-	sub lcommaaccent by lcommaaccent.cv08;
-	sub ldot by ldot.cv08;
-	sub lslash by lslash.cv08;
+	sub \l by \l.cv08;
+	sub \lacute by \lacute.cv08;
+	sub \lcaron by \lcaron.cv08;
+	sub \lcommaaccent by \lcommaaccent.cv08;
+	sub \ldot by \ldot.cv08;
+	sub \lslash by \lslash.cv08;
 } cv08;
 
 feature cv09 {
-	sub l by l.cv09;
-	sub lacute by lacute.cv09;
-	sub lcaron by lcaron.cv09;
-	sub lcommaaccent by lcommaaccent.cv09;
-	sub ldot by ldot.cv09;
-	sub lslash by lslash.cv09;
+	sub \l by \l.cv09;
+	sub \lacute by \lacute.cv09;
+	sub \lcaron by \lcaron.cv09;
+	sub \lcommaaccent by \lcommaaccent.cv09;
+	sub \ldot by \ldot.cv09;
+	sub \lslash by \lslash.cv09;
 } cv09;
 
 feature cv10 {
-	sub l by l.cv10;
-	sub lacute by lacute.cv10;
-	sub lcaron by lcaron.cv10;
-	sub lcommaaccent by lcommaaccent.cv10;
-	sub ldot by ldot.cv10;
-	sub lslash by lslash.cv10;
+	sub \l by \l.cv10;
+	sub \lacute by \lacute.cv10;
+	sub \lcaron by \lcaron.cv10;
+	sub \lcommaaccent by \lcommaaccent.cv10;
+	sub \ldot by \ldot.cv10;
+	sub \lslash by \lslash.cv10;
 } cv10;
 
 feature cv11 {
-	sub zero by zero.cv11;
-	sub zero.tosf by zero.tosf.cv11;
+	sub \zero by \zero.cv11;
+	sub \zero.tosf by \zero.tosf.cv11;
 } cv11;
 
 feature cv12 {
-	sub zero by zero.cv12;
-	sub zero.tosf by zero.tosf.cv12;
+	sub \zero by \zero.cv12;
+	sub \zero.tosf by \zero.tosf.cv12;
 } cv12;
 
 feature cv13 {
-	sub zero by zero.cv13;
-	sub zero.tosf by zero.tosf.cv13;
+	sub \zero by \zero.cv13;
+	sub \zero.tosf by \zero.tosf.cv13;
 } cv13;
 
 feature cv14 {
-	sub three by three.cv14;
-	sub three.tosf by three.tosf.cv14;
-	sub threeinferior by threeinferior.cv14;
-	sub three.dnom by three.dnom.cv14;
-	sub three.numr by three.numr.cv14;
-	sub threesuperior by threesuperior.cv14;
+	sub \three by \three.cv14;
+	sub \three.tosf by \three.tosf.cv14;
+	sub \threeinferior by \threeinferior.cv14;
+	sub \three.dnom by \three.dnom.cv14;
+	sub \three.numr by \three.numr.cv14;
+	sub \threesuperior by \threesuperior.cv14;
 } cv14;
 
 feature cv15 {
-	sub [asterisk asterisk.lc] by asterisk.cv15;
-	sub [asteriskmath asteriskmath.lc] by asteriskmath.cv15;
+	sub [\asterisk \asterisk.lc] by \asterisk.cv15;
+	sub [\asteriskmath \asteriskmath.lc] by \asteriskmath.cv15;
 } cv15;
 
 feature cv16 {
-	sub [asterisk asterisk.lc asterisk.cv15 asteriskmath asteriskmath.lc asteriskmath.cv15]
+	sub [\asterisk \asterisk.lc \asterisk.cv15 \asteriskmath \asteriskmath.lc \asteriskmath.cv15]
 	 by [asteriskmath asteriskmath.lc asteriskmath.cv15 asterisk asterisk.lc asterisk.cv15];
 	
-	sub [asterisk_asterisk.liga asterisk_asterisk_asterisk.liga asterisk_slash.liga slash_asterisk.liga less_asterisk.liga less_asterisk_greater.liga asterisk_greater.liga]
+	sub [\asterisk_asterisk.liga \asterisk_asterisk_asterisk.liga \asterisk_slash.liga \slash_asterisk.liga \less_asterisk.liga \less_asterisk_greater.liga \asterisk_greater.liga]
 	 by [asterisk_asterisk.liga.cv16 asterisk_asterisk_asterisk.liga.cv16 asterisk_slash.liga.cv16 slash_asterisk.liga.cv16 less_asterisk.liga.cv16 less_asterisk_greater.liga.cv16 asterisk_greater.liga.cv16];
 } cv16;
 
 feature cv17 {
-	sub asciitilde by asciitilde.cv17;
+	sub \asciitilde by \asciitilde.cv17;
 } cv17;
 
 feature cv18 {
-	sub percent by percent.cv18;
-	sub perthousand by perthousand.cv18;
-	sub percent_percent.liga by percent_percent.liga.cv18;
+	sub \percent by \percent.cv18;
+	sub \perthousand by \perthousand.cv18;
+	sub \percent_percent.liga by \percent_percent.liga.cv18;
 } cv18;
 
 feature cv19 {
-	sub less_equal.liga by less_equal.ss02;
+	sub \less_equal.liga by \less_equal.ss02;
 } cv19;
 
 feature cv20 {
 	lookup less_equal_cv20 {
-	  sub less_equal_start.seq less_equal.liga' by equal_end.seq;
-	  sub less.spacer' less_equal.liga by less_equal_start.seq;
+	    sub \less_equal_start.seq \less_equal.liga' by \equal_end.seq;
+	    sub \less.spacer' \less_equal.liga by \less_equal_start.seq;
 	} less_equal_cv20;
 } cv20;
 
 feature cv21 {
 	lookup equal_less_cv21 {
-	  ignore sub equal equal' less;
-	  ignore sub equal' less [less greater equal];
+	    ignore sub \equal \equal' \less;
+	    ignore sub \equal' \less [\less \greater \equal];
 	
-	  sub equal.spacer less' by less_equal.liga;
-	  sub equal' less by equal.spacer;
+	    sub \equal.spacer \less' by \less_equal.liga;
+	    sub \equal' \less by \equal.spacer;
 	} equal_less_cv21;
 } cv21;
 
 feature cv22 {
 	lookup equal_less_cv22 {
-	  ignore sub equal equal' less;
-	  ignore sub equal' less [less greater equal];
+	    ignore sub \equal \equal' \less;
+	    ignore sub \equal' \less [\less \greater \equal];
 	
-	  sub equal.spacer less' by less_equal.ss02;
-	  sub equal' less by equal.spacer;
+	    sub \equal.spacer \less' by \less_equal.ss02;
+	    sub \equal' \less by \equal.spacer;
 	} equal_less_cv22;
 } cv22;
 
 feature cv23 {
-	sub greater_equal.liga by greater_equal.ss02;
+	sub \greater_equal.liga by \greater_equal.ss02;
 } cv23;
 
 feature cv24 {
 	lookup slash_equal_as_not_equal {
-	  sub slash.spacer equal_end.seq' by exclam_equal.liga;
-	  sub slash_equal_start.seq' equal_end.seq by slash.spacer;
+	    sub \slash.spacer \equal_end.seq' by \exclam_equal.liga;
+	    sub \slash_equal_start.seq' \equal_end.seq by \slash.spacer;
 	} slash_equal_as_not_equal;
 } cv24;
 
 feature cv25 {
 	lookup period_hyphen {
-	  ignore sub period period' hyphen;
-	  ignore sub period' hyphen hyphen;
-	  sub period.spacer hyphen' by period_hyphen.cv25;
-	  sub period'       hyphen  by period.spacer;
+	    ignore sub \period \period' \hyphen;
+	    ignore sub \period' \hyphen \hyphen;
+	    sub \period.spacer \hyphen' by \period_hyphen.cv25;
+	    sub \period' \hyphen by \period.spacer;
 	} period_hyphen;
 } cv25;
 
 feature cv26 {
 	lookup colon_hyphen {
-	  ignore sub colon colon' hyphen;
-	  ignore sub colon' hyphen hyphen;
-	  sub colon.spacer hyphen' by colon_hyphen.cv26;
-	  sub colon'       hyphen  by colon.spacer;
+	    ignore sub \colon \colon' \hyphen;
+	    ignore sub \colon' \hyphen \hyphen;
+	    sub \colon.spacer \hyphen' by \colon_hyphen.cv26;
+	    sub \colon' \hyphen by \colon.spacer;
 	} colon_hyphen;
 } cv26;
 
 feature cv27 {
 	lookup bracketleft_bracketright {
-	  sub bracketleft.spacer bracketright' by bracketleft_bracketright.cv27;
-	  sub bracketleft'       bracketright  by bracketleft.spacer;
+	    sub \bracketleft.spacer \bracketright' by \bracketleft_bracketright.cv27;
+	    sub \bracketleft' \bracketright by \bracketleft.spacer;
 	} bracketleft_bracketright;
 } cv27;
 
 feature cv28 {
-	sub braceleft period' by bullet;
-	sub period' braceright by bullet;
+	sub \braceleft \period' by \bullet;
+	sub \period' \braceright by \bullet;
 } cv28;
 
 feature cv29 {
-	sub braceleft by braceleft.cv29;
-	sub braceright by braceright.cv29;
-	sub numbersign_braceleft.liga by numbersign_braceleft.liga.cv29;
+	sub \braceleft by \braceleft.cv29;
+	sub \braceright by \braceright.cv29;
+	sub \numbersign_braceleft.liga by \numbersign_braceleft.liga.cv29;
 } cv29;
 
 feature cv30 {
-	sub bar by bar.cv30;
-	sub bar_bar.liga by bar_bar.liga.cv30;
-	sub bar_bar_bar.liga by bar_bar_bar.liga.cv30;
-	sub bar_bar_equal_middle.seq by bar_bar_equal_middle.seq.cv30;
-	sub bar_equal_middle.seq by bar_equal_middle.seq.cv30;
-	sub bar_bar_equal_end.seq by bar_bar_equal_end.seq.cv30;
-	sub bar_bar_equal_start.seq by bar_bar_equal_start.seq.cv30;
-	sub bar_bar_hyphen_middle.seq by bar_bar_hyphen_middle.seq.cv30;
-	sub bar_hyphen_middle.seq by bar_hyphen_middle.seq.cv30;
-	sub bar_bar_hyphen_end.seq by bar_bar_hyphen_end.seq.cv30;
-	sub bar_bar_hyphen_start.seq by bar_bar_hyphen_start.seq.cv30;
-	sub bar_equal_end.seq by bar_equal_end.seq.cv30;
-	sub bar_equal_start.seq by bar_equal_start.seq.cv30;
-	sub bar_hyphen_end.seq by bar_hyphen_end.seq.cv30;
-	sub bar_hyphen_start.seq by bar_hyphen_start.seq.cv30;
-	sub bar_underscore_middle.seq by bar_underscore_middle.seq.cv30;
+	sub \bar by \bar.cv30;
+	sub \bar_bar.liga by \bar_bar.liga.cv30;
+	sub \bar_bar_bar.liga by \bar_bar_bar.liga.cv30;
+	sub \bar_bar_equal_middle.seq by \bar_bar_equal_middle.seq.cv30;
+	sub \bar_equal_middle.seq by \bar_equal_middle.seq.cv30;
+	sub \bar_bar_equal_end.seq by \bar_bar_equal_end.seq.cv30;
+	sub \bar_bar_equal_start.seq by \bar_bar_equal_start.seq.cv30;
+	sub \bar_bar_hyphen_middle.seq by \bar_bar_hyphen_middle.seq.cv30;
+	sub \bar_hyphen_middle.seq by \bar_hyphen_middle.seq.cv30;
+	sub \bar_bar_hyphen_end.seq by \bar_bar_hyphen_end.seq.cv30;
+	sub \bar_bar_hyphen_start.seq by \bar_bar_hyphen_start.seq.cv30;
+	sub \bar_equal_end.seq by \bar_equal_end.seq.cv30;
+	sub \bar_equal_start.seq by \bar_equal_start.seq.cv30;
+	sub \bar_hyphen_end.seq by \bar_hyphen_end.seq.cv30;
+	sub \bar_hyphen_start.seq by \bar_hyphen_start.seq.cv30;
+	sub \bar_underscore_middle.seq by \bar_underscore_middle.seq.cv30;
 } cv30;
 
 feature cv31 {
-	sub parenleft by parenleft.cv31;
-	sub parenright by parenright.cv31;
+	sub \parenleft by \parenleft.cv31;
+	sub \parenright by \parenright.cv31;
 } cv31;
 
 feature cv32 {
 	lookup period_equal {
-	  ignore sub period period' equal;
-	  ignore sub period' equal equal;
-	  sub period.spacer equal' by period_equal.cv32;
-	  sub period'       equal  by period.spacer;
+	    ignore sub \period \period' \equal;
+	    ignore sub \period' \equal \equal;
+	    sub \period.spacer \equal' by \period_equal.cv32;
+	    sub \period' \equal by \period.spacer;
 	} period_equal;
 } cv32;
 

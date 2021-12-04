@@ -1,23 +1,18 @@
 #!/usr/bin/env python
 
 from glyphsLib import GSFont
-import re
-
-
-def remove_last_newlines(s):
-    while s[-1:] == "\n" and len(s) > 0:
-        s = s[:-1]
-    return s
+import utils as u
 
 
 def extract_features():
     file = open("fira.fea", "w")
     font = GSFont("fira.glyphs")
     for feature in font.features:
+        code = u.add_backslash_to_glyphs(feature.code)
         file.write(
             f"feature {feature.name} "
             + "{\n\t"
-            + remove_last_newlines(feature.code).replace("\n", "\n\t")
+            + u.remove_last_newlines(code).replace("\n", "\n\t")
             + "\n}"
             + f" {feature.name};\n\n"
         )
@@ -61,17 +56,13 @@ FEAT_BLACKLIST = {
 }
 
 
-def lookups(s):
-    return re.findall("(?<=lookup )([\s\S]*?)(?= \{)", s)
-
-
 def create_feature_set_file():
     font = GSFont("fira.glyphs")
     file = open("features_sample.py", "w")
     file.write(f'"""{FEAT_FILE_COMMENT}"""' + "\n\nfeatures = {\n")
     for feature in font.features:
         if feature.name not in FEAT_BLACKLIST:
-            ls = lookups(feature.code)
+            ls = u.lookups(feature.code)
             if len(ls) > 0:
                 fls = "[\n"
                 for i in range(len(ls)):

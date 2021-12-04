@@ -9,7 +9,12 @@
 
 import fontforge
 import psMat
+import os
 from os import path
+from glyphsLib import GSFont
+import re
+import importlib.util
+import utils as u
 
 # Constants
 COPYRIGHT = """
@@ -17,14 +22,78 @@ Programming ligatures added by Ilya Skriblovsky from FiraCode
 FiraCode Copyright (c) 2015 by Nikita Prokopov"""
 
 
+def cls():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def get_ligature_source(fontname):
     # Become case-insensitive
     fontname = fontname.lower()
+    ext = fontname[:-3]
     for weight in ["Bold", "Retina", "Medium", "Regular", "Light", "SemiBold"]:
         if fontname.endswith("-" + weight.lower()):
             # Exact match for one of the Fira Code weights
-            return "fira/FiraCode-%s.ttf" % weight
-    return "fira/FiraCode-Regular.ttf"
+            return f"fira/FiraCode-{weight}.{ext}"
+    return f"fira/FiraCode-Regular.{ext}"
+
+
+def add_fira_prefix(code):
+    print("foo")
+
+
+def write_fira_feature_file(feats, output_file):
+    file = open(output_file, "w")
+    fira = GSFont("fira.glyphs")
+    filtered_feats = [f for f in fira.features if f.name in feats]
+    # filtered_classes = filter_classes(fira.classes, feats)
+    # for _class in fira.classes:
+    #     if _class in filtered_classes:
+    #         # write classes to file
+    for feature in [fira.features["liga"]]:
+        code = u.add_backslash_to_glyphs(feature.code)
+        file.write(
+            f"feature {feature.name} "
+            + "{\n\t"
+            + u.remove_last_newlines(code).replace("\n", "\n\t")
+            + "\n}"
+            + f" {feature.name};\n\n"
+        )
+    file.close()
+
+
+def extract_tagged_glyphs(tmp_fea):
+    content = open(tmp_fea, "r").read()
+    res = re.findall(r"(?<=\\)(\w+)(\.\w+)+", content)
+    return ["".join(r) for r in res]
+
+
+def correct_ligature_width(w, glyph):
+    """Correct the horizontal advance and scale of a ligature."""
+
+    # TODO: some kind of threshold here, similar to the character glyph
+    # scale threshold? The largest ligature uses 0.956 of its hbox, so if
+    # the target font is within 4% of the source font size, we don't need to
+    # resize -- but we may want to adjust the bearings. And we can't just
+    # center it, because ligatures are characterized by very large negative
+    # left bearings -- they advance 1em, but draw from (-(n-1))em to +1em.
+    scale = float(w) / glyph.width
+    glyph.transform(psMat.scale(scale))
+    glyph.left_side_bearing = round(glyph.left_side_bearing * scale)
+    glyph.right_side_bearing = round(glyph.right_side_bearing * scale)
+    # glyph.width = w
+
+
+def paste_glyphs(fira, font, glyphs):
+    for g in glyphs:
+        fira.selection.none()
+        fira.selection.select(g)
+        fira.copy()
+
+        font.createChar(-1, g)
+        font.selection.none()
+        font.selection.select(g)
+        font.paste()
+        correct_ligature_width(font["M"].width, font[g])
 
 
 class LigatureCreator(object):
@@ -277,9 +346,27 @@ def update_font_metadata(font, new_name):
 
 
 def ligaturize_font(
-    input_font_file, output_dir, ligature_font_file, output_name, prefix, **kwargs
+    input_font_file,
+    output_dir,
+    ligature_font_file,
+    features_file,
+    output_name,
+    prefix,
+    **kwargs,
 ):
     font = fontforge.open(input_font_file)
+    cls()
+    features_file_name = path.splitext(path.basename(features_file))[0]
+    try:
+        spec = importlib.util.spec_from_file_location(features_file_name, features_file)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        features = mod.features
+    except:
+        spec = importlib.util.spec_from_file_location("default", "features/default.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        features = mod.features
 
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font.fontname)
@@ -294,10 +381,17 @@ def ligaturize_font(
     update_font_metadata(font, name)
 
     print("    ...using ligatures from %s" % ligature_font_file)
+    print("    ...using features from %s" % features_file)
     firacode = fontforge.open(ligature_font_file)
 
-    creator = LigatureCreator(font, firacode, **kwargs)
-    ligature_length = lambda lig: len(lig["chars"])
+    tmp_fea = "tmp.fea"
+    write_fira_feature_file(features, tmp_fea)
+    tmp_glyphs = extract_tagged_glyphs(tmp_fea)
+    paste_glyphs(firacode, font, tmp_glyphs)
+    font.mergeFeature(tmp_fea)
+
+    # creator = LigatureCreator(font, firacode, **kwargs)
+    # ligature_length = lambda lig: len(lig["chars"])
     # for lig_spec in sorted(ligatures, key=ligature_length):
     #     try:
     #         creator.add_ligature(lig_spec["chars"], lig_spec["firacode_ligature_name"])
@@ -343,6 +437,13 @@ def parse_args():
         help="The file to copy ligatures from. If unspecified, ligaturize will"
         " attempt to pick a suitable one from fonts/fira/distr/otf/ based on the input"
         " font's weight.",
+    )
+    parser.add_argument(
+        "--features-file",
+        type=str,
+        default="features/default.py",
+        metavar="PATH",
+        help="The file to copy features from.",
     )
     parser.add_argument(
         "--copy-character-glyphs",

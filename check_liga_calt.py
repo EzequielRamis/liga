@@ -7,7 +7,7 @@ from features_sample import features
 
 def check():
     font = GSFont("fira.glyphs")
-    liga_feature = next((i for i in font.features if i.name == "liga"), "")
+    liga_feature = font.features["liga"]
     ligas = set(re.findall("(?<=by )([\s\S]*?)(?=.liga)", liga_feature.code))
     calts = set(features["calt"])
     if ligas.issubset(calts):
