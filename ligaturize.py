@@ -4,8 +4,7 @@
 # Run with --help for detailed options, or use the `build.py` script to
 # process lots of fonts at once.
 #
-# See ligatures.py for a list of all the ligatures (and, optionally, individual
-# characters) that will be copied.
+# See features_sample.py for a complete configuration that will be copied.
 
 import fontforge
 import psMat
@@ -15,11 +14,14 @@ from glyphsLib import GSFont
 import re
 import importlib.util
 import utils as u
+import itertools
+from functools import reduce
 
 # Constants
 COPYRIGHT = """
-Programming ligatures added by Ilya Skriblovsky from FiraCode
-FiraCode Copyright (c) 2015 by Nikita Prokopov"""
+
+Programming ligatures added by Ezequiel Ramis Folberg from FiraCode.
+FiraCode Copyright (c) 2014 by Nikita Prokopov."""
 
 
 def cls():
@@ -41,16 +43,56 @@ def add_fira_prefix(code):
     print("foo")
 
 
-def write_fira_feature_file(feats, output_file):
+def write_fira_feature_file(feats, output_file, firacode, font):
     file = open(output_file, "w")
     fira = GSFont("fira.glyphs")
     filtered_feats = [f for f in fira.features if f.name in feats]
-    # filtered_classes = filter_classes(fira.classes, feats)
-    # for _class in fira.classes:
-    #     if _class in filtered_classes:
-    #         # write classes to file
-    for feature in [fira.features["liga"]]:
-        code = u.add_backslash_to_glyphs(feature.code)
+    # filtered_classes = set(
+    #     itertools.chain.from_iterable(
+    #         [re.findall("(?<=@)\w+", f.code) for f in filtered_feats]
+    #     )
+    # )
+    for feature in fira.featurePrefixes:
+        file.write(feature.code)
+    for _class in fira.classes:
+        fcode = " ".join(
+            set(
+                filter(
+                    lambda i: i[0] == "\\"
+                    and firacode.__contains__(i[1:])
+                    and font.__contains__(firacode[i[1:]].unicode),
+                    [
+                        ("\\" + cl if cl[0] != "@" else cl)
+                        for cl in re.sub("\s+", " ", _class.code).split(" ")
+                    ],
+                )
+            )
+        )
+        file.write(f"@{_class.name} = [{fcode}];\n")
+    # if "calt" in feats:
+    #     liga_subs = u.add_backslash_to_glyphs(fira.features["liga"].code)
+    #     filtered_liga_subs = []
+    #     for line in liga_subs.split("\n"):
+    #         res = re.findall(r"(?<=\\)(\S+)(?=\.liga)", line)
+    #         if len(res) > 0:
+    #             if res[0] in feats["calt"]:
+    #                 filtered_liga_subs.append(line)
+    #         else:
+    #             filtered_liga_subs.append(line)
+    #     code = "\n".join(filtered_liga_subs)
+    #     file.write(
+    #         "feature liga {\n\t"
+    #         + u.remove_last_newlines(code).replace("\n", "\n\t")
+    #         + "\n} liga;\n\n"
+    #     )
+    for feature in filtered_feats:
+        code = "\n".join(
+            [
+                l
+                for l in u.add_backslash_to_glyphs(feature.code).split("\n")
+                if ("twoemdash" not in l and "threeemdash" not in l)
+            ]
+        )
         file.write(
             f"feature {feature.name} "
             + "{\n\t"
@@ -63,28 +105,21 @@ def write_fira_feature_file(feats, output_file):
 
 def extract_tagged_glyphs(tmp_fea):
     content = open(tmp_fea, "r").read()
-    res = re.findall(r"(?<=\\)(\w+)(\.\w+)+", content)
-    return ["".join(r) for r in res]
+    res = re.findall(r"(?<=\\)(\w+(\.\w+)+)", content)
+    return set([r[0] for r in res])
 
 
-def correct_ligature_width(w, glyph):
-    """Correct the horizontal advance and scale of a ligature."""
-
-    # TODO: some kind of threshold here, similar to the character glyph
-    # scale threshold? The largest ligature uses 0.956 of its hbox, so if
-    # the target font is within 4% of the source font size, we don't need to
-    # resize -- but we may want to adjust the bearings. And we can't just
-    # center it, because ligatures are characterized by very large negative
-    # left bearings -- they advance 1em, but draw from (-(n-1))em to +1em.
-    scale = float(w) / glyph.width
-    glyph.transform(psMat.scale(scale))
-    glyph.left_side_bearing = round(glyph.left_side_bearing * scale)
-    glyph.right_side_bearing = round(glyph.right_side_bearing * scale)
-    # glyph.width = w
+def correct_ligature_width(font, g, mult):
+    if mult == 0:
+        mult = 1.0
+    scale = float(font["M"].width) / font[g].width
+    font[g].transform(psMat.scale(scale * mult))
 
 
-def paste_glyphs(fira, font, glyphs):
+def paste_tagged_glyphs(fira, font, glyphs, scale):
     for g in glyphs:
+        renamed_g = "fira_" + g
+
         fira.selection.none()
         fira.selection.select(g)
         fira.copy()
@@ -93,7 +128,36 @@ def paste_glyphs(fira, font, glyphs):
         font.selection.none()
         font.selection.select(g)
         font.paste()
-        correct_ligature_width(font["M"].width, font[g])
+        font[g].glyphname = renamed_g
+        correct_ligature_width(font, renamed_g, scale)
+
+
+def rename_tagged_glyphs(glyphs, tmp_fea):
+    content = open(tmp_fea, "r").read()
+    for g in glyphs:
+        content = re.sub(f"(?<=\\\\){g}", f"fira_{g}", content)
+    file = open(tmp_fea, "w")
+    file.write(content)
+    file.close()
+
+
+def rename_normal_glyphs(firacode, font, tmp_fea):
+    content = open(tmp_fea, "r").read()
+    normal_glyphs = list(
+        set(
+            filter(
+                lambda s: "." not in s,
+                map(
+                    lambda s: reduce(lambda z, i: z.replace(i, ""), ["'", ";", "]"], s),
+                    re.findall(r"(?<=\\)(\S+)", content),
+                ),
+            )
+        )
+    )
+    for g in normal_glyphs:
+        uni = firacode[g].unicode
+        # if it exists, it's only renamed
+        font.createChar(uni, g)
 
 
 class LigatureCreator(object):
@@ -186,126 +250,6 @@ class LigatureCreator(object):
         glyph.transform(psMat.scale(scale, 1.0))
         glyph.width = self.emwidth
 
-    def add_ligature(self, input_chars, firacode_ligature_name):
-        if firacode_ligature_name is None:
-            # No ligature name -- we're just copying a bunch of individual characters.
-            self.copy_character_glyphs(input_chars)
-            return
-
-        if not self.copy_ligature_from_source(firacode_ligature_name):
-            # Ligature not in source font.
-            return
-
-        self._lig_counter += 1
-        ligature_name = "lig.{}".format(self._lig_counter)
-
-        self.font.createChar(-1, ligature_name)
-        self.font.selection.none()
-        self.font.selection.select(ligature_name)
-        self.font.paste()
-        self.correct_ligature_width(self.font[ligature_name])
-
-        self.font.selection.none()
-        self.font.selection.select("space")
-        self.font.copy()
-
-        lookup_name = lambda i: "lookup.{}.{}".format(self._lig_counter, i)
-        lookup_sub_name = lambda i: "lookup.sub.{}.{}".format(self._lig_counter, i)
-        cr_name = lambda i: "CR.{}.{}".format(self._lig_counter, i)
-
-        for i, char in enumerate(input_chars):
-            self.font.addLookup(lookup_name(i), "gsub_single", (), ())
-            self.font.addLookupSubtable(lookup_name(i), lookup_sub_name(i))
-
-            # if char not in self.font:
-            #     # We assume here that this is because char is a single letter
-            #     # (e.g. 'w') rather than a character name, and the font we're
-            #     # editing doesn't have glyphnames for letters.
-            #     self.font[ord(char_dict[char])].glyphname = char
-
-            if i < len(input_chars) - 1:
-                self.font.createChar(-1, cr_name(i))
-                self.font.selection.none()
-                self.font.selection.select(cr_name(i))
-                self.font.paste()
-
-                self.font[char].addPosSub(lookup_sub_name(i), cr_name(i))
-            else:
-                self.font[char].addPosSub(lookup_sub_name(i), ligature_name)
-
-        calt_lookup_name = "calt.{}".format(self._lig_counter)
-        self.font.addLookup(
-            calt_lookup_name,
-            "gsub_contextchain",
-            (),
-            (
-                (
-                    "calt",
-                    (
-                        ("DFLT", ("dflt",)),
-                        ("arab", ("dflt",)),
-                        ("armn", ("dflt",)),
-                        ("cyrl", ("SRB ", "dflt")),
-                        ("geor", ("dflt",)),
-                        ("grek", ("dflt",)),
-                        ("lao ", ("dflt",)),
-                        (
-                            "latn",
-                            (
-                                "CAT ",
-                                "ESP ",
-                                "GAL ",
-                                "ISM ",
-                                "KSM ",
-                                "LSM ",
-                                "MOL ",
-                                "NSM ",
-                                "ROM ",
-                                "SKS ",
-                                "SSM ",
-                                "dflt",
-                            ),
-                        ),
-                        ("math", ("dflt",)),
-                        ("thai", ("dflt",)),
-                    ),
-                ),
-            ),
-        )
-        # print('CALT %s (%s)' % (calt_lookup_name, firacode_ligature_name))
-        for i, char in enumerate(input_chars):
-            self.add_calt(
-                calt_lookup_name,
-                "calt.{}.{}".format(self._lig_counter, i),
-                "{prev} | {cur} @<{lookup}> | {next}",
-                prev=" ".join(cr_name(j) for j in range(i)),
-                cur=char,
-                lookup=lookup_name(i),
-                next=" ".join(input_chars[i + 1 :]),
-            )
-
-        # Add ignore rules
-        self.add_calt(
-            calt_lookup_name,
-            "calt.{}.{}".format(self._lig_counter, i + 1),
-            "| {first} | {rest} {last}",
-            first=input_chars[0],
-            rest=" ".join(input_chars[1:]),
-            last=input_chars[-1],
-        )
-        self.add_calt(
-            calt_lookup_name,
-            "calt.{}.{}".format(self._lig_counter, i + 2),
-            "{first} | {first} | {rest}",
-            first=input_chars[0],
-            rest=" ".join(input_chars[1:]),
-        )
-
-    def add_calt(self, calt_name, subtable_name, spec, **kwargs):
-        spec = spec.format(**kwargs)
-        # print('    %s: %s ' % (subtable_name, spec))
-        self.font.addContextualSubtable(calt_name, subtable_name, "glyph", spec)
-
 
 def replace_sfnt(font, key, value):
     font.sfnt_names = tuple(
@@ -350,6 +294,8 @@ def ligaturize_font(
     output_dir,
     ligature_font_file,
     features_file,
+    copy_character_glyphs,
+    scale_fira_glyphs,
     output_name,
     prefix,
     **kwargs,
@@ -385,23 +331,16 @@ def ligaturize_font(
     firacode = fontforge.open(ligature_font_file)
 
     tmp_fea = "tmp.fea"
-    write_fira_feature_file(features, tmp_fea)
+    write_fira_feature_file(features, tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
-    paste_glyphs(firacode, font, tmp_glyphs)
+    paste_tagged_glyphs(firacode, font, tmp_glyphs, scale_fira_glyphs)
+    rename_tagged_glyphs(tmp_glyphs, tmp_fea)
+    rename_normal_glyphs(firacode, font, tmp_fea)
     font.mergeFeature(tmp_fea)
-
-    # creator = LigatureCreator(font, firacode, **kwargs)
-    # ligature_length = lambda lig: len(lig["chars"])
-    # for lig_spec in sorted(ligatures, key=ligature_length):
-    #     try:
-    #         creator.add_ligature(lig_spec["chars"], lig_spec["firacode_ligature_name"])
-    #     except Exception as e:
-    #         print("Exception while adding ligature: {}".format(lig_spec))
-    #         raise
 
     # Work around a bug in Fontforge where the underline height is subtracted from
     # the underline width when you call generate().
-    font.upos += font.uwidth
+    # font.upos += font.uwidth
 
     # Generate font type (TTF or OTF) corresponding to input font extension
     # (defaults to TTF)
@@ -412,7 +351,7 @@ def ligaturize_font(
 
     # Generate font & move to output directory
     output_font_file = path.join(output_dir, font.fontname + output_font_type)
-    print("    ...saving to '%s' (%s)" % (output_font_file, font.fullname))
+    print("\n    ...saving to '%s' (%s)" % (output_font_file, font.fullname))
     font.generate(output_font_file)
 
 
@@ -441,9 +380,9 @@ def parse_args():
     parser.add_argument(
         "--features-file",
         type=str,
-        default="features/default.py",
+        default="features_sample.py",
         metavar="PATH",
-        help="The file to copy features from.",
+        help="The python file to copy features from.",
     )
     parser.add_argument(
         "--copy-character-glyphs",
@@ -455,22 +394,20 @@ def parse_args():
         " of the font.",
     )
     parser.add_argument(
-        "--scale-character-glyphs-threshold",
+        "--scale-fira-glyphs",
         type=float,
-        default=0.1,
-        metavar="THRESHOLD",
-        help="When copying character glyphs, if they differ in width from the"
-        " width of the input font by at least this much, scale them"
-        " horizontally to match the input font even if this noticeably"
-        " changes their aspect ratio. The default (0.1) means to scale if"
-        " they are at least 10%% wider or narrower. A value of 0 will scale"
-        " all copied character glyphs; a value of 2 effectively disables"
-        " character glyph scaling.",
+        default=0.7,
+        metavar="SCALE",
+        help="""
+        When copying character glyphs from FiraCode, sometimes it is necessary
+        to adjust manually the glyph size by a scale factor. It will be ignored if
+        the scale is equal to 0.
+        """,
     )
     parser.add_argument(
         "--prefix",
         type=str,
-        default="Liga ",
+        default="Liga-",
         help="String to prefix the name of the generated font with.",
     )
     parser.add_argument(

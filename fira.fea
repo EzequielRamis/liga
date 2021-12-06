@@ -1,3 +1,20 @@
+languagesystem DFLT dflt;
+languagesystem zyyy dflt;
+languagesystem zinh dflt;
+languagesystem cyrl dflt;
+languagesystem grek dflt;
+languagesystem latn dflt;
+languagesystem latn TAT;
+languagesystem latn TRK;
+languagesystem latn MOL;
+languagesystem latn ROM;
+languagesystem latn KAZ;
+languagesystem latn PLK;
+languagesystem latn AZE;
+languagesystem latn CAT;
+languagesystem latn CRT;
+languagesystem latn AFK;
+
 feature aalt {
 	feature subs;
 	feature sups;
@@ -1156,7 +1173,7 @@ feature calt {
 	  # single beginnings
 	    sub \less' \equal by \less_equal_start.seq;
 	    sub \greater' \equal by \greater_equal_start.seq;
-	    sub \bar' \equal [\equal \less \greater \bar \colon \exclam \slash] by \bar_equal_start.seq; \# \disable \|=    
+	    sub \bar' \equal [\equal \less \greater \bar \colon \exclam \slash] by \bar_equal_start.seq;    
 	    sub \slash' \equal by \slash_equal_start.seq;
 	    sub \equal' [\equal \greater \bar \colon \exclam] by \equal_start.seq;
 	
@@ -1607,10 +1624,10 @@ feature cv15 {
 
 feature cv16 {
 	sub [\asterisk \asterisk.lc \asterisk.cv15 \asteriskmath \asteriskmath.lc \asteriskmath.cv15]
-	 by [asteriskmath asteriskmath.lc asteriskmath.cv15 asterisk asterisk.lc asterisk.cv15];
+	    by [\asteriskmath \asteriskmath.lc \asteriskmath.cv15 \asterisk \asterisk.lc \asterisk.cv15];
 	
 	sub [\asterisk_asterisk.liga \asterisk_asterisk_asterisk.liga \asterisk_slash.liga \slash_asterisk.liga \less_asterisk.liga \less_asterisk_greater.liga \asterisk_greater.liga]
-	 by [asterisk_asterisk.liga.cv16 asterisk_asterisk_asterisk.liga.cv16 asterisk_slash.liga.cv16 slash_asterisk.liga.cv16 less_asterisk.liga.cv16 less_asterisk_greater.liga.cv16 asterisk_greater.liga.cv16];
+	    by [\asterisk_asterisk.liga.cv16 \asterisk_asterisk_asterisk.liga.cv16 \asterisk_slash.liga.cv16 \slash_asterisk.liga.cv16 \less_asterisk.liga.cv16 \less_asterisk_greater.liga.cv16 \asterisk_greater.liga.cv16];
 } cv16;
 
 feature cv17 {

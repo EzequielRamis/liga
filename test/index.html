@@ -7,8 +7,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
         @font-face {
-            font-family: 'Test';
-            src: url('../output/Liga\ FreeMono.otf') format('opentype');
+            font-family: 'Liga-SFMono';
+            /* src: local('FiraCode-Regular'); */
+            src: local('Liga-SFMono-Regular');
             font-weight: normal;
             font-style: normal;
         }
@@ -28,7 +29,7 @@
             width: -moz-available;
             flex: 1;
             font-size: 32px;
-            font-family: Test, serif;
+            font-family: 'Liga-SFMono', serif;
         }
         .inputs {
             display: flex;
@@ -44,6 +45,7 @@
     <main>
         </object>
         <div class="inputs">
+            <label for="size" id="size-label">32</label>
             <input type="range" id="size" step="2" min="10" max="128" value="32"
                 oninput="changeSize(this.value)"
             >
@@ -60,7 +62,10 @@
 <script>
     const area = document.querySelector("#area");
 
-    let changeSize = (s) => area.style.fontSize = `${s}px`;
+    let changeSize = (s) => {
+        document.querySelector("#size-label").innerHTML = s;
+        area.style.fontSize = `${s}px`;
+    };
     let clearArea = () => area.value = "";
     let showcases = () => area.value = show;
 </script>

@@ -15,8 +15,8 @@ def add_backslash_to_glyphs(code):
     splitted_code = code.split("\n")
     new_code = []
     for line in splitted_code:
-        if re.search("sub\s+", line) is not None:
-            splitted_line = re.split("\s+", line)
+        if re.search("(sub|by)\s+", line) is not None:
+            splitted_line = re.split("\s+", re.sub("#.+", "", line))
             line_res = []
             for token in splitted_line:
                 if token != "":

@@ -7,6 +7,8 @@ import utils as u
 def extract_features():
     file = open("fira.fea", "w")
     font = GSFont("fira.glyphs")
+    for feature in font.featurePrefixes:
+        file.write(feature.code + "\n")
     for feature in font.features:
         code = u.add_backslash_to_glyphs(feature.code)
         file.write(
@@ -53,7 +55,7 @@ FEAT_BLACKLIST = {
     "ccmp",
     "sinf",
     "hwid",
-}
+}.union(set([f"cv{str(i).zfill(2)}" for i in range(1, 15)]))
 
 
 def create_feature_set_file():
@@ -77,7 +79,7 @@ def create_feature_set_file():
 
 def main():
     extract_features()
-    extract_classes()
+    # extract_classes()
     create_feature_set_file()
 
 
