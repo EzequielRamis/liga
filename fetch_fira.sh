@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version=6
+version=6.2
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 tmpDir=$(mktemp -d)
