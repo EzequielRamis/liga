@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 #
-# usage: fontforge -lang=py ligaturize.py [options]
-# Run with --help for detailed options, or use the `build.py` script to
-# process lots of fonts at once.
+# usage: fontforge -lang=py ligate.py [options]
+# Run with --help for detailed options.
 #
-# See features_sample.py for a complete configuration that will be copied.
+# See config_sample.py for a complete configuration that will be copied.
 
 import fontforge
 import psMat
@@ -255,19 +254,18 @@ def update_font_metadata(font, new_name):
         font.fontname = new_name
 
     print(
-        "Ligaturizing font %s (%s) as '%s'"
-        % (path.basename(font.path), old_name, new_name)
+        "Ligating font %s (%s) as '%s'" % (path.basename(font.path), old_name, new_name)
     )
 
     font.copyright = (font.copyright or "") + COPYRIGHT
-    replace_sfnt(font, "UniqueID", "%s; Ligaturized" % font.fullname)
+    replace_sfnt(font, "UniqueID", "%s; ligated" % font.fullname)
     replace_sfnt(font, "Preferred Family", new_name)
     replace_sfnt(font, "Compatible Full", new_name)
     replace_sfnt(font, "Family", new_name)
     replace_sfnt(font, "WWS Family", new_name)
 
 
-def ligaturize_font(
+def ligate_font(
     input_font_file,
     output_dir,
     ligature_font_file,
@@ -285,7 +283,7 @@ def ligaturize_font(
         spec.loader.exec_module(mod)
         config = mod.config
     except:
-        spec = importlib.util.spec_from_file_location("default", "features/default.py")
+        spec = importlib.util.spec_from_file_location("default", "config_sample.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         config = mod.config
@@ -340,7 +338,7 @@ def parse_args():
     )
     parser.add_argument(
         "--output-dir",
-        help="The directory to save the ligaturized font in. The actual filename"
+        help="The directory to save the ligated font in. The actual filename"
         " will be automatically generated based on the input font name and"
         " the --prefix and --output-name flags.",
     )
@@ -349,14 +347,14 @@ def parse_args():
         type=str,
         default="",
         metavar="PATH",
-        help="The file to copy ligatures from. If unspecified, ligaturize will"
+        help="The file to copy ligatures from. If unspecified, ligate will"
         " attempt to pick a suitable one from fonts/fira/distr/otf/ based on the input"
         " font's weight.",
     )
     parser.add_argument(
         "--config-file",
         type=str,
-        default="features_sample.py",
+        default="config_sample.py",
         metavar="PATH",
         help="The python file to copy the config from.",
     )
@@ -385,7 +383,7 @@ def parse_args():
 
 
 def main():
-    ligaturize_font(**vars(parse_args()))
+    ligate_font(**vars(parse_args()))
 
 
 if __name__ == "__main__":
