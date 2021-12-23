@@ -1,8 +1,4 @@
-- rename lookups with 'fira_' prefix
-- make features_sample.py only a 'config' dictionary
-- change scale parameter as a python var and move it to features_sample.py
 - individual glyphs copying feature in features_sample.py
-- weight definition in features_sample.py
 - fix Y axis position of fira glyphs and see if it only occurres to tagged ones
 - investigate fontforge logs at copying glyphs and merge feature instances
 - better metadata

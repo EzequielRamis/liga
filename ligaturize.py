@@ -14,7 +14,6 @@ from glyphsLib import GSFont
 import re
 import importlib.util
 import utils as u
-import itertools
 from functools import reduce
 
 # Constants
@@ -47,11 +46,6 @@ def write_fira_feature_file(feats, output_file, firacode, font):
     file = open(output_file, "w")
     fira = GSFont("fira.glyphs")
     filtered_feats = [f for f in fira.features if f.name in feats]
-    # filtered_classes = set(
-    #     itertools.chain.from_iterable(
-    #         [re.findall("(?<=@)\w+", f.code) for f in filtered_feats]
-    #     )
-    # )
     for feature in fira.featurePrefixes:
         file.write(feature.code)
     for _class in fira.classes:
@@ -69,22 +63,6 @@ def write_fira_feature_file(feats, output_file, firacode, font):
             )
         )
         file.write(f"@{_class.name} = [{fcode}];\n")
-    # if "calt" in feats:
-    #     liga_subs = u.add_backslash_to_glyphs(fira.features["liga"].code)
-    #     filtered_liga_subs = []
-    #     for line in liga_subs.split("\n"):
-    #         res = re.findall(r"(?<=\\)(\S+)(?=\.liga)", line)
-    #         if len(res) > 0:
-    #             if res[0] in feats["calt"]:
-    #                 filtered_liga_subs.append(line)
-    #         else:
-    #             filtered_liga_subs.append(line)
-    #     code = "\n".join(filtered_liga_subs)
-    #     file.write(
-    #         "feature liga {\n\t"
-    #         + u.remove_last_newlines(code).replace("\n", "\n\t")
-    #         + "\n} liga;\n\n"
-    #     )
     for feature in filtered_feats:
         code = "\n".join(
             [
@@ -96,7 +74,7 @@ def write_fira_feature_file(feats, output_file, firacode, font):
         file.write(
             f"feature {feature.name} "
             + "{\n\t"
-            + u.remove_last_newlines(code).replace("\n", "\n\t")
+            + u.add_lookups_prefix(u.remove_last_newlines(code).replace("\n", "\n\t"))
             + "\n}"
             + f" {feature.name};\n\n"
         )
@@ -293,26 +271,24 @@ def ligaturize_font(
     input_font_file,
     output_dir,
     ligature_font_file,
-    features_file,
+    config_file,
     copy_character_glyphs,
-    scale_fira_glyphs,
     output_name,
     prefix,
-    **kwargs,
 ):
     font = fontforge.open(input_font_file)
     cls()
-    features_file_name = path.splitext(path.basename(features_file))[0]
+    config_file_name = path.splitext(path.basename(config_file))[0]
     try:
-        spec = importlib.util.spec_from_file_location(features_file_name, features_file)
+        spec = importlib.util.spec_from_file_location(config_file_name, config_file)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        features = mod.features
+        config = mod.config
     except:
         spec = importlib.util.spec_from_file_location("default", "features/default.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        features = mod.features
+        config = mod.config
 
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font.fontname)
@@ -327,13 +303,13 @@ def ligaturize_font(
     update_font_metadata(font, name)
 
     print("    ...using ligatures from %s" % ligature_font_file)
-    print("    ...using features from %s" % features_file)
+    print("    ...using features from %s" % config_file)
     firacode = fontforge.open(ligature_font_file)
 
     tmp_fea = "tmp.fea"
-    write_fira_feature_file(features, tmp_fea, firacode, font)
+    write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
-    paste_tagged_glyphs(firacode, font, tmp_glyphs, scale_fira_glyphs)
+    paste_tagged_glyphs(firacode, font, tmp_glyphs, config["scale"])
     rename_tagged_glyphs(tmp_glyphs, tmp_fea)
     rename_normal_glyphs(firacode, font, tmp_fea)
     font.mergeFeature(tmp_fea)
@@ -378,11 +354,11 @@ def parse_args():
         " font's weight.",
     )
     parser.add_argument(
-        "--features-file",
+        "--config-file",
         type=str,
         default="features_sample.py",
         metavar="PATH",
-        help="The python file to copy features from.",
+        help="The python file to copy the config from.",
     )
     parser.add_argument(
         "--copy-character-glyphs",
@@ -392,17 +368,6 @@ def parse_args():
         " font as well. This will result in punctuation that matches the"
         " ligatures more closely, but may not fit in as well with the rest"
         " of the font.",
-    )
-    parser.add_argument(
-        "--scale-fira-glyphs",
-        type=float,
-        default=0.7,
-        metavar="SCALE",
-        help="""
-        When copying character glyphs from FiraCode, sometimes it is necessary
-        to adjust manually the glyph size by a scale factor. It will be ignored if
-        the scale is equal to 0.
-        """,
     )
     parser.add_argument(
         "--prefix",

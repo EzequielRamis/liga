@@ -11,6 +11,23 @@ def remove_last_newlines(s):
     return s
 
 
+# it shouldn't be in the .fea due to #902 but for a reason it's still there
+def remove_fl_ft_sub(code):
+    return code.replace(
+        "sub [\f \fira_i.salt_low \fira_j.salt_low] [\i \j]' by [\fira_i.salt_low \fira_j.salt_low];",
+        "",
+    ).replace(
+        "sub [\F \T \I \l.salt_low] \l' by \l.salt_low;",
+        "",
+    )
+
+
+def add_lookups_prefix(code):
+    return re.sub(
+        "(?<=\})\s+(?=\w+;)", " fira_", re.sub("lookup ", "lookup fira_", code)
+    )
+
+
 def add_backslash_to_glyphs(code):
     splitted_code = code.split("\n")
     new_code = []
