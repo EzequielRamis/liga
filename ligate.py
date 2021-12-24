@@ -113,16 +113,19 @@ def paste_tagged_glyphs(fira, font, glyphs, scale):
 
 def paste_normal_glyphs(fira, font, glyphs, scale):
     for g in glyphs:
-        fira.selection.none()
-        fira.selection.select(g)
-        fira.copy()
-        uni = fira[g].unicode
+        try:
+            fira.selection.none()
+            fira.selection.select(g)
+            fira.copy()
+            uni = fira[g].unicode
 
-        font.createChar(uni, g)
-        font.selection.none()
-        font.selection.select(g)
-        font.paste()
-        correct_ligature_width(font, g, scale)
+            font.createChar(uni, g)
+            font.selection.none()
+            font.selection.select(g)
+            font.paste()
+            correct_ligature_width(font, g, scale)
+        except:
+            print(f"An error ocurred with the '{g}' glyph")
 
 
 def rename_tagged_glyphs(glyphs, tmp_fea):

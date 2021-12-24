@@ -5,16 +5,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Font Tester</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="test/fonts.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="test/fira.css" media="screen" />
     <style>
         @font-face {
-            font-family: 'Liga-SFMono';
-            src: local('Liga-SFMono-Regular');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'FiraCode';
-            src: local('FiraCode-Regular');
+            font-family: 'Fallback';
+            src: url('test/UnicodeBMPFallback.ttf');
             font-weight: normal;
             font-style: normal;
         }
@@ -33,8 +29,6 @@
         textarea {
             width: -moz-available;
             flex: 1;
-            font-size: 32px;
-            font-family: 'Liga-SFMono', serif;
         }
         .inputs {
             display: flex;
@@ -44,14 +38,15 @@
             flex: 1;
         }
     </style>
-    <script src="showcases.js"></script>
+    <script src="test/showcases.js"></script>
+    <script src="test/fonts.js"></script>
 </head>
 <body>
     <main>
         </object>
         <div class="inputs">
             <label for="size" id="size-label">32</label>
-            <input type="range" id="size" step="2" min="10" max="128" value="32"
+            <input type="range" id="size" step="2" min="10" max="128"
                 oninput="changeSize(this.value)"
             >
             <input type="button" value="clear" id="clear"
@@ -64,19 +59,33 @@
             <input type="checkbox" value="showcases" id="toggle-font"
                 onclick="toggleFira(this.checked)"
             >
+            <select name="fonts" id="fonts"
+                onclick="selectFont(this.value)"
+            ></select>
         </div>
         <textarea id="area" ></textarea>
     </main>
 </body>
 <script>
     const area = document.querySelector("#area");
-    const font = "Liga-SFMono";
+    const select = document.querySelector("#fonts");
+    const size = document.querySelector("#size");
+    const fall = ", Fallback";
+    const initialSize = 32;
+    
     let changeSize = (s) => {
         document.querySelector("#size-label").innerHTML = s;
         area.style.fontSize = `${s}px`;
     };
     let clearArea = () => area.value = "";
     let showcases = () => area.value = show;
-    let toggleFira = (c) => area.style.fontFamily = (c ? "FiraCode" : font) + ", serif";
+    let toggleFira = c => area.style.fontFamily = (c ? "FiraCode" : select.value) + fall;
+    let selectFont = f => area.style.fontFamily = f + fall;
+    
+    select.innerHTML = fonts;
+    area.style.fontFamily = select.value + fall;
+    changeSize(initialSize);
+    size.value = initialSize;
+    showcases();
 </script>
 </html>

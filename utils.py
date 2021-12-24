@@ -61,4 +61,4 @@ def uni(number):
 
 
 def uni_range(start, end):
-    return "\n".join([f'\t\t"{uni(u)}",' for u in range(start, end + 1)])
+    return "\n".join([f'        "{uni(u)}",' for u in range(start, end + 1)])
