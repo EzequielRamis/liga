@@ -14,10 +14,10 @@ def remove_last_newlines(s):
 # it shouldn't be in the .fea due to #902 but for a reason it's still there
 def remove_fl_ft_sub(code):
     return code.replace(
-        "sub [\f \fira_i.salt_low \fira_j.salt_low] [\i \j]' by [\fira_i.salt_low \fira_j.salt_low];",
+        r"sub [\f \i.salt_low \j.salt_low] [\i \j]' by [\i.salt_low \j.salt_low];",
         "",
     ).replace(
-        "sub [\F \T \I \l.salt_low] \l' by \l.salt_low;",
+        r"sub [\F \T \I \l.salt_low] \l' by \l.salt_low;",
         "",
     )
 
@@ -54,3 +54,11 @@ def add_backslash_to_glyphs(code):
             new_line = line
         new_code.append(new_line)
     return "\n".join(new_code)
+
+
+def uni(number):
+    return hex(number).upper().replace("0X", "uni")
+
+
+def uni_range(start, end):
+    return "\n".join([f'\t\t"{uni(u)}",' for u in range(start, end + 1)])

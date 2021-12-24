@@ -70,10 +70,12 @@ def write_fira_feature_file(feats, output_file, firacode, font):
                 if ("twoemdash" not in l and "threeemdash" not in l)
             ]
         )
+        code = u.remove_fl_ft_sub(code)
+        code = u.add_lookups_prefix(u.remove_last_newlines(code).replace("\n", "\n\t"))
         file.write(
             f"feature {feature.name} "
             + "{\n\t"
-            + u.add_lookups_prefix(u.remove_last_newlines(code).replace("\n", "\n\t"))
+            + code
             + "\n}"
             + f" {feature.name};\n\n"
         )
@@ -107,6 +109,20 @@ def paste_tagged_glyphs(fira, font, glyphs, scale):
         font.paste()
         font[g].glyphname = renamed_g
         correct_ligature_width(font, renamed_g, scale)
+
+
+def paste_normal_glyphs(fira, font, glyphs, scale):
+    for g in glyphs:
+        fira.selection.none()
+        fira.selection.select(g)
+        fira.copy()
+        uni = fira[g].unicode
+
+        font.createChar(uni, g)
+        font.selection.none()
+        font.selection.select(g)
+        font.paste()
+        correct_ligature_width(font, g, scale)
 
 
 def rename_tagged_glyphs(glyphs, tmp_fea):
@@ -308,6 +324,7 @@ def ligate_font(
     write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
     paste_tagged_glyphs(firacode, font, tmp_glyphs, config["scale"])
+    paste_normal_glyphs(firacode, font, config["glyphs"], config["scale"])
     rename_tagged_glyphs(tmp_glyphs, tmp_fea)
     rename_normal_glyphs(firacode, font, tmp_fea)
     font.mergeFeature(tmp_fea)

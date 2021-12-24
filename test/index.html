@@ -8,8 +8,13 @@
     <style>
         @font-face {
             font-family: 'Liga-SFMono';
-            /* src: local('FiraCode-Regular'); */
             src: local('Liga-SFMono-Regular');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'FiraCode';
+            src: local('FiraCode-Regular');
             font-weight: normal;
             font-style: normal;
         }
@@ -55,18 +60,23 @@
             <input type="button" value="showcases" id="showcases"
                 onclick="showcases()"
             >
+            <label for="toggle-font" id="toggle-font-label">toggle firacode</label>
+            <input type="checkbox" value="showcases" id="toggle-font"
+                onclick="toggleFira(this.checked)"
+            >
         </div>
         <textarea id="area" ></textarea>
     </main>
 </body>
 <script>
     const area = document.querySelector("#area");
-
+    const font = "Liga-SFMono";
     let changeSize = (s) => {
         document.querySelector("#size-label").innerHTML = s;
         area.style.fontSize = `${s}px`;
     };
     let clearArea = () => area.value = "";
     let showcases = () => area.value = show;
+    let toggleFira = (c) => area.style.fontFamily = (c ? "FiraCode" : font) + ", serif";
 </script>
 </html>
