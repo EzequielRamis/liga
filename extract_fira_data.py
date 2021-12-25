@@ -42,9 +42,9 @@ SCALE_FILE_COMMENT = """# When copying character glyphs from FiraCode, sometimes
 """
 
 GLYPH_FILE_COMMENT = """# Copy glyphs for individual characters from the ligature font as well.
-    # This will result in punctuation that matches the ligatures more closely,
-    # but may not fit in as well with the rest of the font. It's also useful
-    # if the input font lacks some punctual ones.
+    # With the default glyph list it would result in punctuation that matches 
+    # the ligatures more closely, but may not fit in as well with the rest of 
+    # the font. It's also useful for characters outside ligature contexts.
 """
 
 FEAT_BLACKLIST = {
@@ -68,65 +68,36 @@ FEAT_BLACKLIST = {
 }.union(set([f"cv{str(i).zfill(2)}" for i in range(1, 15)]))
 
 GLYPH_WHITELIST = f"""
-        # General
-        "underscore",
-        "hyphen",
-        # "bar",
-        # "equal",
-        # "less",
-        # "greater",
+        "ampersand",
+        "asciicircum",
+        "asciitilde",
         "asterisk",
-        "dollar",
-        # TUI - Powerline
-{u.uni_range(0xe0a0, 0xe0a2)}
-{u.uni_range(0xe0b0, 0xe0b3)}
-        # TUI - Technical symbols
-        "uni2300",
-{u.uni_range(0x2302, 0x2306)}
-{u.uni_range(0x2302, 0x2306)}
-        "uni2318",
-{u.uni_range(0x2324, 0x2328)}
-        "uni232B",
-{u.uni_range(0x2387, 0x2388)}
-        "uni238B",
-{u.uni_range(0x23ce, 0x23cf)}
-        # TUI - Progress bar
-{u.uni_range(0xee00, 0xee0b)}
-        # Math - Other
         "asteriskmath",
-{u.uni_range(0x218a, 0x218b)}
-        "uni220F",
-{u.uni_range(0x2211, 0x2212)}
-{u.uni_range(0x2219, 0x221a)}
-        "infinity",
-        # Math - Double-struck capitals
-        "uni2102",
-        "uni210D",
-        "uni2115",
-        "uni2119",
-        "uni211A",
-        "uni211D",
-        "uni2124",
-        "u1D539",
-        # Math - Calculus
-        "partialdiff",
-        "uni2206",
-        "gradient",
-        "integral",
-        # Math - Logic
-        "universal",
-{u.uni_range(0x2203, 0x2205)}
-{u.uni_range(0x2208, 0x220e)}
-{u.uni_range(0x2227, 0x222a)}
-{u.uni_range(0x2234, 0x2237)}
-{u.uni_range(0x2241, 0x224b)}
-{u.uni_range(0x2260, 0x2262)}
-{u.uni_range(0x2264, 0x2265)}
-{u.uni_range(0x2282, 0x228b)}
-{u.uni_range(0x22a2, 0x22af)}
-{u.uni_range(0x239b, 0x23ad)}
-{u.uni_range(0x27e8, 0x27e9)}
-{u.uni_range(0x300c, 0x300d)}
+        "backslash",
+        "bar",
+        "colon",
+        "equal",
+        "exclam",
+        "greater",
+        "hyphen",
+        "less",
+        "numbersign",
+        "percent",
+        "period",
+        "plus",
+        "question",
+        "semicolon",
+        "slash",
+        "underscore",
+        # "at",
+        # "braceleft",
+        # "braceright",
+        # "bracketleft",
+        # "bracketright",
+        # "dollar",
+        # "parenleft",
+        # "parenright",
+        # "underscore",
 """
 
 
@@ -135,6 +106,7 @@ def create_config_set_file():
     file = open("config_sample.py", "w")
     file.write(f"{FEAT_FILE_COMMENT}" + "\nconfig = {\n")
     file.write(f"    {SCALE_FILE_COMMENT}" + '    "scale": 1.0,\n')
+    file.write(f'    {GLYPH_FILE_COMMENT}    "glyphs": [{GLYPH_WHITELIST}    ],\n')
     file.write('    "features": {\n')
     for feature in font.features:
         if feature.name not in FEAT_BLACKLIST:
@@ -148,7 +120,6 @@ def create_config_set_file():
                 fls = "[]"
             file.write(f'        "{feature.name}": {fls},\n')
     file.write("    },\n")
-    file.write(f'    {GLYPH_FILE_COMMENT}    "glyphs": [{GLYPH_WHITELIST}    ],\n')
     file.write("}\n")
     file.close()
 

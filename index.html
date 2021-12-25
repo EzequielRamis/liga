@@ -55,7 +55,7 @@
             <input type="button" value="showcases" id="showcases"
                 onclick="showcases()"
             >
-            <label for="toggle-font" id="toggle-font-label">toggle firacode</label>
+            <label for="toggle-font" id="toggle-font-label">firacode fallback</label>
             <input type="checkbox" value="showcases" id="toggle-font"
                 onclick="toggleFira(this.checked)"
             >
@@ -79,7 +79,7 @@
     };
     let clearArea = () => area.value = "";
     let showcases = () => area.value = show;
-    let toggleFira = c => area.style.fontFamily = (c ? "FiraCode" : select.value) + fall;
+    let toggleFira = c => area.style.fontFamily = select.value + (c ? ", FiraCode" : "") + fall;
     let selectFont = f => area.style.fontFamily = f + fall;
     
     select.innerHTML = fonts;

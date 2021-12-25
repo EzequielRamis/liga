@@ -121,11 +121,11 @@ def paste_normal_glyphs(fira, font, glyphs, scale):
 
             font.createChar(uni, g)
             font.selection.none()
-            font.selection.select(g)
+            font.selection.select(uni)
             font.paste()
-            correct_ligature_width(font, g, scale)
-        except:
-            print(f"An error ocurred with the '{g}' glyph")
+            correct_ligature_width(font, uni, scale)
+        except Exception as e:
+            print(f"Error with '{g}': {e}")
 
 
 def rename_tagged_glyphs(glyphs, tmp_fea):
