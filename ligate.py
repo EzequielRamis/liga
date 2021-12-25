@@ -67,11 +67,45 @@ def write_fira_feature_file(feats, output_file, firacode, font):
             [
                 l
                 for l in u.add_backslash_to_glyphs(feature.code).split("\n")
-                if ("twoemdash" not in l and "threeemdash" not in l)
+                # remove lines which wouldn't be here
+                if (
+                    all(
+                        [
+                            s not in l
+                            for s in [
+                                "twoemdash",
+                                "threeemdash",
+                                r"\f \i.salt_low \j.salt_low",
+                                r"\F \T \I \l.salt_low",
+                            ]
+                        ]
+                    )
+                )
             ]
         )
-        code = u.remove_fl_ft_sub(code)
-        code = u.add_lookups_prefix(u.remove_last_newlines(code).replace("\n", "\n\t"))
+        filtered_code = []
+        inside_lookup = False
+        chosen_lookup = False
+        for l in code.split("\n"):
+            lookup_start = re.findall(r"(lookup\s+)(\S+)(\s+{)", l)
+            lookup_end = re.findall(r"(}\s+)(\S+)(\s*;)", l)
+            if len(lookup_start) != 0:
+                inside_lookup = True
+                if lookup_start[0][1] in feats[feature.name]:
+                    chosen_lookup = True
+                    filtered_code.append(l)
+            else:
+                if len(lookup_end) != 0:
+                    inside_lookup = False
+                    chosen_lookup = False
+                    if lookup_end[0][1] in feats[feature.name]:
+                        filtered_code.append(l)
+                else:
+                    if not inside_lookup or chosen_lookup:
+                        filtered_code.append(l)
+        code = u.add_lookups_prefix(
+            u.remove_last_newlines("\n".join(filtered_code)).replace("\n", "\n\t")
+        )
         file.write(
             f"feature {feature.name} "
             + "{\n\t"
@@ -327,7 +361,8 @@ def ligate_font(
     write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
     paste_tagged_glyphs(firacode, font, tmp_glyphs, config["scale"])
-    paste_normal_glyphs(firacode, font, config["glyphs"], config["scale"])
+    if copy_character_glyphs:
+        paste_normal_glyphs(firacode, font, config["glyphs"], config["scale"])
     rename_tagged_glyphs(tmp_glyphs, tmp_fea)
     rename_normal_glyphs(firacode, font, tmp_fea)
     font.mergeFeature(tmp_fea)

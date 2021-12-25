@@ -11,17 +11,6 @@ def remove_last_newlines(s):
     return s
 
 
-# it shouldn't be in the .fea due to #902 but for a reason it's still there
-def remove_fl_ft_sub(code):
-    return code.replace(
-        r"sub [\f \i.salt_low \j.salt_low] [\i \j]' by [\i.salt_low \j.salt_low];",
-        "",
-    ).replace(
-        r"sub [\F \T \I \l.salt_low] \l' by \l.salt_low;",
-        "",
-    )
-
-
 def add_lookups_prefix(code):
     return re.sub(
         "(?<=\})\s+(?=\w+;)", " fira_", re.sub("lookup ", "lookup fira_", code)
