@@ -25,9 +25,8 @@ CURRENT_NR_LINES=0
 setup_scroll_area() {
 
     lines=$(tput lines)
-    level=$1
     CURRENT_NR_LINES=$lines
-    ((lines=lines-level-1))
+    ((lines=lines-1))
     # Scroll down a bit to avoid visual glitch when the screen area shrinks by one row
     echo -en "\n"
 
@@ -46,11 +45,11 @@ setup_scroll_area() {
     echo -en "$CODE_CURSOR_IN_SCROLL_AREA"
 
     # Start empty progress bar
-    draw_progress_bar "$level" 0 "$2"
+    draw_progress_bar 0 "$1"
 }
 
 destroy_scroll_area() {
-    lines=$1
+    lines=$(tput lines)
     # Save cursor
     echo -en "$CODE_SAVE_CURSOR"
     # Set scroll region (this will place the cursor in the top left)
@@ -73,17 +72,14 @@ destroy_scroll_area() {
 }
 
 draw_progress_bar() {
-    level=$1
-    current=$2
-    total=$3
+    current=$1
+    total=$2
     lines=$(tput lines)
     
     # Check if the window has been resized. If so, reset the scroll area
     if [ "$lines" -ne "$CURRENT_NR_LINES" ]; then
-        setup_scroll_area "$level" "$total"
+        setup_scroll_area "$total"
     fi
-
-    ((lines=lines-level))
 
     # Save cursor
     echo -en "$CODE_SAVE_CURSOR"
@@ -95,15 +91,14 @@ draw_progress_bar() {
     tput el
 
     # Draw progress bar
-    # shellcheck disable=SC2086
-    print_bar_text $current $total
+    print_bar_text "$current" "$total"
 
     # Restore cursor position
     echo -en "$CODE_RESTORE_CURSOR"
 }
 
 clear_progress_bar() {
-    lines=$1
+    lines=$(tput lines)
     # Save cursor
     echo -en "$CODE_SAVE_CURSOR"
 
