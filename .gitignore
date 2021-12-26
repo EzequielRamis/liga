@@ -1,6 +1,5 @@
-/input/**
-/output/**
-/logs/**
-!/logs/.gitkeep
+/input/ignore/*
+/output/*
+/logs/*
 __pycache__
 tmp.fea

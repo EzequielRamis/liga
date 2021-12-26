@@ -31,8 +31,10 @@ ligate_ext() {
         if [[ -n "$w" ]]; then
             ERROR=$(fontforge -quiet -lang py -script ligate.py "$file" \
                     --ligature-font-file "fira/FiraCode-$w.$ext" \
+                    --copy-character-glyphs \
                     --output-dir output/"$DIR" 3>&1 1>&2 2>&3)
             if [[ -n "$ERROR" ]]; then
+                mkdir -p logs/"$DIR"
                 LOG="logs/$DIR/$b.$ext.log"
                 insert "" "$LOG"
                 insert "$ERROR" "$LOG"
@@ -44,7 +46,6 @@ ligate_ext() {
 
 if [ -d ./input/"$DIR" ]; then
     mkdir -p output/"$DIR"
-    mkdir -p logs/"$DIR"
     ligate_ext "otf"
     ligate_ext "ttf"
 else
