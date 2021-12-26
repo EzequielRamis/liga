@@ -13,6 +13,7 @@ import re
 import importlib.util
 import utils as u
 from functools import reduce
+import warnings as w
 
 # Constants
 COPYRIGHT = """
@@ -154,7 +155,7 @@ def paste_normal_glyphs(fira, font, glyphs, scale):
             font.paste()
             correct_ligature_width(font, uni, scale)
         except Exception as e:
-            print(f"Error with '{g}': {e}")
+            w.warn(f"Error with '{g}': {e}")
 
 
 def rename_tagged_glyphs(glyphs, tmp_fea):
@@ -238,7 +239,8 @@ def ligate_font(
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         config = mod.config
-    except:
+    except Exception as e:
+        w.warn(f"Error with config_file: {e}\n...using config from config_sample.py")
         spec = importlib.util.spec_from_file_location("default", "config_sample.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -257,7 +259,7 @@ def ligate_font(
     update_font_metadata(font, name)
 
     print("    ...using ligatures from %s" % ligature_font_file)
-    print("    ...using features from %s" % config_file)
+    print("    ...using config from %s" % config_file)
     firacode = fontforge.open(ligature_font_file)
 
     tmp_fea = "tmp.fea"
