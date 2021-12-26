@@ -21,19 +21,21 @@ TRAPPING_ENABLED="false"
 TRAP_SET="false"
 
 CURRENT_NR_LINES=0
+CURRENT_NR_COLS=0
 
 setup_scroll_area() {
+    # If trapping is enabled, we will want to activate it whenever we setup the scroll area and remove it when we break the scroll area
+    if [ "$TRAPPING_ENABLED" = "true" ]; then
+        trap_on_interrupt
+    fi
 
     lines=$(tput lines)
     CURRENT_NR_LINES=$lines
+    cols=$(tput cols)
+    CURRENT_NR_COLS=$cols
     ((lines=lines-1))
     # Scroll down a bit to avoid visual glitch when the screen area shrinks by one row
     echo -en "\n"
-
-    # If trapping is enabled, we will want to activate it whenever we setup the scroll area and remove it when we break the scroll area
-    if [ "$TRAPPING_ENABLED" = "true" ]; then
-        trap_on_interrupt $lines
-    fi
 
     # Save cursor
     echo -en "$CODE_SAVE_CURSOR"
@@ -60,7 +62,7 @@ destroy_scroll_area() {
     echo -en "$CODE_CURSOR_IN_SCROLL_AREA"
 
     # We are done so clear the scroll bar
-    clear_progress_bar "$lines"
+    clear_progress_bar
 
     # Scroll down a bit to avoid visual glitch when the screen area grows by one row
     echo -en "\n\n"
@@ -75,9 +77,11 @@ draw_progress_bar() {
     current=$1
     total=$2
     lines=$(tput lines)
-    
+    cols=$(tput cols)
+    ((lines=lines))
+
     # Check if the window has been resized. If so, reset the scroll area
-    if [ "$lines" -ne "$CURRENT_NR_LINES" ]; then
+    if ((lines != CURRENT_NR_LINES)) || ((cols != CURRENT_NR_COLS)); then
         setup_scroll_area "$total"
     fi
 
@@ -99,6 +103,7 @@ draw_progress_bar() {
 
 clear_progress_bar() {
     lines=$(tput lines)
+    ((lines=lines))
     # Save cursor
     echo -en "$CODE_SAVE_CURSOR"
 
@@ -139,8 +144,8 @@ print_bar_text() {
     progress_bar=$(echo -ne $left_bit; printf_new $bit $complete_size; printf_new "" $remainder_size; echo -ne $right_bit);
 
     # Print progress bar
-    white_space=$(printf_new "|" $half_cols);
-    echo -ne "$white_space $progress_bar $(printf "%${#total}s" "$current")/$total"
+    white_space=$(printf_new "|" "$half_cols");
+    echo -en "$white_space $progress_bar $(printf "%${#total}s" "$current")/$total"
 }
 
 enable_trapping() {
@@ -150,18 +155,18 @@ enable_trapping() {
 trap_on_interrupt() {
     # If this function is called, we setup an interrupt handler to cleanup the progress bar
     TRAP_SET="true"
-    trap cleanup_on_interrupt "$1" INT
+    trap cleanup_on_interrupt INT
 }
 
 cleanup_on_interrupt() {
-    destroy_scroll_area "$1"
+    destroy_scroll_area
     exit
 }
 
 printf_new() {
     str=$1
     num=$2
-    for ((i=0; i<num; i++)); do echo -n "$str"; done
+    for ((i=0; i<num; i++)); do echo -ne "$str"; done
 }
 
 

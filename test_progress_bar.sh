@@ -17,28 +17,16 @@ main() {
     # Make sure that the progress bar is cleaned up when user presses ctrl+c
     enable_trapping
     # Create progress bar
-    total=10
-    setup_scroll_area 2 $total
+    total=100
+    setup_scroll_area $total
     for ((i=0; i<total; i++))
     do 
         ((i=i))
-        # (
-        #     ((totalj=10))
-        #     enable_trapping
-        #     setup_scroll_area 1
-        #     for ((j=0; j<totalj; j++))
-        #     do
-        #         generate_some_output_and_sleep
-        #         draw_progress_bar "$j" "$totalj" 1
-        #     done
-        #     destroy_scroll_area
-        #     print_bar_text "$totalj" "$totalj"; echo ""
-        # )
-        draw_progress_bar 2 $i $total
+        draw_progress_bar $i $total
         generate_some_output_and_sleep
     done
     destroy_scroll_area
-    print_bar_text 10 10; echo ""
+    print_bar_text $total $total; echo ""
 }
 
 main
