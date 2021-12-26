@@ -2,10 +2,7 @@
 
 version=6.2
 
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 tmpDir=$(mktemp -d)
-
-pushd "$SCRIPT_DIR" || exit
 
 wget "https://github.com/tonsky/FiraCode/releases/download/$version/Fira_Code_v$version.zip" \
     -O "$tmpDir/fira.zip"
@@ -23,5 +20,3 @@ for f in ./fira/*.ttf; do
     fo=$(basename "$f" .ttf)
     fontforge -quiet -lang=ff -c "Open('$f'); Generate('./fira/$fo.otf'); Close();"
 done
-
-popd || exit

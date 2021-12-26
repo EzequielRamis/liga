@@ -2,5 +2,7 @@
 !/input/.gitkeep
 /output/**
 !/output/.gitkeep
+/logs/**
+!/logs/.gitkeep
 __pycache__
 tmp.fea

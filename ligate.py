@@ -7,7 +7,6 @@
 
 import fontforge
 import psMat
-import os
 from os import path
 from glyphsLib import GSFont
 import re
@@ -18,12 +17,8 @@ from functools import reduce
 # Constants
 COPYRIGHT = """
 
-Programming ligatures added by Ezequiel Ramis Folberg from FiraCode.
-FiraCode Copyright (c) 2014 by Nikita Prokopov."""
-
-
-def cls():
-    os.system("cls" if os.name == "nt" else "clear")
+Programming ligatures added with https://github.com/EzequielRamis/liga
+FiraCode Copyright (c) 2014 Nikita Prokopov."""
 
 
 def get_ligature_source(fontname):
@@ -190,97 +185,6 @@ def rename_normal_glyphs(firacode, font, tmp_fea):
         font.createChar(uni, g)
 
 
-class LigatureCreator(object):
-    def __init__(
-        self, font, firacode, scale_character_glyphs_threshold, copy_character_glyphs
-    ):
-        self.font = font
-        self.firacode = firacode
-        self.scale_character_glyphs_threshold = scale_character_glyphs_threshold
-        self.should_copy_character_glyphs = copy_character_glyphs
-        self._lig_counter = 0
-
-        # Scale firacode to correct em height.
-        self.firacode.em = self.font.em
-        self.emwidth = self.font[ord("m")].width
-
-    def copy_ligature_from_source(self, ligature_name):
-        try:
-            self.firacode.selection.none()
-            self.firacode.selection.select(ligature_name)
-            self.firacode.copy()
-            return True
-        except ValueError:
-            return False
-
-    def correct_character_width(self, glyph):
-        """Width-correct copied individual characters (not ligatures!).
-
-        This will correct the horizontal advance of characters to match the em
-        width of the output font, and (depending on the width of the glyph, the
-        em width of the output font, and the value of the command line option
-        --scale-character-glyphs-threshold) optionally horizontally scale it.
-
-        Glyphs that are not horizontally scaled, but which still need horizontal
-        advance correction, will be centered instead.
-        """
-
-        if glyph.width == self.emwidth:
-            # No correction needed.
-            return
-
-        widthdelta = float(abs(glyph.width - self.emwidth)) / self.emwidth
-        if widthdelta >= self.scale_character_glyphs_threshold:
-            # Character is too wide/narrow compared to output font; scale it.
-            scale = float(self.emwidth) / glyph.width
-            glyph.transform(psMat.scale(scale, 1.0))
-        else:
-            # Do not scale; just center copied characters in their hbox.
-            # Fix horizontal advance first, to recalculate the bearings.
-            glyph.width = self.emwidth
-            # Correct bearings to center the glyph.
-            glyph.left_side_bearing = (
-                glyph.left_side_bearing + glyph.right_side_bearing
-            ) / 2
-            glyph.right_side_bearing = glyph.left_side_bearing
-
-        # Final adjustment of horizontal advance to correct for rounding
-        # errors when scaling/centering -- otherwise small errors can result
-        # in visible misalignment near the end of long lines.
-        glyph.width = self.emwidth
-
-    def copy_character_glyphs(self, chars):
-        """Copy individual (non-ligature) characters from the ligature font."""
-        if not self.should_copy_character_glyphs:
-            return
-        print("    ...copying %d character glyphs..." % (len(chars)))
-
-        for char in chars:
-            self.firacode.selection.none()
-            self.firacode.selection.select(char)
-            self.firacode.copy()
-            self.font.selection.none()
-            self.font.selection.select(char)
-            self.font.paste()
-            # self.correct_character_width(self.font[ord(char_dict[char])])
-
-    def correct_ligature_width(self, glyph):
-        """Correct the horizontal advance and scale of a ligature."""
-
-        if glyph.width == self.emwidth:
-            return
-
-        # TODO: some kind of threshold here, similar to the character glyph
-        # scale threshold? The largest ligature uses 0.956 of its hbox, so if
-        # the target font is within 4% of the source font size, we don't need to
-        # resize -- but we may want to adjust the bearings. And we can't just
-        # center it, because ligatures are characterized by very large negative
-        # left bearings -- they advance 1em, but draw from (-(n-1))em to +1em.
-        scale = float(self.emwidth) / glyph.width
-        glyph.transform(psMat.scale(scale, 1.0))
-        glyph.width = self.emwidth
-
-
 def replace_sfnt(font, key, value):
     font.sfnt_names = tuple(
         (row[0], key, value) if row[1] == key else row for row in font.sfnt_names
@@ -328,7 +232,6 @@ def ligate_font(
     prefix,
 ):
     font = fontforge.open(input_font_file)
-    cls()
     config_file_name = path.splitext(path.basename(config_file))[0]
     try:
         spec = importlib.util.spec_from_file_location(config_file_name, config_file)
@@ -382,6 +285,8 @@ def ligate_font(
     output_font_file = path.join(output_dir, font.fontname + output_font_type)
     print("\n    ...saving to '%s' (%s)" % (output_font_file, font.fullname))
     font.generate(output_font_file)
+    font.close()
+    firacode.close()
 
 
 def parse_args():
