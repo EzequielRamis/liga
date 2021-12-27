@@ -1,5 +1,6 @@
-/input/ignore/*
-/output/*
-/logs/*
+fonts/ignore
+input/ignore
+output
+logs
 __pycache__
 tmp.fea

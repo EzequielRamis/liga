@@ -259,7 +259,7 @@ def ligate_font(
     update_font_metadata(font, name)
 
     print("    ...using ligatures from %s" % ligature_font_file)
-    print("    ...using config from %s" % config_file)
+    print("    ...using config    from %s" % config_file)
     firacode = fontforge.open(ligature_font_file)
 
     tmp_fea = "tmp.fea"
@@ -285,7 +285,7 @@ def ligate_font(
 
     # Generate font & move to output directory
     output_font_file = path.join(output_dir, font.fontname + output_font_type)
-    print("\n    ...saving to '%s' (%s)" % (output_font_file, font.fullname))
+    print("\n    ...saving\t       to   %s (%s)" % (output_font_file, font.fullname))
     font.generate(output_font_file)
     font.close()
     firacode.close()

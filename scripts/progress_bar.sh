@@ -17,22 +17,20 @@ CODE_RESTORE_CURSOR="\033[u"
 CODE_CURSOR_IN_SCROLL_AREA="\033[1A"
 
 # Variables
-TRAPPING_ENABLED="false"
 TRAP_SET="false"
 
 CURRENT_NR_LINES=0
 CURRENT_NR_COLS=0
+CURRENT_TOTAL=1
 
 setup_scroll_area() {
-    # If trapping is enabled, we will want to activate it whenever we setup the scroll area and remove it when we break the scroll area
-    if [ "$TRAPPING_ENABLED" = "true" ]; then
-        trap_on_interrupt
-    fi
+    trap_on_interrupt
 
     lines=$(tput lines)
     CURRENT_NR_LINES=$lines
     cols=$(tput cols)
     CURRENT_NR_COLS=$cols
+    CURRENT_TOTAL=$1
     ((lines=lines-1))
     # Scroll down a bit to avoid visual glitch when the screen area shrinks by one row
     echo -en "\n"
@@ -47,7 +45,7 @@ setup_scroll_area() {
     echo -en "$CODE_CURSOR_IN_SCROLL_AREA"
 
     # Start empty progress bar
-    draw_progress_bar 0 "$1"
+    draw_progress_bar 0 "$CURRENT_TOTAL"
 }
 
 destroy_scroll_area() {
@@ -75,14 +73,13 @@ destroy_scroll_area() {
 
 draw_progress_bar() {
     current=$1
-    total=$2
     lines=$(tput lines)
     cols=$(tput cols)
     ((lines=lines))
 
     # Check if the window has been resized. If so, reset the scroll area
     if ((lines != CURRENT_NR_LINES)) || ((cols != CURRENT_NR_COLS)); then
-        setup_scroll_area "$total"
+        setup_scroll_area "$CURRENT_TOTAL"
     fi
 
     # Save cursor
@@ -119,7 +116,7 @@ clear_progress_bar() {
 
 print_bar_text() {
     current=$1
-    total=$2
+    total=$CURRENT_TOTAL
     percentage=$((current*100/total))
     cols=$(tput cols)
     ((half_cols=cols/2))
@@ -146,10 +143,6 @@ print_bar_text() {
     # Print progress bar
     white_space=$(printf_new "|" "$half_cols");
     echo -en "$white_space $progress_bar $(printf "%${#total}s" "$current")/$total"
-}
-
-enable_trapping() {
-    TRAPPING_ENABLED="true"
 }
 
 trap_on_interrupt() {
