@@ -11,9 +11,11 @@ from os import path
 from glyphsLib import GSFont
 import re
 import importlib.util
-import utils as u
+from py.fontname import fontname, wo_ws
+import py.utils as u
 from functools import reduce
 import warnings as w
+import sys
 
 # Constants
 COPYRIGHT = """
@@ -192,35 +194,41 @@ def replace_sfnt(font, key, value):
     )
 
 
-def update_font_metadata(font, new_name):
+def update_font_metadata(font, prefix, suffix):
     # Figure out the input font's real name (i.e. without a hyphenated suffix)
     # and hyphenated suffix (if present)
-    old_name = font.familyname
-    try:
-        suffix = font.fontname.split("-")[1]
-    except IndexError:
-        suffix = None
+    old_familyname = font.familyname
+    old_fontname = font.fontname
 
-    # Replace the old name with the new name whether or not a suffix was present.
-    # If a suffix was present, append it accordingly.
-    font.familyname = new_name
-    if suffix:
-        font.fullname = "%s %s" % (new_name, suffix)
-        font.fontname = "%s-%s" % (new_name, suffix)
+    old_fontname_spl = font.fontname.split("-")
+    if len(old_fontname_spl) > 1:
+        weight = old_fontname_spl[-1]
     else:
-        font.fullname = new_name
-        font.fontname = new_name
+        weight = None
+
+    new_name = prefix + old_familyname + suffix
+    new_name_w = fontname(font.fontname, prefix, suffix)
+
+    # font.familyname = new_name
+    font.fontname = new_name_w
+    # Replace the old name with the new name whether or not a weight was present.
+    # If a weight was present, append it accordingly.
+    # if weight:
+    #     font.fullname = "%s %s" % (new_name, weight)
+    # else:
+    #     font.fullname = new_name
 
     print(
-        "Ligating font %s (%s) as '%s'" % (path.basename(font.path), old_name, new_name)
+        "Ligating font %s (%s) as '%s'"
+        % (path.basename(font.path), old_fontname, new_name_w)
     )
 
-    font.copyright = (font.copyright or "") + COPYRIGHT
-    replace_sfnt(font, "UniqueID", "%s; ligated" % font.fullname)
-    replace_sfnt(font, "Preferred Family", new_name)
-    replace_sfnt(font, "Compatible Full", new_name)
-    replace_sfnt(font, "Family", new_name)
-    replace_sfnt(font, "WWS Family", new_name)
+    # font.copyright = (font.copyright or "") + COPYRIGHT
+    # replace_sfnt(font, "UniqueID", "%s; Ligated" % font.fullname)
+    # replace_sfnt(font, "Preferred Family", new_name)
+    # replace_sfnt(font, "Compatible Full", new_name)
+    # replace_sfnt(font, "Family", new_name)
+    # replace_sfnt(font, "WWS Family", new_name)
 
 
 def ligate_font(
@@ -229,8 +237,8 @@ def ligate_font(
     ligature_font_file,
     config_file,
     copy_character_glyphs,
-    output_name,
     prefix,
+    suffix,
 ):
     font = fontforge.open(input_font_file)
     config_file_name = path.splitext(path.basename(config_file))[0]
@@ -249,14 +257,7 @@ def ligate_font(
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font.fontname)
 
-    if output_name:
-        name = output_name
-    else:
-        name = font.familyname
-    if prefix:
-        name = "%s%s" % (prefix, name)
-
-    update_font_metadata(font, name)
+    update_font_metadata(font, prefix, suffix)
 
     print("    ...using ligatures from %s" % ligature_font_file)
     print("    ...using config    from %s" % config_file)
@@ -332,20 +333,24 @@ def parse_args():
     parser.add_argument(
         "--prefix",
         type=str,
-        default="Liga-",
+        default="Liga ",
         help="String to prefix the name of the generated font with.",
     )
     parser.add_argument(
-        "--output-name",
+        "--suffix",
         type=str,
         default="",
-        help="Name of the generated font. Completely replaces the original.",
+        help="String to suffix the name of the generated font with.",
     )
     return parser.parse_args()
 
 
 def main():
-    ligate_font(**vars(parse_args()))
+    try:
+        ligate_font(**vars(parse_args()))
+    except Exception as e:
+        w.warn(e)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

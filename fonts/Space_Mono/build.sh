@@ -4,7 +4,9 @@
 source ./scripts/build_family.sh
 
 # DIR=""
-DIR="Space Mono"
+DIR="Space_Mono"
+PREFIX="Liga "
+SUFFIX=""
 
 declare -A fontWeight
 
@@ -21,4 +23,4 @@ fontWeight=(
     ["SpaceMono-Regular"]="Regular"
 )
 
-build_family "$DIR" "$(declare -p fontWeight)" "ttf"
+build_family "$DIR" "$(declare -p fontWeight)" "ttf" "$PREFIX" "$SUFFIX"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from glyphsLib import GSFont
-import utils as u
+import py.utils as u
 
 
 def extract_features():
