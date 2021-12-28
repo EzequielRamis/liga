@@ -116,8 +116,10 @@ def write_fira_feature_file(feats, output_file, firacode, font):
 
 def extract_tagged_glyphs(tmp_fea):
     content = open(tmp_fea, "r").read()
-    res = re.findall(r"(?<=\\)(\w+(\.\w+)+)", content)
-    return set([r[0] for r in res])
+    ref = re.findall(r"(?<=\\)(\w+(\.\w+)+)", content)
+    res = []
+    [res.append(x) for x in [r[0] for r in ref] if x not in res]
+    return res
 
 
 def correct_ligature_width(font, g, mult):
@@ -129,18 +131,21 @@ def correct_ligature_width(font, g, mult):
 
 def paste_tagged_glyphs(fira, font, glyphs, scale):
     for g in glyphs:
-        renamed_g = "fira_" + g
+        try:
+            print(g)
+            renamed_g = "fira_" + g
 
-        fira.selection.none()
-        fira.selection.select(g)
-        fira.copy()
+            fira.selection.none()
+            fira.selection.select(g)
+            fira.copy()
 
-        font.createChar(-1, g)
-        font.selection.none()
-        font.selection.select(g)
-        font.paste()
-        font[g].glyphname = renamed_g
-        correct_ligature_width(font, renamed_g, scale)
+            font.createChar(-1, renamed_g)
+            font.selection.none()
+            font.selection.select(renamed_g)
+            font.paste()
+            correct_ligature_width(font, renamed_g, scale)
+        except Exception as e:
+            w.warn(f"Error with '{g}': {e}")
 
 
 def paste_normal_glyphs(fira, font, glyphs, scale):
@@ -209,26 +214,26 @@ def update_font_metadata(font, prefix, suffix):
     new_name = prefix + old_familyname + suffix
     new_name_w = fontname(font.fontname, prefix, suffix)
 
-    # font.familyname = new_name
+    font.familyname = new_name
     font.fontname = new_name_w
     # Replace the old name with the new name whether or not a weight was present.
     # If a weight was present, append it accordingly.
-    # if weight:
-    #     font.fullname = "%s %s" % (new_name, weight)
-    # else:
-    #     font.fullname = new_name
+    if weight:
+        font.fullname = "%s %s" % (new_name, weight)
+    else:
+        font.fullname = new_name
 
     print(
         "Ligating font %s (%s) as '%s'"
         % (path.basename(font.path), old_fontname, new_name_w)
     )
 
-    # font.copyright = (font.copyright or "") + COPYRIGHT
-    # replace_sfnt(font, "UniqueID", "%s; Ligated" % font.fullname)
-    # replace_sfnt(font, "Preferred Family", new_name)
-    # replace_sfnt(font, "Compatible Full", new_name)
-    # replace_sfnt(font, "Family", new_name)
-    # replace_sfnt(font, "WWS Family", new_name)
+    font.copyright = (font.copyright or "") + COPYRIGHT
+    replace_sfnt(font, "UniqueID", "%s; Ligated" % font.fullname)
+    replace_sfnt(font, "Preferred Family", new_name)
+    replace_sfnt(font, "Compatible Full", new_name)
+    replace_sfnt(font, "Family", new_name)
+    replace_sfnt(font, "WWS Family", new_name)
 
 
 def ligate_font(
@@ -257,7 +262,7 @@ def ligate_font(
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font.fontname)
 
-    update_font_metadata(font, prefix, suffix)
+    # update_font_metadata(font, prefix, suffix)
 
     print("    ...using ligatures from %s" % ligature_font_file)
     print("    ...using config    from %s" % config_file)
