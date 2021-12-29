@@ -70,7 +70,7 @@
     const area = document.querySelector("#area");
     const select = document.querySelector("#fonts");
     const size = document.querySelector("#size");
-    const fall = ", Fallback";
+    const fall = ", 'Fallback'";
     const initialSize = 32;
     
     let changeSize = (s) => {
@@ -79,11 +79,19 @@
     };
     let clearArea = () => area.value = "";
     let showcases = () => area.value = show;
-    let toggleFira = c => area.style.fontFamily = select.value + (c ? ", FiraCode" : "") + fall;
-    let selectFont = f => area.style.fontFamily = f + fall;
+    let toggleFira = c => {
+        sizeBackup = size.value;
+        area.style.font = select.value + (c ? ", 'FiraCode'" : "") + fall;
+        area.style.fontSize = `${sizeBackup}px`;
+    }
+    let selectFont = f => {
+        sizeBackup = size.value;
+        area.style.font = f + fall;
+        area.style.fontSize = `${sizeBackup}px`;
+    }
     
     select.innerHTML = fonts;
-    area.style.fontFamily = select.value + fall;
+    area.style.font = select.value + fall;
     changeSize(initialSize);
     size.value = initialSize;
     showcases();

@@ -129,40 +129,23 @@ def correct_ligature_width(font, g, mult):
     font[g].transform(psMat.scale(scale * mult))
 
 
-def paste_tagged_glyphs(fira, font, glyphs, scale):
+def paste_glyphs(fira, font, glyphs, scale, prefix, isLigature):
+    fira.selection.none()
+    fira.selection.select(*glyphs)
+    fira.copy()
     for g in glyphs:
-        try:
-            print(g)
-            renamed_g = "fira_" + g
-
-            fira.selection.none()
-            fira.selection.select(g)
-            fira.copy()
-
-            font.createChar(-1, renamed_g)
-            font.selection.none()
-            font.selection.select(renamed_g)
-            font.paste()
-            correct_ligature_width(font, renamed_g, scale)
-        except Exception as e:
-            w.warn(f"Error with '{g}': {e}")
-
-
-def paste_normal_glyphs(fira, font, glyphs, scale):
-    for g in glyphs:
-        try:
-            fira.selection.none()
-            fira.selection.select(g)
-            fira.copy()
+        if isLigature:
+            uni = -1
+        else:
             uni = fira[g].unicode
-
-            font.createChar(uni, g)
-            font.selection.none()
-            font.selection.select(uni)
-            font.paste()
-            correct_ligature_width(font, uni, scale)
-        except Exception as e:
-            w.warn(f"Error with '{g}': {e}")
+        font.createChar(uni, g)
+    font.selection.none()
+    font.selection.select(*glyphs)
+    font.paste()
+    for g in glyphs:
+        renamed_g = prefix + g
+        font[g].glyphname = renamed_g
+        correct_ligature_width(font, renamed_g, scale)
 
 
 def rename_tagged_glyphs(glyphs, tmp_fea):
@@ -262,7 +245,7 @@ def ligate_font(
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font.fontname)
 
-    # update_font_metadata(font, prefix, suffix)
+    update_font_metadata(font, prefix, suffix)
 
     print("    ...using ligatures from %s" % ligature_font_file)
     print("    ...using config    from %s" % config_file)
@@ -271,11 +254,12 @@ def ligate_font(
     tmp_fea = "tmp.fea"
     write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
-    paste_tagged_glyphs(firacode, font, tmp_glyphs, config["scale"])
+    paste_glyphs(firacode, font, tmp_glyphs, config["scale"], "fira_", True)
     if copy_character_glyphs:
-        paste_normal_glyphs(firacode, font, config["glyphs"], config["scale"])
+        paste_glyphs(firacode, font, config["glyphs"], config["scale"], "", False)
     rename_tagged_glyphs(tmp_glyphs, tmp_fea)
     rename_normal_glyphs(firacode, font, tmp_fea)
+
     font.mergeFeature(tmp_fea)
 
     # Work around a bug in Fontforge where the underline height is subtracted from
@@ -316,7 +300,7 @@ def parse_args():
         default="",
         metavar="PATH",
         help="The file to copy ligatures from. If unspecified, ligate will"
-        " attempt to pick a suitable one from fonts/fira/distr/otf/ based on the input"
+        " attempt to pick a suitable one from fira/ based on the input"
         " font's weight.",
     )
     parser.add_argument(

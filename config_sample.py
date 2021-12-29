@@ -10,8 +10,8 @@ config = {
     # it's equal to 0.
     "scale": 1.0,
     # Copy glyphs for individual characters from the ligature font as well.
-    # With the default glyph list it would result in punctuation that matches
-    # the ligatures more closely, but may not fit in as well with the rest of
+    # With the default glyph list it would result in punctuation that matches 
+    # the ligatures more closely, but may not fit in as well with the rest of 
     # the font. It's also useful for characters outside ligature contexts.
     "glyphs": [
         "ampersand",
@@ -136,8 +136,6 @@ config = {
             "backslash_slash",
             "hexadecimal_x",
             "equal_arrows",
-            "caltGreekUCdiph",
-            "caltGreekUC",
             "hyphen_arrows",
             "lowercase_hyphen",
             "lowercase_plus",
@@ -165,14 +163,6 @@ config = {
             "restore_less_less_equal",
             "restore_bar_bar_equal",
             "restore_bar_equal",
-        ],
-        "ss10": [
-            "T_l",
-            "F_l",
-            "f_i",
-            "f_j",
-            "f_l",
-            "f_t",
         ],
         "cv15": [],
         "cv16": [],

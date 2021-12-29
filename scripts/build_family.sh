@@ -32,6 +32,7 @@ build_family() {
             draw_progress_bar "$k"
             file=${filtered_files[$k]}
             b=$(basename "$file" ."$EXT")
+            w=${FONT_WEIGHT["$b"]}
             local attempt=1
             NEW_FONTNAME=$(python3 py/fontname.py "$b" "$4" "$5")
             while [ ! -f "output/$DIR/$NEW_FONTNAME.$EXT" ]; do

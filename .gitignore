@@ -4,3 +4,5 @@ output
 logs
 __pycache__
 tmp.fea
+fonts.css
+fonts.js

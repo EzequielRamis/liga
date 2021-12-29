@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from glyphsLib import GSFont
-import py.utils as u
+import utils as u
 
 
 def extract_features():
@@ -42,8 +42,8 @@ SCALE_FILE_COMMENT = """# When copying character glyphs from FiraCode, sometimes
 """
 
 GLYPH_FILE_COMMENT = """# Copy glyphs for individual characters from the ligature font as well.
-    # With the default glyph list it would result in punctuation that matches 
-    # the ligatures more closely, but may not fit in as well with the rest of 
+    # With the default glyph list it would result in punctuation that matches
+    # the ligatures more closely, but may not fit in as well with the rest of
     # the font. It's also useful for characters outside ligature contexts.
 """
 
@@ -65,7 +65,10 @@ FEAT_BLACKLIST = {
     "ccmp",
     "sinf",
     "hwid",
+    "ss10",
 }.union(set([f"cv{str(i).zfill(2)}" for i in range(1, 15)]))
+
+LOOKUP_BLACKLIST = {"caltGreekUCdiph", "caltGreekUC"}
 
 GLYPH_WHITELIST = f"""
         "ampersand",
@@ -114,7 +117,8 @@ def create_config_set_file():
             if len(ls) > 0:
                 fls = "[\n"
                 for i in range(len(ls)):
-                    fls += f'            "{ls[i]}",\n'
+                    if ls[i] not in LOOKUP_BLACKLIST:
+                        fls += f'            "{ls[i]}",\n'
                 fls += "        ]"
             else:
                 fls = "[]"
