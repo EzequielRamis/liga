@@ -16,11 +16,12 @@ import py.utils as u
 from functools import reduce
 import warnings as w
 import sys
+from pathlib import Path
 
 # Constants
 COPYRIGHT = """
 
-Programming ligatures added with https://github.com/EzequielRamis/liga
+Programming ligatures from FiraCode added with https://github.com/EzequielRamis/liga
 FiraCode Copyright (c) 2014 Nikita Prokopov."""
 
 
@@ -35,10 +36,6 @@ def get_ligature_source(fontname):
     return f"fira/FiraCode-Regular.{ext}"
 
 
-def add_fira_prefix(code):
-    print("foo")
-
-
 def write_fira_feature_file(feats, output_file, firacode, font):
     file = open(output_file, "w")
     fira = GSFont("fira.glyphs")
@@ -47,7 +44,7 @@ def write_fira_feature_file(feats, output_file, firacode, font):
         file.write(feature.code)
     for _class in fira.classes:
         fcode = " ".join(
-            set(
+            u.remove_duplicates(
                 filter(
                     lambda i: i[0] == "\\"
                     and firacode.__contains__(i[1:])
@@ -117,41 +114,37 @@ def write_fira_feature_file(feats, output_file, firacode, font):
 def extract_tagged_glyphs(tmp_fea):
     content = open(tmp_fea, "r").read()
     ref = re.findall(r"(?<=\\)(\w+(\.\w+)+)", content)
-    res = []
-    [res.append(x) for x in [r[0] for r in ref] if x not in res]
-    return res
+    return u.remove_duplicates([r[0] for r in ref])
 
 
 def correct_ligature_width(font, g, mult):
-    if mult == 0:
+    if mult <= 0:
         mult = 1.0
     scale = float(font["M"].width) / font[g].width
     font[g].transform(psMat.scale(scale * mult))
 
 
-def paste_glyphs(fira, font, glyphs, scale, prefix, isLigature):
-    fira.selection.none()
-    fira.selection.select(*glyphs)
-    fira.copy()
+def paste_glyphs(fira, font, glyphs, scale, prefix):
     for g in glyphs:
-        if isLigature:
-            uni = -1
-        else:
-            uni = fira[g].unicode
+        print(g)
+        fira.selection.none()
+        fira.selection.select(g)
+        fira.copy()
+
+        uni = fira[g].unicode
         font.createChar(uni, g)
-    font.selection.none()
-    font.selection.select(*glyphs)
-    font.paste()
-    for g in glyphs:
+        font.selection.none()
+        font.selection.select(g)
+        font.paste()
         renamed_g = prefix + g
         font[g].glyphname = renamed_g
         correct_ligature_width(font, renamed_g, scale)
 
 
-def rename_tagged_glyphs(glyphs, tmp_fea):
+def rename_tagged_glyphs(glyphs, tmp_fea, prefix):
     content = open(tmp_fea, "r").read()
     for g in glyphs:
-        content = re.sub(f"(?<=\\\\){g}", f"fira_{g}", content)
+        content = re.sub(f"(?<=\\\\){g}", f"{prefix}{g}", content)
     file = open(tmp_fea, "w")
     file.write(content)
     file.close()
@@ -159,15 +152,13 @@ def rename_tagged_glyphs(glyphs, tmp_fea):
 
 def rename_normal_glyphs(firacode, font, tmp_fea):
     content = open(tmp_fea, "r").read()
-    normal_glyphs = list(
-        set(
-            filter(
-                lambda s: "." not in s,
-                map(
-                    lambda s: reduce(lambda z, i: z.replace(i, ""), ["'", ";", "]"], s),
-                    re.findall(r"(?<=\\)(\S+)", content),
-                ),
-            )
+    normal_glyphs = u.remove_duplicates(
+        filter(
+            lambda s: "." not in s,
+            map(
+                lambda s: reduce(lambda z, i: z.replace(i, ""), ["'", ";", "]"], s),
+                re.findall(r"(?<=\\)(\S+)", content),
+            ),
         )
     )
     for g in normal_glyphs:
@@ -254,11 +245,23 @@ def ligate_font(
     tmp_fea = "tmp.fea"
     write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
-    paste_glyphs(firacode, font, tmp_glyphs, config["scale"], "fira_", True)
+
+    # print(all([firacode[g].unicode == -1 for g in tmp_glyphs]))
+    # print(all([firacode.__contains__(g) for g in config["glyphs"]]))
+
+    tagged_prefix = "fira_"
+
+    paste_glyphs(firacode, font, tmp_glyphs, config["scale"], tagged_prefix)
     if copy_character_glyphs:
-        paste_glyphs(firacode, font, config["glyphs"], config["scale"], "", False)
-    rename_tagged_glyphs(tmp_glyphs, tmp_fea)
+        paste_glyphs(firacode, font, config["glyphs"], config["scale"], "")
+    rename_tagged_glyphs(tmp_glyphs, tmp_fea, tagged_prefix)
     rename_normal_glyphs(firacode, font, tmp_fea)
+
+    # print(all([font.__contains__(tagged_prefix + g) for g in tmp_glyphs]))
+    # print(all([font.__contains__(g) for g in config["glyphs"]]))
+
+    # for look in font.gsub_lookups:
+    #     font.removeLookup(look)
 
     font.mergeFeature(tmp_fea)
 
@@ -274,7 +277,9 @@ def ligate_font(
         output_font_type = ".ttf"
 
     # Generate font & move to output directory
-    output_font_file = path.join(output_dir, font.fontname + output_font_type)
+    output_font_file = path.join(
+        output_dir, fontname(Path(font.path).stem, prefix, suffix) + output_font_type
+    )
     print("\n    ...saving\t       to   %s (%s)" % (output_font_file, font.fullname))
     font.generate(output_font_file)
     font.close()
@@ -290,9 +295,7 @@ def parse_args():
     )
     parser.add_argument(
         "--output-dir",
-        help="The directory to save the ligated font in. The actual filename"
-        " will be automatically generated based on the input font name and"
-        " the --prefix and --output-name flags.",
+        help="The directory to save the ligated font in.",
     )
     parser.add_argument(
         "--ligature-font-file",

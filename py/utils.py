@@ -11,6 +11,10 @@ def remove_last_newlines(s):
     return s
 
 
+def remove_duplicates(l):
+    return list(dict.fromkeys(l))
+
+
 def add_lookups_prefix(code):
     return re.sub(
         "(?<=\})\s+(?=\w+;)", " fira_", re.sub("lookup ", "lookup fira_", code)

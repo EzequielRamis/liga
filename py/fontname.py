@@ -13,7 +13,6 @@ def wo_ws(s):
 
 
 def fontname(font_fontname, prefix, suffix):
-    # and hyphenated suffix (if present)
     prefix_w = wo_ws(prefix)
     suffix_w = wo_ws(suffix)
 
