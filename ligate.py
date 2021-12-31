@@ -3,7 +3,7 @@
 # usage: fontforge -lang=py ligate.py [options]
 # Run with --help for detailed options.
 #
-# See config_sample.py for a complete configuration that will be copied.
+# See config_sample.py for a complete configuration that will be used.
 
 import fontforge
 import psMat
@@ -11,12 +11,12 @@ from os import path
 from glyphsLib import GSFont
 import re
 import importlib.util
-from py.fontname import fontname, wo_ws
 import py.utils as u
 from functools import reduce
-import warnings as w
 import sys
 from pathlib import Path
+import faulthandler
+import py.fontname as f
 
 # Constants
 COPYRIGHT = """
@@ -25,15 +25,19 @@ Programming ligatures from FiraCode added with https://github.com/EzequielRamis/
 FiraCode Copyright (c) 2014 Nikita Prokopov."""
 
 
-def get_ligature_source(fontname):
-    # Become case-insensitive
-    fontname = fontname.lower()
-    ext = fontname[:-3]
-    for weight in ["Bold", "Retina", "Medium", "Regular", "Light", "SemiBold"]:
-        if fontname.endswith("-" + weight.lower()):
-            # Exact match for one of the Fira Code weights
-            return f"fira/FiraCode-{weight}.{ext}"
-    return f"fira/FiraCode-Regular.{ext}"
+def get_ligature_source(font):
+    WEIGHT = {
+        300: "Light",
+        400: "Regular",
+        450: "Retina",
+        500: "Medium",
+        600: "SemiBold",
+        700: "Bold",
+    }
+    ext = font.path.lower()[:-3]
+    # closest key
+    matched_key = min(WEIGHT.keys(), key=lambda x: abs(x - font.os2_weight))
+    return f"fira/FiraCode-{WEIGHT[matched_key]}.{ext}"
 
 
 def write_fira_feature_file(feats, output_file, firacode, font):
@@ -62,7 +66,7 @@ def write_fira_feature_file(feats, output_file, firacode, font):
             [
                 l
                 for l in u.add_backslash_to_glyphs(feature.code).split("\n")
-                # remove lines which wouldn't be here
+                # remove .fea lines which wouldn't be here
                 if (
                     all(
                         [
@@ -126,7 +130,6 @@ def correct_ligature_width(font, g, mult):
 
 def paste_glyphs(fira, font, glyphs, scale, prefix):
     for g in glyphs:
-        print(g)
         fira.selection.none()
         fira.selection.select(g)
         fira.copy()
@@ -141,7 +144,7 @@ def paste_glyphs(fira, font, glyphs, scale, prefix):
         correct_ligature_width(font, renamed_g, scale)
 
 
-def rename_tagged_glyphs(glyphs, tmp_fea, prefix):
+def rename_tagged_glyphs_from_fea(glyphs, tmp_fea, prefix):
     content = open(tmp_fea, "r").read()
     for g in glyphs:
         content = re.sub(f"(?<=\\\\){g}", f"{prefix}{g}", content)
@@ -150,7 +153,7 @@ def rename_tagged_glyphs(glyphs, tmp_fea, prefix):
     file.close()
 
 
-def rename_normal_glyphs(firacode, font, tmp_fea):
+def rename_normal_glyphs_from_font(firacode, font, tmp_fea):
     content = open(tmp_fea, "r").read()
     normal_glyphs = u.remove_duplicates(
         filter(
@@ -173,41 +176,30 @@ def replace_sfnt(font, key, value):
     )
 
 
-def update_font_metadata(font, prefix, suffix):
-    # Figure out the input font's real name (i.e. without a hyphenated suffix)
-    # and hyphenated suffix (if present)
-    old_familyname = font.familyname
-    old_fontname = font.fontname
+def update_font_metadata(font, name):
+    old_fullname = font.fullname
 
-    old_fontname_spl = font.fontname.split("-")
-    if len(old_fontname_spl) > 1:
-        weight = old_fontname_spl[-1]
-    else:
-        weight = None
+    fnames = f.fontnames(font.fontname, name)
+    flname = fnames[0]
+    flname_weighted = fnames[1]
+    psname_weighted = fnames[3]
 
-    new_name = prefix + old_familyname + suffix
-    new_name_w = fontname(font.fontname, prefix, suffix)
-
-    font.familyname = new_name
-    font.fontname = new_name_w
-    # Replace the old name with the new name whether or not a weight was present.
-    # If a weight was present, append it accordingly.
-    if weight:
-        font.fullname = "%s %s" % (new_name, weight)
-    else:
-        font.fullname = new_name
+    font.familyname = flname
+    font.fontname = psname_weighted
+    font.fullname = flname_weighted
 
     print(
-        "Ligating font %s (%s) as '%s'"
-        % (path.basename(font.path), old_fontname, new_name_w)
+        "Ligating font '%s' (%s) as '%s'"
+        % (old_fullname, path.basename(font.path), font.fullname)
     )
 
     font.copyright = (font.copyright or "") + COPYRIGHT
-    replace_sfnt(font, "UniqueID", "%s; Ligated" % font.fullname)
-    replace_sfnt(font, "Preferred Family", new_name)
-    replace_sfnt(font, "Compatible Full", new_name)
-    replace_sfnt(font, "Family", new_name)
-    replace_sfnt(font, "WWS Family", new_name)
+    replace_sfnt(font, "UniqueID", "%s; Ligated" % flname_weighted)
+    replace_sfnt(font, "Fullname", flname_weighted)
+    replace_sfnt(font, "Preferred Family", flname)
+    replace_sfnt(font, "Compatible Full", flname)
+    replace_sfnt(font, "Family", flname)
+    replace_sfnt(font, "WWS Family", flname)
 
 
 def ligate_font(
@@ -218,7 +210,9 @@ def ligate_font(
     copy_character_glyphs,
     prefix,
     suffix,
+    output_name,
 ):
+    faulthandler.enable()
     font = fontforge.open(input_font_file)
     config_file_name = path.splitext(path.basename(config_file))[0]
     try:
@@ -227,41 +221,44 @@ def ligate_font(
         spec.loader.exec_module(mod)
         config = mod.config
     except Exception as e:
-        w.warn(f"Error with config_file: {e}\n...using config from config_sample.py")
+        sys.stderr.write(
+            f"Error with config_file: {e}\n    · Using config from config_sample.py"
+        )
         spec = importlib.util.spec_from_file_location("default", "config_sample.py")
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         config = mod.config
 
     if not ligature_font_file:
-        ligature_font_file = get_ligature_source(font.fontname)
+        ligature_font_file = get_ligature_source(font)
 
-    update_font_metadata(font, prefix, suffix)
+    if not output_name:
+        output_name = prefix + font.familyname + suffix
 
-    print("    ...using ligatures from %s" % ligature_font_file)
-    print("    ...using config    from %s" % config_file)
+    update_font_metadata(font, output_name)
+
+    print("    · Using ligatures from %s" % ligature_font_file)
+    print("    · Using config    from %s" % config_file)
     firacode = fontforge.open(ligature_font_file)
+    # for logging purposes
+    sys.stderr.write("====\n")
+
+    # this removes unnecessary stderr output.
+    # firacode gpos lookups are only about diacritical marks
+    for look in firacode.gpos_lookups:
+        firacode.removeLookup(look, 1)
 
     tmp_fea = "tmp.fea"
     write_fira_feature_file(config["features"], tmp_fea, firacode, font)
     tmp_glyphs = extract_tagged_glyphs(tmp_fea)
-
-    # print(all([firacode[g].unicode == -1 for g in tmp_glyphs]))
-    # print(all([firacode.__contains__(g) for g in config["glyphs"]]))
 
     tagged_prefix = "fira_"
 
     paste_glyphs(firacode, font, tmp_glyphs, config["scale"], tagged_prefix)
     if copy_character_glyphs:
         paste_glyphs(firacode, font, config["glyphs"], config["scale"], "")
-    rename_tagged_glyphs(tmp_glyphs, tmp_fea, tagged_prefix)
-    rename_normal_glyphs(firacode, font, tmp_fea)
-
-    # print(all([font.__contains__(tagged_prefix + g) for g in tmp_glyphs]))
-    # print(all([font.__contains__(g) for g in config["glyphs"]]))
-
-    # for look in font.gsub_lookups:
-    #     font.removeLookup(look)
+    rename_tagged_glyphs_from_fea(tmp_glyphs, tmp_fea, tagged_prefix)
+    rename_normal_glyphs_from_font(firacode, font, tmp_fea)
 
     font.mergeFeature(tmp_fea)
 
@@ -278,9 +275,9 @@ def ligate_font(
 
     # Generate font & move to output directory
     output_font_file = path.join(
-        output_dir, fontname(Path(font.path).stem, prefix, suffix) + output_font_type
+        output_dir, f.fontnames(Path(font.path).stem, output_name)[3] + output_font_type
     )
-    print("\n    ...saving\t       to   %s (%s)" % (output_font_file, font.fullname))
+    print("    · Saving\t      to   %s (%s)" % (output_font_file, font.fontname))
     font.generate(output_font_file)
     font.close()
     firacode.close()
@@ -334,15 +331,18 @@ def parse_args():
         default="",
         help="String to suffix the name of the generated font with.",
     )
+    parser.add_argument(
+        "--output-name",
+        type=str,
+        default=None,
+        help="Name of the generated font. Completely replaces the original."
+        " Also, prefix and suffix flags will be ignored.",
+    )
     return parser.parse_args()
 
 
 def main():
-    try:
-        ligate_font(**vars(parse_args()))
-    except Exception as e:
-        w.warn(e)
-        sys.exit(1)
+    ligate_font(**vars(parse_args()))
 
 
 if __name__ == "__main__":

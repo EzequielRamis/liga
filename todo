@@ -1,6 +1,0 @@
-- automate fonts builds
-- fix Y axis position of fira glyphs and see if it only occurres to tagged ones
-- investigate fontforge logs at copying glyphs and merge feature instances
-- better metadata
-- clean
-- README.md

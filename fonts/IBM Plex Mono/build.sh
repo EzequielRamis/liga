@@ -3,10 +3,13 @@
 # shellcheck source=/dev/null
 source ./scripts/build_family.sh
 
-# DIR=""
-DIR="IBM-Plex-Mono"
+FAMILY="IBM Plex Mono"
 PREFIX="Liga "
 SUFFIX=""
+# OUTPUT_NAME=""
+
+DIR="$FAMILY"
+EXT="otf"
 
 declare -A fontWeight
 
@@ -19,9 +22,13 @@ declare -A fontWeight
 # - Bold
 
 fontWeight=(
-    ["IBMPlexMono-Medium"]="Medium"
     ["IBMPlexMono-Regular"]="Regular"
+    ["IBMPlexMono-Medium"]="Medium"
     ["IBMPlexMono-Bold"]="Bold"
 )
 
-build_family "$DIR" "$(declare -p fontWeight)" "otf" "$PREFIX" "$SUFFIX"
+if [[ -z "$OUTPUT_NAME" ]]; then
+    OUTPUT_NAME="$PREFIX$FAMILY$SUFFIX"
+fi
+
+build_family "$DIR" "$(declare -p fontWeight)" $EXT "$OUTPUT_NAME"

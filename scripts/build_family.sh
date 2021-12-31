@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Source progress bar
 # shellcheck source=/dev/null
 source ./scripts/progress_bar.sh
 
@@ -27,26 +26,25 @@ build_family() {
         done
         total=${#filtered_files[@]}
         setup_scroll_area "$total"
-        printf "Found %d fonts from %s directory to be ligated\n" "$total" "$DIR"
+        printf "\nFound %d fonts from %s directory to be ligated\n" "$total" "$DIR"
         for ((k = 0; k < total ; k++)); do
             draw_progress_bar "$k"
             file=${filtered_files[$k]}
             b=$(basename "$file" ."$EXT")
             w=${FONT_WEIGHT["$b"]}
             local attempt=1
-            NEW_FONTNAME=$(python3 py/fontname.py "$b" "$4" "$5")
+            NEW_FULLNAME=$(python3 py/fontname.py "$b" "$4" 0)
+            NEW_FONTNAME=$(python3 py/fontname.py "$b" "$4" 3)
             while [ ! -f "output/$DIR/$NEW_FONTNAME.$EXT" ]; do
                 echo ""
                 if (( attempt > 1 )); then
-                    sleep 0.5
-                    echo "Fontforge has a bad day... attempt #$attempt"
+                    echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
                 ERROR=$(fontforge -quiet -lang py -script ligate.py "$file" \
                         --ligature-font-file "fira/FiraCode-$w.$EXT" \
-                        --copy-character-glyphs \
                         --output-dir "output/$DIR" \
-                        --prefix "$4" \
-                        --suffix "$5" \
+                        --copy-character-glyphs \
+                        --output-name "$NEW_FULLNAME" \
                         3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$DIR"
@@ -54,6 +52,13 @@ build_family() {
                     insert_top "" "$LOG"
                     insert_top "$ERROR" "$LOG"
                     insert_top "[$(date -R)]" "$LOG"
+                fi
+                # shellcheck disable=SC2126
+                ERROR_COUNT=$(echo -n "$ERROR" | grep -A1 '====' | wc -l)
+                if (( ERROR_COUNT > 1)); then
+                    printf "\n \033[0;31m✗\033[0m There are some errors saved at %s\n" "$LOG"
+                else 
+                    echo -e "\n \033[0;32m✓\033[0m Font ligated"
                 fi
                 ((attempt=attempt+1))
             done

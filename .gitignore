@@ -1,5 +1,4 @@
-fonts/ignore
-input/ignore
+ignore
 output
 logs
 __pycache__

@@ -2,40 +2,54 @@
 
 import sys
 
-f = sys.argv[1]
-p = sys.argv[2]
-s = sys.argv[3]
+old = sys.argv[1]
+new = sys.argv[2]
+type = sys.argv[3]
 
 
-# without whitespace
-def wo_ws(s):
-    return s.replace(" ", "")
+def camelcase(s):
+    return "".join([ss[0].upper() + ss[1:] for ss in s.split(" ")])
 
 
-def fontname(font_fontname, prefix, suffix):
-    prefix_w = wo_ws(prefix)
-    suffix_w = wo_ws(suffix)
+def slice_postscript(s):
+    sp = s.split("-")
+    return (sp[:-1], sp[-1])
 
-    old_fontname_spl = font_fontname.split("-")
-    if len(old_fontname_spl) > 1:
-        old_fontname = "-".join(old_fontname_spl[:-1])
-        weight = old_fontname_spl[-1]
+
+def slice_fullname(s):
+    sp = s.split(" ")
+    return (sp[:-1], sp[-1])
+
+
+def add_postscript_weight(s, w):
+    if w:
+        return f"{s}-{w}"
     else:
-        old_fontname = font_fontname
-        weight = None
+        return s
 
-    new_name_w = prefix_w + old_fontname + suffix_w
 
-    # Replace the old name with the new name whether or not a weight was present.
-    # If a weight was present, append it accordingly.
-    if weight:
-        return "%s-%s" % (new_name_w, weight)
+def add_fullname_weight(s, w):
+    if w:
+        return f"{s} {w}"
     else:
-        return new_name_w
+        return s
+
+
+# ["Font name", "Font name Weight", "FontName", "FontName-Weight"]
+def fontnames(old_psname, name):
+    family, weight = slice_postscript(old_psname)
+    psname = camelcase(name)
+    if len(family) > 0:
+        name_weighted = add_fullname_weight(name, weight)
+        psname_weighted = add_postscript_weight(psname, weight)
+    else:
+        name_weighted = name
+        psname_weighted = psname
+    return [name, name_weighted, psname, psname_weighted]
 
 
 def main():
-    print(fontname(f, p, s))
+    print(fontnames(old, new)[int(type)])
 
 
 if __name__ == "__main__":
