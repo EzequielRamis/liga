@@ -12,9 +12,21 @@ build_family() {
     local DIR=$1
     eval "declare -A FONT_WEIGHT=""${2#*=}"
     local EXT=$3
+    local PREFIX="$4"
+    local OUTPUT_NAME="$5"
+
+    if [[ -z "$OUTPUT_NAME" ]]; then
+       ARGS="--prefix '$PREFIX'"
+       OUTPUT_DIR="$(dirname "$DIR")/$PREFIX$(basename "$DIR")"
+       OUTPUT_DIR="${OUTPUT_DIR/.\/}"
+    else
+       ARGS="--output-name '$OUTPUT_NAME'"
+       OUTPUT_DIR="$OUTPUT_NAME"
+    fi
+
     if [ -d "./input/$DIR" ]; then
         rm -rf "output/$DIR"
-        mkdir -p "output/$DIR"
+        mkdir -p "output/$OUTPUT_DIR"
         files=("./input/$DIR/"*."$EXT")
         filtered_files=()
         for file in "${files[@]}"; do
@@ -33,19 +45,12 @@ build_family() {
             b=$(basename "$file" ."$EXT")
             w=${FONT_WEIGHT["$b"]}
             local attempt=1
-            NEW_FULLNAME=$(python3 py/fontname.py "$b" "$4" 0)
-            NEW_FONTNAME=$(python3 py/fontname.py "$b" "$4" 3)
-            while [ ! -f "output/$DIR/$NEW_FONTNAME.$EXT" ]; do
+            while (( $(find "output/$OUTPUT_DIR" -type f | wc -l) <= k )); do
                 echo ""
                 if (( attempt > 1 )); then
                     echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
-                ERROR=$(fontforge -quiet -lang py -script ligate.py "$file" \
-                        --ligature-font-file "fira/FiraCode-$w.$EXT" \
-                        --output-dir "output/$DIR" \
-                        --copy-character-glyphs \
-                        --output-name "$NEW_FULLNAME" \
-                        3>&1 1>&2 2>&3)
+                ERROR=$(eval "fontforge -quiet -lang py -script ligate.py '$file' --ligature-font-file 'fira/FiraCode-$w.$EXT' --output-dir 'output/$OUTPUT_DIR' --copy-character-glyphs" "$ARGS" 3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$DIR"
                     LOG="logs/$DIR/$b.$EXT.log"

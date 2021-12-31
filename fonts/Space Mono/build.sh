@@ -5,10 +5,9 @@ source ./scripts/build_family.sh
 
 FAMILY="Space Mono"
 PREFIX="Liga "
-SUFFIX=""
 # OUTPUT_NAME=""
 
-DIR="$FAMILY"
+INPUT_DIR="$FAMILY"
 EXT="ttf"
 
 declare -A fontWeight
@@ -26,8 +25,4 @@ fontWeight=(
     ["SpaceMono-Bold"]="Bold"
 )
 
-if [[ -z "$OUTPUT_NAME" ]]; then
-    OUTPUT_NAME="$PREFIX$FAMILY$SUFFIX"
-fi
-
-build_family "$DIR" "$(declare -p fontWeight)" $EXT "$OUTPUT_NAME"
+build_family "$INPUT_DIR" "$(declare -p fontWeight)" $EXT "$PREFIX" "$OUTPUT_NAME"

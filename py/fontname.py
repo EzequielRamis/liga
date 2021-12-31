@@ -1,14 +1,5 @@
-#!/usr/bin/env python
-
-import sys
-
-old = sys.argv[1]
-new = sys.argv[2]
-type = sys.argv[3]
-
-
 def camelcase(s):
-    return "".join([ss[0].upper() + ss[1:] for ss in s.split(" ")])
+    return "".join([ss[0].upper() + ss[1:] for ss in s.split(" ") if len(ss) > 0])
 
 
 def slice_postscript(s):
@@ -35,22 +26,20 @@ def add_fullname_weight(s, w):
         return s
 
 
-# ["Font name", "Font name Weight", "FontName", "FontName-Weight"]
-def fontnames(old_psname, name):
+def safe_add_fullname_weight(old_flname, name):
+    family, weight = slice_fullname(old_flname)
+    if len(family) > 0:
+        name_weighted = add_fullname_weight(name, weight)
+    else:
+        name_weighted = name
+    return name_weighted
+
+
+def safe_add_postname_weight(old_psname, name):
     family, weight = slice_postscript(old_psname)
     psname = camelcase(name)
     if len(family) > 0:
-        name_weighted = add_fullname_weight(name, weight)
         psname_weighted = add_postscript_weight(psname, weight)
     else:
-        name_weighted = name
         psname_weighted = psname
-    return [name, name_weighted, psname, psname_weighted]
-
-
-def main():
-    print(fontnames(old, new)[int(type)])
-
-
-if __name__ == "__main__":
-    main()
+    return psname_weighted

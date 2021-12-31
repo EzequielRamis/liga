@@ -178,28 +178,27 @@ def replace_sfnt(font, key, value):
 
 def update_font_metadata(font, name):
     old_fullname = font.fullname
+    old_postscript = font.fontname
 
-    fnames = f.fontnames(font.fontname, name)
-    flname = fnames[0]
-    flname_weighted = fnames[1]
-    psname_weighted = fnames[3]
+    flname_weighted = f.safe_add_fullname_weight(old_fullname, name)
+    psname_weighted = f.safe_add_postname_weight(old_postscript, name)
 
-    font.familyname = flname
+    font.familyname = name
     font.fontname = psname_weighted
     font.fullname = flname_weighted
 
     print(
         "Ligating font '%s' (%s) as '%s'"
-        % (old_fullname, path.basename(font.path), font.fullname)
+        % (old_fullname, path.basename(font.path), flname_weighted)
     )
 
     font.copyright = (font.copyright or "") + COPYRIGHT
     replace_sfnt(font, "UniqueID", "%s; Ligated" % flname_weighted)
     replace_sfnt(font, "Fullname", flname_weighted)
-    replace_sfnt(font, "Preferred Family", flname)
-    replace_sfnt(font, "Compatible Full", flname)
-    replace_sfnt(font, "Family", flname)
-    replace_sfnt(font, "WWS Family", flname)
+    replace_sfnt(font, "Preferred Family", name)
+    replace_sfnt(font, "Compatible Full", name)
+    replace_sfnt(font, "Family", name)
+    replace_sfnt(font, "WWS Family", name)
 
 
 def ligate_font(
@@ -209,7 +208,6 @@ def ligate_font(
     config_file,
     copy_character_glyphs,
     prefix,
-    suffix,
     output_name,
 ):
     faulthandler.enable()
@@ -232,8 +230,11 @@ def ligate_font(
     if not ligature_font_file:
         ligature_font_file = get_ligature_source(font)
 
-    if not output_name:
-        output_name = prefix + font.familyname + suffix
+    if output_name:
+        output_basename = f.camelcase(prefix + output_name)
+    else:
+        output_name = prefix + font.familyname
+        output_basename = f.camelcase(prefix) + Path(font.path).stem
 
     update_font_metadata(font, output_name)
 
@@ -274,9 +275,7 @@ def ligate_font(
         output_font_type = ".ttf"
 
     # Generate font & move to output directory
-    output_font_file = path.join(
-        output_dir, f.fontnames(Path(font.path).stem, output_name)[3] + output_font_type
-    )
+    output_font_file = path.join(output_dir, output_basename + output_font_type)
     print("    · Saving\t      to   %s (%s)" % (output_font_file, font.fontname))
     font.generate(output_font_file)
     font.close()
@@ -326,17 +325,11 @@ def parse_args():
         help="String to prefix the name of the generated font with.",
     )
     parser.add_argument(
-        "--suffix",
-        type=str,
-        default="",
-        help="String to suffix the name of the generated font with.",
-    )
-    parser.add_argument(
         "--output-name",
         type=str,
         default=None,
-        help="Name of the generated font. Completely replaces the original."
-        " Also, prefix and suffix flags will be ignored.",
+        help="Name of the generated font. Completely replaces the original"
+        " and prefix flag will be ignored.",
     )
     return parser.parse_args()
 
