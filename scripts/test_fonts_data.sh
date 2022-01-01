@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 shopt -s globstar
+shopt -s extglob
 
 declare -A WEIGHT
 
@@ -19,18 +20,15 @@ WEIGHT=(
 
 echo 'var fonts = `' > test/fonts.js
 echo "" > test/fonts.css
-for f in output/**/*; do
-    if [ -f "$f" ]; then
-        post=$(fc-scan "$f" -f "%{postscriptname}")
-        full=$(fc-scan "$f" -f "%{fullname}")
-        path=$(fc-scan "$f" -f "%{file}")
-        w=${WEIGHT[$(fc-scan "$f" -f "%{weight}")]}
+for f in output/**/*.+(ttf|otf); do
+    post=$(fc-scan "$f" -f "%{postscriptname}")
+    full=$(fc-scan "$f" -f "%{fullname}")
+    path=$(fc-scan "$f" -f "%{file}")
+    w=${WEIGHT[$(fc-scan "$f" -f "%{weight}")]}
+    echo -e "<option value=\"$w 16px '$post'\">$full</option>" \
+        >> test/fonts.js
 
-        echo -e "<option value=\"$w 16px '$post'\">$full</option>" \
-            >> test/fonts.js
-
-        echo "@font-face {font-family:'$post';src:url('../$path');font-weight:$w;font-style:normal}" \
-            >> test/fonts.css
-    fi
+    echo "@font-face {font-family:'$post';src:url('../$path');font-weight:$w;font-style:normal}" \
+        >> test/fonts.css
 done
 echo '`;' >> test/fonts.js

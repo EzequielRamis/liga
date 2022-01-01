@@ -34,7 +34,7 @@ def get_ligature_source(font):
         600: "SemiBold",
         700: "Bold",
     }
-    ext = font.path.lower()[:-3]
+    ext = font.path.lower().split(".")[-1]
     # closest key
     matched_key = min(WEIGHT.keys(), key=lambda x: abs(x - font.os2_weight))
     return f"fira/FiraCode-{WEIGHT[matched_key]}.{ext}"
@@ -180,8 +180,8 @@ def update_font_metadata(font, name):
     old_fullname = font.fullname
     old_postscript = font.fontname
 
-    flname_weighted = f.safe_add_fullname_weight(old_fullname, name)
-    psname_weighted = f.safe_add_postname_weight(old_postscript, name)
+    flname_weighted = f.safe_add_fullname_style(old_fullname, name)
+    psname_weighted = f.safe_add_postname_style(old_postscript, name)
 
     font.familyname = name
     font.fontname = psname_weighted
@@ -231,21 +231,22 @@ def ligate_font(
         ligature_font_file = get_ligature_source(font)
 
     if output_name:
-        output_basename = f.camelcase(prefix + output_name)
+        output_basename = f.safe_add_postname_style(Path(font.path).stem, output_name)
     else:
         output_name = prefix + font.familyname
-        output_basename = f.camelcase(prefix) + Path(font.path).stem
+        output_basename = prefix + Path(font.path).stem
 
     update_font_metadata(font, output_name)
 
     print("    · Using ligatures from %s" % ligature_font_file)
     print("    · Using config    from %s" % config_file)
     firacode = fontforge.open(ligature_font_file)
-    # for logging purposes
+
+    # For logging purposes
     sys.stderr.write("====\n")
 
-    # this removes unnecessary stderr output.
-    # firacode gpos lookups are only about diacritical marks
+    # This removes unnecessary stderr output.
+    # Also, firacode gpos lookups are only about diacritical marks
     for look in firacode.gpos_lookups:
         firacode.removeLookup(look, 1)
 
