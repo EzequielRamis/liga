@@ -27,8 +27,8 @@ def add_fullname_style(s, w):
 
 
 # Assume that a general fullname has this pattern:
-# "FAMILY [STYLE]" where STYLE is an optional set of words separated by a
-# space.
+# "FAMILY [STYLE]" where STYLE is an optional set of words separated (or not)
+# by a space.
 # The STYLE set is a permutation whose elements must be:
 # - Only a one WEIGHT_WORD
 # - Zero or more words defined in STYLE_WORDS
@@ -59,6 +59,7 @@ WEIGHT_WORDS = [
     "dmbld",
     "bld",
     "bold",
+    "heavy",
     "extrabold",
     "extbld",
     "ultrabold",
@@ -67,8 +68,8 @@ WEIGHT_WORDS = [
 ]
 
 
-def safe_add_fullname_style(old_flname, name):
-    words = old_flname.split(" ")
+def split_family_style(old_name, separator):
+    words = old_name.split(separator)
     k = len(words) - 1
     while k >= 0 and (
         words[k].lower() in STYLE_WORDS
@@ -79,8 +80,11 @@ def safe_add_fullname_style(old_flname, name):
     ):
         k -= 1
     count = k + 1
-    family = words[:count]
-    style = " ".join(words[count:])
+    return (separator.join(words[:count]), separator.join(words[count:]))
+
+
+def safe_add_fullname_style(old_flname, name):
+    family, style = split_family_style(old_flname, " ")
     if len(family) > 0:
         name_styled = add_fullname_style(name, style)
     else:
@@ -93,20 +97,7 @@ def safe_add_fullname_style(old_flname, name):
 
 def safe_add_postname_style(old_psname, name):
     name = camelcase(name)
-    words = old_psname.split("-")
-    k = len(words) - 1
-    while k >= 0 and (
-        words[k].lower() in STYLE_WORDS
-        or words[k].lower() in WEIGHT_WORDS
-        # Cartesian products
-        or words[k].lower() in [i + j for i in STYLE_WORDS for j in WEIGHT_WORDS]
-        or words[k].lower() in [j + i for i in STYLE_WORDS for j in WEIGHT_WORDS]
-    ):
-        k -= 1
-    count = k + 1
-    family = words[:count]
-    style = "-".join(words[count:])
-    print(family, " - ", style)
+    family, style = split_family_style(old_psname, "-")
     if len(family) > 0:
         name_styled = add_postscript_style(name, style)
     else:

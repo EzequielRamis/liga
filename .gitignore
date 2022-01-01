@@ -4,5 +4,5 @@ logs
 __pycache__
 tmp.fea
 fonts.css
-fonts.js
+fonts.html
 .vscode

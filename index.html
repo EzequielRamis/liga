@@ -38,8 +38,6 @@
             flex: 1;
         }
     </style>
-    <script src="test/showcases.js"></script>
-    <script src="test/fonts.js"></script>
 </head>
 <body>
     <main>
@@ -56,12 +54,18 @@
                 onclick="showcases()"
             >
             <label for="toggle-font" id="toggle-font-label">firacode fallback</label>
-            <input type="checkbox" value="showcases" id="toggle-font"
+            <input type="checkbox" id="toggle-font"
                 onclick="toggleFira(this.checked)"
+            >
+            <label for="toggle-liga" id="toggle-liga-label">ligatures</label>
+            <input type="checkbox" id="toggle-liga"
+                onclick="toggleLiga(this.checked)"
             >
             <select name="fonts" id="fonts"
                 onclick="selectFont(this.value)"
-            ></select>
+            >
+            <!--#include virtual="test/fonts.html" -->
+            </select>
         </div>
         <textarea id="area" ></textarea>
     </main>
@@ -78,22 +82,23 @@
         area.style.fontSize = `${s}px`;
     };
     let clearArea = () => area.value = "";
-    let showcases = () => area.value = show;
+    let showcases = () => area.value = `<!--#include virtual="test/showcases.txt" -->`;
     let toggleFira = c => {
         sizeBackup = size.value;
         area.style.font = select.value + (c ? ", 'FiraCode'" : "") + fall;
         area.style.fontSize = `${sizeBackup}px`;
     }
+    let toggleLiga = c => area.style.fontStyle = c ? "italic" : "normal";
     let selectFont = f => {
         sizeBackup = size.value;
         area.style.font = f + fall;
         area.style.fontSize = `${sizeBackup}px`;
     }
     
-    select.innerHTML = fonts;
     area.style.font = select.value + fall;
     changeSize(initialSize);
     size.value = initialSize;
+    toggleLiga(true)
     showcases();
 </script>
 </html>

@@ -4,6 +4,21 @@
 source ./scripts/progress_bar.sh
 shopt -s extglob
 
+declare -A CSS_WEIGHTS
+
+# from fc-scan weight to css font-weight
+CSS_WEIGHTS=(
+    ["0"]="100" # thin
+    ["40"]="200" # extra light
+    ["50"]="300" # light
+    ["80"]="400" # regular
+    ["90"]="450" # retina
+    ["100"]="500" # medium
+    ["180"]="600" # semi bold
+    ["200"]="700" # bold
+    ["210"]="900" # black
+)
+
 insert_top() {
     { echo "$1"; cat "$2" 2> /dev/null; } >"$2".new
     mv "$2"{.new,}
@@ -82,6 +97,22 @@ build_family() {
                 fi
                 ((attempt=attempt+1))
             done
+
+            # Add font data to the Font Tester .html page
+            OUTPUT_FILE=$(ls -Art "output/$OUTPUT_DIR" | tail -n 1)
+            COMPL_OUT_FILE="output/$OUTPUT_DIR/$OUTPUT_FILE"
+            POST=$(fc-scan "$COMPL_OUT_FILE" -f "%{postscriptname}")
+            FULL=$(fc-scan "$COMPL_OUT_FILE" -f "%{fullname}")
+            CSS_WEIGHT=${CSS_WEIGHTS[$(fc-scan "$COMPL_OUT_FILE" -f "%{weight}")]}
+            echo -e "<option value=\"$CSS_WEIGHT 16px '$POST'\">$FULL</option>" \
+                >> test/fonts.html
+
+            echo "@font-face {font-family:'$POST';src:url('../$COMPL_OUT_FILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
+                >> test/fonts.css
+
+            echo "@font-face {font-family:'$POST';src:url('../$file');font-weight:$CSS_WEIGHT;font-style:normal}" \
+                >> test/fonts.css
+
         done
         destroy_scroll_area
         print_bar_text "$total"; echo ""

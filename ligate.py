@@ -233,7 +233,7 @@ def ligate_font(
     if output_name:
         output_basename = f.safe_add_postname_style(Path(font.path).stem, output_name)
     else:
-        output_name = prefix + font.familyname
+        output_name = prefix + f.split_family_style(font.familyname, " ")[0]
         output_basename = prefix + Path(font.path).stem
 
     update_font_metadata(font, output_name)
