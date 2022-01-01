@@ -29,6 +29,7 @@
         textarea {
             width: -moz-available;
             flex: 1;
+            font-synthesis: none;
         }
         .inputs {
             display: flex;
@@ -53,16 +54,16 @@
             <input type="button" value="showcases" id="showcases"
                 onclick="showcases()"
             >
-            <label for="toggle-font" id="toggle-font-label">firacode fallback</label>
-            <input type="checkbox" id="toggle-font"
+            <label for="toggle-fira" id="toggle-fira-label">firacode fallback</label>
+            <input type="checkbox" id="toggle-fira"
                 onclick="toggleFira(this.checked)"
             >
             <label for="toggle-liga" id="toggle-liga-label">ligatures</label>
-            <input type="checkbox" id="toggle-liga"
+            <input type="checkbox" id="toggle-liga" checked
                 onclick="toggleLiga(this.checked)"
             >
             <select name="fonts" id="fonts"
-                onclick="selectFont(this.value)"
+                onchange="selectFont(this.value)"
             >
             <!--#include virtual="test/fonts.html" -->
             </select>
@@ -74,6 +75,8 @@
     const area = document.querySelector("#area");
     const select = document.querySelector("#fonts");
     const size = document.querySelector("#size");
+    const fira = document.querySelector("#toggle-fira");
+    const liga = document.querySelector("#toggle-liga");
     const fall = ", 'Fallback'";
     const initialSize = 32;
     
@@ -85,7 +88,7 @@
     let showcases = () => area.value = `<!--#include virtual="test/showcases.txt" -->`;
     let toggleFira = c => {
         sizeBackup = size.value;
-        area.style.font = select.value + (c ? ", 'FiraCode'" : "") + fall;
+        area.style.font = `${area.style.fontStyle} ${select.value} ${c ? ", 'FiraCode'" : ""} ${fall}`;
         area.style.fontSize = `${sizeBackup}px`;
     }
     let toggleLiga = c => area.style.fontStyle = c ? "italic" : "normal";
