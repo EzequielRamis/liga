@@ -1,24 +1,14 @@
 #!/usr/bin/env bash
 
-DIR=$1
-FONTS="fonts/$DIR"
-
-mkdir -p "$FONTS"
-mkdir -p "input/$DIR"
-
-cp config_sample.py "$FONTS/config.py"
-
-echo -ne "#!/usr/bin/env bash
-
 # You can ignore these two lines
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-PREFIX=\"Liga \"
-# OUTPUT_NAME=\"\"
+PREFIX="Liga "
+# OUTPUT_NAME=""
 
-INPUT_DIR=\"$DIR\"
-CONFIG=\"$FONTS/config.py\"
+INPUT_DIR="Fantasque Sans Mono"
+CONFIG="fonts/Fantasque Sans Mono/config.py"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -33,22 +23,21 @@ CONFIG=\"$FONTS/config.py\"
 
 FONT_WEIGHT=(
     # Example
-    # [\"IBMPlexMono-Thin\"]=\"Light\"
-    # [\"IBMPlexMono-Regular\"]=\"Regular\"
-    # [\"IBMPlexMono-Text\"]=\"Retina\"
-    # [\"IBMPlexMono-Bold\"]=\"Bold\"
+    # ["IBMPlexMono-Thin"]="Light"
+    # ["IBMPlexMono-Regular"]="Regular"
+    # ["IBMPlexMono-Text"]="Retina"
+    # ["IBMPlexMono-Bold"]="Bold"
 )
 
-# If this variable is set to true, only the files specified in \$FONT_WEIGHT
+# If this variable is set to true, only the files specified in $FONT_WEIGHT
 # will be ligated. Otherwise, all the font files will also be.
 FILTER_BY_FONT_WEIGHT=false
+
+COPY_GLYPHS=true
+REMOVE_ORIGINAL_LIGATURES=true
 
 build_family
 
 # That's all. Finally you could copy the font license to the output
 # directory, like:
-# cp \"input/$DIR/LICENSE.txt\" \"output/Liga $DIR/\"
-" \
-> "$FONTS/build.sh"
-
-chmod +x "$FONTS/build.sh"
+cp "input/Fantasque Sans Mono/LICENSE.txt" "output/Liga Fantasque Sans Mono/"

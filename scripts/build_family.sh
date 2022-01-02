@@ -38,6 +38,14 @@ build_family() {
        ARGS="$ARGS --config-file '$CONFIG'"
     fi
 
+    if $COPY_GLYPHS; then
+       ARGS="$ARGS --copy-character-glyphs"
+    fi
+
+    if $REMOVE_ORIGINAL_LIGATURES; then
+       ARGS="$ARGS --remove-original-ligatures"
+    fi
+
     if [ -d "./input/$INPUT_DIR" ]; then
         mkdir -p "output/$OUTPUT_DIR"
         files=(./input/"$INPUT_DIR"/*.+(ttf|otf))
@@ -77,7 +85,7 @@ build_family() {
                 if (( attempt > 1 )); then
                     echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
-                ERROR=$(eval "fontforge -quiet -lang py -script ligate.py '$file' \
+                ERROR=$(eval "python ligate.py '$file' \
                                 --output-dir 'output/$OUTPUT_DIR' \
                                 --copy-character-glyphs" \
                                 "$LIGATURE" "$ARGS" 3>&1 1>&2 2>&3)

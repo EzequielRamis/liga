@@ -33,6 +33,9 @@ FONT_WEIGHT=(
 # will be ligated. Otherwise, all the font files will also be.
 FILTER_BY_FONT_WEIGHT=false
 
+COPY_GLYPHS=true
+REMOVE_ORIGINAL_LIGATURES=false
+
 build_family
 
 # That's all. Finally you could copy the font license to the output

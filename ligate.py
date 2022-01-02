@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-#
-# usage: fontforge -lang=py ligate.py [options]
+# usage: python ligate.py [options]
 # Run with --help for detailed options.
 #
 # See config_sample.py for a complete configuration that will be used.
@@ -209,6 +207,7 @@ def ligate_font(
     copy_character_glyphs,
     prefix,
     output_name,
+    remove_original_ligatures,
 ):
     faulthandler.enable()
     font = fontforge.open(input_font_file)
@@ -244,6 +243,11 @@ def ligate_font(
 
     # For logging purposes
     sys.stderr.write("====\n")
+
+    if remove_original_ligatures:
+        print("Removing original ligatures")
+        for look in font.gsub_lookups:
+            font.removeLookup(look, 1)
 
     # This removes unnecessary stderr output.
     # Also, firacode gpos lookups are only about diacritical marks
@@ -318,6 +322,13 @@ def parse_args():
         " font as well. This will result in punctuation that matches the"
         " ligatures more closely, but may not fit in as well with the rest"
         " of the font.",
+    )
+    parser.add_argument(
+        "--remove-original-ligatures",
+        default=False,
+        action="store_true",
+        help="Remove the currently existing ligatures from the input font file."
+        " It is recommended in case of glitches present in the resulting font.",
     )
     parser.add_argument(
         "--prefix",

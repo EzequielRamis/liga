@@ -58,7 +58,7 @@
             <input type="checkbox" id="toggle-fira"
                 onclick="toggleFira(this.checked)"
             >
-            <label for="toggle-liga" id="toggle-liga-label">ligatures</label>
+            <label for="toggle-liga" id="toggle-liga-label">ligated</label>
             <input type="checkbox" id="toggle-liga" checked
                 onclick="toggleLiga(this.checked)"
             >
@@ -94,7 +94,7 @@
     let toggleLiga = c => area.style.fontStyle = c ? "italic" : "normal";
     let selectFont = f => {
         sizeBackup = size.value;
-        area.style.font = f + fall;
+        area.style.font = `${area.style.fontStyle} ${f} ${fira.checked ? ", 'FiraCode'" : ""} ${fall}`;
         area.style.fontSize = `${sizeBackup}px`;
     }
     
