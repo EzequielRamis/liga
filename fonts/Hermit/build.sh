@@ -4,8 +4,8 @@
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-PREFIX="Liga "
-# OUTPUT_NAME=""
+# PREFIX="Liga "
+OUTPUT_NAME="Liga Kermit"
 
 INPUT_DIR="Hermit"
 CONFIG="fonts/Hermit/config.py"
@@ -40,4 +40,4 @@ build_family
 
 # That's all. Finally you could copy the font license to the output
 # directory, like:
-cp "input/Hermit/LICENSE" "output/Liga Hermit/"
+cp "input/Hermit/LICENSE" "output/$OUTPUT_NAME/"

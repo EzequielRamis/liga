@@ -122,7 +122,7 @@ def extract_tagged_glyphs(tmp_fea):
 def correct_ligature_width(font, g, mult):
     if mult <= 0:
         mult = 1.0
-    scale = float(font["M"].width) / font[g].width
+    scale = float(font[ord("M")].width) / font[g].width
     font[g].transform(psMat.scale(scale * mult))
 
 
@@ -233,7 +233,7 @@ def ligate_font(
         output_basename = f.safe_add_postname_style(Path(font.path).stem, output_name)
     else:
         output_name = prefix + f.split_family_style(font.familyname, " ")[0]
-        output_basename = prefix + Path(font.path).stem
+        output_basename = f.camelcase(prefix) + Path(font.path).stem
 
     update_font_metadata(font, output_name)
 
@@ -245,7 +245,6 @@ def ligate_font(
     sys.stderr.write("====\n")
 
     if remove_original_ligatures:
-        print("Removing original ligatures")
         for look in font.gsub_lookups:
             font.removeLookup(look, 1)
 
@@ -267,6 +266,10 @@ def ligate_font(
     rename_normal_glyphs_from_font(firacode, font, tmp_fea)
 
     font.mergeFeature(tmp_fea)
+
+    # err = font.validate(1)
+    # if err:
+    #     sys.stderr.write("Validation: " + hex(err))
 
     # Work around a bug in Fontforge where the underline height is subtracted from
     # the underline width when you call generate().

@@ -4,8 +4,8 @@
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-PREFIX="Liga "
-# OUTPUT_NAME=""
+# PREFIX="Liga "
+OUTPUT_NAME="Liga IBM Flex Mono"
 
 INPUT_DIR="IBM Plex Mono"
 CONFIG="fonts/IBM Plex Mono/config.py"
@@ -40,4 +40,4 @@ build_family
 
 # That's all. Finally you could copy the font license to the output
 # directory, like:
-cp "input/IBM Plex Mono/LICENSE.txt" "output/Liga IBM Plex Mono/"
+cp "input/IBM Plex Mono/LICENSE.txt" "output/$OUTPUT_NAME/"
