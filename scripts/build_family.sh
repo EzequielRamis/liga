@@ -86,8 +86,7 @@ build_family() {
                     echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
                 ERROR=$(eval "python ligate.py '$file' \
-                                --output-dir 'output/$OUTPUT_DIR' \
-                                --copy-character-glyphs" \
+                                --output-dir 'output/$OUTPUT_DIR'" \
                                 "$LIGATURE" "$ARGS" 3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$INPUT_DIR"

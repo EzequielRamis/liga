@@ -69,7 +69,8 @@ config = {
             "exclam_equal_equal",
             "exclam_exclam_period",
             "less_asciitilde_asciitilde",
-            "less_asciitilde_greater",
+            # Bug below
+            # "less_asciitilde_greater",
             "less_asterisk_greater",
             "less_dollar_greater",
             "less_plus_greater",
