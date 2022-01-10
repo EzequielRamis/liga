@@ -4,11 +4,11 @@
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-# PREFIX="Liga "
-OUTPUT_NAME="Liga Kermit"
+PREFIX="Liga "
+# OUTPUT_NAME=""
 
-INPUT_DIR="Hermit"
-CONFIG="fonts/Hermit/config.py"
+INPUT_DIR="Ubuntu Mono"
+CONFIG="fonts/Ubuntu Mono/config.py"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -40,4 +40,4 @@ build_family
 
 # Finally you could copy the font license to the output
 # directory, like:
-cp "input/Hermit/LICENSE" "output/$OUTPUT_NAME/"
+cp "input/Ubuntu Mono/UFL.txt" "output/Liga Ubuntu Mono/"

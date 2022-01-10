@@ -5,10 +5,10 @@ source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
 # PREFIX="Liga "
-OUTPUT_NAME="Liga Kermit"
+OUTPUT_NAME="Liga Src Code Pro"
 
-INPUT_DIR="Hermit"
-CONFIG="fonts/Hermit/config.py"
+INPUT_DIR="Source Code Pro"
+CONFIG="fonts/Source Code Pro/config.py"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -40,4 +40,4 @@ build_family
 
 # Finally you could copy the font license to the output
 # directory, like:
-cp "input/Hermit/LICENSE" "output/$OUTPUT_NAME/"
+cp "input/Source Code Pro/OFL.txt" "output/$OUTPUT_NAME/"

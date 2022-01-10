@@ -38,6 +38,6 @@ REMOVE_ORIGINAL_LIGATURES=true
 
 build_family
 
-# That's all. Finally you could copy the font license to the output
+# Finally you could copy the font license to the output
 # directory, like:
 cp "input/Fantasque Sans Mono/LICENSE.txt" "output/Liga Fantasque Sans Mono/"
