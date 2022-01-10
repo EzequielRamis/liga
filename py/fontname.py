@@ -37,6 +37,7 @@ def add_fullname_style(s, w):
 STYLE_WORDS = [
     "italic",
     "normal",
+    "oblique",
 ]
 
 WEIGHT_WORDS = [

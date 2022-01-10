@@ -4,8 +4,8 @@
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-PREFIX="Liga "
-# OUTPUT_NAME=""
+# PREFIX="Liga "
+OUTPUT_NAME="Ubuntu Mono Ligated"
 
 INPUT_DIR="Ubuntu Mono"
 CONFIG="fonts/Ubuntu Mono/config.py"
@@ -40,4 +40,4 @@ build_family
 
 # Finally you could copy the font license to the output
 # directory, like:
-cp "input/Ubuntu Mono/UFL.txt" "output/Liga Ubuntu Mono/"
+cp "input/Ubuntu Mono/UFL.txt" "output/$OUTPUT_NAME/"

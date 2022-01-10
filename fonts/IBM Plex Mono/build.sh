@@ -5,7 +5,7 @@ source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
 # PREFIX="Liga "
-OUTPUT_NAME="Liga IBM Flex Mono"
+OUTPUT_NAME="Liga Flex Mono"
 
 INPUT_DIR="IBM Plex Mono"
 CONFIG="fonts/IBM Plex Mono/config.py"

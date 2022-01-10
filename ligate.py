@@ -64,7 +64,7 @@ def write_fira_feature_file(feats, output_file, firacode, font):
             [
                 l
                 for l in u.add_backslash_to_glyphs(feature.code).split("\n")
-                # remove .fea lines which wouldn't be here
+                # remove .fea lines which shouldn't be here
                 if (
                     all(
                         [
@@ -264,14 +264,6 @@ def ligate_font(
     rename_normal_glyphs_from_font(firacode, font, tmp_fea)
 
     font.mergeFeature(tmp_fea)
-
-    # err = font.validate(1)
-    # if err:
-    #     sys.stderr.write("Validation: " + hex(err))
-
-    # Work around a bug in Fontforge where the underline height is subtracted from
-    # the underline width when you call generate().
-    # font.upos += font.uwidth
 
     # Generate font type (TTF or OTF) corresponding to input font extension
     # (defaults to TTF)

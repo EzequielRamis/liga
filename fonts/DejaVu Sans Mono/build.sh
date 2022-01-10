@@ -4,11 +4,11 @@
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
-# PREFIX="Liga "
-OUTPUT_NAME="Liga Src"
+PREFIX="Liga "
+# OUTPUT_NAME=""
 
-INPUT_DIR="Source Code Pro"
-CONFIG="fonts/Source Code Pro/config.py"
+INPUT_DIR="DejaVu Sans Mono"
+CONFIG="fonts/DejaVu Sans Mono/config.py"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -40,4 +40,4 @@ build_family
 
 # Finally you could copy the font license to the output
 # directory, like:
-cp "input/Source Code Pro/OFL.txt" "output/$OUTPUT_NAME/"
+cp "input/DejaVu Sans Mono/LICENSE" "output/Liga DejaVu Sans Mono/"
