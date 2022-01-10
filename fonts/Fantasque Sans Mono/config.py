@@ -43,7 +43,6 @@ config = {
         # "dollar",
         # "parenleft",
         # "parenright",
-        # "underscore",
     ],
     "features": {
         "calt": [
@@ -69,8 +68,7 @@ config = {
             "exclam_equal_equal",
             "exclam_exclam_period",
             "less_asciitilde_asciitilde",
-            # Bug below
-            # "less_asciitilde_greater",
+            "less_asciitilde_greater",
             "less_asterisk_greater",
             "less_dollar_greater",
             "less_plus_greater",

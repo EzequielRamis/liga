@@ -124,6 +124,7 @@ def paste_glyphs(fira, font, glyphs, scale, prefix):
         scale = 1.0
     mult = float(font.em) / float(fira.em)
     for g in glyphs:
+        fira[g].unlinkRef()
         fira.selection.none()
         fira.selection.select(g)
         fira.copy()
@@ -135,6 +136,7 @@ def paste_glyphs(fira, font, glyphs, scale, prefix):
         font.paste()
         renamed_g = prefix + g
         font[g].glyphname = renamed_g
+
         font[renamed_g].transform(psMat.scale(scale * mult))
 
 

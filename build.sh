@@ -5,8 +5,7 @@ shopt -s globstar
 builds=(fonts/**/build.sh)
 
 printf "Building %d font families\n" ${#builds[@]}
-scripts/test_clean.sh
-rm -rf output
+scripts/clean.sh
 for b in "${builds[@]}"; do
     "$b"
 done
