@@ -71,36 +71,12 @@ FEAT_BLACKLIST = {
 LOOKUP_BLACKLIST = {"caltGreekUCdiph", "caltGreekUC"}
 
 GLYPH_WHITELIST = f"""
-        "ampersand",
-        "asciicircum",
-        "asciitilde",
         "asterisk",
         "asteriskmath",
         "backslash",
-        "bar",
-        "colon",
-        "equal",
-        "exclam",
-        "greater",
         "hyphen",
-        "less",
-        "numbersign",
-        "percent",
-        "period",
-        "plus",
-        "question",
-        "semicolon",
-        "slash",
         "underscore",
-        # "at",
-        # "braceleft",
-        # "braceright",
-        # "bracketleft",
-        # "bracketright",
-        # "dollar",
-        # "parenleft",
-        # "parenright",
-        # "underscore",
+{u.uni_range(0x2500, 0x25f7)}
 """
 
 

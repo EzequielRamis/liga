@@ -119,14 +119,10 @@ def extract_tagged_glyphs(tmp_fea):
     return u.remove_duplicates([r[0] for r in ref])
 
 
-def correct_ligature_width(font, g, mult):
-    if mult <= 0:
-        mult = 1.0
-    scale = float(font[ord("M")].width) / font[g].width
-    font[g].transform(psMat.scale(scale * mult))
-
-
 def paste_glyphs(fira, font, glyphs, scale, prefix):
+    if scale <= 0:
+        scale = 1.0
+    mult = float(font.em) / float(fira.em)
     for g in glyphs:
         fira.selection.none()
         fira.selection.select(g)
@@ -139,7 +135,7 @@ def paste_glyphs(fira, font, glyphs, scale, prefix):
         font.paste()
         renamed_g = prefix + g
         font[g].glyphname = renamed_g
-        correct_ligature_width(font, renamed_g, scale)
+        font[renamed_g].transform(psMat.scale(scale * mult))
 
 
 def rename_tagged_glyphs_from_fea(glyphs, tmp_fea, prefix):

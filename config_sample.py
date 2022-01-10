@@ -14,36 +14,11 @@ config = {
     # the ligatures more closely, but may not fit in as well with the rest of
     # the font. It's also useful for characters outside ligature contexts.
     "glyphs": [
-        "ampersand",
-        "asciicircum",
-        "asciitilde",
         "asterisk",
         "asteriskmath",
         "backslash",
-        "bar",
-        "colon",
-        "equal",
-        "exclam",
-        "greater",
         "hyphen",
-        "less",
-        "numbersign",
-        "percent",
-        "period",
-        "plus",
-        "question",
-        "semicolon",
-        "slash",
         "underscore",
-        # "at",
-        # "braceleft",
-        # "braceright",
-        # "bracketleft",
-        # "bracketright",
-        # "dollar",
-        # "parenleft",
-        # "parenright",
-        # "underscore",
     ],
     "features": {
         "calt": [
@@ -69,7 +44,9 @@ config = {
             "exclam_equal_equal",
             "exclam_exclam_period",
             "less_asciitilde_asciitilde",
-            # Bug below
+            # There must be a bug in fontforge that causes in some fonts a
+            # SIGSEGV if the lookup below is activated. For now is commented by
+            # default.
             # "less_asciitilde_greater",
             "less_asterisk_greater",
             "less_dollar_greater",
