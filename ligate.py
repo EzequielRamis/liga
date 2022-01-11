@@ -119,7 +119,7 @@ def extract_tagged_glyphs(tmp_fea):
     return u.remove_duplicates([r[0] for r in ref])
 
 
-def paste_glyphs(fira, font, glyphs, scale, prefix):
+def paste_glyphs(fira, font, glyphs, scale, yT, prefix):
     if scale <= 0:
         scale = 1.0
     mult = float(font.em) / float(fira.em)
@@ -138,6 +138,7 @@ def paste_glyphs(fira, font, glyphs, scale, prefix):
         font[g].glyphname = renamed_g
 
         font[renamed_g].transform(psMat.scale(scale * mult))
+        font[renamed_g].transform(psMat.translate(0, yT * font.em))
 
 
 def rename_tagged_glyphs_from_fea(glyphs, tmp_fea, prefix):
@@ -257,9 +258,13 @@ def ligate_font(
 
     tagged_prefix = "fira_"
 
-    paste_glyphs(firacode, font, tmp_glyphs, config["scale"], tagged_prefix)
+    paste_glyphs(
+        firacode, font, tmp_glyphs, config["scale"], config["yTranslate"], tagged_prefix
+    )
     if copy_character_glyphs:
-        paste_glyphs(firacode, font, config["glyphs"], config["scale"], "")
+        paste_glyphs(
+            firacode, font, config["glyphs"], config["scale"], config["yTranslate"], ""
+        )
     rename_tagged_glyphs_from_fea(tmp_glyphs, tmp_fea, tagged_prefix)
     rename_normal_glyphs_from_font(firacode, font, tmp_fea)
 

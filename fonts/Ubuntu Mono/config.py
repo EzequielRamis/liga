@@ -9,6 +9,10 @@ config = {
     # adjust manually the glyph size by a scale factor. It will be ignored if
     # it's equal to 0.
     "scale": 1.0,
+    # When copying character glyphs from FiraCode, sometimes it is necessary to
+    # translate it vertically by a factor and direction. It can be any float,
+    # including zero and negatives.
+    "yTranslate": -0.05,
     # Copy glyphs for individual characters from the ligature font as well.
     # With the default glyph list it would result in punctuation that matches
     # the ligatures more closely, but may not fit in as well with the rest of

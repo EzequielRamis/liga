@@ -41,6 +41,11 @@ SCALE_FILE_COMMENT = """# When copying character glyphs from FiraCode, sometimes
     # it's equal to 0.
 """
 
+YTRAN_FILE_COMMENT = """# When copying character glyphs from FiraCode, sometimes it is necessary to
+    # translate it vertically by a factor and direction. It can be any float,
+    # including zero and negatives.
+"""
+
 GLYPH_FILE_COMMENT = """# Copy glyphs for individual characters from the ligature font as well.
     # With the default glyph list it would result in punctuation that matches
     # the ligatures more closely, but may not fit in as well with the rest of
@@ -108,6 +113,7 @@ def create_config_set_file():
     file = open("config_sample.py", "w")
     file.write(f"{FEAT_FILE_COMMENT}" + "\nconfig = {\n")
     file.write(f"    {SCALE_FILE_COMMENT}" + '    "scale": 1.0,\n')
+    file.write(f"    {YTRAN_FILE_COMMENT}" + '    "yTranslate": 0.0,\n')
     file.write(f'    {GLYPH_FILE_COMMENT}    "glyphs": [{GLYPH_WHITELIST}    ],\n')
     file.write('    "features": {\n')
     for feature in font.features:
