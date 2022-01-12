@@ -2,7 +2,7 @@
 
 **Add ligatures to any programming font!**
 
-![Ligated fonts showcase](showcase.gif)
+![Ligated fonts showcase](./showcase.gif)
 
 This script copies the ligatures (glyphs and rendering information) from [FiraCode](https://github.com/tonsky/FiraCode) into any other TrueType or OpenType font.
 
