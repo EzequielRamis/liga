@@ -8,17 +8,17 @@ config = {
     # When copying character glyphs from FiraCode, sometimes it is necessary to
     # adjust manually the glyph size by a scale factor. It will be ignored if
     # it's equal to 0.
-    "scale": 1.0,
+    "scale": 0.9,
     # When copying character glyphs from FiraCode, sometimes it is necessary to
     # translate it vertically by a factor and direction. It can be any float,
     # including zero and negatives.
-    "yTranslate": 0.0,
+    "yTranslate": -0.02,
     # Copy glyphs for individual characters from the ligature font as well.
     # With the default glyph list it would result in punctuation that matches
     # the ligatures more closely, but may not fit in as well with the rest of
     # the font. It's also useful for characters outside ligature contexts.
     "glyphs": [
-        "ampersand",
+        # "ampersand",
         "asciicircum",
         "asciitilde",
         "asterisk",
@@ -32,11 +32,11 @@ config = {
         "hyphen",
         "less",
         "numbersign",
-        "percent",
+        # "percent",
         "period",
         "plus",
-        "question",
-        "semicolon",
+        # "question",
+        # "semicolon",
         "slash",
         "underscore",
         # "at",
@@ -84,7 +84,7 @@ config = {
             "plus_plus_plus",
             "slash_slash_slash",
             "w_w_w",
-            "ampersand_ampersand",
+            # "ampersand_ampersand",
             "asciicircum_equal",
             "asciitilde_asciitilde",
             "asciitilde_at",
@@ -122,15 +122,15 @@ config = {
             "numbersign_parenleft",
             "numbersign_question",
             "numbersign_underscore",
-            "percent_percent",
+            # "percent_percent",
             "period_period",
-            "period_question",
+            # "period_question",
             "plus_greater",
             "plus_plus",
             "question_equal",
-            "question_period",
-            "question_question",
-            "semicolon_semicolon",
+            # "question_period",
+            # "question_question",
+            # "semicolon_semicolon",
             "slash_asterisk",
             "slash_greater",
             "slash_slash",
