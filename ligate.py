@@ -310,7 +310,7 @@ def parse_args():
         type=str,
         default="config_sample.py",
         metavar="PATH",
-        help="The python file to copy the config from.",
+        help="The python file to copy the configuration from.",
     )
     parser.add_argument(
         "--copy-character-glyphs",

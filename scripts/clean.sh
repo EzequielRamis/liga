@@ -2,4 +2,4 @@
 
 shopt -s globstar
 
-rm -rf test/fonts.css test/fonts.html output logs ./**/__pycache__ && clear
+rm -rf test/fonts.css test/fonts.html output logs ./**/__pycache__

@@ -14,10 +14,17 @@ echo -ne "#!/usr/bin/env bash
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
+# String to prefix the name of the generated font with.
 PREFIX=\"Liga \"
+
+# Name of the generated font. Completely replaces the original and prefix
+# variable will be ignored.
 # OUTPUT_NAME=\"\"
 
+# Where the input font files are located
 INPUT_DIR=\"$DIR\"
+
+# The python file to copy the configuration from.
 CONFIG=\"$FONTS/config.py\"
 
 # The variable below is a associative array in which keys must be the basename
@@ -28,7 +35,7 @@ CONFIG=\"$FONTS/config.py\"
 # - Medium
 # - SemiBold
 # - Bold
-# This serves the purpose of handwrite the weight of the firacode file in case
+# This serves the purpose of handwrite the weight of the FiraCode file in case
 # the automatic weight detection doesn't fit well.
 
 FONT_WEIGHT=(
@@ -43,7 +50,13 @@ FONT_WEIGHT=(
 # will be ligated. Otherwise, all the font files will also be.
 FILTER_BY_FONT_WEIGHT=false
 
+# Copy glyphs for (some) individual characters from the ligature font as well.
+# This will result in punctuation that matches the ligatures more closely, but
+# may not fit in as well with the rest of the font.
 COPY_GLYPHS=true
+
+# Remove the currently existing ligatures from the input font file. It is
+# recommended in case of glitches present in the resulting font.
 REMOVE_ORIGINAL_LIGATURES=true
 
 build_family
