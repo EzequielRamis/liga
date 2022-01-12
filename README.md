@@ -2,6 +2,8 @@
 
 **Add ligatures to any programming font!**
 
+![Ligated fonts showcase](showcase.gif)
+
 This script copies the ligatures (glyphs and rendering information) from [FiraCode](https://github.com/tonsky/FiraCode) into any other TrueType or OpenType font.
 
 This repo contains a [Fontforge python script](ligate.py) that you can use to add the FiraCode ligatures to any font, as well as submodules for some popular programming fonts and [another script](build.sh) for ligating all of them at once.
