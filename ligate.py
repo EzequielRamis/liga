@@ -122,7 +122,7 @@ def extract_tagged_glyphs(tmp_fea):
 def paste_glyphs(fira, font, glyphs, scale, yT, prefix):
     if scale <= 0:
         scale = 1.0
-    mult = float(font.em) / float(fira.em)
+    mult = float(font[ord("M")].width) / float(fira[ord("M")].width)
     for g in glyphs:
         fira[g].unlinkRef()
         fira.selection.none()
@@ -138,7 +138,7 @@ def paste_glyphs(fira, font, glyphs, scale, yT, prefix):
         font[g].glyphname = renamed_g
 
         font[renamed_g].transform(psMat.scale(scale * mult))
-        font[renamed_g].transform(psMat.translate(0, yT * font.em))
+        font[renamed_g].transform(psMat.translate(0, yT * font[ord("M")].width))
 
 
 def rename_tagged_glyphs_from_fea(glyphs, tmp_fea, prefix):
