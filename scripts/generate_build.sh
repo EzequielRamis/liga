@@ -56,7 +56,7 @@ FILTER_BY_FONT_WEIGHT=false
 COPY_GLYPHS=true
 
 # Remove the currently existing ligatures from the input font file. It is
-# recommended in case of glitches present in the resulting font.
+# recommended in case of glitches presented in the resulting font.
 REMOVE_ORIGINAL_LIGATURES=true
 
 build_family
