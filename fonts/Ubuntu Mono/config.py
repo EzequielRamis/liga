@@ -10,7 +10,7 @@
 config = {
     # When copying character glyphs from FiraCode, sometimes it is necessary to
     # adjust manually the glyph size by a scale factor. It will be ignored if
-    # it's equal to 0.
+    # it's less than or equal to 0.
     "scale": 1.0,
     # Like above, sometimes it is necessary to translate it vertically by a
     # factor and direction. It can be any float, including zero and negatives.
