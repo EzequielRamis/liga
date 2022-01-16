@@ -73,6 +73,16 @@ The font weight will be inherited from the original file; the font name will be 
 
 `ligate.py` supports some additional command line options to, for example, change which font ligatures are copied from or enable copying of individual character glyphs; run `python ligate.py --help` to list them.
 
+## FAQ
+
+**I don't know what do the `features`' values from a `config.py` mean? Where are they from?**
+
+In a `config.py` you have a dictionary called `"features"` with keys and values. Each key is the name of some feature defined in `fira.fea`, a file that specifies font properties, and each value is a list of strings, that may be empty.
+
+In this file. each feature contains rules that makes certain ligatures work. The majority of these rules are grouped into named blocks called `lookups`. I say "named" because these are the strings that are contained in the corresponding value's list.
+
+If you don't know how to read that `fira.fea` file, I recommend you to [visit this page](https://adobe-type-tools.github.io/afdko/OpenTypeFeatureFileSpecification.html).
+
 ## Credit
 
 This repo is a redesign of the [ToxicFrog/Ligaturizer](https://github.com/ToxicFrog/Ligaturizer) implementation because, principally, it does not work with the Firacode's ligatures above v3.1, missing incredible features like infinite arrow combinations.
