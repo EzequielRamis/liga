@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-# You can ignore these two lines
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
 # String to prefix the name of the generated font with.
-# PREFIX="Liga "
+PREFIX="Liga "
 
 # Name of the generated font. Completely replaces the original and prefix
 # variable will be ignored.
-OUTPUT_NAME="Liganon"
+# OUTPUT_NAME=""
+
+# Where the generated font files will be located
+OUTPUT_DIR="./output/Anonymous Pro"
 
 # Where the input font files are located
-INPUT_DIR="Anonymous Pro"
+INPUT_DIR="./input/Anonymous Pro"
 
 # The python file to copy the configuration from.
 CONFIG="fonts/Anonymous Pro/config.py"

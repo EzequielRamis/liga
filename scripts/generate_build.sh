@@ -10,7 +10,6 @@ cp config_sample.py "$FONTS/config.py"
 
 echo -ne "#!/usr/bin/env bash
 
-# You can ignore these two lines
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
@@ -21,8 +20,11 @@ PREFIX=\"Liga \"
 # variable will be ignored.
 # OUTPUT_NAME=\"\"
 
+# Where the generated font files will be located
+OUTPUT_DIR=\"./output/$DIR\"
+
 # Where the input font files are located
-INPUT_DIR=\"$DIR\"
+INPUT_DIR=\"./input/$DIR\"
 
 # The python file to copy the configuration from.
 CONFIG=\"$FONTS/config.py\"

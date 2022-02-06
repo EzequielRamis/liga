@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# You can ignore these two lines
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
@@ -11,8 +10,11 @@ PREFIX="Liga "
 # variable will be ignored.
 # OUTPUT_NAME=""
 
+# Where the generated font files will be located
+OUTPUT_DIR="./output/Roboto Mono"
+
 # Where the input font files are located
-INPUT_DIR="Roboto Mono"
+INPUT_DIR="./input/Roboto Mono"
 
 # The python file to copy the configuration from.
 CONFIG="fonts/Roboto Mono/config.py"

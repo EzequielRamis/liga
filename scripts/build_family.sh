@@ -27,11 +27,13 @@ insert_top() {
 build_family() {
     if [[ -z "$OUTPUT_NAME" ]]; then
        ARGS="--prefix '$PREFIX'"
-       OUTPUT_DIR="$(dirname "$INPUT_DIR")/$PREFIX$(basename "$INPUT_DIR")"
-       OUTPUT_DIR="${OUTPUT_DIR/.\/}"
     else
        ARGS="--output-name '$OUTPUT_NAME'"
-       OUTPUT_DIR="$OUTPUT_NAME"
+    fi
+
+    if [[ -z "$OUTPUT_DIR" ]]; then
+       OUTPUT_DIR="$(dirname "$INPUT_DIR")/$PREFIX$(basename "$INPUT_DIR")"
+       OUTPUT_DIR="output/${OUTPUT_DIR/.\/}"
     fi
 
     if [[ -n "$CONFIG" ]]; then
@@ -46,9 +48,9 @@ build_family() {
        ARGS="$ARGS --remove-original-ligatures"
     fi
 
-    if [ -d "./input/$INPUT_DIR" ]; then
-        mkdir -p "output/$OUTPUT_DIR"
-        files=(./input/"$INPUT_DIR"/*.+(ttf|otf))
+    if [ -d "$INPUT_DIR" ]; then
+        mkdir -p "$OUTPUT_DIR"
+        files=("$INPUT_DIR"/*.+(ttf|otf))
         filtered_files=()
         if $FILTER_BY_FONT_WEIGHT; then
             for file in "${files[@]}"; do
@@ -80,13 +82,13 @@ build_family() {
                 LIGATURE=""
             fi
             local attempt=1
-            while (( $(find "output/$OUTPUT_DIR" -regex ".+\.\(otf\|ttf\)" -type f | wc -l) <= k )); do
+            while (( $(find "$OUTPUT_DIR" -regex ".+\.\(otf\|ttf\)" -type f | wc -l) <= k )); do
                 echo ""
                 if (( attempt > 1 )); then
                     echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
                 ERROR=$(eval "python ligate.py '$file' \
-                                --output-dir 'output/$OUTPUT_DIR'" \
+                                --output-dir '$OUTPUT_DIR'" \
                                 "$LIGATURE" "$ARGS" 3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$INPUT_DIR"
@@ -106,8 +108,8 @@ build_family() {
             done
 
             # Add font data to the Font Tester .html page
-            OUTPUT_FILE=$(ls -Art "output/$OUTPUT_DIR" | tail -n 1)
-            COMPL_OUT_FILE="output/$OUTPUT_DIR/$OUTPUT_FILE"
+            OUTPUT_FILE=$(ls -Art "$OUTPUT_DIR" | tail -n 1)
+            COMPL_OUT_FILE="$OUTPUT_DIR/$OUTPUT_FILE"
             POST=$(fc-scan "$COMPL_OUT_FILE" -f "%{postscriptname}")
             FULL=$(fc-scan "$COMPL_OUT_FILE" -f "%{fullname}")
             CSS_WEIGHT=${CSS_WEIGHTS[$(fc-scan "$COMPL_OUT_FILE" -f "%{weight}")]}
@@ -124,7 +126,7 @@ build_family() {
         destroy_scroll_area
         print_bar_text "$total"; echo ""
     else
-        echo "Error: directory ./input/$INPUT_DIR does not exist"
+        echo "Error: directory $INPUT_DIR does not exist"
         exit 1
     fi
 }

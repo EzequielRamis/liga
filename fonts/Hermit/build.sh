@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-# You can ignore these two lines
 source ./scripts/build_family.sh
 declare -A FONT_WEIGHT
 
 # String to prefix the name of the generated font with.
-# PREFIX="Liga "
+PREFIX="Liga "
 
 # Name of the generated font. Completely replaces the original and prefix
 # variable will be ignored.
-OUTPUT_NAME="Liga Kermit"
+# OUTPUT_NAME=""
+
+# Where the generated font files will be located
+OUTPUT_DIR="./output/Hermit"
 
 # Where the input font files are located
-INPUT_DIR="Hermit"
+INPUT_DIR="./input/Hermit"
 
 # The python file to copy the configuration from.
 CONFIG="fonts/Hermit/config.py"
