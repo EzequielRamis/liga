@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck source=/dev/null
-source ./scripts/progress_bar.sh
+source "$SCRIPTS_DIR/progress_bar.sh"
 shopt -s extglob
 
 declare -A CSS_WEIGHTS
@@ -27,11 +27,12 @@ insert_top() {
 build_family() {
     if [[ -z "$OUTPUT_NAME" ]]; then
        ARGS="--prefix '$PREFIX'"
-       OUTPUT_DIR="$(dirname "$INPUT_DIR")/$PREFIX$(basename "$INPUT_DIR")"
-       OUTPUT_DIR="${OUTPUT_DIR/.\/}"
     else
        ARGS="--output-name '$OUTPUT_NAME'"
-       OUTPUT_DIR="$OUTPUT_NAME"
+    fi
+
+    if [[ -z "$OUTPUT_DIR" ]]; then
+       OUTPUT_DIR="output/$PREFIX$(basename "$INPUT_DIR")"
     fi
 
     if [[ -n "$CONFIG" ]]; then
@@ -46,9 +47,9 @@ build_family() {
        ARGS="$ARGS --remove-original-ligatures"
     fi
 
-    if [ -d "./input/$INPUT_DIR" ]; then
-        mkdir -p "output/$OUTPUT_DIR"
-        files=(./input/"$INPUT_DIR"/*.+(ttf|otf))
+    if [ -d "$INPUT_DIR" ]; then
+        mkdir -p "$OUTPUT_DIR"
+        files=("$INPUT_DIR"/*.+(ttf|otf))
         filtered_files=()
         if $FILTER_BY_FONT_WEIGHT; then
             for file in "${files[@]}"; do
@@ -66,7 +67,8 @@ build_family() {
         fi
         total=${#filtered_files[@]}
         setup_scroll_area "$total"
-        printf "\nFound %d fonts from %s directory to be ligated ✨\n" "$total" "$INPUT_DIR"
+        F_INPUT_DIR="$(python -c "import py.utils as u; print(u.relative_from_project(\"$INPUT_DIR\"))")"
+        printf "\nFound %d fonts from %s directory to be ligated ✨\n" "$total" "$F_INPUT_DIR"
         for ((k = 0; k < total ; k++)); do
             draw_progress_bar "$k"
             file=${filtered_files[$k]}
@@ -80,17 +82,17 @@ build_family() {
                 LIGATURE=""
             fi
             local attempt=1
-            while (( $(find "output/$OUTPUT_DIR" -regex ".+\.\(otf\|ttf\)" -type f | wc -l) <= k )); do
+            while (( $(find "$OUTPUT_DIR" -regex ".+\.\(otf\|ttf\)" -type f | wc -l) <= k )); do
                 echo ""
                 if (( attempt > 1 )); then
                     echo -e "Fontforge has a bad day... attempt #$attempt\n"
                 fi
                 ERROR=$(eval "python ligate.py '$file' \
-                                --output-dir 'output/$OUTPUT_DIR'" \
+                                --output-dir '$OUTPUT_DIR'" \
                                 "$LIGATURE" "$ARGS" 3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$INPUT_DIR"
-                    LOG="logs/$INPUT_DIR/$b.$EXT.log"
+                    LOG="logs/$b.$EXT.log"
                     insert_top "" "$LOG"
                     insert_top "$ERROR" "$LOG"
                     insert_top "[$(date -R)]" "$LOG"
@@ -106,25 +108,27 @@ build_family() {
             done
 
             # Add font data to the Font Tester .html page
-            OUTPUT_FILE=$(ls -Art "output/$OUTPUT_DIR" | tail -n 1)
-            COMPL_OUT_FILE="output/$OUTPUT_DIR/$OUTPUT_FILE"
+            OUTPUT_FILE=$(ls -Art "$OUTPUT_DIR" | tail -n 1)
+            COMPL_OUT_FILE="$OUTPUT_DIR/$OUTPUT_FILE"
             POST=$(fc-scan "$COMPL_OUT_FILE" -f "%{postscriptname}")
             FULL=$(fc-scan "$COMPL_OUT_FILE" -f "%{fullname}")
             CSS_WEIGHT=${CSS_WEIGHTS[$(fc-scan "$COMPL_OUT_FILE" -f "%{weight}")]}
+            REL_IFILE="$(python -c "import py.utils as u; print(u.relative_from_project(\"$file\"))")"
+            REL_OFILE="$(python -c "import py.utils as u; print(u.relative_from_project(\"$COMPL_OUT_FILE\"))")"
             echo -e "<option value=\"$CSS_WEIGHT 16px '$POST'\">$FULL</option>" \
-                >> test/fonts.html
+                >> "test/fonts.html"
 
-            echo "@font-face {font-family:'$POST';src:url('../$COMPL_OUT_FILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
-                >> test/fonts.css
+            echo "@font-face {font-family:'$POST';src:url('../$REL_OFILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
+                >> "test/fonts.css"
 
-            echo "@font-face {font-family:'$POST';src:url('../$file');font-weight:$CSS_WEIGHT;font-style:normal}" \
-                >> test/fonts.css
+            echo "@font-face {font-family:'$POST';src:url('../$REL_IFILE');font-weight:$CSS_WEIGHT;font-style:normal}" \
+                >> "test/fonts.css"
 
         done
         destroy_scroll_area
         print_bar_text "$total"; echo ""
     else
-        echo "Error: directory ./input/$INPUT_DIR does not exist"
+        echo "Error: directory $INPUT_DIR does not exist"
         exit 1
     fi
 }

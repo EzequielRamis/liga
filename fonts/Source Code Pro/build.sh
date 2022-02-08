@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-# You can ignore these two lines
-source ./scripts/build_family.sh
+SRC=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+
+# Project root path relative to this .sh file
+LIGA_DIR=$SRC/../..
+SCRIPTS_DIR=$LIGA_DIR/scripts
+source "$SCRIPTS_DIR"/build_family.sh
 declare -A FONT_WEIGHT
 
 # String to prefix the name of the generated font with.
@@ -11,11 +15,14 @@ declare -A FONT_WEIGHT
 # variable will be ignored.
 OUTPUT_NAME="Liga Src"
 
+# Where the generated font files will be located
+OUTPUT_DIR="$LIGA_DIR/output/$OUTPUT_NAME"
+
 # Where the input font files are located
-INPUT_DIR="Source Code Pro"
+INPUT_DIR="$LIGA_DIR/input/Source Code Pro"
 
 # The python file to copy the configuration from.
-CONFIG="fonts/Source Code Pro/config.py"
+CONFIG="$SRC/config.py"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -49,8 +56,10 @@ COPY_GLYPHS=true
 # recommended in case of glitches presented in the resulting font.
 REMOVE_ORIGINAL_LIGATURES=true
 
-build_family
+pushd "$LIGA_DIR" || exit
+    build_family
+popd || exit
 
 # Finally you could copy the font license to the output
 # directory, like:
-cp "input/Source Code Pro/OFL.txt" "output/$OUTPUT_NAME/"
+cp "$INPUT_DIR/OFL.txt" "$OUTPUT_DIR"
