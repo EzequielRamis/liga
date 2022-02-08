@@ -113,13 +113,15 @@ build_family() {
             POST=$(fc-scan "$COMPL_OUT_FILE" -f "%{postscriptname}")
             FULL=$(fc-scan "$COMPL_OUT_FILE" -f "%{fullname}")
             CSS_WEIGHT=${CSS_WEIGHTS[$(fc-scan "$COMPL_OUT_FILE" -f "%{weight}")]}
+            REL_IFILE="$(python -c "import py.utils as u; print(u.relative_from_project(\"$file\"))")"
+            REL_OFILE="$(python -c "import py.utils as u; print(u.relative_from_project(\"$COMPL_OUT_FILE\"))")"
             echo -e "<option value=\"$CSS_WEIGHT 16px '$POST'\">$FULL</option>" \
                 >> "test/fonts.html"
 
-            echo "@font-face {font-family:'$POST';src:url('$COMPL_OUT_FILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
+            echo "@font-face {font-family:'$POST';src:url('../$REL_OFILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
                 >> "test/fonts.css"
 
-            echo "@font-face {font-family:'$POST';src:url('$file');font-weight:$CSS_WEIGHT;font-style:normal}" \
+            echo "@font-face {font-family:'$POST';src:url('../$REL_IFILE');font-weight:$CSS_WEIGHT;font-style:normal}" \
                 >> "test/fonts.css"
 
         done
