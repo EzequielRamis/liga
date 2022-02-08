@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 
+SRC=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+LIGA_DIR=$SRC/..
+
 DIR=$1
-FONTS="fonts/$DIR"
+FONTS="$LIGA_DIR/fonts/$DIR"
 
 mkdir -p "$FONTS"
-mkdir -p "input/$DIR"
+mkdir -p "$LIGA_DIR/input/$DIR"
 
-cp config_sample.py "$FONTS/config.py"
+cp "$LIGA_DIR/config_sample.py" "$FONTS/config.py"
 
 echo -ne "#!/usr/bin/env bash
 
-source ./scripts/build_family.sh
+SRC=\$(dirname \"\${BASH_SOURCE[0]}\")
+
+# Project root path relative to this .sh file
+LIGA_DIR=\$SRC/../..
+SCRIPTS_DIR=\$LIGA_DIR/scripts
+source \"\$SCRIPTS_DIR\"/build_family.sh
 declare -A FONT_WEIGHT
 
 # String to prefix the name of the generated font with.
@@ -21,13 +29,13 @@ PREFIX=\"Liga \"
 # OUTPUT_NAME=\"\"
 
 # Where the generated font files will be located
-OUTPUT_DIR=\"./output/$DIR\"
+OUTPUT_DIR=\"\$LIGA_DIR/output/\$PREFIX\"\"$DIR\"
 
 # Where the input font files are located
-INPUT_DIR=\"./input/$DIR\"
+INPUT_DIR=\"\$LIGA_DIR/input/$DIR\"
 
 # The python file to copy the configuration from.
-CONFIG=\"$FONTS/config.py\"
+CONFIG=\"\$SRC/config.py\"
 
 # The variable below is a associative array in which keys must be the basename
 # of each font file (without extensions), and values the following options:
@@ -61,11 +69,13 @@ COPY_GLYPHS=true
 # recommended in case of glitches presented in the resulting font.
 REMOVE_ORIGINAL_LIGATURES=true
 
-build_family
+pushd \"\$LIGA_DIR\" || exit
+    build_family
+popd || exit
 
 # Finally you could copy the font license to the output
 # directory, like:
-# cp \"input/$DIR/LICENSE.txt\" \"output/Liga $DIR/\"
+# cp \"\$INPUT_DIR/LICENSE.txt\" \"\$OUTPUT_DIR\"
 " \
 > "$FONTS/build.sh"
 

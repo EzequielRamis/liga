@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck source=/dev/null
-source ./scripts/progress_bar.sh
+source "$SCRIPTS_DIR/progress_bar.sh"
 shopt -s extglob
 
 declare -A CSS_WEIGHTS
@@ -32,8 +32,7 @@ build_family() {
     fi
 
     if [[ -z "$OUTPUT_DIR" ]]; then
-       OUTPUT_DIR="$(dirname "$INPUT_DIR")/$PREFIX$(basename "$INPUT_DIR")"
-       OUTPUT_DIR="output/${OUTPUT_DIR/.\/}"
+       OUTPUT_DIR="output/$PREFIX$(basename "$INPUT_DIR")"
     fi
 
     if [[ -n "$CONFIG" ]]; then
@@ -68,7 +67,8 @@ build_family() {
         fi
         total=${#filtered_files[@]}
         setup_scroll_area "$total"
-        printf "\nFound %d fonts from %s directory to be ligated ✨\n" "$total" "$INPUT_DIR"
+        F_INPUT_DIR="$(python -c "import py.utils as u; print(u.relative_from_project(\"$INPUT_DIR\"))")"
+        printf "\nFound %d fonts from %s directory to be ligated ✨\n" "$total" "$F_INPUT_DIR"
         for ((k = 0; k < total ; k++)); do
             draw_progress_bar "$k"
             file=${filtered_files[$k]}
@@ -92,7 +92,7 @@ build_family() {
                                 "$LIGATURE" "$ARGS" 3>&1 1>&2 2>&3)
                 if [[ -n "$ERROR" ]]; then
                     mkdir -p "logs/$INPUT_DIR"
-                    LOG="logs/$INPUT_DIR/$b.$EXT.log"
+                    LOG="logs/$b.$EXT.log"
                     insert_top "" "$LOG"
                     insert_top "$ERROR" "$LOG"
                     insert_top "[$(date -R)]" "$LOG"
@@ -114,13 +114,13 @@ build_family() {
             FULL=$(fc-scan "$COMPL_OUT_FILE" -f "%{fullname}")
             CSS_WEIGHT=${CSS_WEIGHTS[$(fc-scan "$COMPL_OUT_FILE" -f "%{weight}")]}
             echo -e "<option value=\"$CSS_WEIGHT 16px '$POST'\">$FULL</option>" \
-                >> test/fonts.html
+                >> "test/fonts.html"
 
-            echo "@font-face {font-family:'$POST';src:url('../$COMPL_OUT_FILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
-                >> test/fonts.css
+            echo "@font-face {font-family:'$POST';src:url('$COMPL_OUT_FILE');font-weight:$CSS_WEIGHT;font-style:italic}" \
+                >> "test/fonts.css"
 
-            echo "@font-face {font-family:'$POST';src:url('../$file');font-weight:$CSS_WEIGHT;font-style:normal}" \
-                >> test/fonts.css
+            echo "@font-face {font-family:'$POST';src:url('$file');font-weight:$CSS_WEIGHT;font-style:normal}" \
+                >> "test/fonts.css"
 
         done
         destroy_scroll_area

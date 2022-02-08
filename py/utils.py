@@ -1,4 +1,10 @@
 import re
+import os
+from pathlib import Path
+
+def relative_from_project(p):
+    liga = Path(__file__).resolve().parent.parent
+    return os.path.relpath(p, liga)
 
 
 def lookups(s):
