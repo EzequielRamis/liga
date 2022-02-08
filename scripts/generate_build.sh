@@ -13,7 +13,7 @@ cp "$LIGA_DIR/config_sample.py" "$FONTS/config.py"
 
 echo -ne "#!/usr/bin/env bash
 
-SRC=\$(dirname \"\${BASH_SOURCE[0]}\")
+SRC=\$(realpath \"\$(dirname \"\${BASH_SOURCE[0]}\")\")
 
 # Project root path relative to this .sh file
 LIGA_DIR=\$SRC/../..
